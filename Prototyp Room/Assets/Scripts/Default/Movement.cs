@@ -8,7 +8,20 @@ public class Movement : MonoBehaviour {
 	private float movementSpeed;
 	Rigidbody2D rigiBbody;
 
-	void Start () 
+    public float MovementSpeed
+    {
+        get
+        {
+            return movementSpeed;
+        }
+
+        set
+        {
+            movementSpeed = value;
+        }
+    }
+
+    void Start () 
 	{
 		rigiBbody = GetComponent<Rigidbody2D> ();
 		
@@ -17,7 +30,7 @@ public class Movement : MonoBehaviour {
 	public void Move(Vector2 movementVec)
 	{
 		if(rigiBbody!= null)
-		rigiBbody.velocity = movementVec * movementSpeed;
+		rigiBbody.velocity = movementVec * MovementSpeed;
 	
 	}
 	
