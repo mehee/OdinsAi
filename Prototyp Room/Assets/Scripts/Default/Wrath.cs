@@ -6,11 +6,9 @@ public class Wrath : MonoBehaviour {
 
 	PlayerScript playerScript;
 	Player player;
-	Death death;
 	void Start () 
 	{
 		playerScript = GetComponent<PlayerScript> ();
-		death = GetComponent<Death> ();
 		player = playerScript.getPlayer();
 	}
 	
