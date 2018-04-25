@@ -15,7 +15,7 @@ private Camera camera;
 	// Update is called once per frame
 	void Update () 
 	{
-	camera.orthographicSize = (Screen.height/100f);	
+	camera.orthographicSize = (Screen.height/100f)*1.5f;	
 
 	if(target)
 	{
