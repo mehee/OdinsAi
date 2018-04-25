@@ -9,48 +9,99 @@ public class Stats
     private int armor;
     private int intelligence;
 
+    public int Health
+    {
+        get
+        {
+            return health;
+        }
 
-	public int getHealth()
+        set
+        {
+            health = value;
+        }
+    }
+
+    public int Strenght
+    {
+        get
+        {
+            return strenght;
+        }
+
+        set
+        {
+            strenght = value;
+        }
+    }
+
+    public int Armor
+    {
+        get
+        {
+            return armor;
+        }
+
+        set
+        {
+            armor = value;
+        }
+    }
+
+    public int Intelligence
+    {
+        get
+        {
+            return intelligence;
+        }
+
+        set
+        {
+            intelligence = value;
+        }
+    }
+
+    public int getHealth()
 	{
-		return health;
+		return Health;
 	}
 
 	public void setHealth(int value)
 	{
-		this.health = value;
+		this.Health = value;
 	}
 
 	
 	public int getStrenght()
 	{
-		return strenght;
+		return Strenght;
 	}
 
 	public void setStrenght(int value)
 	{
-		this.strenght = value;
+		this.Strenght = value;
 	}
 
 	
 	public int getArmor()
 	{
-		return armor;
+		return Armor;
 	}
 
 	public void setArmor(int value)
 	{
-		this.armor = value;
+		this.Armor = value;
 	}
 
 	
 	public int getIntelligence()
 	{
-		return intelligence;
+		return Intelligence;
 	}
 
 	public void setIntelligence(int value)
 	{
-		this.intelligence = value;
+		this.Intelligence = value;
 	}
 
 

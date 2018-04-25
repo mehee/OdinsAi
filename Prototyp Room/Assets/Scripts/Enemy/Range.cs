@@ -16,7 +16,7 @@ public class Range : MonoBehaviour {
        
         if(collision.gameObject.name == "Player")
         {
-            Debug.Log("triggerd");
+           // Debug.Log("triggerd");
             parent.Target = collision.transform;
             
         }

@@ -6,21 +6,41 @@ public class Health : MonoBehaviour {
 
 	PlayerScript playerScript;
 	Player player;
+    Enemy enemy;
+    EnemyBehaviour enemyBehaviour;
 	Death death;
+    private Character chara;
 	void Start () 
 	{
+        death = GetComponent<Death> ();
+       if(GetComponent<EnemyBehaviour>()!=null)
+        {
+            enemyBehaviour = GetComponent<EnemyBehaviour>();
+            enemy = enemyBehaviour.Enemy;
+        }
+       else
+        {
 		playerScript = GetComponent<PlayerScript> ();
-		death = GetComponent<Death> ();
 		player = playerScript.getPlayer();
-	}
+        }
+}
 	
 	public void subtractHealthBy(float value)
 	{
-		player.subtractHealthBy(value);
-	
-		if(player.getCurrentHealth()<=0)
-			death.die();
-		
+        if (enemy != null)
+        {
+            enemy.subtractHealthBy(value);
+
+            if (enemy.getCurrentHealth() <= 0)
+                death.die();
+        }
+        else
+        {
+            player.subtractHealthBy(value);
+
+            if (player.getCurrentHealth() <= 0)
+                death.die();
+        }
 	}
 
 
