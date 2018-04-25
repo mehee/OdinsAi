@@ -14,7 +14,7 @@ public class Wrath : MonoBehaviour {
 	
 	public void subtractWrathBy(float value)
 	{	
-		if(player.getCurrentWrath() > value)
+		if(player.getCurrentWrath() >= value)
 			player.subtractWrathBy(value);
 		else
 			Debug.Log("Wrath zu niedrig.");

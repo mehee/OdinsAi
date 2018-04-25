@@ -39,7 +39,7 @@ public class Player : Character
 	}
 	public void subtractHealthBy(float value)
 	{
-		this.currentHealth-= value;
+		this.currentHealth -= value;
 	}
 	public float getCurrentWrath()
 	{

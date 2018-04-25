@@ -34,14 +34,7 @@ public class PlayerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		//Use this for testing only
-		if(Input.GetKeyDown(KeyCode.E))
-			experience.addExp(50);
-
-		if(Input.GetKeyDown(KeyCode.H))
-			health.subtractHealthBy(50);
+		//Use this for testing only		
 		
-		if(Input.GetKeyDown(KeyCode.B))
-			wrath.subtractWrathBy(50);
 	}
 }
