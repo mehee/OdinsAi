@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour {
+public class Wrath : MonoBehaviour {
 
 	PlayerScript playerScript;
 	Player player;
@@ -14,14 +14,11 @@ public class Health : MonoBehaviour {
 		player = playerScript.getPlayer();
 	}
 	
-	public void subtractHealthBy(float value)
-	{
-		if(player.getCurrentHealth() > value)
-			player.subtractHealthBy(value);
+	public void subtractWrathBy(float value)
+	{	
+		if(player.getCurrentWrath() > value)
+			player.subtractWrathBy(value);
 		else
-			Debug.Log("Health zu niedrig. Spieler tot.");
-	}
-
-
-	
+			Debug.Log("Wrath zu niedrig.");
+	}	
 }

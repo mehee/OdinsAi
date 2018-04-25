@@ -8,6 +8,7 @@ public abstract class Character
     [SerializeField]
     private string name;
     private float maxHealth;
+    private float maxWrath;
     private uint currentLvl=1;
    
 
@@ -16,37 +17,30 @@ public abstract class Character
     {
         name = this.name;
         currentLvl = this.currentLvl;
-
     }
-
     public abstract void setStats(uint currentLvl);
-
     public virtual float getMaxHealth()
     {
         return maxHealth;
     }
-
      public virtual void setMaxHealth(float value)
     {
-        this.maxHealth= value;
+        this.maxHealth = value;
     }
-
-
+    public virtual float getMaxWrath()
+    {
+        return maxWrath;
+    }
+    public virtual void setMaxWrath(float value)
+    {
+        this.maxWrath = value;
+    }
      public virtual void LevelUp()
     {
         this.currentLvl++;
     }
-
     public virtual uint getCurrentLvl()
     {
         return currentLvl;
     }
-
-
-
-
-
-
-
-
 }
