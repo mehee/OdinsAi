@@ -46,17 +46,13 @@ public class Player : Character
 	public void lvlUp()
 	{
 		this.LevelUp();
-		this.update();
-	}
 
-    public void update()
-    {
         setStats(this.getCurrentLvl());
         setMaxHealth(stats.getHealth() * 100);
         currentHealth = this.getMaxHealth();
 
         this.resource = stats.getIntelligence() * 100;
-
     }
+
 
 }

@@ -13,9 +13,10 @@ public class Range : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+       
+        if(collision.gameObject.name == "Player")
         {
-            Debug.Log("triggerd");
+           // Debug.Log("triggerd");
             parent.Target = collision.transform;
             
         }

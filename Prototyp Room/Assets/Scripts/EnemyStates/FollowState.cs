@@ -21,7 +21,7 @@ class FollowState : IState
     {
         if(parent.Target != null)
         {
-            Debug.Log(parent.Target.position);
+            //Debug.Log(parent.Target.position);
             parent.transform.position = Vector2.MoveTowards(parent.transform.position, parent.Target.position, parent.Movement.MovementSpeed * Time.deltaTime);
 
             float distance = Vector2.Distance(parent.Target.position, parent.transform.position);
