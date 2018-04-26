@@ -16,10 +16,23 @@ public class PlayerScript : MonoBehaviour {
  	 private Health health;
 	 private Experience experience;
 
-	// Use this for initialization
-	void Awake () 
+    public Player Player
+    {
+        get
+        {
+            return player;
+        }
+
+        set
+        {
+            player = value;
+        }
+    }
+
+    // Use this for initialization
+    void Awake () 
 	{
-		player = new Player(name,currentLvl);
+		Player = new Player(name,currentLvl);
 
 
 		//Use this for testing only
@@ -30,7 +43,7 @@ public class PlayerScript : MonoBehaviour {
 
 	public  Player getPlayer()
 	{
-		return  player;
+		return  Player;
 	}
 	
 	// Update is called once per frame

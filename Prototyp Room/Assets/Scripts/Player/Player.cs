@@ -11,12 +11,25 @@ public class Player : Character
 	private float currentHealth;
 	private Stats stats;
 
-	public Player(String name,uint currentLvl) : base(name,currentLvl)
+    public float CurrentHealth
+    {
+        get
+        {
+            return currentHealth;
+        }
+
+        set
+        {
+            currentHealth = value;
+        }
+    }
+
+    public Player(String name,uint currentLvl) : base(name,currentLvl)
 	{
 		stats = new Stats();
 		setStats(currentLvl);
 		setMaxHealth(stats.getHealth()*100);
-		currentHealth = this.getMaxHealth();
+		CurrentHealth = this.getMaxHealth();
 
 		this.resource = stats.getIntelligence()*100;
 
@@ -35,12 +48,12 @@ public class Player : Character
 
 	public void subtractHealthBy(float value)
 	{
-		this.currentHealth-= value;
+		this.CurrentHealth-= value;
 	}	
 
 	public float getCurrentHealth()
 	{
-		return currentHealth;
+		return CurrentHealth;
 	}
 
 	public void lvlUp()
@@ -49,7 +62,7 @@ public class Player : Character
 
         setStats(this.getCurrentLvl());
         setMaxHealth(stats.getHealth() * 100);
-        currentHealth = this.getMaxHealth();
+        CurrentHealth = this.getMaxHealth();
 
         this.resource = stats.getIntelligence() * 100;
     }
