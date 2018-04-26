@@ -15,12 +15,12 @@ public class Healthpool : MonoBehaviour {
 	 {
 		image = GetComponent<Image> ();
 		playerScript = GetComponentInParent<PlayerScript> ();
-		player = playerScript.getPlayer();
+		player = playerScript.Player;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		image.fillAmount =  Mathf.Lerp(image.fillAmount,(float)player.getCurrentHealth()/player.getMaxHealth(),0.05f);
+		image.fillAmount =  Mathf.Lerp(image.fillAmount,(float)player.CurrentHealth/player.getMaxHealth(),0.05f);
 	}
 }

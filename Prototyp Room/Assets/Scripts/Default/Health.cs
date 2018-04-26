@@ -21,7 +21,7 @@ public class Health : MonoBehaviour {
        else
         {
 		playerScript = GetComponent<PlayerScript> ();
-		player = playerScript.getPlayer();
+		player = playerScript.Player;
         }
 }
 	
@@ -38,7 +38,7 @@ public class Health : MonoBehaviour {
         {
             player.subtractHealthBy(value);
 
-            if (player.getCurrentHealth() <= 0)
+            if (player.CurrentHealth <= 0)
                 death.die();
         }
 	}

@@ -13,11 +13,11 @@ public class HealthText : MonoBehaviour {
 	{
 		text = GetComponent<Text> ();
 		playerScript = GetComponentInParent<PlayerScript> ();
-		player = playerScript.getPlayer();
+		player = playerScript.Player;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		text.text= player.getCurrentHealth() + "/" + player.getMaxHealth();
+		text.text= player.CurrentHealth + "/" + player.getMaxHealth();
 	}
 }
