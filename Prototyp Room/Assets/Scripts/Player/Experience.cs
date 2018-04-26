@@ -15,7 +15,7 @@ public class Experience : MonoBehaviour
     void Start()
     {
         playerScript = GetComponent<PlayerScript>();
-        player = playerScript.getPlayer();
+        player = playerScript.Player;
     }
 
     public void addExp(uint value)
