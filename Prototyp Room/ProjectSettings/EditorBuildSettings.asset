@@ -4,4 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Sprite Testing Room.unity
+    guid: 852e58e217e11c9488e84ee0348201da
+  - enabled: 1
+    path: Assets/PrototypScene_Base.unity
+    guid: 2ce4d93b27b76fe4abb2177d7af33dd8
+  - enabled: 1
+    path: Assets/LevelOne.unity
+    guid: a629435efb3814444904519ebcad6fd5
