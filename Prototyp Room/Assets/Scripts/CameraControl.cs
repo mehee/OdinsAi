@@ -5,15 +5,11 @@ using UnityEngine;
 public class CameraControl : MonoBehaviour {
 
 public Transform target;
-private Transform player;
 private Camera camera;
 	// Use this for initialization
 	void Start () 
 	{
-		//prüfen ob es ein Objekt in Hierarchy gibt, welches den tag Player trägt
-		// dieses dann als target zuweisen
 		camera = GetComponent<Camera>();
-		target = player;
 	}
 	
 	// Update is called once per frame
@@ -28,9 +24,4 @@ private Camera camera;
 	
 	}
 
-	void setTarget(Transform p)
-	{
-		if(p.gameObject.tag == "Player")
-			this.player = p;
-	}
 }
