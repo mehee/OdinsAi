@@ -3,54 +3,82 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManagerScript : MonoBehaviour {
-
-	//public GameObject guiObject;
-	public static SceneManagerScript Instance = null;
+public class SceneManagerScript : MonoBehaviour 
+{
+	public static SceneManagerScript instance = null;
+	public GameObject guiObject;
+	//Index of the Scene to Load from Buildsettings
+	public int sceneToLoadIndex;
+	
+	//Spawnpoints
 	public int currentSpawnPointNumber;
 	public GameObject [] spawnPointArray;
-//public string sceneToLoad;
 
+		
+	private Scene sceneToLoad;
 	private GameObject player;
-	///private bool playerIsOnTrigger = false;
-	
-	void Awake () 
-	{
-		if(Instance != null)
-		{
-			Destroy(gameObject);
-		}
-		else
-		{
-			DontDestroyOnLoad(gameObject);
-			Instance = this;
-		}
+	//checking if Player is on ColliderTrigger
+	private bool playerIsOnTrigger = false;
+	//checking if scene allready existes
+	private bool sceneLoaded = false;
 
+	void Awake()
+	{
 		if(player == null)
 		{
 			player = GameObject.FindGameObjectWithTag("Player");
-		}	
-
-		if(spawnPointArray.Length == 0)
-		{
-			spawnPointArray = GameObject.FindGameObjectsWithTag("SpawnPoints");
 		}
 	}
 
 	void Start()
 	{
-			
-	}
-
-	/*
-	void Update(int spawnPointNumber)
-	{
-		if(playerIsOnTrigger && guiObject.activeInHierarchy == true && Input.GetButtonDown("Use") )
+		if(guiObject != null)
 		{
-			SceneManager.LoadScene(sceneToLoad);
+			guiObject.SetActive(false);
 		}
 	}
 
+	public void Update()
+	{	
+		if(playerIsOnTrigger && guiObject.activeInHierarchy == true && Input.GetButtonDown("Use"))
+		{	
+			//HAVE TO REWORK THIS. can start the same scene over and over, without running ChangeScene() methode again.
+			/*
+			sceneLoaded = true;
+			Debug.Log(sceneLoaded);	
+		 	*/
+			StartCoroutine(ChangeScene());
+		}
+	}
+
+	IEnumerator ChangeScene()
+	{
+		SceneManager.LoadScene(sceneToLoadIndex, LoadSceneMode.Additive);
+		sceneToLoad = SceneManager.GetSceneByBuildIndex(sceneToLoadIndex);
+		//move PlayerObj to new Scene
+		SceneManager.MoveGameObjectToScene(player,sceneToLoad);
+				
+		yield return null;	
+			
+		SceneManager.UnloadSceneAsync(sceneToLoadIndex -1);
+		guiObject.SetActive(false);	
+	}
+
+	
+	void OnLevelWasLoaded()
+	{
+		spawnPointArray = GameObject.FindGameObjectsWithTag("SpawnPoints");
+		
+		for (int i = 0; i < spawnPointArray.Length; i++)
+		{
+			if(spawnPointArray[i].GetComponent<SpawnPoint>().spawnPointNumber == currentSpawnPointNumber)
+			{
+				player.transform.position = spawnPointArray[i].transform.position;
+			}
+		}
+	}
+
+	// Triggers
 	void OnTriggerStay2D(Collider2D other)
 	{
 		if(other.CompareTag("Player"))
@@ -68,45 +96,5 @@ public class SceneManagerScript : MonoBehaviour {
 			playerIsOnTrigger = false;
 		}
 	}
-	 */
-
-
-	void OnLevelWasLoaded()
-	{
-		player = GameObject.FindGameObjectWithTag("Player");
-		spawnPointArray = GameObject.FindGameObjectsWithTag("SpawnPoints");
-
-		//Change here for working with Gameobjekts, not integer
-		for (int i = 0; i < spawnPointArray.Length; i++)
-		{
-			if(spawnPointArray[i].GetComponent<SpawnPoint>().spawnPointNumber == currentSpawnPointNumber)
-			{
-				player.transform.position = spawnPointArray[i].transform.position;
-			}
-		}
-	}
-
-	
-	public void LoadScene(int spawnPointNumber)
-	{
-		currentSpawnPointNumber = spawnPointNumber;
-
-	/*
-		if(playerIsOnTrigger && guiObject.activeInHierarchy == true) // && Input.GetButtonDown("Use") 
-		{
-			SceneManager.LoadScene(sceneToLoad);
-		}
-	 */
-		
-		if(Application.loadedLevel == 0)
-		{
-			SceneManager.LoadScene(1);
-		}
-		else if(Application.loadedLevel == 1)
-		{
-			SceneManager.LoadScene(0);
-		}
-		
-	}
-	 
+	// END: Triggers
 }

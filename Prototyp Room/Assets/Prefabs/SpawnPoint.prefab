@@ -37,7 +37,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4527693241858728}
   - component: {fileID: 212239719229279670}
-  - component: {fileID: 114582249850351602}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -54,10 +53,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4373226327763478}
   - component: {fileID: 61012917054654662}
-  - component: {fileID: 114555777704024830}
+  - component: {fileID: 114914952697585620}
   m_Layer: 0
   m_Name: SpawnPoint
-  m_TagString: SpawnPoints
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,8 +68,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1812372123114180}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -188.24, y: 58.01, z: 0}
-  m_LocalScale: {x: 3.2080383, y: 3.2080383, z: 0.64160764}
+  m_LocalPosition: {x: -26.28125, y: -8.783718, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 0}
   m_Children:
   - {fileID: 4527693241858728}
   m_Father: {fileID: 0}
@@ -169,7 +168,9 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1199316100330464}
-  m_Text: 'LevelTwo
+  m_Text: 'Teleport to Portal 2
+
+
 
 '
   m_OffsetZ: 0
@@ -185,7 +186,7 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
---- !u!114 &114555777704024830
+--- !u!114 &114914952697585620
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -193,23 +194,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1812372123114180}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dbb0a574ad5d14498dc8182ccd43a9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPointNumber: 1
---- !u!114 &114582249850351602
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1806928845042824}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9959dc60a9ff974aad4f7a4d290befb, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f49df27eee56ad4b90e8c6e2d19227b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   guiObject: {fileID: 0}
-  levelToLoad: LevelOne
+  target: {fileID: 0}
 --- !u!212 &212239719229279670
 SpriteRenderer:
   m_ObjectHideFlags: 1

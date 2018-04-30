@@ -9,8 +9,9 @@ public class SpawnPoint : MonoBehaviour {
 	void OnTriggerStay2D()
 	{
 		if(Input.GetButtonDown("Use"))
-		{
-			SceneManagerScript.Instance.LoadScene(spawnPointNumber);
+		{	
+			Debug.Log("SpawnPoint Class called. spawnPointNumber= " + spawnPointNumber);
+		//	SceneManagerScript.instance.LoadScene(spawnPointNumber);
 		}
 	}
 	 
