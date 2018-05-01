@@ -2,15 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbilitySet : MonoBehaviour {
+/** Holds all abilites a character
+	has at its disposal. */
+public class AbilitySet : MonoBehaviour 
+{
+	float lastActivationTime;
 
-	// Use this for initialization
-	void Start () {
-		
+	[SerializeField]
+	float globalCooldown = 0.15f;
+
+	public List<Ability> abilities;
+
+	void Awake()
+	{
+		lastActivationTime = -globalCooldown;
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		
 	}
 }

@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a30ecac876aa384684e950126bc331d, type: 3}
   m_Name: HellaDamage
   m_EditorClassIdentifier: 
-  baseMagnitude: 0
+  baseMagnitude: 5
   magnitudeModifier: 1
-  interval: 0
-  baseDuration: 0
+  interval: 1
+  baseDuration: 5
   durationModifier: 1

@@ -21,7 +21,7 @@ public class Ability : ScriptableObject
 	public AnimationClip animation;
 	public AudioClip sound;
 	public List<Effect> effects;
-	public Collider2D collider2D;
+	public Hitbox hitbox;
 
 	public float Cooldown
 	{
@@ -41,6 +41,7 @@ public class Ability : ScriptableObject
 
 	public void Activate()
 	{
+		targets = hitbox.QueryTargets();
 		foreach(Effect effect in effects)
 		{
 			effect.CastOnTargets(targets);
@@ -79,5 +80,11 @@ public class Ability : ScriptableObject
 		else if(availableResources < Cost)
 			return false;
 		return true;
+	}
+
+	public void InstantiateHitbox(Transform transform)
+	{
+		Instantiate<Hitbox>(hitbox, transform.position, 
+			transform.rotation);
 	}
 }
