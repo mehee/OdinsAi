@@ -1,35 +1,45 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-/** Enables game objects to recieve
-	Effects and remove effects */
-public class EffectStatus: MonoBehaviour 
+/** Contains all active Effects affecting
+	this character and makes sure they are
+applied and removed at the proper times. */
+public class EffectStatus : MonoBehaviour 
 {
-	List<Effect> activeEffects;
+	List<PersistentEffect> activeEffects;
 
-	void Update()
+	// Use this for initialization
+	void Start () 
 	{
-		foreach(Effect effect in activeEffects)
+		activeEffects = new List<PersistentEffect>();	
+	}
+	
+	// Update is called once per frame
+	void Update () 
+	{
+		foreach(var effect in activeEffects)
 		{
-			if(!effect.IsPermanent)
+			if(effect is TemporaryEffect)
 			{
-				if(effect.RemainingDuration() == 0)
+				if((effect as TemporaryEffect).RemainingDuration() <= 0)
 				{
 					activeEffects.Remove(effect);
+					continue;
 				}
 			}
-			if((Time.unscaledTime - effect.LastActivationTime) 
-				>= effect.Interval)
-			{
+
+			if(effect.ReadyForApplication())
 				effect.Apply(gameObject);
-				effect.UpdateLastActivationTime();
-			}
 		}
 	}
 
-	public void LogEffect(Effect effect)
+	public void AddEffect(PersistentEffect effect)
 	{
+		// TODO: Add way to resolve conflicts
+	// between effects of same type.
 		activeEffects.Add(effect);
 	}
 }

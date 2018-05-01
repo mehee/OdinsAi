@@ -2,23 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public  abstract class Ability : ScriptableObject 
+[CreateAssetMenu]
+public class Ability : ScriptableObject 
 {
 	float timeOfLastActivation;
+	List<GameObject> targets;
 
 	[SerializeField]
 	float baseCooldown;
 	[SerializeField]
 	float baseCost;
 
+	public float cooldownModifier = 1f;
+	public float costModifier = 1f;
+
 	public string description;
 	public Sprite icon;
 	public AnimationClip animation;
 	public AudioClip sound;
-	public float cooldownModifier;
-	public float costModifier;
-	public List<Hitbox> hitboxes;
 	public List<Effect> effects;
+	public Collider2D collider2D;
 
 	public float Cooldown
 	{
@@ -36,7 +39,13 @@ public  abstract class Ability : ScriptableObject
 		}
 	}
 
-	public abstract void Activate();
+	public void Activate()
+	{
+		foreach(Effect effect in effects)
+		{
+			effect.CastOnTargets(targets);
+		}
+	}
 
 	/** The overloaded variant of this function
 		takes in a float out-parameter for getting
