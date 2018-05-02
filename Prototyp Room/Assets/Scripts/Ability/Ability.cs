@@ -41,11 +41,13 @@ public class Ability : ScriptableObject
 
 	public void Activate()
 	{
+		hitbox.enabled = true;
 		targets = hitbox.QueryTargets();
 		foreach(Effect effect in effects)
 		{
 			effect.CastOnTargets(targets);
 		}
+		hitbox.enabled = false;
 	}
 
 	/** The overloaded variant of this function
