@@ -10,7 +10,16 @@ public abstract class Effect : ScriptableObject
 	
 	public float magnitudeModifier = 1f;
 
-	public Effect()
+
+    public float Magnitude
+    {
+        get
+        {
+            return baseMagnitude*magnitudeModifier;
+        }
+    }
+
+    public Effect()
 	{
 	}
 

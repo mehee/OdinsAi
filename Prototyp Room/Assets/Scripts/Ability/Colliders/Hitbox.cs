@@ -32,8 +32,13 @@ public class Hitbox : MonoBehaviour
 		overlaps = new Collider2D[maxTargetAmount];
 	}
 
-	void OnDrawGizmos()
+	 void OnDrawGizmos()
 	{
+
+		attachedColliders = gameObject.
+			GetComponentsInChildren<BoxCollider2D>() 
+			as BoxCollider2D[];
+		
 		Gizmos.color = color;
 		
 		foreach(BoxCollider2D collider in attachedColliders)

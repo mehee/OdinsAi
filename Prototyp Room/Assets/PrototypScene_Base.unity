@@ -4545,6 +4545,7 @@ GameObject:
   - component: {fileID: 455047139}
   - component: {fileID: 455047138}
   - component: {fileID: 455047137}
+  - component: {fileID: 455047149}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -4830,6 +4831,20 @@ CompositeCollider2D:
       - {x: 0.5208333, y: 0.9375}
       - {x: 0.5208333, y: 0.8854167}
   m_VertexDistance: 0.0005
+--- !u!114 &455047149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 455047136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c042fb2e74f71b04692ae60c422f5b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalCooldown: 0.15
+  abilities:
+  - {fileID: 11400000, guid: a8f9c01ab80a779468cbdd3094a070be, type: 2}
 --- !u!1 &595655781
 GameObject:
   m_ObjectHideFlags: 0

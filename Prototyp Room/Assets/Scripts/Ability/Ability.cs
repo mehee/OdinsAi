@@ -18,7 +18,7 @@ public class Ability : ScriptableObject
 
 	public string description;
 	public Sprite icon;
-	public AnimationClip animation;
+	public Animation animation;
 	public AudioClip sound;
 	public List<Effect> effects;
 	public Hitbox hitbox;
@@ -41,13 +41,12 @@ public class Ability : ScriptableObject
 
 	public void Activate()
 	{
-		hitbox.enabled = true;
+		Debug.Log("activated");
 		targets = hitbox.QueryTargets();
 		foreach(Effect effect in effects)
 		{
 			effect.CastOnTargets(targets);
 		}
-		hitbox.enabled = false;
 	}
 
 	/** The overloaded variant of this function

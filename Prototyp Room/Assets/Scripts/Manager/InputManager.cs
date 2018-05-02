@@ -32,5 +32,10 @@ public class InputManager : MonoBehaviour {
 		//check if input is there
 
 
+	if(Input.GetButtonDown("1"))
+	{
+		GetComponent<AbilitySet>().UseAbilityAtIndex(0);
+	}
+
 	}
 }
