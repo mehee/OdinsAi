@@ -152,7 +152,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114901890296332720, guid: 4fc08652b58054c4fb1d01f6adbacfdc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4fc08652b58054c4fb1d01f6adbacfdc, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &47138525
@@ -42349,6 +42350,7 @@ GameObject:
   - component: {fileID: 1463952886}
   - component: {fileID: 1463952885}
   - component: {fileID: 1463952884}
+  - component: {fileID: 1463952887}
   m_Layer: 0
   m_Name: Cave Exit
   m_TagString: Untagged
@@ -42410,6 +42412,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1463952887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1463952883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d36ed727a20585f41ba70ad517371781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPointNumber: 1
 --- !u!1 &1508819849
 GameObject:
   m_ObjectHideFlags: 0

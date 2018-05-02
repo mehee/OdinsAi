@@ -24,6 +24,16 @@ public class SceneManagerScript : MonoBehaviour
 
 	void Awake()
 	{
+		if(instance != null)
+		{
+			Destroy(gameObject);
+		}
+		else
+		{
+			DontDestroyOnLoad(gameObject);
+			instance = this;
+		}
+		
 		if(player == null)
 		{
 			player = GameObject.FindGameObjectWithTag("Player");
