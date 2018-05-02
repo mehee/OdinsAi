@@ -42353,7 +42353,7 @@ GameObject:
   - component: {fileID: 1463952887}
   m_Layer: 0
   m_Name: Cave Exit
-  m_TagString: Untagged
+  m_TagString: SpawnPoints
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42370,9 +42370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guiObject: {fileID: 0}
-  sceneToLoadIndex: 0
-  currentSpawnPointNumber: 1
-  spawnPointArray: []
+  sceneToLoadIndex: 1
 --- !u!61 &1463952885
 BoxCollider2D:
   m_ObjectHideFlags: 0

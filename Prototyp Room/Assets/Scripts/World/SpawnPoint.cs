@@ -10,8 +10,7 @@ public class SpawnPoint : MonoBehaviour {
 	{
 		if(Input.GetButtonDown("Use"))
 		{	
-			Debug.Log("SpawnPoint Class called. spawnPointNumber= " + spawnPointNumber);
-		//	SceneManagerScript.instance.LoadScene(spawnPointNumber);
+			SpawnManager.instance.LoadScene(spawnPointNumber);
 		}
 	}
 	 

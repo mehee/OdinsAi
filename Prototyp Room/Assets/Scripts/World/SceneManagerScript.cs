@@ -6,34 +6,20 @@ using UnityEngine.SceneManagement;
 public class SceneManagerScript : MonoBehaviour 
 {
 	public static SceneManagerScript instance = null;
+
+	//Text displayed when entering the Trigger
 	public GameObject guiObject;
 	//Index of the Scene to Load from Buildsettings
 	public int sceneToLoadIndex;
-	
-	//Spawnpoints
-	public int currentSpawnPointNumber;
-	public GameObject [] spawnPointArray;
-
 		
 	private Scene sceneToLoad;
 	private GameObject player;
 	//checking if Player is on ColliderTrigger
 	private bool playerIsOnTrigger = false;
-	//checking if scene allready existes
-	private bool sceneLoaded = false;
+
 
 	void Awake()
 	{
-		if(instance != null)
-		{
-			Destroy(gameObject);
-		}
-		else
-		{
-			DontDestroyOnLoad(gameObject);
-			instance = this;
-		}
-		
 		if(player == null)
 		{
 			player = GameObject.FindGameObjectWithTag("Player");
@@ -42,6 +28,11 @@ public class SceneManagerScript : MonoBehaviour
 
 	void Start()
 	{
+		if(guiObject == null)
+		{
+			guiObject = GameObject.Find("Enter Cave");
+		}
+
 		if(guiObject != null)
 		{
 			guiObject.SetActive(false);
@@ -72,20 +63,6 @@ public class SceneManagerScript : MonoBehaviour
 			
 		SceneManager.UnloadSceneAsync(sceneToLoadIndex -1);
 		guiObject.SetActive(false);	
-	}
-
-	
-	void OnLevelWasLoaded()
-	{
-		spawnPointArray = GameObject.FindGameObjectsWithTag("SpawnPoints");
-		
-		for (int i = 0; i < spawnPointArray.Length; i++)
-		{
-			if(spawnPointArray[i].GetComponent<SpawnPoint>().spawnPointNumber == currentSpawnPointNumber)
-			{
-				player.transform.position = spawnPointArray[i].transform.position;
-			}
-		}
 	}
 
 	// Triggers
