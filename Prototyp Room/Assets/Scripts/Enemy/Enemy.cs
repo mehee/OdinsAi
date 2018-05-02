@@ -17,7 +17,7 @@ public class Enemy : Character {
         stats = new Stats();
         setStats(currentLvl);
         setMaxHealth(stats.getHealth() * 100);
-        currentHealth = this.getMaxHealth();
+        CurrentHealth = this.getMaxHealth();
 
 
     }
@@ -37,8 +37,18 @@ public class Enemy : Character {
         }
     }
 
+    public float CurrentHealth
+    {
+        get
+        {
+            return currentHealth;
+        }
 
-
+        set
+        {
+            currentHealth = value;
+        }
+    }
 
     public override void setStats(uint currentLvl)
     {
@@ -51,12 +61,9 @@ public class Enemy : Character {
 
     public void subtractHealthBy(float value)
     {
-        this.currentHealth -= value;
+        this.CurrentHealth -= value;
     }
 
-    public float getCurrentHealth()
-    {
-        return currentHealth;
-    }
+
 
 }

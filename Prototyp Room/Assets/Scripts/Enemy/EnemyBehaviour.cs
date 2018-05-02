@@ -62,7 +62,7 @@ public class EnemyBehaviour : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
 
         enemy = new Enemy("hugo", 1);
