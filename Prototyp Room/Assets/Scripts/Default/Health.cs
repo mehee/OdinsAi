@@ -31,7 +31,7 @@ public class Health : MonoBehaviour {
         {
             enemy.subtractHealthBy(value);
 
-            if (enemy.getCurrentHealth() <= 0)
+            if (enemy.CurrentHealth <= 0)
                 death.die();
         }
         else
