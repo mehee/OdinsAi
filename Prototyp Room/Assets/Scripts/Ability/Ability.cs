@@ -2,32 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
-public class Ability : ScriptableObject 
+
+public abstract class Ability : MonoBehaviour
 {
 	float timeOfLastActivation;
-	List<GameObject> targets;
+	uint frameCounter = 0;
+	
+	new Collider2D collider;
 
 	[SerializeField]
-	float baseCooldown;
-	[SerializeField]
-	float baseCost;
+	protected AbilityInfo info;
 
-	public float cooldownModifier = 1f;
-	public float costModifier = 1f;
-
-	public string description;
-	public Sprite icon;
-	public Animation animation;
-	public AudioClip sound;
-	public List<Effect> effects;
-	public Hitbox hitbox;
+	protected abstract void OnTriggerEnter2D(Collider2D other);
 
 	public float Cooldown
 	{
 		get
 		{
-			return baseCooldown * cooldownModifier;
+			return info.baseCooldown * info.cooldownModifier;
 		}
 	}
 
@@ -35,26 +27,53 @@ public class Ability : ScriptableObject
 	{
 		get
 		{
-			return baseCost * costModifier;
+			return info.baseCost * info.costModifier;
 		}
 	}
 
-	public void Activate()
+	public float Damage
 	{
-		Debug.Log("activated");
-		targets = hitbox.QueryTargets();
-		foreach(Effect effect in effects)
+		get
 		{
-			effect.CastOnTargets(targets);
+			return info.baseDamage * info.damageModifier;
 		}
 	}
+
+	protected virtual void Awake()
+	{
+		collider = GetComponent<Collider2D>();
+		collider.enabled = false;
+	}
+
+	protected virtual void Update()
+	{
+		if(frameCounter > info.framesActive)
+		{
+			collider.enabled = false;
+			frameCounter = 0;
+		}
+
+		if(collider.enabled)
+		{
+			frameCounter++;
+		}
+	}
+
+	public virtual void Activate(float resource)
+	{
+		if(ReadyForActivation(resource))
+		{
+			collider.enabled = true;
+		}
+	}
+	
 
 	/** The overloaded variant of this function
 		takes in a float out-parameter for getting
 		the remaining time if needed. */
 	public bool CooldownReady()
 	{
-		float currentTime = Time.unscaledTime;
+		float currentTime = Time.time;
 		if(currentTime - timeOfLastActivation > Cooldown)
 			return true;
 		return false;
@@ -62,9 +81,9 @@ public class Ability : ScriptableObject
 
 	public bool CooldownReady(out float remainingTime)
 	{
-		float currentTime = Time.unscaledTime;
+		float currentTime = Time.time;
 		float difference = currentTime - timeOfLastActivation;
-		remainingTime = costModifier - difference;
+		remainingTime = Cooldown - difference;
 		if(remainingTime < 0)
 		{
 			remainingTime = 0;
@@ -81,11 +100,5 @@ public class Ability : ScriptableObject
 		else if(availableResources < Cost)
 			return false;
 		return true;
-	}
-
-	public void InstantiateHitbox(Transform transform)
-	{
-		Instantiate<Hitbox>(hitbox, transform.position, 
-			transform.rotation);
 	}
 }

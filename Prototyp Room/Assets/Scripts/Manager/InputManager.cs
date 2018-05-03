@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputManager : MonoBehaviour {
+public class InputManager : MonoBehaviour 
+{
 
 	private Movement movement;
 	private AnimationManager animator;
 
-
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
 	{
-	movement = GetComponent<Movement> ();	
-	animator = GetComponent<AnimationManager> ();
+		movement = GetComponent<Movement> ();	
+		animator = GetComponent<AnimationManager> ();
 	}
 	
 	// Update is called once per frame
@@ -26,16 +26,11 @@ public class InputManager : MonoBehaviour {
 			animator.Walk(movementVec);
 		}
 		else
-		animator.Stay();
+			animator.Stay();
 
 		movement.Move(movementVec);
-		//check if input is there
-
-
-	if(Input.GetButtonDown("1"))
-	{
-		GetComponent<AbilitySet>().UseAbilityAtIndex(0);
-	}
-
+		
+		if(Input.GetButtonDown("1"))
+			GetComponentInChildren<Maul>().Activate(500);
 	}
 }
