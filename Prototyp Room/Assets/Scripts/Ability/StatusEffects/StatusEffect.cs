@@ -2,15 +2,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatusEffect : MonoBehaviour {
+public abstract class StatusEffect : MonoBehaviour 
+{
+	protected float creationTime;
 
-	// Use this for initialization
-	void Start () {
-		
+	[SerializeField]
+	protected float baseDuration;
+	[SerializeField]
+	protected float durationModifier;
+	protected float remainingDuration;
+	[SerializeField]
+	/** Amount of seconds between
+		effect applications. */
+	protected float interval;
+	protected float lastApplicationTime;
+
+    public float RemainingDuration
+    {
+        get { return remainingDuration; }
+    }
+
+    public float DurationModifier
+    {
+        get
+        {
+            return durationModifier;
+        }
+
+        set
+        {
+            durationModifier = value;
+        }
+    }
+
+	public float Duration
+	{
+		get { return baseDuration * durationModifier; }
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	protected virtual void Awake()
+	{
+		creationTime = Time.time;
+		lastApplicationTime = -Duration;
+	}
+
+    public virtual void Apply()
+	{
+
 	}
 }

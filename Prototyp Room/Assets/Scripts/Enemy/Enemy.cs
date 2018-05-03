@@ -25,6 +25,16 @@ public class Enemy : Character
         }
     }
 
+    public void Update()
+    {
+        Player player = FindObjectOfType<Player>();
+        Vector2 distance = player.transform.position - transform.position;
+        if(Mathf.Abs(distance.magnitude) <= AttackRange)
+        {
+            GetComponentInChildren<VileStrike>();
+        }
+    }
+
     public override void Die()
     {
         Player player = FindObjectOfType<Player>();

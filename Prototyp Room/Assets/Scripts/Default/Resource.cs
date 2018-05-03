@@ -6,6 +6,7 @@ public class Resource : MonoBehaviour
 {
 	[SerializeField]
 	float maximum;
+	[SerializeField]
     float value;
 
     public float Maximum

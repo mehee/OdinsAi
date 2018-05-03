@@ -5,6 +5,7 @@ using UnityEngine;
 /** Basic attack for the warrior. */
 public sealed class Maul : Ability
 {
+
     public override void Activate(float resource)
     {
 		base.Activate(resource);
@@ -21,5 +22,7 @@ public sealed class Maul : Ability
 			return;
 		other.gameObject.GetComponent<Health>().Reduce(Damage);
 		Debug.Log(other.gameObject.name);
+		Bleed bleed = info.statusEffects.Find(e => e.name == "Bleed") as Bleed;
+		Instantiate(bleed, other.gameObject.transform);
     }
 }
