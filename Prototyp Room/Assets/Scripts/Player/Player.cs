@@ -6,66 +6,47 @@ using System;
 
 public class Player : Character
 {
+	[SerializeField]
+	int expToNextLevel;
+	[SerializeField]
+	int experience = 0;
+	[SerializeField]
+	/** Determines how much extra experience
+		is needed for next level-up. */
+	float levelUpFactor = 0.1f;
 
-	private float resource;
-	private float currentHealth;
-	private Stats stats;
-
-    public float CurrentHealth
+    public int ExpToNextLevel
     {
-        get
-        {
-            return currentHealth;
-        }
-
-        set
-        {
-            currentHealth = value;
-        }
+        get { return expToNextLevel; }
+        private set { expToNextLevel = value; }
     }
 
-    public Player(String name,uint currentLvl) : base(name,currentLvl)
+    public int Experience
+    {
+        get { return experience; }
+        private set { experience = value; }
+    }
+
+    public override void Die()
 	{
-		stats = new Stats();
-		setStats(currentLvl);
-		setMaxHealth(stats.getHealth()*100);
-		CurrentHealth = this.getMaxHealth();
-
-		this.resource = stats.getIntelligence()*100;
-
-		
+		GetComponent<Health>().Reset();
+		transform.position = Vector2.zero;
 	}
 
-
-    public override void setStats(uint currentLvl)
-    {
-		stats.setHealth(2*(int)currentLvl);
-		stats.setArmor(1*(int)currentLvl);
-		stats.setStrenght(2*(int)currentLvl);
-		stats.setIntelligence(1*(int)currentLvl);
-    }
-
-
-	public void subtractHealthBy(float value)
+	public void GainExp(int amount)
 	{
-		this.CurrentHealth-= value;
-	}	
-
-	public float getCurrentHealth()
-	{
-		return CurrentHealth;
+		experience += amount;
+		if(experience >= expToNextLevel)
+		{
+			LevelUp();
+			experience -= expToNextLevel;
+			expToNextLevel = Mathf.FloorToInt(
+				expToNextLevel * levelUpFactor);
+		}
 	}
 
-	public void lvlUp()
+	void LevelUp()
 	{
-		this.LevelUp();
-
-        setStats(this.getCurrentLvl());
-        setMaxHealth(stats.getHealth() * 100);
-        CurrentHealth = this.getMaxHealth();
-
-        this.resource = stats.getIntelligence() * 100;
-    }
-
-
+		level++;
+	}
 }

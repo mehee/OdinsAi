@@ -19,6 +19,7 @@ public sealed class Maul : Ability
     {
 		if(other.tag != "Enemy")
 			return;
-		other.gameObject.GetComponent<Enemy>().subtractHealthBy(Damage);
+		other.gameObject.GetComponent<Health>().Reduce(Damage);
+		Debug.Log(other.gameObject.name);
     }
 }

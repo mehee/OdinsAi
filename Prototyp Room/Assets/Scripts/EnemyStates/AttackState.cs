@@ -24,7 +24,7 @@ class AttackState : IState
        if(parent.Target != null)
         {
             float distance = Vector2.Distance(parent.Target.position, parent.transform.position);
-            playerHealth.subtractHealthBy(1);
+            playerHealth.Reduce(1);
 
             if (distance >= parent.AttackRange)
             {
