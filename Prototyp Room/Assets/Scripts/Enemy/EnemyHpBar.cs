@@ -8,6 +8,7 @@ public class EnemyHpBar : MonoBehaviour
 	private Image image;
 	Health health;
 
+
 	void Start ()
 	{
 		image = GetComponent<Image> ();
