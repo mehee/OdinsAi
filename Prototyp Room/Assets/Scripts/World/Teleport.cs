@@ -6,6 +6,7 @@ public class Teleport : MonoBehaviour
 {
 	public GameObject guiObject;
 	public GameObject target;
+	public Animator transitionAnim;
 
 	private GameObject player;
 	private bool playerIsOnTrigger = false;
@@ -20,6 +21,7 @@ public class Teleport : MonoBehaviour
 	{
 		if(playerIsOnTrigger && guiObject.activeInHierarchy == true && Input.GetButtonDown("Use") )
 		{
+			transitionAnim.SetTrigger("enter");
 			player.transform.position = target.transform.position;
 		}
 	}
