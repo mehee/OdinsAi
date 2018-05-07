@@ -3,24 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHpBar : MonoBehaviour {
-
-	// Use this for initialization
-
+public class EnemyHpBar : MonoBehaviour 
+{
 	private Image image;
-	private EnemyBehaviour enemyBehaviour;
-	private Enemy enemy;
+	Health health;
 
 	void Start ()
-	 {
+	{
 		image = GetComponent<Image> ();
-		enemyBehaviour = GetComponentInParent<EnemyBehaviour> ();
-		enemy = enemyBehaviour.Enemy;
+		health = transform.parent.parent.GetComponent<Health>();		
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		image.fillAmount =  Mathf.Lerp(image.fillAmount,(float)enemy.CurrentHealth/enemy.getMaxHealth(),0.05f);
+		
+		image.fillAmount =  Mathf.Lerp(image.fillAmount, 
+			(float) health.Value / health.Maximum, 0.05f);
 	}
 }
