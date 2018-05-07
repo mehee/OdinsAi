@@ -32,6 +32,7 @@ SpriteAtlas:
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300016, guid: 8fa9c8568ce76434bb70ee0c5807f8bc, type: 3}
   - {fileID: 21300282, guid: 8fa9c8568ce76434bb70ee0c5807f8bc, type: 3}
   - {fileID: 21300628, guid: 8fa9c8568ce76434bb70ee0c5807f8bc, type: 3}
   - {fileID: 21300678, guid: 8fa9c8568ce76434bb70ee0c5807f8bc, type: 3}
@@ -377,6 +378,7 @@ SpriteAtlas:
   - {fileID: 21300482, guid: 8fa9c8568ce76434bb70ee0c5807f8bc, type: 3}
   - {fileID: 21300480, guid: 8fa9c8568ce76434bb70ee0c5807f8bc, type: 3}
   m_PackedSpriteNamesToIndex:
+  - 001_8
   - 001_CaveEntrance
   - 001_314
   - 001_339
