@@ -34,7 +34,7 @@ public class Cooldown : MonoBehaviour {
 			{
 				Debug.Log("Skill 1 used.");
 				cooldownImages[0].fillAmount = Mathf.Lerp(1.00f,0.00f,0.05f); // anstelle der 0.05f auf CooldownLerpSpeed des Skills referenzieren
-				wrath.subtractWrathBy(50); // anstelle der 50 auf WrathUsage des Skills referenzieren
+				//wrath.subtractWrathBy(50); // anstelle der 50 auf WrathUsage des Skills referenzieren
 			}
 		}
 
@@ -44,7 +44,7 @@ public class Cooldown : MonoBehaviour {
 			{
 				Debug.Log("Skill 2 used.");
 				cooldownImages[1].fillAmount = Mathf.Lerp(1f,0f,0.05f);
-				wrath.subtractWrathBy(50);
+				//wrath.subtractWrathBy(50);
 			}
 		}
 
@@ -54,7 +54,7 @@ public class Cooldown : MonoBehaviour {
 			{
 				Debug.Log("Skill 3 used.");
 				cooldownImages[2].fillAmount = Mathf.Lerp(1f,0f,0.05f);
-				wrath.subtractWrathBy(50);
+				//wrath.subtractWrathBy(50);
 			}
 		}
 
@@ -64,7 +64,7 @@ public class Cooldown : MonoBehaviour {
 			{
 				Debug.Log("Skill 4 used.");
 				cooldownImages[3].fillAmount = Mathf.Lerp(1f,0f,0.05f);
-				wrath.subtractWrathBy(50);
+				//wrath.subtractWrathBy(50);
 			}
 		}
 
@@ -74,7 +74,7 @@ public class Cooldown : MonoBehaviour {
 			{
 				Debug.Log("Skill 5 used.");
 				cooldownImages[4].fillAmount = Mathf.Lerp(1f,0f,0.05f);
-				wrath.subtractWrathBy(50);
+				//wrath.subtractWrathBy(50);
 			}
 		}
 
@@ -84,7 +84,7 @@ public class Cooldown : MonoBehaviour {
 			{
 				Debug.Log("Skill 6 used.");
 				cooldownImages[5].fillAmount = Mathf.Lerp(1f,0f,0.05f);
-				wrath.subtractWrathBy(50);
+				//wrath.subtractWrathBy(50);
 			}
 		}
 
@@ -94,7 +94,7 @@ public class Cooldown : MonoBehaviour {
 			{
 				Debug.Log("Skill 7 used.");
 				cooldownImages[6].fillAmount = Mathf.Lerp(1f,0f,0.05f);
-				wrath.subtractWrathBy(50);
+				//wrath.subtractWrathBy(50);
 			}
 		}
 
