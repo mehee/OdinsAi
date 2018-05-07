@@ -31,10 +31,10 @@ public class InputManager : MonoBehaviour
 		movement.Move(movementVec);
 		
 		if(Input.GetButtonDown("Ability1"))
-			GetComponentInChildren<Maul>().Activate(500);
+			GetComponentInChildren<Maul>().Activate();
 		if(Input.GetButtonDown("Ability2"))
 		{
-			GetComponentInChildren<Lunge>().Activate(500);
+			GetComponentInChildren<Lunge>().Activate();
 		}
 	}
 }

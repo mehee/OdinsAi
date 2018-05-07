@@ -13,9 +13,9 @@ public class VileStrike : Ability
 		player = FindObjectOfType<Player>().transform;
 	}
 
-	public override void Activate(float resource)
+	public override void Activate()
     {
-		base.Activate(resource);
+		base.Activate();
 		Vector3 difference =  player.position - transform.position;
 		float rotation = Mathf.Atan2(difference.y, difference.x) 
 			* Mathf.Rad2Deg;

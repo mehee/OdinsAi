@@ -6,9 +6,9 @@ using UnityEngine;
 public sealed class Maul : Ability
 {
 
-    public override void Activate(float resource)
+    public override void Activate()
     {
-		base.Activate(resource);
+		base.Activate();
 		collider.enabled = true;
 		Vector3 difference = Camera.main.ScreenToWorldPoint(
 			Input.mousePosition) - transform.position;
