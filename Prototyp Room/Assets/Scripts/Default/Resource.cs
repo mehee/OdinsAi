@@ -59,7 +59,7 @@ public class Resource : MonoBehaviour
 
     void Start()
     {
-        Maximum = GetComponent<Character>().maxHealth;
+       
         Value = Maximum;
     }
 }

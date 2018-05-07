@@ -7,46 +7,56 @@ using System;
 public class Player : Character
 {
 	[SerializeField]
-	int expToNextLevel;
+	uint expToNextLevel;
 	[SerializeField]
-	int experience = 0;
+	uint experience = 0;
 	[SerializeField]
 	/** Determines how much extra experience
 		is needed for next level-up. */
 	float levelUpFactor = 0.1f;
 
-    public int ExpToNextLevel
+	Health health;
+
+	void Start()
+	{
+		health = GetComponent<Health> ();
+		health.Maximum +=stats.BaseHealth*100;
+	}
+	
+    public uint ExpToNextLevel
     {
         get { return expToNextLevel; }
         private set { expToNextLevel = value; }
     }
 
-    public int Experience
+    public uint Experience
     {
         get { return experience; }
         private set { experience = value; }
     }
-
-    public override void Die()
-	{
-		GetComponent<Health>().Reset();
-		transform.position = Vector2.zero;
-	}
-
-	public void GainExp(int amount)
+	public void GainExp(uint amount)
 	{
 		experience += amount;
 		if(experience >= expToNextLevel)
 		{
 			LevelUp();
 			experience -= expToNextLevel;
-			expToNextLevel = Mathf.FloorToInt(
+			expToNextLevel = (uint)Mathf.FloorToInt(
 				expToNextLevel * levelUpFactor);
 		}
 	}
-
+    public override void Die()
+	{
+		GetComponent<Health>().Reset();
+		transform.position = Vector2.zero;
+	}
 	void LevelUp()
 	{
 		level++;
+		stats.UpdateStats(level);
+		health.Maximum +=stats.BaseHealth*100;
 	}
+
+
+
 }

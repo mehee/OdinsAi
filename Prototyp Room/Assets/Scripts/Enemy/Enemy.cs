@@ -10,7 +10,7 @@ public class Enemy : Character
     [SerializeField]
     private float attackRange;
     [SerializeField]
-    int experienceReward;
+    uint experienceReward;
 
     public float AttackRange
     {
@@ -38,7 +38,7 @@ public class Enemy : Character
     public override void Die()
     {
         Player player = FindObjectOfType<Player>();
-        player.GainExp(experienceReward);
+        player.GainExp((uint)experienceReward);
         Destroy(gameObject);
     }
 }

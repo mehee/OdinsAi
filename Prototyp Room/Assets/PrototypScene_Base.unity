@@ -4587,11 +4587,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: Horst
-  description: Das ist Horst. Horst ist ein Krieger. Horst haut gern Monstern auf
-    die Fresse.
   level: 1
   maxHealth: 500
-  moveSpeed: 5
+  stats:
+    hpMod: 2
+    strMod: 2
+    armMod: 1
+    intMod: 1
   expToNextLevel: 1000
   experience: 0
   levelUpFactor: 0.1
@@ -4607,7 +4609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083839f59f1d7954c9f11d4bdb831846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximum: 500
+  maximum: 200
   value: 0
 --- !u!114 &455047141
 MonoBehaviour:
@@ -6240,10 +6242,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: Daemon
-  description: Can't do shit. Beat him up and steal his girlfriend.
   level: 1
   maxHealth: 200
-  moveSpeed: 3
+  stats:
+    hpMod: 0
+    strMod: 0
+    armMod: 0
+    intMod: 0
   attackRange: 2
   experienceReward: 10
 --- !u!114 &1243718037

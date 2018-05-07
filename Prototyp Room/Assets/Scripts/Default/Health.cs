@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Health : Resource 
 {   
+
+
+    public void UpdateHealth(uint hp)
+    {
+        Maximum += (float) hp;
+    }
     public override void Reduce(float amount)
     {
         Value -= amount;
