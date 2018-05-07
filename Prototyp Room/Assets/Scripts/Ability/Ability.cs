@@ -8,7 +8,7 @@ public abstract class Ability : MonoBehaviour
 	float timeOfLastActivation;
 	uint frameCounter = 0;
 	
-	new Collider2D collider;
+	new protected Collider2D collider;
 
 	[SerializeField]
 	protected AbilityInfo info;
@@ -61,9 +61,11 @@ public abstract class Ability : MonoBehaviour
 
 	public virtual void Activate(float resource)
 	{
-		if(ReadyForActivation(resource))
+		if(!ReadyForActivation(resource))
 		{
-			collider.enabled = true;
+			// TODO: Replace with proper sounds and UI message!
+			Debug.Log("Ability not ready");
+			return;
 		}
 	}
 	

@@ -9,6 +9,7 @@ public class VileStrike : Ability
 	protected override void Awake()
 	{
 		base.Awake();
+		collider.enabled = true;
 		player = FindObjectOfType<Player>().transform;
 	}
 
@@ -23,16 +24,9 @@ public class VileStrike : Ability
 
     protected override void OnTriggerEnter2D(Collider2D other)
     {
-		if(other.tag != "Enemy")
+		if(other.tag != "Player")
 			return;
 		other.gameObject.GetComponent<Health>().Reduce(Damage);
 		Debug.Log(other.gameObject.name);
     }
-    
-	void OnDrawGizmos()
-	{
-		Gizmos.color = new Color(255f, 0f, 0f, 50f);
-		BoxCollider2D bc = GetComponent<BoxCollider2D>();
-		Gizmos.DrawCube(bc.offset, bc.bounds.extents * 2);
-	}
 }
