@@ -1,13 +1,17 @@
 fileFormatVersion: 2
-guid: a49431a8dfe21c8419e90612b75eae3d
-timeCreated: 1524061315
+guid: 4560c16953059104f824845429c0a3d6
+timeCreated: 1525706395
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: walkRight_sprite_0
-    21300002: walkRight_sprite_1
-    21300004: walkRight_sprite_2
-    21300006: walkRight_sprite_3
+    21300000: Idle_Sprite_0
+    21300002: Idle_Sprite_1
+    21300004: Idle_Sprite_2
+    21300006: Idle_Sprite_3
+    21300008: Idle_Sprite_01
+    21300010: Idle_Sprite_11
+    21300012: Idle_Sprite_21
+    21300014: Idle_Sprite_31
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -49,7 +53,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 96
+  spritePixelsToUnits: 111
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -85,12 +89,68 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: walkRight_sprite_0
+      name: Idle_Sprite_0
       rect:
         serializedVersion: 2
-        x: 41
-        y: 124
-        width: 24
+        x: 21
+        y: 72
+        width: 21
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Idle_Sprite_1
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 72
+        width: 51
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Idle_Sprite_2
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 72
+        width: 35
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Idle_Sprite_3
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 72
+        width: 41
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Idle_Sprite_01
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 8
+        width: 21
         height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -99,13 +159,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: walkRight_sprite_1
+      name: Idle_Sprite_11
       rect:
         serializedVersion: 2
-        x: 137
-        y: 124
-        width: 28
-        height: 53
+        x: 75
+        y: 8
+        width: 37
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -113,13 +173,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: walkRight_sprite_2
+      name: Idle_Sprite_21
       rect:
         serializedVersion: 2
-        x: 41
-        y: 29
-        width: 25
-        height: 53
+        x: 143
+        y: 8
+        width: 35
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,12 +187,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: walkRight_sprite_3
+      name: Idle_Sprite_31
       rect:
         serializedVersion: 2
-        x: 137
-        y: 29
-        width: 24
+        x: 198
+        y: 8
+        width: 36
         height: 52
       alignment: 0
       pivot: {x: 0, y: 0}

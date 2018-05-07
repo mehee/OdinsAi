@@ -26,7 +26,7 @@ public class InputManager : MonoBehaviour
 			animator.Walk(movementVec);
 		}
 		else
-			animator.Stay();
+			animator.Stay(movementVec);
 
 		movement.Move(movementVec);
 		

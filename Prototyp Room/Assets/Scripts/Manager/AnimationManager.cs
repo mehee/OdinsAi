@@ -18,8 +18,10 @@ public class AnimationManager : MonoBehaviour {
 		animator.SetFloat("input_x", vector2.x);
 		animator.SetFloat("input_y", vector2.y);
 	}
-	public void Stay()
+	public void Stay(Vector2 vector2)
 	{
 		animator.SetBool("iswalking",false);
+		animator.SetFloat("input_x", vector2.x);
+		animator.SetFloat("input_y", vector2.y);
 	}
 }
