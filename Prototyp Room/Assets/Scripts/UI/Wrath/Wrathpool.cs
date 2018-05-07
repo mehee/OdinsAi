@@ -8,19 +8,17 @@ public class Wrathpool : MonoBehaviour {
 	// Use this for initialization
 
 	private Image image;
-	private PlayerScript playerScript;
-	private Player player;
+	private Wrath wrath;
 
 	void Start ()
 	 {
+		wrath = FindObjectOfType<Player>().GetComponent<Wrath>();
 		image = GetComponent<Image> ();
-		playerScript = GetComponentInParent<PlayerScript> ();
-		player = playerScript.getPlayer();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		image.fillAmount =  Mathf.Lerp(image.fillAmount,(float)player.getCurrentWrath()/player.getMaxWrath(),0.05f);
+		image.fillAmount =  Mathf.Lerp(image.fillAmount,(float)wrath.Value/wrath.Maximum,0.05f);
 	}
 }
