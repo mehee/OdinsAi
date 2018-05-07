@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPoint : MonoBehaviour {
+public class SpawnPoint : MonoBehaviour
+{
 	
 	public int spawnPointNumber;
 
@@ -13,6 +14,4 @@ public class SpawnPoint : MonoBehaviour {
 			SpawnManager.instance.LoadScene(spawnPointNumber);
 		}
 	}
-	 
-	
 }

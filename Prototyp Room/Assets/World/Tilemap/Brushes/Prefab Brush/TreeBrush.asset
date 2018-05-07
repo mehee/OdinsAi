@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Name: TreeBrush
   m_EditorClassIdentifier: 
   m_Prefabs:
-  - {fileID: 1734835262205306, guid: ee0b06a64a490944abea9c87a5fa7fbd, type: 2}
+  - {fileID: 1486665828204214, guid: 0651bdfb76df49e4eaad2b08ed9f7b29, type: 2}
+  - {fileID: 1044154771804350, guid: 86d0bf5f4150ec444876558eaeef56e1, type: 2}
+  - {fileID: 1810517611366132, guid: 701d282a063ff49409222f2d052f911a, type: 2}
+  - {fileID: 1024954907904846, guid: 00e8504e5f8682c4d9b77b0d7d9013b2, type: 2}
+  - {fileID: 1831185252732866, guid: c1ea3a0cd306cef4e9f43dd5f2c4dd68, type: 2}
   m_PerlinScale: 0.5
   m_Z: 0
