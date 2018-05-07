@@ -3,44 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public abstract class Character
+public abstract class Character : MonoBehaviour
 {
-    [SerializeField]
-    private string name;
-    private float maxHealth;
-    private float maxWrath;
-    private uint currentLvl=1;
-   
+    public string characterName;
+  
+	public uint level;
 
+     public Stats stats;
 
-    public Character(string name, uint currentLvl)
-    {
-        name = this.name;
-        currentLvl = this.currentLvl;
-    }
-    public abstract void setStats(uint currentLvl);
-    public virtual float getMaxHealth()
-    {
-        return maxHealth;
-    }
-     public virtual void setMaxHealth(float value)
-    {
-        this.maxHealth = value;
-    }
-    public virtual float getMaxWrath()
-    {
-        return maxWrath;
-    }
-    public virtual void setMaxWrath(float value)
-    {
-        this.maxWrath = value;
-    }
-     public virtual void LevelUp()
-    {
-        this.currentLvl++;
-    }
-    public virtual uint getCurrentLvl()
-    {
-        return currentLvl;
-    }
+    // TODO: Add other stats later
+	// when game design is clearer.
+
+    public abstract void Die();
 }

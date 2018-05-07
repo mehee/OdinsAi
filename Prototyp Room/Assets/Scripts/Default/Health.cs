@@ -2,26 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour {
-
-	PlayerScript playerScript;
-	Player player;
-	Death death;
-	void Start () 
-	{
-		playerScript = GetComponent<PlayerScript> ();
-		death = GetComponent<Death> ();
-		player = playerScript.getPlayer();
-	}
-	
-	public void subtractHealthBy(float value)
-	{
-		if(player.getCurrentHealth() > value)
-			player.subtractHealthBy(value);
-		else
-			Debug.Log("Health zu niedrig. Spieler tot.");
-	}
+public class Health : Resource 
+{   
 
 
-	
+    public void UpdateHealth(uint hp)
+    {
+        Maximum += (float) hp;
+    }
+    public override void Reduce(float amount)
+    {
+        Value -= amount;
+        if(Value <= 0)
+        {
+            GetComponent<Character>().Die();
+        }
+    } 
 }

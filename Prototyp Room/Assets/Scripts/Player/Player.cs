@@ -6,65 +6,57 @@ using System;
 
 public class Player : Character
 {
+	[SerializeField]
+	uint expToNextLevel;
+	[SerializeField]
+	uint experience = 0;
+	[SerializeField]
+	/** Determines how much extra experience
+		is needed for next level-up. */
+	float levelUpFactor = 0.1f;
 
-	private float resource;
-	private float currentHealth;
-	private float currentWrath;
-	private Stats stats;
+	Health health;
 
-	public Player(String name,uint currentLvl) : base(name,currentLvl)
+	void Start()
 	{
-		stats = new Stats();
-		setStats(currentLvl);
-
-		setMaxHealth(stats.getHealth()*100);
-		currentHealth = this.getMaxHealth();
-
-		setMaxWrath(stats.getWrath()*100);
-		currentWrath = this.getMaxWrath();
-
-		this.resource = stats.getIntelligence()*100;
+		health = GetComponent<Health> ();
+		health.Maximum +=stats.BaseHealth*100;
 	}
-    public override void setStats(uint currentLvl)
+	
+    public uint ExpToNextLevel
     {
-		stats.setHealth(2*(int)currentLvl);
-		stats.setWrath(2*(int)currentLvl);
-		stats.setArmor(1*(int)currentLvl);
-		stats.setStrength(2*(int)currentLvl);
-		stats.setIntelligence(1*(int)currentLvl);
+        get { return expToNextLevel; }
+        private set { expToNextLevel = value; }
     }
-	public float getCurrentHealth()
-	{
-		return currentHealth;
-	}
-	public void subtractHealthBy(float value)
-	{
-		this.currentHealth -= value;
-	}
-	public float getCurrentWrath()
-	{
-		return currentWrath;
-	}
-	public void subtractWrathBy(float value)
-	{
-		this.currentWrath -= value;
-	}
-	public void lvlUp()
-	{
-		this.LevelUp();
-		this.update();
-	}
-    public void update()
+
+    public uint Experience
     {
-        setStats(this.getCurrentLvl());
-
-        setMaxHealth(stats.getHealth() * 100);
-        currentHealth = this.getMaxHealth();
-
-		setMaxWrath(stats.getWrath() * 100);
-        currentWrath = this.getMaxWrath();
-
-        this.resource = stats.getIntelligence() * 100;
+        get { return experience; }
+        private set { experience = value; }
     }
+	public void GainExp(uint amount)
+	{
+		experience += amount;
+		if(experience >= expToNextLevel)
+		{
+			LevelUp();
+			experience -= expToNextLevel;
+			expToNextLevel = (uint)Mathf.FloorToInt(
+				expToNextLevel * levelUpFactor);
+		}
+	}
+    public override void Die()
+	{
+		GetComponent<Health>().Reset();
+		transform.position = Vector2.zero;
+	}
+	void LevelUp()
+	{
+		level++;
+		stats.UpdateStats(level);
+		health.Maximum +=stats.BaseHealth*100;
+	}
+
+
 
 }

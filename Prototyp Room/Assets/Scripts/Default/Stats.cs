@@ -1,53 +1,86 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[System.Serializable]
 public class Stats
 {
-	private int health;
-	private int wrath;
-    private int strength;
-    private int armor;
-    private int intelligence;
+    [Tooltip("Wert bestimmen, der pro Lvl draufaddiert wird")]
+    [SerializeField]
+    private float hpMod;
+    private int baseHealth=1;
+    [SerializeField]
+    private float strMod=1;
 
-	public int getHealth()
-	{
-		return health;
-	}
-	public void setHealth(int value)
-	{
-		this.health = value;
-	}
-	public int getWrath()
-	{
-		return wrath;
-	}
-	public void setWrath(int value)
-	{
-		this.wrath = value;
-	}
-	public int getStrength()
-	{
-		return strength;
-	}
-	public void setStrength(int value)
-	{
-		this.strength = value;
-	}
-	public int getArmor()
-	{
-		return armor;
-	}
-	public void setArmor(int value)
-	{
-		this.armor = value;
-	}
-	public int getIntelligence()
-	{
-		return intelligence;
-	}
-	public void setIntelligence(int value)
-	{
-		this.intelligence = value;
-	}
+    private int baseStrenght=1;
+    [SerializeField]
+    private float armMod;
+    private int baseArmor=1;
+    [SerializeField]
+    private float intMod;
+    private int baseIntelligence=1;
+
+
+
+    public void UpdateStats(uint lvl)
+    {
+        baseHealth = Mathf.FloorToInt(hpMod*(int)lvl);
+        baseStrenght = Mathf.FloorToInt(strMod*(int)lvl);
+        baseArmor = Mathf.FloorToInt(armMod*(int)lvl);
+        baseIntelligence = Mathf.FloorToInt(intMod*(int)lvl);
+    }
+  
+
+    public int BaseHealth
+    {
+        get
+        {
+            return baseHealth;
+        }
+
+        set
+        {
+            baseHealth = value;
+        }
+    }
+
+    public int BaseStrenght
+    {
+        get
+        {
+            return baseStrenght;
+        }
+
+        set
+        {
+            baseStrenght = value;
+        }
+    }
+
+    public int BaseArmor
+    {
+        get
+        {
+            return baseArmor;
+        }
+
+        set
+        {
+            baseArmor = value;
+        }
+    }
+
+    public int BaseIntelligence
+    {
+        get
+        {
+            return baseIntelligence;
+        }
+
+        set
+        {
+            baseIntelligence = value;
+        }
+    }
 }

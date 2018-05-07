@@ -5,19 +5,18 @@ using UnityEngine.UI;
 
 public class HealthText : MonoBehaviour {
 
-	private PlayerScript playerScript;
 	private Text text;
-	private Player player;
+	private Health health;
 
 	void Start () 
 	{
 		text = GetComponent<Text> ();
-		playerScript = GetComponentInParent<PlayerScript> ();
-		player = playerScript.getPlayer();
+		health = FindObjectOfType<Player>().
+			GetComponent<Health>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		text.text= player.getCurrentHealth() + "/" + player.getMaxHealth();
+		text.text = health.Value + "/" + health.Maximum;
 	}
 }
