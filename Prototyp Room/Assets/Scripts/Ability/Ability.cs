@@ -7,6 +7,7 @@ public abstract class Ability : MonoBehaviour
 {
 	float timeOfLastActivation;
 	uint frameCounter = 0;
+	AbilityResource resource;
 	
 	new protected Collider2D collider;
 
@@ -43,6 +44,7 @@ public abstract class Ability : MonoBehaviour
 	{
 		collider = GetComponent<Collider2D>();
 		collider.enabled = false;
+		resource = transform.parent.GetComponent<AbilityResource>();
 	}
 
 	protected virtual void Update()
@@ -59,14 +61,15 @@ public abstract class Ability : MonoBehaviour
 		}
 	}
 
-	public virtual void Activate(float resource)
+	public virtual void Activate()
 	{
-		if(!ReadyForActivation(resource))
+		if(!ReadyForActivation())
 		{
 			// TODO: Replace with proper sounds and UI message!
 			Debug.Log("Ability not ready");
 			return;
 		}
+		resource.Reduce(Cost);
 	}
 	
 
@@ -95,11 +98,11 @@ public abstract class Ability : MonoBehaviour
 			return false;
 	}
 
-	public virtual bool ReadyForActivation(float availableResources)
+	public virtual bool ReadyForActivation()
 	{
 		if(!CooldownReady())
 			return false;
-		else if(availableResources < Cost)
+		else if(resource.Value < Cost)
 			return false;
 		return true;
 	}

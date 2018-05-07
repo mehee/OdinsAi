@@ -5,7 +5,7 @@ using UnityEngine;
 public class Resource : MonoBehaviour 
 {
 	[SerializeField]
-	float maximum;
+	protected float maximum;
 	[SerializeField]
     float value;
 
