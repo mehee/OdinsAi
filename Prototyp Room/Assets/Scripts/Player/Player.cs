@@ -6,66 +6,57 @@ using System;
 
 public class Player : Character
 {
+	[SerializeField]
+	uint expToNextLevel;
+	[SerializeField]
+	uint experience = 0;
+	[SerializeField]
+	/** Determines how much extra experience
+		is needed for next level-up. */
+	float levelUpFactor = 0.1f;
 
-	private float resource;
-	private float currentHealth;
-	private Stats stats;
+	Health health;
 
-    public float CurrentHealth
+	void Start()
+	{
+		health = GetComponent<Health> ();
+		health.Maximum +=stats.BaseHealth*100;
+	}
+	
+    public uint ExpToNextLevel
     {
-        get
-        {
-            return currentHealth;
-        }
-
-        set
-        {
-            currentHealth = value;
-        }
+        get { return expToNextLevel; }
+        private set { expToNextLevel = value; }
     }
 
-    public Player(String name,uint currentLvl) : base(name,currentLvl)
+    public uint Experience
+    {
+        get { return experience; }
+        private set { experience = value; }
+    }
+	public void GainExp(uint amount)
 	{
-		stats = new Stats();
-		setStats(currentLvl);
-		setMaxHealth(stats.getHealth()*100);
-		CurrentHealth = this.getMaxHealth();
-
-		this.resource = stats.getIntelligence()*100;
-
-		
+		experience += amount;
+		if(experience >= expToNextLevel)
+		{
+			LevelUp();
+			experience -= expToNextLevel;
+			expToNextLevel = (uint)Mathf.FloorToInt(
+				expToNextLevel * levelUpFactor);
+		}
+	}
+    public override void Die()
+	{
+		GetComponent<Health>().Reset();
+		transform.position = Vector2.zero;
+	}
+	void LevelUp()
+	{
+		level++;
+		stats.UpdateStats(level);
+		health.Maximum +=stats.BaseHealth*100;
 	}
 
-
-    public override void setStats(uint currentLvl)
-    {
-		stats.setHealth(2*(int)currentLvl);
-		stats.setArmor(1*(int)currentLvl);
-		stats.setStrenght(2*(int)currentLvl);
-		stats.setIntelligence(1*(int)currentLvl);
-    }
-
-
-	public void subtractHealthBy(float value)
-	{
-		this.CurrentHealth-= value;
-	}	
-
-	public float getCurrentHealth()
-	{
-		return CurrentHealth;
-	}
-
-	public void lvlUp()
-	{
-		this.LevelUp();
-
-        setStats(this.getCurrentLvl());
-        setMaxHealth(stats.getHealth() * 100);
-        CurrentHealth = this.getMaxHealth();
-
-        this.resource = stats.getIntelligence() * 100;
-    }
 
 
 }

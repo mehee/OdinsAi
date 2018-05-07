@@ -65,7 +65,7 @@ public class EnemyBehaviour : MonoBehaviour {
     void Awake()
     {
 
-        enemy = new Enemy("hugo", 1);
+        enemy = GetComponent<Enemy>();
         ChangeState(new IdleState());
         AttackRange = enemy.AttackRange;
         movement = GetComponent<Movement>();

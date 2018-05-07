@@ -3,26 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Character {
-
+public class Enemy : Character 
+{
     private EnemyBehaviour enemyBehaviour;
-    private Stats stats;
     private float currentHealth;
     [SerializeField]
     private float attackRange;
-
-    public Enemy(string name, uint currentLvl) : base(name, currentLvl)
-    {
-        attackRange = 2;
-        stats = new Stats();
-        setStats(currentLvl);
-        setMaxHealth(stats.getHealth() * 100);
-        CurrentHealth = this.getMaxHealth();
-
-
-    }
-
-
+    [SerializeField]
+    uint experienceReward;
 
     public float AttackRange
     {
@@ -37,33 +25,20 @@ public class Enemy : Character {
         }
     }
 
-    public float CurrentHealth
+    public void Update()
     {
-        get
+        Player player = FindObjectOfType<Player>();
+        Vector2 distance = player.transform.position - transform.position;
+        if(Mathf.Abs(distance.magnitude) <= AttackRange)
         {
-            return currentHealth;
-        }
-
-        set
-        {
-            currentHealth = value;
+            GetComponentInChildren<VileStrike>();
         }
     }
 
-    public override void setStats(uint currentLvl)
+    public override void Die()
     {
-        stats.setHealth(2 * (int)currentLvl);
-        stats.setArmor(1 * (int)currentLvl);
-        stats.setStrenght(2 * (int)currentLvl);
-        stats.setIntelligence(1 * (int)currentLvl);
+        Player player = FindObjectOfType<Player>();
+        player.GainExp((uint)experienceReward);
+        Destroy(gameObject);
     }
-
-
-    public void subtractHealthBy(float value)
-    {
-        this.CurrentHealth -= value;
-    }
-
-
-
 }

@@ -8,19 +8,19 @@ public class ExperienceBar : MonoBehaviour {
 	// Use this for initialization
 
 	private Image image;
-	private Experience experience;
+	private Player player;
 
 	void Start ()
 	 {
 		image = GetComponent<Image> ();
-		experience = GetComponentInParent<Experience>();
+		player = FindObjectOfType<Player>();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
 		
-		image.fillAmount = Mathf.Lerp(image.fillAmount,((float)	experience.getCurrentExperience()/experience.getNextLvlExp()),0.05f);
+		image.fillAmount = Mathf.Lerp(image.fillAmount,((float)	player.Experience/player.ExpToNextLevel),0.05f);
 		
 	}
 }

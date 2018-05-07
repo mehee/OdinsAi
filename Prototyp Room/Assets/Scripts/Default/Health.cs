@@ -2,47 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour {
+public class Health : Resource 
+{   
 
-	PlayerScript playerScript;
-	Player player;
-    Enemy enemy;
-    EnemyBehaviour enemyBehaviour;
-	Death death;
-    private Character chara;
-	void Start () 
-	{
-        death = GetComponent<Death> ();
-       if(GetComponent<EnemyBehaviour>()!=null)
+
+    public void UpdateHealth(uint hp)
+    {
+        Maximum += (float) hp;
+    }
+    public override void Reduce(float amount)
+    {
+        Value -= amount;
+        if(Value <= 0)
         {
-            enemyBehaviour = GetComponent<EnemyBehaviour>();
-            enemy = enemyBehaviour.Enemy;
+            GetComponent<Character>().Die();
         }
-       else
-        {
-		playerScript = GetComponent<PlayerScript> ();
-		player = playerScript.Player;
-        }
-}
-	
-	public void subtractHealthBy(float value)
-	{
-        if (enemy != null)
-        {
-            enemy.subtractHealthBy(value);
-
-            if (enemy.CurrentHealth <= 0)
-                death.die();
-        }
-        else
-        {
-            player.subtractHealthBy(value);
-
-            if (player.CurrentHealth <= 0)
-                death.die();
-        }
-	}
-
-
-	
+    } 
 }

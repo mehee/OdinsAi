@@ -1,108 +1,86 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[System.Serializable]
 public class Stats
 {
-	private int health;
-    private int strenght;
-    private int armor;
-    private int intelligence;
+    [Tooltip("Wert bestimmen, der pro Lvl draufaddiert wird")]
+    [SerializeField]
+    private float hpMod;
+    private int baseHealth=1;
+    [SerializeField]
+    private float strMod=1;
 
-    public int Health
+    private int baseStrenght=1;
+    [SerializeField]
+    private float armMod;
+    private int baseArmor=1;
+    [SerializeField]
+    private float intMod;
+    private int baseIntelligence=1;
+
+
+
+    public void UpdateStats(uint lvl)
+    {
+        baseHealth = Mathf.FloorToInt(hpMod*(int)lvl);
+        baseStrenght = Mathf.FloorToInt(strMod*(int)lvl);
+        baseArmor = Mathf.FloorToInt(armMod*(int)lvl);
+        baseIntelligence = Mathf.FloorToInt(intMod*(int)lvl);
+    }
+  
+
+    public int BaseHealth
     {
         get
         {
-            return health;
+            return baseHealth;
         }
 
         set
         {
-            health = value;
+            baseHealth = value;
         }
     }
 
-    public int Strenght
+    public int BaseStrenght
     {
         get
         {
-            return strenght;
+            return baseStrenght;
         }
 
         set
         {
-            strenght = value;
+            baseStrenght = value;
         }
     }
 
-    public int Armor
+    public int BaseArmor
     {
         get
         {
-            return armor;
+            return baseArmor;
         }
 
         set
         {
-            armor = value;
+            baseArmor = value;
         }
     }
 
-    public int Intelligence
+    public int BaseIntelligence
     {
         get
         {
-            return intelligence;
+            return baseIntelligence;
         }
 
         set
         {
-            intelligence = value;
+            baseIntelligence = value;
         }
     }
-
-    public int getHealth()
-	{
-		return Health;
-	}
-
-	public void setHealth(int value)
-	{
-		this.Health = value;
-	}
-
-	
-	public int getStrenght()
-	{
-		return Strenght;
-	}
-
-	public void setStrenght(int value)
-	{
-		this.Strenght = value;
-	}
-
-	
-	public int getArmor()
-	{
-		return Armor;
-	}
-
-	public void setArmor(int value)
-	{
-		this.Armor = value;
-	}
-
-	
-	public int getIntelligence()
-	{
-		return Intelligence;
-	}
-
-	public void setIntelligence(int value)
-	{
-		this.Intelligence = value;
-	}
-
-
 }
