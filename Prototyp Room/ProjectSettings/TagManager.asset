@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - cooldown
+  - SpawnPoints
   - Enemy
   layers:
   - Default
@@ -15,9 +16,12 @@ TagManager:
   - UI
   - 
   - 
+  - SpawnPoints
+  - Player
   - 
   - 
   - EnemyLayer
+  - 
   - 
   - 
   - 
@@ -49,15 +53,12 @@ TagManager:
   - name: Water
     uniqueID: 2133376011
     locked: 0
-  - name: Forest
-    uniqueID: 4278069257
-    locked: 0
   - name: Walls
     uniqueID: 2314875125
     locked: 0
-  - name: Player
-    uniqueID: 3258668953
+  - name: Background Obj
+    uniqueID: 3182088301
     locked: 0
-  - name: Enemy
-    uniqueID: 199446185
+  - name: GameObjects
+    uniqueID: 3258668953
     locked: 0

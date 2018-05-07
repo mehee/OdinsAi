@@ -49,9 +49,9 @@ TextureImporter:
     21300084: 001_42
     21300086: 001_43
     21300088: 001_44
-    21300090: 001_45
-    21300092: 001_46
-    21300094: 001_47
+    21300090: 001_GrassedWall11
+    21300092: 001_GrassedWall12
+    21300094: 001_GrassedWall13
     21300096: 001_48
     21300098: 001_49
     21300100: 001_50
@@ -63,46 +63,46 @@ TextureImporter:
     21300112: 001_56
     21300114: 001_57
     21300116: 001_58
-    21300118: 001_59
-    21300120: 001_60
+    21300118: 001_GrassedWall15
+    21300120: 001_GrassedWall16
     21300122: 001_61
     21300124: 001_62
     21300126: 001_63
-    21300128: 001_64
-    21300130: 001_65
-    21300132: 001_66
-    21300134: 001_67
-    21300136: 001_68
+    21300128: 001_GrassedWall00
+    21300130: 001_GrassedWall01
+    21300132: 001_GrassedWall02
+    21300134: 001_GrassedWall17
+    21300136: 001_GrassedWall18
     21300138: 001_69
     21300140: 001_70
     21300142: 001_71
-    21300144: 001_72
-    21300146: 001_73
-    21300148: 001_74
+    21300144: 001_GrassedWall03
+    21300146: 001_GrassedWall14
+    21300148: 001_GrassedWall04
     21300150: 001_75
     21300152: 001_76
     21300154: 001_77
     21300156: 001_78
     21300158: 001_79
-    21300160: 001_80
-    21300162: 001_81
-    21300164: 001_82
+    21300160: 001_GrassedWall05
+    21300162: 001_GrassedWall06
+    21300164: 001_GrassedWall07
     21300166: 001_83
     21300168: 001_84
     21300170: 001_85
     21300172: 001_86
     21300174: 001_87
-    21300176: 001_88
-    21300178: 001_89
-    21300180: 001_90
+    21300176: 001_GrassedWall08
+    21300178: 001_GrassedWall09
+    21300180: 001_GrassedWall10
     21300182: 001_91
     21300184: 001_92
     21300186: 001_93
     21300188: 001_94
     21300190: 001_95
-    21300192: 001_96
-    21300194: 001_97
-    21300196: 001_98
+    21300192: 001_GrassedWall1100
+    21300194: 001_GrassedWall1200
+    21300196: 001_GrassedWall1300
     21300198: 001_99
     21300200: 001_100
     21300202: 001_101
@@ -145,14 +145,14 @@ TextureImporter:
     21300276: 001_138
     21300278: 001_139
     21300280: 001_140
-    21300282: 001_141
+    21300282: 001_CaveEntrance
     21300284: 001_142
     21300286: 001_143
     21300288: 001_144
     21300290: 001_145
     21300292: 001_146
-    21300294: 001_147
-    21300296: 001_148
+    21300294: 001_RockWallAlt11
+    21300296: 001_RockWallAlt12
     21300298: 001_149
     21300300: 001_150
     21300302: 001_151
@@ -161,38 +161,38 @@ TextureImporter:
     21300308: 001_RockWall03
     21300310: 001_155
     21300312: 001_156
-    21300314: 001_157
-    21300316: 001_158
-    21300318: 001_159
+    21300314: 001_RockWallAlt00
+    21300316: 001_RockWallAlt01
+    21300318: 001_RockWallAlt02
     21300320: 001_RockWall04
     21300322: 001_RockWall05
     21300324: 001_RockWall06
     21300326: 001_163
     21300328: 001_164
-    21300330: 001_165
-    21300332: 001_166
-    21300334: 001_167
+    21300330: 001_RockWallAlt03
+    21300332: 001_RockWallStair06
+    21300334: 001_RockWallAlt04
     21300336: 001_RockWall07
     21300338: 001_RockWall08
     21300340: 001_RockWall09
     21300342: 001_RockWall24
     21300344: 001_RockWall25
-    21300346: 001_173
-    21300348: 001_174
-    21300350: 001_175
+    21300346: 001_RockWallAlt05
+    21300348: 001_RockWallAlt06
+    21300350: 001_RockWallAlt07
     21300352: 001_RockWall10
     21300354: 001_RockWall11
     21300356: 001_RockWall12
-    21300358: 001_179
-    21300360: 001_180
-    21300362: 001_181
-    21300364: 001_182
-    21300366: 001_183
+    21300358: 001_RockWallAlt13
+    21300360: 001_RockWallAlt14
+    21300362: 001_RockWallAlt08
+    21300364: 001_RockWallAlt09
+    21300366: 001_RockWallAlt10
     21300368: 001_184
     21300370: 001_185
     21300372: 001_186
-    21300374: 001_187
-    21300376: 001_188
+    21300374: 001_RockWallAlt15
+    21300376: 001_RockWallAlt16
     21300378: 001_RockWall13
     21300380: 001_RockWall14
     21300382: 001_RockWall15
@@ -201,17 +201,17 @@ TextureImporter:
     21300388: 001_194
     21300390: 001_RockWall19
     21300392: 001_RockWall20
-    21300394: 001_197
-    21300396: 001_198
-    21300398: 001_199
+    21300394: 001_RockWallStair00
+    21300396: 001_RockWallStair01
+    21300398: 001_RockWallStair02
     21300400: 001_RockWall21
     21300402: 001_RockWall17
     21300404: 001_RockWall18
     21300406: 001_203
     21300408: 001_RockWall22
-    21300410: 001_205
-    21300412: 001_206
-    21300414: 001_207
+    21300410: 001_RockWallStair03
+    21300412: 001_RockWallStair04
+    21300414: 001_RockWallStair05
     21300416: 001_208
     21300418: 001_209
     21300420: 001_210
@@ -1115,7 +1115,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_45
+      name: 001_GrassedWall11
       rect:
         serializedVersion: 2
         x: 160
@@ -1129,7 +1129,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_46
+      name: 001_GrassedWall12
       rect:
         serializedVersion: 2
         x: 192
@@ -1143,7 +1143,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_47
+      name: 001_GrassedWall13
       rect:
         serializedVersion: 2
         x: 224
@@ -1311,7 +1311,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_59
+      name: 001_GrassedWall15
       rect:
         serializedVersion: 2
         x: 96
@@ -1325,7 +1325,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_60
+      name: 001_GrassedWall16
       rect:
         serializedVersion: 2
         x: 128
@@ -1381,7 +1381,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_64
+      name: 001_GrassedWall00
       rect:
         serializedVersion: 2
         x: 0
@@ -1395,7 +1395,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_65
+      name: 001_GrassedWall01
       rect:
         serializedVersion: 2
         x: 32
@@ -1409,7 +1409,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_66
+      name: 001_GrassedWall02
       rect:
         serializedVersion: 2
         x: 64
@@ -1423,7 +1423,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_67
+      name: 001_GrassedWall17
       rect:
         serializedVersion: 2
         x: 96
@@ -1437,7 +1437,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_68
+      name: 001_GrassedWall18
       rect:
         serializedVersion: 2
         x: 128
@@ -1493,7 +1493,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_72
+      name: 001_GrassedWall03
       rect:
         serializedVersion: 2
         x: 0
@@ -1507,7 +1507,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_73
+      name: 001_GrassedWall14
       rect:
         serializedVersion: 2
         x: 32
@@ -1521,7 +1521,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_74
+      name: 001_GrassedWall04
       rect:
         serializedVersion: 2
         x: 64
@@ -1605,7 +1605,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_80
+      name: 001_GrassedWall05
       rect:
         serializedVersion: 2
         x: 0
@@ -1619,7 +1619,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_81
+      name: 001_GrassedWall06
       rect:
         serializedVersion: 2
         x: 32
@@ -1633,7 +1633,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_82
+      name: 001_GrassedWall07
       rect:
         serializedVersion: 2
         x: 64
@@ -1717,7 +1717,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_88
+      name: 001_GrassedWall08
       rect:
         serializedVersion: 2
         x: 0
@@ -1731,7 +1731,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_89
+      name: 001_GrassedWall09
       rect:
         serializedVersion: 2
         x: 32
@@ -1745,7 +1745,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_90
+      name: 001_GrassedWall10
       rect:
         serializedVersion: 2
         x: 64
@@ -1829,7 +1829,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_96
+      name: 001_GrassedWall1100
       rect:
         serializedVersion: 2
         x: 0
@@ -1843,7 +1843,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_97
+      name: 001_GrassedWall1200
       rect:
         serializedVersion: 2
         x: 32
@@ -1857,7 +1857,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_98
+      name: 001_GrassedWall1300
       rect:
         serializedVersion: 2
         x: 64
@@ -2445,43 +2445,15 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_141
+      name: 001_CaveEntrance
       rect:
         serializedVersion: 2
         x: 160
-        y: 1120
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: 001_142
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 1120
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: 001_143
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 1120
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 1088
+        width: 96
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2529,7 +2501,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_147
+      name: 001_RockWallAlt11
       rect:
         serializedVersion: 2
         x: 96
@@ -2543,52 +2515,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_148
+      name: 001_RockWallAlt12
       rect:
         serializedVersion: 2
         x: 128
-        y: 1088
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: 001_149
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 1088
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: 001_150
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 1088
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: 001_151
-      rect:
-        serializedVersion: 2
-        x: 224
         y: 1088
         width: 32
         height: 32
@@ -2669,7 +2599,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_157
+      name: 001_RockWallAlt00
       rect:
         serializedVersion: 2
         x: 160
@@ -2683,7 +2613,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_158
+      name: 001_RockWallAlt01
       rect:
         serializedVersion: 2
         x: 192
@@ -2697,7 +2627,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_159
+      name: 001_RockWallAlt02
       rect:
         serializedVersion: 2
         x: 224
@@ -2781,7 +2711,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_165
+      name: 001_RockWallAlt03
       rect:
         serializedVersion: 2
         x: 160
@@ -2795,7 +2725,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_166
+      name: 001_RockWallStair06
       rect:
         serializedVersion: 2
         x: 192
@@ -2809,7 +2739,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_167
+      name: 001_RockWallAlt04
       rect:
         serializedVersion: 2
         x: 224
@@ -2893,7 +2823,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_173
+      name: 001_RockWallAlt05
       rect:
         serializedVersion: 2
         x: 160
@@ -2907,7 +2837,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_174
+      name: 001_RockWallAlt06
       rect:
         serializedVersion: 2
         x: 192
@@ -2921,7 +2851,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_175
+      name: 001_RockWallAlt07
       rect:
         serializedVersion: 2
         x: 224
@@ -2977,7 +2907,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_179
+      name: 001_RockWallAlt13
       rect:
         serializedVersion: 2
         x: 96
@@ -2991,7 +2921,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_180
+      name: 001_RockWallAlt14
       rect:
         serializedVersion: 2
         x: 128
@@ -3005,7 +2935,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_181
+      name: 001_RockWallAlt08
       rect:
         serializedVersion: 2
         x: 160
@@ -3019,7 +2949,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_182
+      name: 001_RockWallAlt09
       rect:
         serializedVersion: 2
         x: 192
@@ -3033,7 +2963,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_183
+      name: 001_RockWallAlt10
       rect:
         serializedVersion: 2
         x: 224
@@ -3089,7 +3019,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_187
+      name: 001_RockWallAlt15
       rect:
         serializedVersion: 2
         x: 96
@@ -3103,7 +3033,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_188
+      name: 001_RockWallAlt16
       rect:
         serializedVersion: 2
         x: 128
@@ -3229,7 +3159,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_197
+      name: 001_RockWallStair00
       rect:
         serializedVersion: 2
         x: 160
@@ -3243,7 +3173,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_198
+      name: 001_RockWallStair01
       rect:
         serializedVersion: 2
         x: 192
@@ -3257,7 +3187,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_199
+      name: 001_RockWallStair02
       rect:
         serializedVersion: 2
         x: 224
@@ -3341,7 +3271,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_205
+      name: 001_RockWallStair03
       rect:
         serializedVersion: 2
         x: 160
@@ -3355,7 +3285,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_206
+      name: 001_RockWallStair04
       rect:
         serializedVersion: 2
         x: 192
@@ -3369,7 +3299,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 001_207
+      name: 001_RockWallStair05
       rect:
         serializedVersion: 2
         x: 224
@@ -5380,6 +5310,20 @@ TextureImporter:
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 001_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
