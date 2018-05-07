@@ -8,7 +8,11 @@ public class EnemyBehaviour : MonoBehaviour {
     private Transform target;
     private Movement movement;
     private IState currentState;
+
+    [SerializeField]
     private float attackRange;
+
+    private Vector3 myStartPos;
     public Transform Target
     {
         get
@@ -61,8 +65,21 @@ public class EnemyBehaviour : MonoBehaviour {
         }
     }
 
+    public Vector3 MyStartPosition
+    {
+        get
+        {
+            return myStartPos;
+        }
+
+        set
+        {
+            myStartPos = value;
+        }
+    }
+
     // Use this for initialization
-    void Awake()
+    void Start()
     {
 
         enemy = GetComponent<Enemy>();
