@@ -21,6 +21,7 @@ public class Player : Character
 	{
 		health = GetComponent<Health> ();
 		health.Maximum +=stats.BaseHealth*100;
+		health.Reset();
 	}
 	
     public uint ExpToNextLevel
