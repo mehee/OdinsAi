@@ -12,12 +12,14 @@ public class Lunge : Ability
 	[SerializeField]
 	float speed;
 
-	public override void Activate(float resource)
+	public override void Activate()
 	{
-		base.Activate(resource);
+		base.Activate();
 		Vector2 mousePosition = 
 			Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		Debug.Log(mousePosition);
 		targetPostition = mousePosition;
+		Debug.Log(targetPostition);
 		direction = mousePosition - (Vector2)parent.position;
 		direction.Normalize();
 		moving = true;
