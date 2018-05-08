@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Cooldown : MonoBehaviour {
+public class Cooldown : MonoBehaviour 
+{
 	private Image[] allImages;
 	private Image[] cooldownImages = new Image[7];
+	private Ability[] abilities;
+	private int activeAbilities;
 	private int fieldcount = 0;
 	private Wrath wrath;
 
@@ -21,82 +24,24 @@ public class Cooldown : MonoBehaviour {
 				fieldcount++;
 			}
 		}
+		abilities = transform.root.GetComponentsInChildren<Ability>();
+		activeAbilities = abilities.Length;
+		for(int i = activeAbilities; i < cooldownImages.Length; i++)
+		{
+			cooldownImages[i].fillAmount = 1f;
+		}
 		Debug.Log(cooldownImages.Length);
 		Debug.Log(allImages.Length);
 		wrath = GetComponentInParent<Wrath>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if(Input.GetKeyDown(KeyCode.Alpha1))
+	void Update () 
+	{
+		for(int i = 0; i < activeAbilities; i++)
 		{
-			if(wrath.Value >= 50f) // anstelle der 50f auf WrathUsage des Skills referenzieren
-			{
-				Debug.Log("Skill 1 used.");
-				cooldownImages[0].fillAmount = Mathf.Lerp(1.00f,0.00f,0.05f); // anstelle der 0.05f auf CooldownLerpSpeed des Skills referenzieren
-				//wrath.subtractWrathBy(50); // anstelle der 50 auf WrathUsage des Skills referenzieren
-			}
+			float remaining = abilities[i].CooldownTimer / abilities[i].Cooldown;
+			cooldownImages[i].fillAmount = remaining;
 		}
-
-		if(Input.GetKeyDown(KeyCode.Alpha2))
-		{
-			if(wrath.Value >= 50f)
-			{
-				Debug.Log("Skill 2 used.");
-				cooldownImages[1].fillAmount = Mathf.Lerp(1f,0f,0.05f);
-				//wrath.subtractWrathBy(50);
-			}
-		}
-
-		if(Input.GetKeyDown(KeyCode.Alpha3))
-		{
-			if(wrath.Value >= 50f)
-			{
-				Debug.Log("Skill 3 used.");
-				cooldownImages[2].fillAmount = Mathf.Lerp(1f,0f,0.05f);
-				//wrath.subtractWrathBy(50);
-			}
-		}
-
-		if(Input.GetKeyDown(KeyCode.Alpha4))
-		{
-			if(wrath.Value >= 50f)
-			{
-				Debug.Log("Skill 4 used.");
-				cooldownImages[3].fillAmount = Mathf.Lerp(1f,0f,0.05f);
-				//wrath.subtractWrathBy(50);
-			}
-		}
-
-		if(Input.GetKeyDown(KeyCode.Alpha5))
-		{
-			if(wrath.Value >= 50f)
-			{
-				Debug.Log("Skill 5 used.");
-				cooldownImages[4].fillAmount = Mathf.Lerp(1f,0f,0.05f);
-				//wrath.subtractWrathBy(50);
-			}
-		}
-
-		if(Input.GetKeyDown(KeyCode.Q))
-		{
-			if(wrath.Value >= 50f)
-			{
-				Debug.Log("Skill 6 used.");
-				cooldownImages[5].fillAmount = Mathf.Lerp(1f,0f,0.05f);
-				//wrath.subtractWrathBy(50);
-			}
-		}
-
-		if(Input.GetKeyDown(KeyCode.E))
-		{
-			if(wrath.Value >= 50f)
-			{
-				Debug.Log("Skill 7 used.");
-				cooldownImages[6].fillAmount = Mathf.Lerp(1f,0f,0.05f);
-				//wrath.subtractWrathBy(50);
-			}
-		}
-
 	}
 }

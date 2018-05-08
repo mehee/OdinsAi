@@ -10,7 +10,7 @@ public class WrathText : MonoBehaviour
 
 	void Start () 
 	{
-		wrath = FindObjectOfType<Player>().GetComponent<Wrath>();
+		wrath = transform.root.GetComponent<Wrath>();
 		text = GetComponent<Text> ();
 	}
 	

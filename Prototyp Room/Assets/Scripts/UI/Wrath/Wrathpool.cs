@@ -12,7 +12,7 @@ public class Wrathpool : MonoBehaviour {
 
 	void Start ()
 	 {
-		wrath = FindObjectOfType<Player>().GetComponent<Wrath>();
+		wrath = transform.root.GetComponent<Wrath>();
 		image = GetComponent<Image> ();
 	}
 	

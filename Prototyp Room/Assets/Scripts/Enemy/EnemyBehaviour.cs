@@ -8,11 +8,12 @@ public class EnemyBehaviour : MonoBehaviour {
     private Transform target;
     private Movement movement;
     private IState currentState;
+    private AnimationManager animator;
 
     [SerializeField]
     private float attackRange;
 
-    private Vector3 myStartPos;
+    private Vector3 myStartPosition;
     public Transform Target
     {
         get
@@ -51,7 +52,7 @@ public class EnemyBehaviour : MonoBehaviour {
             movement = value;
         }
     }
-
+        
     public float AttackRange
     {
         get
@@ -69,12 +70,12 @@ public class EnemyBehaviour : MonoBehaviour {
     {
         get
         {
-            return myStartPos;
+            return myStartPosition;
         }
 
         set
         {
-            myStartPos = value;
+            myStartPosition = value;
         }
     }
 
@@ -83,14 +84,17 @@ public class EnemyBehaviour : MonoBehaviour {
     {
 
         enemy = GetComponent<Enemy>();
+        animator = GetComponent<AnimationManager>();
         ChangeState(new IdleState());
         AttackRange = enemy.AttackRange;
         movement = GetComponent<Movement>();
+        myStartPosition = enemy.transform.position;
     }
     // Update is called once per frame
     void Update()
     {
         currentState.Update();
+        animateEnemy();
     }
 
     public void ChangeState(IState newState)
@@ -101,6 +105,23 @@ public class EnemyBehaviour : MonoBehaviour {
         }
         currentState = newState;
         currentState.Enter(this);
+    }
+
+    public void animateEnemy()
+    {
+        if(currentState is FollowState)
+        {
+            animator.Walk( target.transform.position - enemy.transform.position);
+        }
+        else if(currentState is EvadeState)
+        {
+            animator.Walk(myStartPosition - enemy.transform.position);
+        }
+        else if(currentState is AttackState)
+        {
+            
+            animator.Attack((Target.transform.position - enemy.transform.position ).normalized);
+        }
     }
    
 }

@@ -5,8 +5,9 @@ using UnityEngine;
 
 public abstract class Ability : MonoBehaviour
 {
-	float timeOfLastActivation;
+	float cooldownTimer;
 	uint frameCounter = 0;
+	AbilityResource resource;
 	
 	new protected Collider2D collider;
 
@@ -39,10 +40,23 @@ public abstract class Ability : MonoBehaviour
 		}
 	}
 
-	protected virtual void Awake()
+    public float CooldownTimer
+    {
+        get
+        {
+            return cooldownTimer;
+        }
+        set
+        {
+            cooldownTimer = value;
+        }
+    }
+
+    protected virtual void Awake()
 	{
 		collider = GetComponent<Collider2D>();
 		collider.enabled = false;
+		resource = transform.parent.GetComponent<AbilityResource>();
 	}
 
 	protected virtual void Update()
@@ -53,53 +67,38 @@ public abstract class Ability : MonoBehaviour
 			frameCounter = 0;
 		}
 
+		if(cooldownTimer > 0)
+		{
+			cooldownTimer -= Time.deltaTime;
+			if(cooldownTimer < 0)
+				cooldownTimer = 0;
+		}
+
 		if(collider.enabled)
 		{
 			frameCounter++;
 		}
 	}
 
-	public virtual void Activate(float resource)
+	public virtual bool Activate()
 	{
-		if(!ReadyForActivation(resource))
+		if(!ReadyForActivation())
 		{
 			// TODO: Replace with proper sounds and UI message!
 			Debug.Log("Ability not ready");
-			return;
+			return false;
 		}
+		cooldownTimer = Cooldown;
+		resource.Reduce(Cost);
+		return true;
 	}
 	
 
-	/** The overloaded variant of this function
-		takes in a float out-parameter for getting
-		the remaining time if needed. */
-	public bool CooldownReady()
+	public virtual bool ReadyForActivation()
 	{
-		float currentTime = Time.time;
-		if(currentTime - timeOfLastActivation > Cooldown)
-			return true;
-		return false;
-	}
-
-	public bool CooldownReady(out float remainingTime)
-	{
-		float currentTime = Time.time;
-		float difference = currentTime - timeOfLastActivation;
-		remainingTime = Cooldown - difference;
-		if(remainingTime < 0)
-		{
-			remainingTime = 0;
-			return true;
-		}
-		else
+		if(cooldownTimer > 0)
 			return false;
-	}
-
-	public virtual bool ReadyForActivation(float availableResources)
-	{
-		if(!CooldownReady())
-			return false;
-		else if(availableResources < Cost)
+		else if(resource.Value < Cost)
 			return false;
 		return true;
 	}

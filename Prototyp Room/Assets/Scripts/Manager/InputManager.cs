@@ -28,13 +28,13 @@ public class InputManager : MonoBehaviour
 		else
 			animator.Stay(movementVec);
 
-		movement.Move(movementVec);
+		if(Input.GetButtonDown("Jump"))
+			movement.Dash(movementVec);
+
+		if(movement.DashTimer == 0)
+			movement.Move(movementVec);
 		
 		if(Input.GetButtonDown("Ability1"))
-			GetComponentInChildren<Maul>().Activate(500);
-		if(Input.GetButtonDown("Ability2"))
-		{
-			GetComponentInChildren<Lunge>().Activate(500);
-		}
+			GetComponentInChildren<Maul>().Activate();
 	}
 }

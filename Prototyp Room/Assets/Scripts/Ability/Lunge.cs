@@ -12,16 +12,19 @@ public class Lunge : Ability
 	[SerializeField]
 	float speed;
 
-	public override void Activate(float resource)
+	public override bool Activate()
 	{
-		base.Activate(resource);
+		if(!base.Activate())
+			return false;
 		Vector2 mousePosition = 
 			Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		Debug.Log(mousePosition);
 		targetPostition = mousePosition;
+		Debug.Log(targetPostition);
 		direction = mousePosition - (Vector2)parent.position;
 		direction.Normalize();
 		moving = true;
-		Debug.Log(moving);
+		return true;
 	}
 
     protected override void OnTriggerEnter2D(Collider2D other)
