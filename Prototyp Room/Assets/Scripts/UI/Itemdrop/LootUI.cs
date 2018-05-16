@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LootUI : MonoBehaviour {
 
+ // SACRIPT CAN BE DELETED I GUESS!!
 	public GameObject lootUI;
 
 	// Use this for initialization
