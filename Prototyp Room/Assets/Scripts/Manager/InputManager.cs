@@ -37,9 +37,5 @@ public class InputManager : MonoBehaviour
 		if(Input.GetButtonDown("Ability1"))
 			GetComponentInChildren<Maul>().Activate();
 
-		if(Input.GetButtonDown("Pickup"))
-		{
-			
-		}
 	}
 }
