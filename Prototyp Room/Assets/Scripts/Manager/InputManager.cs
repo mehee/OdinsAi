@@ -24,9 +24,11 @@ public class InputManager : MonoBehaviour
 		if(movementVec!= Vector2.zero)
 		{
 			animator.Walk(movementVec);
-		}
+            movement.Direction = Vector2.zero;
+            movement.Direction += movementVec.normalized;
+        }
 		else
-			animator.Stay(movementVec);
+			animator.Stay(movement.Direction);
 
 		if(Input.GetButtonDown("Jump"))
 			movement.Dash(movementVec);
