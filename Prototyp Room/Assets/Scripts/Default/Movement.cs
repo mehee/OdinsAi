@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour
     float dashSpeed;
     float dashTimer;
     Vector2 dashDirection;
-    Vector2 direction;
+    Vector2 direction = Vector2.down;
 
 
     public float MovementSpeed
