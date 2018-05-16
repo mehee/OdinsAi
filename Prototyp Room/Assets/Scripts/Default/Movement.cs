@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour
     float dashSpeed;
     float dashTimer;
     Vector2 dashDirection;
+    Vector2 direction;
 
 
     public float MovementSpeed
@@ -35,6 +36,19 @@ public class Movement : MonoBehaviour
         get
         {
             return dashTimer;
+        }
+    }
+
+    public Vector2 Direction
+    {
+        get
+        {
+            return direction;
+        }
+
+        set
+        {
+            direction = value;
         }
     }
 
