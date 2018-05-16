@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿	using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,6 +22,7 @@ public class AnimationManager : MonoBehaviour {
 	}
 	public void Stay(Vector2 vector2)
 	{
+		Debug.Log("Animator says IDLE!!");
 		animator.SetBool("iswalking",false);
         animator.SetBool("isAttacking", false);
 
