@@ -9,17 +9,17 @@ public class Stats
     [Tooltip("Wert bestimmen, der pro Lvl draufaddiert wird")]
     [SerializeField]
     private float hpMod;
-    private int baseHealth=1;
     [SerializeField]
     private float strMod=1;
 
-    private int baseStrenght=1;
     [SerializeField]
     private float armMod;
-    private int baseArmor=1;
     [SerializeField]
     private float intMod;
+    private int baseHealth=1;
     private int baseIntelligence=1;
+    private int baseStrenght=1;
+    private int baseArmor=1;
 
 
 

@@ -14,6 +14,7 @@ public class Lunge : Ability
 
 	public override bool Activate()
 	{
+		info.baseDamage = transform.root.GetComponent<Character>().stats.BaseStrenght;
 		if(!base.Activate())
 			return false;
 		Vector2 mousePosition = 
