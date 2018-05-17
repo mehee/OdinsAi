@@ -60,3 +60,6 @@ TagManager:
   - name: GameObjects
     uniqueID: 3258668953
     locked: 0
+  - name: UiElements
+    uniqueID: 3405256847
+    locked: 0
