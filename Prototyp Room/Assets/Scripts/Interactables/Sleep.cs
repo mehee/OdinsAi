@@ -8,6 +8,7 @@ public class Sleep : MonoBehaviour {
 
 	[SerializeField] private string triggerName;
 	[SerializeField] private Animator transitionAnimator;
+//	private bool isSleeping = false;
 
 	//helpers
 	private bool isOnTrigger = false;
@@ -27,12 +28,20 @@ public class Sleep : MonoBehaviour {
 
 	void StartSleeping()
 	{
+
+		// finish this
+		transitionAnimator.SetBool("isSleeping", true);
+
 		transitionAnimator.SetTrigger(triggerName);
+
+		transitionAnimator.SetBool("isSleeping", false);
+
 		//it can only used every second time. have to reset it 
 		
 		//stop Moving
 		
 		//healing
+		
 		
 	}
 
