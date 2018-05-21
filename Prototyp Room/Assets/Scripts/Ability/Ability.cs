@@ -36,7 +36,11 @@ public abstract class Ability : MonoBehaviour
 	{
 		get
 		{
-			return info.baseDamage * info.damageModifier;
+			var stats = transform.root.GetComponent<Character>().stats;
+			float totalDamage = info.baseDamage;
+			totalDamage += info.strengthScaling * stats.Strength;
+			totalDamage += info.intelligenceScaling * stats.Intelligence;
+			return totalDamage;
 		}
 	}
 

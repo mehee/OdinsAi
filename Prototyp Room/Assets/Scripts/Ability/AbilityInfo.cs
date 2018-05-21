@@ -19,6 +19,9 @@ public struct AbilityInfo
 	public float costModifier;
 	public float damageModifier;
 
+	public float strengthScaling;
+	public float intelligenceScaling;
+
 	public int framesActive;
 
 	public Sprite icon;

@@ -35,6 +35,7 @@ public class Player : Character
         get { return experience; }
         private set { experience = value; }
     }
+
 	public void GainExp(uint amount)
 	{
 		experience += amount;
@@ -51,13 +52,11 @@ public class Player : Character
 		GetComponent<Health>().Reset();
 		transform.position = Vector2.zero;
 	}
+
 	void LevelUp()
 	{
 		level++;
 		stats.UpdateStats(level);
-		health.Maximum +=stats.BaseHealth*100;
+		health.Maximum += stats.BaseHealth*100;
 	}
-
-
-
 }

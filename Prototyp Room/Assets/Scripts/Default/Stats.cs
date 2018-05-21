@@ -9,78 +9,81 @@ public class Stats
     [Tooltip("Wert bestimmen, der pro Lvl draufaddiert wird")]
     [SerializeField]
     private float hpMod;
+
     [SerializeField]
-    private float strMod=1;
+    private float strMod;
 
     [SerializeField]
     private float armMod;
+
     [SerializeField]
     private float intMod;
-    private int baseHealth=1;
-    private int baseIntelligence=1;
-    private int baseStrenght=1;
-    private int baseArmor=1;
+
+    private int health = 1;
+    private int intelligence = 1;
+    private int strength = 1;
+    private int armor = 1;
 
 
 
     public void UpdateStats(uint lvl)
     {
-        baseHealth = Mathf.FloorToInt(hpMod*(int)lvl);
-        baseStrenght = Mathf.FloorToInt(strMod*(int)lvl);
-        baseArmor = Mathf.FloorToInt(armMod*(int)lvl);
-        baseIntelligence = Mathf.FloorToInt(intMod*(int)lvl);
+        health = Mathf.FloorToInt(hpMod*(int)lvl);
+        strength = Mathf.FloorToInt(strMod*(int)lvl);
+        armor = Mathf.FloorToInt(armMod*(int)lvl);
+        intelligence = Mathf.FloorToInt(intMod*(int)lvl);
     }
   
 
-    public int BaseHealth
+    public int Health
     {
         get
         {
-            return baseHealth;
+            return health;
         }
 
         set
         {
-            baseHealth = value;
+            health = value;
         }
     }
 
-    public int BaseStrenght
+    public int Strength
     {
         get
         {
-            return baseStrenght;
+            return strength;
         }
 
         set
         {
-            baseStrenght = value;
+            strength = value;
         }
     }
 
-    public int BaseArmor
+    public int Armor
     {
         get
         {
-            return baseArmor;
+            return armor;
         }
 
         set
         {
-            baseArmor = value;
+            armor = value;
         }
     }
 
-    public int BaseIntelligence
+    public int Intelligence
     {
         get
         {
-            return baseIntelligence;
+            return intelligence;
         }
 
         set
         {
-            baseIntelligence = value;
+            intelligence = value;
         }
     }
 }
