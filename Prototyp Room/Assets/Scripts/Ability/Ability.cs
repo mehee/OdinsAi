@@ -40,6 +40,7 @@ public abstract class Ability : MonoBehaviour
 			float totalDamage = info.baseDamage;
 			totalDamage += info.strengthScaling * stats.Strength;
 			totalDamage += info.intelligenceScaling * stats.Intelligence;
+			totalDamage *= info.damageModifier;
 			return totalDamage;
 		}
 	}
@@ -84,6 +85,19 @@ public abstract class Ability : MonoBehaviour
 		}
 	}
 
+	/** Hitbox gets rotated so that it aligns
+		with the one of the 8 cardinal directions that
+		the mouse is closest to. */
+	protected void AlignHitboxWithMouse()
+	{
+		Vector3 difference = Camera.main.WorldToScreenPoint(Input.mousePosition)
+			- transform.root.position;
+		float rotation = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+		rotation /= 45;
+		rotation = Mathf.Round(rotation) * 45;
+		transform.rotation = Quaternion.Euler(0, 0, rotation - 90); 
+	}
+
 	public virtual bool Activate()
 	{
 		if(!ReadyForActivation())
@@ -94,6 +108,8 @@ public abstract class Ability : MonoBehaviour
 		}
 		cooldownTimer = Cooldown;
 		resource.Reduce(Cost);
+		collider.enabled = true;
+		AlignHitboxWithMouse();
 		return true;
 	}
 	

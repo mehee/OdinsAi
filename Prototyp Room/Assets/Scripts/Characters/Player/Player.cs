@@ -20,7 +20,7 @@ public class Player : Character
 	void Start()
 	{
 		health = GetComponent<Health> ();
-		health.Maximum +=stats.BaseHealth*10;
+		health.Maximum +=stats.Health * 10;
 		health.Reset();
 	}
 	
@@ -57,6 +57,6 @@ public class Player : Character
 	{
 		level++;
 		stats.UpdateStats(level);
-		health.Maximum += stats.BaseHealth*100;
+		health.Maximum += stats.Health * 100;
 	}
 }
