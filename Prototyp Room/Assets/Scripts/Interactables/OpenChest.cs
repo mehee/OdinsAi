@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OpenChest : MonoBehaviour {
 
@@ -23,8 +24,8 @@ public class OpenChest : MonoBehaviour {
 		openingAnimation = GetComponent<Animator>();
 		player = GameObject.Find("Player");
 		//should fill itself with the right Object
-		// guiOpenText = player.GetComponentInChildrenWithTheStupdName("Loot_Chest");
-		//guiOpenText = player.GetComponentInChildren<GameObject>();
+		//guiOpenText = player.GetComponentInChildrenWithTheStupdName("Loot_Chest");
+		//guiOpenText = player.GetComponentInChildren<>();
 		//canvasLootUi = player.GetComponentInChildren<GameObject>();
 	}
 
