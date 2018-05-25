@@ -4,5 +4,76 @@ using UnityEngine;
 
 public class UseManager : MonoBehaviour {
 
-	//WRITE AN OVERALL CLASS
+	//Insert the guiInteractText witch should apear when on Trigger
+	[SerializeField] public GameObject guiInteractText;
+	//Show the CanvasObj, if their is one
+	[SerializeField] public GameObject objectToShow;
+	//target to Spawn if necessary
+	[SerializeField] private GameObject target;
+
+	// name of the String to switch State in the Animator
+	public string transitionParameterName;
+
+	//if an Animation should be activated, Calls his own Animator to trigger it
+	private Animator animator;
+	//to check if GameObject with Tag Player is on Trigger
+	private bool playerIsOnTrigger = false;
+
+	private GameObject player;
+
+	void Awake()
+	{
+		guiInteractText.SetActive(false);
+
+		if(objectToShow != null)
+			objectToShow.SetActive(false);
+	}
+
+	void Start()
+	{
+		animator = GetComponent<Animator>();
+		player = GameObject.FindGameObjectWithTag("Player");
+	}
+
+	void Update()
+	{
+		if(playerIsOnTrigger && guiInteractText.activeInHierarchy && Input.GetButtonDown("Use"))
+		{
+			if(animator != null)
+				animator.SetBool(transitionParameterName, true);
+
+			if(objectToShow != null)
+				objectToShow.SetActive(!objectToShow.activeSelf);
+
+			if(target != null)
+				ChangePlayerPosition();
+		}
+		
+	}
+
+	void ChangePlayerPosition()
+	{
+		player.transform.position = target.transform.position;
+	}
+
+		void OnTriggerStay2D(Collider2D other)
+	{
+		if(other.CompareTag("Player"))
+		{
+			guiInteractText.SetActive(true);			
+			playerIsOnTrigger = true;
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D other)
+	{
+		if(other.CompareTag("Player"))
+		{
+			guiInteractText.SetActive(false);			
+			playerIsOnTrigger = false;
+			
+			if(objectToShow != null)
+				objectToShow.SetActive(false);
+		}
+	}
 }

@@ -18,4 +18,5 @@ public class Health : Resource
             GetComponent<Character>().Die();
         }
     } 
+    
 }
