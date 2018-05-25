@@ -5,10 +5,11 @@ using UnityEngine;
 public class Sleep : MonoBehaviour {
 
 	public GameObject guiOpenText;
+	public GameObject spawnPoint;
 
 	[SerializeField] private string triggerName;
 	[SerializeField] private Animator transitionAnimator;
-//	private bool isSleeping = false;
+	private GameObject player;
 
 	//helpers
 	private bool isOnTrigger = false;
@@ -16,7 +17,8 @@ public class Sleep : MonoBehaviour {
 	void Awake()
 	{
 		guiOpenText.SetActive(false);
-	}
+		player = GameObject.FindGameObjectWithTag("Player");
+	}	
 
 	void Update () 
 	{
@@ -28,21 +30,22 @@ public class Sleep : MonoBehaviour {
 
 	void StartSleeping()
 	{
-
 		// finish this
-		transitionAnimator.SetBool("isSleeping", true);
-
 		transitionAnimator.SetTrigger(triggerName);
-
-		transitionAnimator.SetBool("isSleeping", false);
-
-		//it can only used every second time. have to reset it 
+		//it can only be used every second time. have to reset it 
 		
 		//stop Moving
-		
-		//healing
-		
-		
+		StartCoroutine(resetPosition());
+		//healing wounds and replanish Ressources
+		player.GetComponent<Health>().Reset();
+		player.GetComponent<Wrath>().Reset(); // should be called Ressource not Wrath
+	}
+
+	IEnumerator resetPosition()
+	{
+		yield return new WaitForSeconds(5.0f);
+		player.transform.position = spawnPoint.transform.position;
+
 	}
 
 	void OnTriggerStay2D(Collider2D other)

@@ -30,7 +30,7 @@ public class OpenChest : MonoBehaviour {
 
 	void Update()
 	{
-		if(playerIsOnTrigger &&	guiOpenText.activeInHierarchy == true && Input.GetButtonDown("Use") )
+		if(playerIsOnTrigger &&	guiOpenText.activeInHierarchy && Input.GetButtonDown("Use") )
 		{
 			canvasLootUi.SetActive(!canvasLootUi.activeSelf);
 			openingAnimation.SetBool("isOpen",true);
