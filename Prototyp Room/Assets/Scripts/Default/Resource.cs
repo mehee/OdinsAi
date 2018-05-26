@@ -59,7 +59,6 @@ public class Resource : MonoBehaviour
 
     void Start()
     {
-       
         Value = Maximum;
     }
 }
