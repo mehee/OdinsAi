@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212255428031605776}
   - component: {fileID: 95628496879053460}
   - component: {fileID: 58592642345312160}
-  - component: {fileID: 114476877626889190}
+  - component: {fileID: 114325844842216146}
   - component: {fileID: 61314126062195728}
   m_Layer: 0
   m_Name: Chest_crate
@@ -37,8 +37,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1256545464713166}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -55.6, y: 116.7, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,7 +101,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114476877626889190
+--- !u!114 &114325844842216146
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -109,11 +109,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1256545464713166}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c90c2c2e0e750c24fbd5c292613c653f, type: 3}
+  m_Script: {fileID: 11500000, guid: e9bd34775888ffb4989115d06d8d01e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiOpenText: {fileID: 0}
-  canvasLootUi: {fileID: 0}
+  guiInteractText: {fileID: 0}
+  objectToShow: {fileID: 0}
+  transitionParameterName: isOpen
 --- !u!212 &212255428031605776
 SpriteRenderer:
   m_ObjectHideFlags: 1
