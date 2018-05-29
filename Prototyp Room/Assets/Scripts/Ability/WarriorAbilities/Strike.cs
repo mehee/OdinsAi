@@ -11,11 +11,17 @@ public class Strike : Ability
 		"is necessary to gain an extra tier of bonus damage.")]
 	private int bloodlustInterval;
 
-	protected override void OnTriggerEnter2D(Collider2D other)
+	// For every {bloodlustInterval} units of bloodlust,
+	// the Damage is increased by {bonusDamageRation}.   
+	void OnTriggerEnter2D(Collider2D other)
 	{
 		if(other.tag != "Enemy")
 			return;
 		var health = other.gameObject.GetComponent<Health>();
-		
+		var bloodlust = transform.root.GetComponent<Bloodlust>();
+		float totalDamage = Mathf.Floor(bloodlust.Value / bloodlustInterval);
+		totalDamage *= bonusDamageRatio;
+		totalDamage = Damage + (Damage * totalDamage);
+		health.Reduce(totalDamage);
 	}
 }

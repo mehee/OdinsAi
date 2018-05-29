@@ -26,5 +26,4 @@ public struct AbilityInfo
 
 	public Sprite icon;
 	public AudioClip sound;
-	public List<StatusEffect> statusEffects;
 }
