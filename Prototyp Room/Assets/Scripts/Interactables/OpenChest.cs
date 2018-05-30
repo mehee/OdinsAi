@@ -9,7 +9,6 @@ public class OpenChest : MonoBehaviour {
 	public GameObject guiOpenText;
 	public GameObject canvasLootUi;
 
-	private GameObject player;
 	private Animator openingAnimation;
 	private bool playerIsOnTrigger = false;
 
@@ -22,7 +21,7 @@ public class OpenChest : MonoBehaviour {
 	void Start()
 	{
 		openingAnimation = GetComponent<Animator>();
-		player = GameObject.Find("Player");
+
 		//should fill itself with the right Object
 		//guiOpenText = player.GetComponentInChildrenWithTheStupdName("Loot_Chest");
 		//guiOpenText = player.GetComponentInChildren<>();
@@ -31,7 +30,7 @@ public class OpenChest : MonoBehaviour {
 
 	void Update()
 	{
-		if(playerIsOnTrigger &&	guiOpenText.activeInHierarchy == true && Input.GetButtonDown("Use") )
+		if(playerIsOnTrigger &&	guiOpenText.activeInHierarchy && Input.GetButtonDown("Use") )
 		{
 			canvasLootUi.SetActive(!canvasLootUi.activeSelf);
 			openingAnimation.SetBool("isOpen",true);

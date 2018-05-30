@@ -22,10 +22,15 @@ public class Teleport : MonoBehaviour
 		if(playerIsOnTrigger && guiObject.activeInHierarchy == true && Input.GetButtonDown("Use") )
 		{
 			transitionAnim.SetTrigger("enter");
-			player.transform.position = target.transform.position;
+			ChangePlayerPosition();
 		}
 	}
 	
+	void ChangePlayerPosition()
+	{
+		player.transform.position = target.transform.position;
+	}
+
 	void OnTriggerStay2D(Collider2D other)
 	{
 		if(other.CompareTag("Player"))
