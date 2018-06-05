@@ -5,13 +5,20 @@ using UnityEngine;
 public class AxeThrow : Ability 
 {
 	[SerializeField]
+	float projectileSpeed;
+
+	[SerializeField]
+	// Determines, how far the axe can fly.
+	float maxDistance;
+
+	[SerializeField]
 	ThrowingAxe axe;
 	ThrowingAxe[] axes;
 
 	[SerializeField]
 	int maximumAmountAxes = 2;
-	int currentAmountAxes;
-
+	public int currentAmountAxes;
+	
 
 	void Start()
 	{
@@ -19,6 +26,7 @@ public class AxeThrow : Ability
 		for(int i = 0; i < maximumAmountAxes; i++)
 		{
 			axes[i] = Instantiate(axe);
+			axes[i].transform.parent = transform;
 			axes[i].enabled = false;
 		}
 	}

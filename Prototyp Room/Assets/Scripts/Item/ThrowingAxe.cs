@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /** The axe thrown be the warriors
-	axe throw ability. Make sure to
+	'throw' ability. Make sure to
 	disable the collider on the prefab
 	by default so it does not trigger
 	when spawned. */
@@ -20,15 +20,25 @@ public class ThrowingAxe : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(velocity != Vector2.zero)
+		if(velocity == Vector2.zero)
 		{
-
+			if(other.tag == "Player")
+			{
+				transform.position = transform.parent.position;
+				transform.parent.GetComponent<AxeThrow>().currentAmountAxes++;
+				enabled = false;
+			}
+			return;
 		}
 
-		if(other.gameObject.tag == "Player")
+		if(other.tag == "Enemy")
 		{
-			var axeThrow = other.gameObject.GetComponentInChildren<AxeThrow>();
-			enabled = false;
+			bleed.Attach(other.transform);
+		}
+
+		if(other.tag != "Enemy" && other.tag != "Player")
+		{
+			velocity = Vector2.zero;			
 		}
 	}
 }
