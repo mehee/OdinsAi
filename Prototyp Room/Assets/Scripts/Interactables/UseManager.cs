@@ -7,7 +7,8 @@ public class UseManager : MonoBehaviour {
 	//Insert the guiInteractText witch should apear when on Trigger
 	[SerializeField] public GameObject guiInteractText;
 	//Show the CanvasObj, if their is one
-	[SerializeField] public GameObject objectToShow;
+	[SerializeField] public GameObject lootUI;
+	[SerializeField] public GameObject inventoryUI;
 	//target to Spawn if necessary
 	[SerializeField] private GameObject target;
 
@@ -25,8 +26,10 @@ public class UseManager : MonoBehaviour {
 	{
 		guiInteractText.SetActive(false);
 
-		if(objectToShow != null)
-			objectToShow.SetActive(false);
+		if(lootUI != null)
+			lootUI.SetActive(false);
+		if(inventoryUI != null)
+			inventoryUI.SetActive(false);
 	}
 
 	void Start()
@@ -42,8 +45,11 @@ public class UseManager : MonoBehaviour {
 			if(animator != null)
 				animator.SetBool(transitionParameterName, true);
 
-			if(objectToShow != null)
-				objectToShow.SetActive(!objectToShow.activeSelf);
+			if(lootUI != null)
+				lootUI.SetActive(!lootUI.activeSelf);
+			
+			if(inventoryUI != null)
+				inventoryUI.SetActive(!inventoryUI.activeSelf);
 
 			if(target != null)
 				ChangePlayerPosition();
@@ -56,7 +62,7 @@ public class UseManager : MonoBehaviour {
 		player.transform.position = target.transform.position;
 	}
 
-		void OnTriggerStay2D(Collider2D other)
+	void OnTriggerStay2D(Collider2D other)
 	{
 		if(other.CompareTag("Player"))
 		{
@@ -72,8 +78,11 @@ public class UseManager : MonoBehaviour {
 			guiInteractText.SetActive(false);			
 			playerIsOnTrigger = false;
 			
-			if(objectToShow != null)
-				objectToShow.SetActive(false);
+			if(lootUI != null)
+				lootUI.SetActive(false);
+
+			if(inventoryUI != null)
+				inventoryUI.SetActive(false);
 		}
 	}
 }
