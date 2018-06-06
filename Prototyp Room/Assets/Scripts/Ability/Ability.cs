@@ -5,10 +5,9 @@ using UnityEngine;
 
 public abstract class Ability : MonoBehaviour
 {
-	float cooldownTimer;
-	
-	AbilityResource resource;
-	
+	protected float cooldownTimer;
+	protected AbilityResource resource;
+	protected Vector2 direction;
 
 	[SerializeField]
 	protected AbilityInfo info;
@@ -94,6 +93,7 @@ public abstract class Ability : MonoBehaviour
 		rotation /= 45;
 		rotation = Mathf.Round(rotation) * 45;
 		transform.rotation = Quaternion.Euler(0, 0, rotation - 90); 
+		direction = transform.rotation * Vector3.forward;
 	}
 	
 	public virtual bool ReadyForActivation()

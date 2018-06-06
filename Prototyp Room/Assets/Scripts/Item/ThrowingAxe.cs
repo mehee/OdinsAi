@@ -12,23 +12,64 @@ public class ThrowingAxe : MonoBehaviour
 	[SerializeField]
 	Bleed bleed;
 	Vector2 velocity;
+	float damage;
+	float flightDistance;
 
-	void Awake()
+    public Vector2 Velocity
+    {
+        get
+        {
+            return velocity;
+        }
+
+        set
+        {
+            velocity = value;
+        }
+    }
+
+    public float Damage
+    {
+        get
+        {
+            return damage;
+        }
+
+        set
+        {
+            damage = value;
+        }
+    }
+
+    public float FlightDistance
+    {
+        get
+        {
+            return flightDistance;
+        }
+
+        set
+        {
+            flightDistance = value;
+        }
+    }
+
+    void Awake()
 	{
 		velocity = Vector2.zero;
+	}
+
+	void Update()
+	{
+		
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if(velocity != Vector2.zero)
 		{
-
-		}
-
-		if(other.gameObject.tag == "Player")
-		{
-			var axeThrow = other.gameObject.GetComponentInChildren<AxeThrow>();
-			enabled = false;
+			bleed.Attach(other.transform);
+			other.GetComponent<Health>().Reduce(damage);
 		}
 	}
 }
