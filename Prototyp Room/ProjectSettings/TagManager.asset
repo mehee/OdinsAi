@@ -8,6 +8,7 @@ TagManager:
   - SpawnPoints
   - Enemy
   - Item
+  - invItem
   layers:
   - Default
   - TransparentFX

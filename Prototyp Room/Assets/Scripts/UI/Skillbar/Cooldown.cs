@@ -20,7 +20,6 @@ public class Cooldown : MonoBehaviour
 			if(cooldown_image.tag == "cooldown")
 			{
 				cooldownImages[fieldcount] = cooldown_image;
-				Debug.Log("Added " + cooldown_image + " to Array at " + fieldcount);
 				fieldcount++;
 			}
 		}
@@ -30,8 +29,6 @@ public class Cooldown : MonoBehaviour
 		{
 			cooldownImages[i].fillAmount = 1f;
 		}
-		Debug.Log(cooldownImages.Length);
-		Debug.Log(allImages.Length);
 		wrath = GetComponentInParent<Wrath>();
 	}
 	
