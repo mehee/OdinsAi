@@ -6,7 +6,11 @@ using UnityEngine;
 public abstract class Ability : MonoBehaviour
 {
 	protected float cooldownTimer;
+	[SerializeField]
 	protected AbilityResource resource;
+
+	public AbilityResource Resource { get; protected set; }
+
 	protected Vector2 direction;
 
 	[SerializeField]
@@ -56,6 +60,7 @@ public abstract class Ability : MonoBehaviour
     protected virtual void Awake()
 	{
 		resource = transform.parent.GetComponent<AbilityResource>();
+		Debug.Log("Object awakened	" + resource);
 	}
 
 	protected virtual void Update()
@@ -96,6 +101,9 @@ public abstract class Ability : MonoBehaviour
 		direction = transform.rotation * Vector3.forward;
 	}
 	
+	/** True if the abilities cost
+		can be paid and the ability
+		is off cooldown. */
 	public virtual bool ReadyForActivation()
 	{
 		if(cooldownTimer > 0)

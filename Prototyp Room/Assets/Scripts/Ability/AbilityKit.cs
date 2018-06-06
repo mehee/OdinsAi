@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class AbilityKit : MonoBehaviour 
 {	
+	[SerializeField]
 	Ability[] abilities;
+	List<Ability> abilityInstances;
 	
 	[SerializeField]
 	float globalCooldown = 0.1f;
 	float cooldownTimer;
+
+	void Start()
+	{
+		abilityInstances = new List<Ability>(abilities.Length);
+		foreach(Ability ability in abilities)
+		{
+			var instance = Instantiate(ability, transform) as Ability;
+			abilityInstances.Add(instance);
+		}
+	}
 
 	void Update () 
 	{
@@ -32,11 +44,11 @@ public class AbilityKit : MonoBehaviour
 		Returns null if there was no input. */
 	Ability GetActivatedAbility()
 	{
-		for(int i = 0; i < abilities.Length; i++)
+		for(int i = 0; i < abilityInstances.Count; i++)
 		{
 			if(Input.GetButtonDown("Ability" + (i + 1)))
 			{
-				return abilities[i];
+				return abilityInstances[i];
 			}
 		}
 		return null;

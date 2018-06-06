@@ -6,6 +6,7 @@ public class CollidingAbility : Ability
 {
 	new protected Collider2D collider;
 	uint frameCounter = 0;
+
 	protected override void Awake()
 	{
 		base.Awake();

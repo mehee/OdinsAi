@@ -6,6 +6,11 @@ using UnityEngine;
 	itself constantly instead of regenerating. */
 public class Bloodlust : AbilityResource
 {
+	void Start()
+	{
+		Value = 0;
+	}
+
 	protected override void Update()
 	{
 		if(intervalTimer > 0)
