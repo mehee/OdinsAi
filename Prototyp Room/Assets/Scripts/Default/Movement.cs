@@ -16,6 +16,7 @@ public class Movement : MonoBehaviour
     Vector2 dashDirection;
     Vector2 direction = Vector2.down;
 
+    Health health;
 
     public float MovementSpeed
     {
@@ -54,6 +55,7 @@ public class Movement : MonoBehaviour
     void Start () 
 	{
 		rigidBody = GetComponent<Rigidbody2D>();
+        health = GetComponent<Health> ();
 	}
 
 	public void Move(Vector2 movementVec)
@@ -65,8 +67,15 @@ public class Movement : MonoBehaviour
     {
         dashTimer = dashDuration;
         dashDirection = movementVec;
+        health.IsVulnerable= false;
+
     }
 
+    void OnCollisionEnter2D()
+    {
+     dashTimer=0;  
+    }
+    
     void Update()
     {
         if(dashTimer > 0)
@@ -78,7 +87,10 @@ public class Movement : MonoBehaviour
         }
 
         if(dashTimer == 0)
+        {
             rigidBody.velocity = Vector2.zero;
+            health.IsVulnerable= true;
+        }
     }
 	
 }
