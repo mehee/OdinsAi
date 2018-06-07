@@ -9,6 +9,9 @@ public class Resource : MonoBehaviour
 	[SerializeField]
     float value;
 
+    bool isVulnerable= true;
+
+
     public float Maximum
     {
         get
@@ -36,12 +39,28 @@ public class Resource : MonoBehaviour
         }
     }
 
+    public bool IsVulnerable
+    {
+        get
+        {
+            return isVulnerable;
+        }
+
+        set
+        {
+            isVulnerable = value;
+        }
+    }
+
     public virtual void Reduce(float amount)
     {
+        if(isVulnerable)
+        {
         Value -= amount;
         if(Value <= 0)
         {
             Value = 0;
+        }
         }
     }
 
