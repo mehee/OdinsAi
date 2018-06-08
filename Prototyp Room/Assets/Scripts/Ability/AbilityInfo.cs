@@ -22,7 +22,9 @@ public struct AbilityInfo
 	public float strengthScaling;
 	public float intelligenceScaling;
 
-	public int framesActive;
+	public int startupFrames;
+	public int activeFrames;
+	public int endingFrames;
 
 	public Sprite icon;
 	public AudioClip sound;
