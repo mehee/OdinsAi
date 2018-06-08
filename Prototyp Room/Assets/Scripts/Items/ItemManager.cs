@@ -5,7 +5,8 @@ using System.Xml;					//basic xml attributes
 using System.Xml.Serialization; 	// access to xml serializer
 using System.IO;					// file management, also for other filetyps like json
 
-public class ItemManager : MonoBehaviour {
+public class ItemManager : MonoBehaviour 
+{
 
 	public static ItemManager im;
 
@@ -20,16 +21,18 @@ public class ItemManager : MonoBehaviour {
 
 //enum for which Type/Bodypart of Item
 public enum ItemType { Head, Chest, Legs, MainHand, OffHand }
+public enum ItemQuality { Common, Uncommon, Rare, Epic, Legendary }
 
 //variables that populate our ItemDatabase
 [System.Serializable]
 public class ItemEntry
 {
-	public string itemName;
-	public int itemStrength;
-	public int itemIntelligent;
-	public int itemVitality;
-	public ItemType itemType;
+	public string name;
+	public ItemQuality quality;
+	public ItemType type;
+	public int strength;
+	public int intelligence;
+	public int vitality;
 }
 
 //ItemDatabase for the XML file
