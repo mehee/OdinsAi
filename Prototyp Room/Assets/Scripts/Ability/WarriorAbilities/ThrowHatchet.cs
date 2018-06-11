@@ -31,7 +31,7 @@ public class ThrowHatchet : Ability
     public override void Activate()
     {
 		RemainingCooldown = Cooldown;
-		Hatchet thrown = hatchets[currentAmountHatchets];
+		Hatchet thrown = hatchets[currentAmountHatchets-1];
 		thrown.GetComponent<Rigidbody2D>().velocity = speed * direction;
 		thrown.GetComponent<Collider2D>().enabled = true;
 		currentAmountHatchets--;	

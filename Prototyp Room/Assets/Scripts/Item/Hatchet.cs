@@ -49,8 +49,8 @@ public class Hatchet : MonoBehaviour
 
     void Awake()
 	{
-		rb.velocity = Vector2.zero;
         rb = GetComponent<Rigidbody2D>();
+		rb.velocity = Vector2.zero;
         collider = GetComponent<Collider2D>(); 
         GetComponent<Collider2D>().enabled = false;
 	}
