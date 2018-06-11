@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfe33067ef6b8840b202079aad8e277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDuration: 10
+  baseDuration: 5
   durationModifier: 1
-  interval: 2
-  damage: 10
+  interval: 1
+  damage: 1
