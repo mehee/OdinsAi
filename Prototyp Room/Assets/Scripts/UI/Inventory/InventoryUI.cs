@@ -33,8 +33,7 @@ public class InventoryUI : MonoBehaviour {
 	{
 		if(Input.GetButtonDown("Inventory"))
 		{
-			inventory.SetActive(!inventory.activeSelf);
-			DisplayItems();
+			ShowInventory();
 		}
 	}
 
@@ -49,6 +48,11 @@ public class InventoryUI : MonoBehaviour {
 			return;
 		}
 		else Debug.Log("Inventar voll");
+	}
+	public void ShowInventory()
+	{
+		inventory.SetActive(!inventory.activeSelf);
+		DisplayItems();
 	}
 
 	void DisplayItems()

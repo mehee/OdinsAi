@@ -46,7 +46,10 @@ public class UseManager : MonoBehaviour {
 				animator.SetBool(transitionParameterName, true);
 
 			if(lootUI != null)
+			{
+				//inventory.GetComponent<InventoryUI>().ShowInventory();
 				lootUI.SetActive(!lootUI.activeSelf);
+			}
 			
 			if(inventoryUI != null)
 				inventoryUI.SetActive(!inventoryUI.activeSelf);
@@ -61,6 +64,25 @@ public class UseManager : MonoBehaviour {
 	{
 		player.transform.position = target.transform.position;
 	}
+
+	/* Have to rework Hole Chest system/Die system
+	If enemy dies,Chest initiated. This has no prefabs set.... DONT KNOW HOW
+	public GameObject test;
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		Debug.Log("Entered Collider");
+		
+		Debug.Log("Test: " + test);
+		test.GetComponent<UseManager>().guiInteractText = GameObject.Find("ItemdropPanel");
+		Debug.Log("TestAfter: " + test);
+		
+		
+	
+	//	guiInteractText = GameObject.Find("Loot_Chest");
+	//	lootUI = GameObject.Find("ItemdropPanel");
+	//	inventoryUI = GameObject.Find("Inventory");
+	}
+	 */
 
 	void OnTriggerStay2D(Collider2D other)
 	{
