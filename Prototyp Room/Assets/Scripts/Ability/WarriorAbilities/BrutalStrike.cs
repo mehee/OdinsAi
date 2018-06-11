@@ -17,7 +17,7 @@ public class BrutalStrike : Ability
 
     public override void Activate()
     {
-		remainingCooldown = Cooldown;
+		RemainingCooldown = Cooldown;
 		framesActive = 0;
 		AlignWithMouse();
 		transform.rotation = rotation;

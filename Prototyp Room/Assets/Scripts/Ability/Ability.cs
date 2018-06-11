@@ -5,9 +5,9 @@ using UnityEngine;
 
 public abstract class Ability : MonoBehaviour
 {
-	protected float remainingCooldown;
+    private float remainingCooldown;
 
-	protected Character owner;
+    protected Character owner;
 
 	// Rotation and direction of the ability
 	// are clamped to the eight cardinal directions
@@ -65,7 +65,20 @@ public abstract class Ability : MonoBehaviour
 		}
 	}
 
-	public abstract void Activate();
+    public float RemainingCooldown
+    {
+        get
+        {
+            return remainingCooldown;
+        }
+
+        set
+        {
+            remainingCooldown = value;
+        }
+    }
+
+    public abstract void Activate();
 
 	public virtual bool ReadyForActivation()
 	{
