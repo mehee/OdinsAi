@@ -26,7 +26,7 @@ public class Range : MonoBehaviour {
     {
         if (collision.tag == "Player")
         {
-            Debug.Log("triggerd");
+           // Debug.Log("triggerd");
             parent.Target = null;
 
         }

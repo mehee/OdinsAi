@@ -9,9 +9,15 @@ public class EnemyBehaviour : MonoBehaviour {
     private Movement movement;
     private IState currentState;
     private AnimationManager animator;
+    private Vector2 defaultDirection;
 
     [SerializeField]
     private float attackRange;
+    [SerializeField]
+    private float autoAttackCooldown;
+    private float autoAttackCDtmp;
+    [SerializeField]
+    private float autoAttackDamage;
 
     private Vector3 myStartPosition;
     public Transform Target
@@ -79,16 +85,83 @@ public class EnemyBehaviour : MonoBehaviour {
         }
     }
 
+    public float AutoAttackCDtmp
+    {
+        get
+        {
+            return autoAttackCDtmp;
+        }
+
+        set
+        {
+            autoAttackCDtmp = value;
+        }
+    }
+
+    public float AutoAttackCooldown
+    {
+        get
+        {
+            return autoAttackCooldown;
+        }
+
+        set
+        {
+            autoAttackCooldown = value;
+        }
+    }
+
+    public float AutoAttackDamage
+    {
+        get
+        {
+            return autoAttackDamage;
+        }
+
+        set
+        {
+            autoAttackDamage = value;
+        }
+    }
+
+    public Vector2 DefaultDirection
+    {
+        get
+        {
+            return defaultDirection;
+        }
+
+        set
+        {
+            defaultDirection = value;
+        }
+    }
+
+    public AnimationManager Animator
+    {
+        get
+        {
+            return animator;
+        }
+
+        set
+        {
+            animator = value;
+        }
+    }
+
     // Use this for initialization
     void Start()
     {
 
         enemy = GetComponent<Enemy>();
-        animator = GetComponent<AnimationManager>();
+        Animator = GetComponent<AnimationManager>();
         ChangeState(new IdleState());
         AttackRange = enemy.AttackRange;
         movement = GetComponent<Movement>();
         myStartPosition = enemy.transform.position;
+        autoAttackCDtmp = autoAttackCooldown;
+        defaultDirection = Vector2.down;
     }
     // Update is called once per frame
     void Update()
@@ -111,16 +184,16 @@ public class EnemyBehaviour : MonoBehaviour {
     {
         if(currentState is FollowState)
         {
-            animator.Walk( target.transform.position - enemy.transform.position);
+            Animator.Walk( target.transform.position - enemy.transform.position);
         }
         else if(currentState is EvadeState)
         {
-            animator.Walk(myStartPosition - enemy.transform.position);
+            Animator.Walk(myStartPosition - enemy.transform.position);
         }
         else if(currentState is AttackState)
         {
             
-            animator.Attack((Target.transform.position - enemy.transform.position ).normalized);
+            Animator.Attack((Target.transform.position - enemy.transform.position ).normalized);
         }
     }
    
