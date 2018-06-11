@@ -81,7 +81,7 @@ MonoBehaviour:
   description: Pretty brutal.
   baseCooldown: 1
   baseCost: 0
-  baseDamage: 2
+  baseDamage: 10
   cooldownModifier: 1
   costModifier: 1
   damageModifier: 1

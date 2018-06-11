@@ -60,7 +60,7 @@ MonoBehaviour:
   costModifier: 1
   damageModifier: 1
   strengthScaling: 0.3
-  intelligenceScaling: 0.1
+  intelligenceScaling: 0
   startupFrames: 0
   activeFrames: 0
   recoveryFrames: 0
@@ -68,6 +68,6 @@ MonoBehaviour:
   sound: {fileID: 0}
   hatchetPrefab: {fileID: 114301601847144812, guid: c66733201ccfc30419111b851cef1e6c,
     type: 2}
-  amountHatchets: 2
+  amountHatchets: 3
   currentAmountHatchets: 0
   speed: 20
