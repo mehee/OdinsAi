@@ -24,7 +24,7 @@ public class HitReg : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(healthScript.DmgReceived);
+//		Debug.Log(healthScript.DmgReceived);
 		scale = 1-(health.Value / health.Maximum);
 		if (healthScript.DmgReceived)
 		{

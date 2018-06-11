@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 114346526790356568}
   - component: {fileID: 114712324805482426}
   - component: {fileID: 114380902703349494}
+  - component: {fileID: 114049656962689092}
   m_Layer: 5
   m_Name: DebuffBleed
   m_TagString: Untagged
@@ -257,6 +258,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114049656962689092
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1981162110519936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 341bfab1a36468145bb3429afb3fbcf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114072918412641976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -402,6 +414,7 @@ MonoBehaviour:
   attackRange: 3
   autoAttackCooldown: 2
   autoAttackDamage: 20
+  autoAttackAnimationLenght: 0
 --- !u!114 &114380902703349494
 MonoBehaviour:
   m_ObjectHideFlags: 1

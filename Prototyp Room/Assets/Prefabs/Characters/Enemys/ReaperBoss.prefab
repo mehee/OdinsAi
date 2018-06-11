@@ -580,6 +580,7 @@ MonoBehaviour:
   attackRange: 6
   autoAttackCooldown: 0.8
   autoAttackDamage: 80
+  autoAttackAnimationLenght: 0
 --- !u!114 &114923846357283830
 MonoBehaviour:
   m_ObjectHideFlags: 1
