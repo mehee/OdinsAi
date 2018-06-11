@@ -21,6 +21,7 @@ class IdleState : IState
 
     public void Update()
     {
+        parent.Animator.Stay(parent.DefaultDirection);
         //change into follow state if player is close
         if (parent.Target != null)
         {
