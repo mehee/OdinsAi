@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BrutalStrike : Ability 
+{
+	new Collider2D collider;
+	float lastDamageBonus;
+
+	[SerializeField]
+	float bonusPerBloodlustInterval;
+	[SerializeField]
+	float bloodlustInterval;
+
+	int framesActive;
+
+    public override void Activate()
+    {
+		remainingCooldown = Cooldown;
+		framesActive = 0;
+		AlignWithMouse();
+		transform.rotation = rotation;
+		SetBonusDamage();
+    }
+
+	protected override void Start()
+	{
+		base.Start();
+		collider = GetComponent<Collider2D>();
+	}
+
+	protected override void Update()
+	{
+		base.Update();
+		if(framesActive <= activeFrames)
+		{
+			framesActive++;
+			if(framesActive > activeFrames)
+			{
+				collider.enabled = false;
+			}
+		}
+	}
+
+    void SetBonusDamage()
+	{
+		float bloodlust = owner.GetComponent<Bloodlust>().Value;
+		float bonus = Mathf.Floor(bloodlust / bloodlustInterval) 
+			* bonusPerBloodlustInterval;
+		float bonusDelta = bonus - lastDamageBonus;
+		damageModifier += bonusDelta;
+	}
+}

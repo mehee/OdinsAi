@@ -5,13 +5,14 @@ using UnityEngine;
 
 public abstract class Ability : MonoBehaviour
 {
-	Character owner;
+	protected float remainingCooldown;
+
+	protected Character owner;
 
 	// Rotation and direction of the ability
 	// are clamped to the eight cardinal directions
-	Quaternion rotation;
-	Vector2 direction;
-	float remainingCooldown;
+	protected Quaternion rotation;
+	protected Vector2 direction;
 
 	new public string name;
 	[TextArea(2, 5)]
@@ -102,7 +103,7 @@ public abstract class Ability : MonoBehaviour
 		}
 	}
 
-	void AlignWithMouse()
+	protected void AlignWithMouse()
 	{
 		Vector2 rawDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 		direction.x = Mathf.Round(rawDirection.x);
