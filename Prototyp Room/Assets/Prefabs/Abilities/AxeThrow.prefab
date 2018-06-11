@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4656209803800670}
-  - component: {fileID: 114465271242209350}
+  - component: {fileID: 114358357961675214}
   m_Layer: 0
   m_Name: AxeThrow
   m_TagString: Untagged
@@ -40,7 +40,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114465271242209350
+--- !u!114 &114358357961675214
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -48,27 +48,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1382312573507796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e919c9de96d15ea4a8963487f264c716, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e842521c4f6b654aa022073b55beaac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info:
-    name: Axe Throw
-    description: Throw an axe.
-    baseCooldown: 1
-    baseCost: 0
-    baseDamage: 5
-    cooldownModifier: 1
-    costModifier: 1
-    damageModifier: 1
-    strengthScaling: 0.3
-    intelligenceScaling: 0.1
-    framesActive: 0
-    icon: {fileID: 21300002, guid: f16f76a8a66dd2341bced11c115bad04, type: 3}
-    sound: {fileID: 0}
-  projectileSpeed: 5
-  flightDistance: 20
-  axe: {fileID: 114301601847144812, guid: c66733201ccfc30419111b851cef1e6c, type: 2}
-  maximumAmountAxes: 2
-  currentAmountAxes: 0
-  pickupDistance: 2
-  resetDistance: 100
+  name: Throw Hatchet
+  description: What the name says.
+  baseCooldown: 1
+  baseCost: 0
+  baseDamage: 5
+  cooldownModifier: 1
+  costModifier: 1
+  damageModifier: 1
+  strengthScaling: 0.3
+  intelligenceScaling: 0.1
+  startupFrames: 0
+  activeFrames: 0
+  recoveryFrames: 0
+  icon: {fileID: 21300000, guid: 8d586de79553c8f43aa990e4a386778f, type: 3}
+  sound: {fileID: 0}
+  hatchetPrefab: {fileID: 114301601847144812, guid: c66733201ccfc30419111b851cef1e6c,
+    type: 2}
+  amountHatchets: 2
+  speed: 10

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ThrowHatchet : Ability
 {
+	[SerializeField]
 	Hatchet hatchetPrefab;
 	Hatchet[] hatchets;
 

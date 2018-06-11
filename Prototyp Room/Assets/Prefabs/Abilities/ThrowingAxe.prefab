@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 61357836979847666}
   - component: {fileID: 212102271246120690}
   - component: {fileID: 114301601847144812}
+  - component: {fileID: 50946556911489024}
   m_Layer: 0
   m_Name: ThrowingAxe
   m_TagString: Untagged
@@ -42,6 +43,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50946556911489024
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1610257032896676}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &61357836979847666
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -78,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a62c5279f6b20428862562ee0f2fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flightDistance: 20
   bleed: {fileID: 114669667738311270, guid: 4db7bee345daaad42a9967503953666f, type: 2}
 --- !u!212 &212102271246120690
 SpriteRenderer:

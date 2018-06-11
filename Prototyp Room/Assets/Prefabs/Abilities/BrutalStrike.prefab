@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4288162477413380}
-  - component: {fileID: 114148824474277890}
   - component: {fileID: 61761087248033316}
+  - component: {fileID: 114607795384693262}
   m_Layer: 0
   m_Name: BrutalStrike
   m_TagString: Untagged
@@ -66,7 +66,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5459018, y: 0.93203664}
   m_EdgeRadius: 0
---- !u!114 &114148824474277890
+--- !u!114 &114607795384693262
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -74,23 +74,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1770518632819546}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07c1a08eba80a62409104b961f119f14, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c4e39b4a4d5efb42be59de74fca42a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resource: {fileID: 0}
-  info:
-    name: Brutal Strike
-    description: Pretty brutal.
-    baseCooldown: 0.5
-    baseCost: 0
-    baseDamage: 5
-    cooldownModifier: 1
-    costModifier: 1
-    damageModifier: 1
-    strengthScaling: 1
-    intelligenceScaling: 0
-    framesActive: 2
-    icon: {fileID: 21300000, guid: 8a1e1e34151752a4fb5e2090c888e1cc, type: 3}
-    sound: {fileID: 0}
-  bonusDamageRatio: 10
+  name: Brutal Strike
+  description: Pretty brutal.
+  baseCooldown: 1
+  baseCost: 0
+  baseDamage: 5
+  cooldownModifier: 1
+  costModifier: 1
+  damageModifier: 1
+  strengthScaling: 1
+  intelligenceScaling: 0.1
+  startupFrames: 0
+  activeFrames: 2
+  recoveryFrames: 0
+  icon: {fileID: 21300000, guid: 8a1e1e34151752a4fb5e2090c888e1cc, type: 3}
+  sound: {fileID: 0}
+  bonusPerBloodlustInterval: 0.1
   bloodlustInterval: 10

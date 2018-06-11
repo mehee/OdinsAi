@@ -10,7 +10,7 @@ public class Bleed : StatusEffect
     {
         transform.parent.GetComponent<Health>().Reduce(damage);
     }
-
+    
     public override void Attach(Transform target)
     {
         var oldStatus = target.GetComponentInChildren<Bleed>();
