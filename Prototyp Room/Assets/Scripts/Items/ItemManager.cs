@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;		//Cant click through
 using System.Collections;
 using System.Collections.Generic; 	// for lists
 using System.Xml;					//basic xml attributes
@@ -13,10 +14,34 @@ public class ItemManager : MonoBehaviour
 	void Awake()
 	{
 		im = this;
+		SaveItems();
+		//LoadItems();
 	}
 
 	//list of Items
 	public ItemDatabase itemDatabase;
+
+	//save function
+	public void SaveItems()
+	{
+		Debug.Log("SaveXML");
+		//open new XML file
+		XmlSerializer serializer = new XmlSerializer(typeof(ItemDatabase));
+		//Filestream (ones and zeros); dataPath for items,Monster etc. persistentDataPath for Savegames
+		FileStream stream = new FileStream(Application.dataPath + "/StreamingAssets/XML/item_data.xml",FileMode.Create); //override old XML
+		//fill XML
+		serializer.Serialize(stream,itemDatabase);
+		stream.Close();
+	}
+
+	//load function for in XML added Items
+	public void LoadItems()
+	{
+		XmlSerializer serializer = new XmlSerializer(typeof(ItemDatabase));
+		FileStream stream = new FileStream(Application.dataPath + "/StreamingAssets/XML/item_data.xml",FileMode.Open);//open existing XML
+		itemDatabase = serializer.Deserialize(stream) as ItemDatabase; 
+		stream.Close();
+	}
 }
 
 //enum for which Type/Bodypart of Item
@@ -39,5 +64,7 @@ public class ItemEntry
 [System.Serializable]
 public class ItemDatabase
 {
+	//Change how XML calles it for having more Lists etc
+	[XmlArray("CombatEquipment")]
 	public List<ItemEntry> items = new List<ItemEntry>();
 }
