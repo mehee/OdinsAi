@@ -51,4 +51,12 @@ public class BrutalStrike : Ability
 		float bonusDelta = bonus - lastDamageBonus;
 		damageModifier += bonusDelta;
 	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if(other.tag == "Enemy")
+		{
+			other.GetComponent<Health>().Reduce(Damage);
+		}
+	}
 }
