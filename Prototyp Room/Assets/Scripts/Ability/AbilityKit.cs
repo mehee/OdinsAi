@@ -56,9 +56,9 @@ public class AbilityKit : MonoBehaviour
 
 	void Activate(Ability ability)
 	{
-		bool ready = ability.Activate();
-		if(!ready)
+		if(!ability.ReadyForActivation())
 			return;
+		ability.Activate();
 		cooldownTimer = globalCooldown;
 	}
 }
