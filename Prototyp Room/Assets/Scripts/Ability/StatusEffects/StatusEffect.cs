@@ -62,7 +62,7 @@ public abstract class StatusEffect : MonoBehaviour
 		other status effects of the same type. */
 	public virtual void Attach(Transform target)
 	{
-		Instantiate(this);
-		transform.parent = target.transform;
+		var instance = Instantiate(this);
+		instance.transform.parent = target.transform;
 	}
 }
