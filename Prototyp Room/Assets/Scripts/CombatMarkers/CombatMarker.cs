@@ -15,7 +15,6 @@ public class CombatMarker : MonoBehaviour {
 	void Update () {
 		if(Input.GetButtonDown("Ability1"))
 		{
-			Debug.Log("awdawd");
 			combatMarkerEffect.SetActive(true);
 			combatMarkerEffect.transform.position = player.transform.position;
 		}

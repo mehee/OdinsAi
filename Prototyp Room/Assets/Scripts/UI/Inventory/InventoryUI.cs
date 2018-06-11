@@ -26,7 +26,6 @@ public class InventoryUI : MonoBehaviour {
 				fieldcount++;
 			}
 		}
-		Debug.Log(allImages.Length); // Warum Länge 0?
 	}
 	
 	// Update is called once per frame
