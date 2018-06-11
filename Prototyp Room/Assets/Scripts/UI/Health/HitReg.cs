@@ -4,49 +4,50 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HitReg : MonoBehaviour {
-
+	private GameObject player;
+	private Health healthScript;
 	[SerializeField] private GameObject bloodObj;
 	private Image bloodImg;
 	private Color bloodCol;
-	private float scale;
+	private Health health;
+	private float scale; // dynamisch je nach Schaden steigern, Wert zwischen 1 und 0: CurrentHealth/MaxHealth!
 	// Use this for initialization
 	void Start () {
-		scale = 1f;
+		player = GameObject.FindGameObjectWithTag("Player");
+		healthScript = player.GetComponent<Health>();
+		health = FindObjectOfType<Player>().GetComponent<Health>();
 		bloodImg = bloodObj.GetComponent<Image>();
 		bloodCol = bloodImg.color;
 		bloodCol.a = 0f;
 		bloodImg.color = bloodCol;
-		bloodObj.SetActive(false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown("Use"))
+		Debug.Log(healthScript.DmgReceived);
+		scale = 1-(health.Value / health.Maximum);
+		if (healthScript.DmgReceived)
 		{
-			Debug.Log(bloodCol.a);
-			bloodObj.SetActive(true);
-			StartCoroutine(fadeBlood(scale));
+			fadeInBlood(scale);
+		}
+		if (!healthScript.DmgReceived)
+		{
+			fadeOutBlood();
 		}
 	}
-	IEnumerator fadeBlood(float scale)
+	void fadeInBlood(float scaleParam)
 	{	
-    	while (bloodCol.a < scale)
-		{
-			bloodCol.a += 4f*Time.deltaTime;
-			bloodImg.color = bloodCol;
-			Debug.Log(bloodCol.a);
-			yield return null;
-    	}
-		yield return new WaitForSeconds(3f);
-		while (bloodCol.a >= 0f)
-		{
-			bloodCol.a -= 0.25f*Time.deltaTime;
-			bloodImg.color = bloodCol;
-			Debug.Log(bloodCol.a);
-			yield return null;
-    	}
-		Debug.Log("done");
-		bloodObj.SetActive(false); // auch noch vorher faden
-		yield break;
+		bloodCol.a = scaleParam;
+		bloodImg.color = bloodCol;
+		healthScript.DmgReceived = false;
+	}
+	void fadeOutBlood()
+	{	
+		float alphaDiff = Mathf.Abs(bloodCol.a-0f);
+        if (alphaDiff>0.0001f)
+        {
+             bloodCol.a = Mathf.Lerp(bloodCol.a,0f,0.25f*Time.deltaTime);
+             bloodImg.color = bloodCol;
+        }
 	}
 }
