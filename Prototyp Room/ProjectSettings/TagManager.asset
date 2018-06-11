@@ -9,6 +9,9 @@ TagManager:
   - Enemy
   - Item
   - invItem
+  - combatMarkerFront
+  - combatMarkerBack
+  - combatMarkerEmptyParent
   layers:
   - Default
   - TransparentFX
@@ -20,9 +23,9 @@ TagManager:
   - 
   - SpawnPoints
   - Player
-  - 
-  - 
   - EnemyLayer
+  - OnlyCharacterCollision
+  - 
   - 
   - 
   - 

@@ -26,7 +26,6 @@ public class InventoryUI : MonoBehaviour {
 				fieldcount++;
 			}
 		}
-		Debug.Log(allImages.Length); // Warum Länge 0?
 	}
 	
 	// Update is called once per frame
@@ -34,8 +33,7 @@ public class InventoryUI : MonoBehaviour {
 	{
 		if(Input.GetButtonDown("Inventory"))
 		{
-			inventory.SetActive(!inventory.activeSelf);
-			DisplayItems();
+			ShowInventory();
 		}
 	}
 
@@ -50,6 +48,11 @@ public class InventoryUI : MonoBehaviour {
 			return;
 		}
 		else Debug.Log("Inventar voll");
+	}
+	public void ShowInventory()
+	{
+		inventory.SetActive(!inventory.activeSelf);
+		DisplayItems();
 	}
 
 	void DisplayItems()

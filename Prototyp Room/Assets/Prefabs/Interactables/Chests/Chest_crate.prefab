@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 212255428031605776}
   - component: {fileID: 95628496879053460}
   - component: {fileID: 58592642345312160}
-  - component: {fileID: 114325844842216146}
   - component: {fileID: 61314126062195728}
+  - component: {fileID: 114325844842216146}
   m_Layer: 0
   m_Name: Chest_crate
   m_TagString: Untagged
@@ -113,7 +113,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guiInteractText: {fileID: 0}
-  objectToShow: {fileID: 0}
+  lootUI: {fileID: 0}
+  inventoryUI: {fileID: 0}
+  target: {fileID: 0}
   transitionParameterName: isOpen
 --- !u!212 &212255428031605776
 SpriteRenderer:

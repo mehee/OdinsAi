@@ -24,7 +24,26 @@ class AttackState : IState
        if(parent.Target != null)
         {
             float distance = Vector2.Distance(parent.Target.position, parent.transform.position);
-            playerHealth.Reduce(1);
+
+
+            parent.AutoAttackCooldown -= Time.deltaTime;
+            if(parent.AutoAttackCooldown <= 0)
+            {
+
+                parent.AutoAttackAnimationLenght -= Time.deltaTime;
+                if (parent.AutoAttackAnimationLenght <= 0)
+                {
+                    playerHealth.Reduce(parent.AutoAttackDamage);
+                    parent.AutoAttackCooldown = parent.AutoAttackCDtmp;
+                    parent.AutoAttackAnimationLenght = parent.AutoAttackAnimatiomTMP;
+                }
+            }
+            else
+            {
+                parent.ChangeState(new IdleState());
+            }
+
+
 
             if (distance >= parent.AttackRange)
             {
