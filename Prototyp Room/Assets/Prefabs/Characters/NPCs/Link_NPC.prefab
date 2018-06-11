@@ -274,9 +274,9 @@ MonoBehaviour:
   dialogue:
     npcName: Link
     sentences:
-    - "Hey! Komm mal her!\t"
-    - GEH UND BRING MIR VASEN ZUM ZERSCHMETTERN!
-    - NA LOS WORAUF WARTEST DU?
+    - Hey Du!
+    - "Finde die H\xF6hle im Norden und befreie sie vom Unheil.\t"
+    - "Sicher springt dabei auch etwas f\xFCr dich heraus."
 --- !u!114 &114117304281159046
 MonoBehaviour:
   m_ObjectHideFlags: 1
