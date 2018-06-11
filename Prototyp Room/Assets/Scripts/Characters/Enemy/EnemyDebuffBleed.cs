@@ -17,8 +17,11 @@ public class EnemyDebuffBleed : MonoBehaviour {
 		Bleed bl = GetComponentInParent<Bleed>();
 		if(bl!=null)
 		{
-			Debug.Log("Succes");
+			image.enabled = true;
+			image.fillAmount=bl.RemainingDuration/bl.Duration;
 		}
+		else
+		image.enabled=false;
 		
 	
 	}
