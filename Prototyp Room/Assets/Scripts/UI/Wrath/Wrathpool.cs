@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Wrathpool : MonoBehaviour {
-
-	// Use this for initialization
-
+public class Wrathpool : MonoBehaviour 
+{
 	private Image image;
 	private Wrath wrath;
 
