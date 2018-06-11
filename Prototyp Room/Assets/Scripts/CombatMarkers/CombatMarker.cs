@@ -38,8 +38,8 @@ public class CombatMarker : MonoBehaviour {
 	{
 		if(Input.GetButtonDown("Ability1")) //&& Ist der Skill readyforactivate? Weg finden den richtigen Skill zu counten
 		{
-			StartCoroutine(fillMarker(0, speed));
-			// Fade in und Fillamount anhand von Spelltime
+			combatMarkerEffect.SetActive(true);
+			combatMarkerEffect.transform.position = player.transform.position;
 		}
 
 		if(Input.GetButtonDown("Ability2")) //&& Ist der Skill readyforactivate? Weg finden den richtigen Skill zu counten

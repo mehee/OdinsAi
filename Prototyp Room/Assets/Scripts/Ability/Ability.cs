@@ -104,6 +104,7 @@ public abstract class Ability : MonoBehaviour
 	protected virtual void Start()
 	{
 		owner = GetComponentInParent<Character>();
+		AlignWithMouse();
 	}
 
 	protected virtual void Update()

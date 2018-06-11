@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4656209803800670}
   - component: {fileID: 114358357961675214}
   m_Layer: 0
-  m_Name: AxeThrow
+  m_Name: ThrowHatchet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +55,7 @@ MonoBehaviour:
   description: What the name says.
   baseCooldown: 1
   baseCost: 0
-  baseDamage: 5
+  baseDamage: 10
   cooldownModifier: 1
   costModifier: 1
   damageModifier: 1
@@ -69,4 +69,5 @@ MonoBehaviour:
   hatchetPrefab: {fileID: 114301601847144812, guid: c66733201ccfc30419111b851cef1e6c,
     type: 2}
   amountHatchets: 2
-  speed: 10
+  currentAmountHatchets: 0
+  speed: 20
