@@ -25,14 +25,12 @@ public class CombatMarker : MonoBehaviour {
 				if(tmpImage.tag == "combatMarkerFront")
 				{
 					frontMarkerImgs[frontImgCount] = tmpImage;
-					Debug.Log("added " + tmpImage + " to frontmarkers at index " + frontImgCount);
 					frontImgCount++;
 				}
 			}
 		}
 
 		frontMarkerImgs[2].fillAmount = 1f; // HARDCODE! Noch die Anzahl der Dashes dynamisch beziehen
-		Debug.Log(frontMarkerImgs.Length);
 	}
 	
 	// Update is called once per frame
@@ -40,14 +38,12 @@ public class CombatMarker : MonoBehaviour {
 	{
 		if(Input.GetButtonDown("Ability1")) //&& Ist der Skill readyforactivate? Weg finden den richtigen Skill zu counten
 		{
-			Debug.Log("Skill1 Combatmarker");
 			StartCoroutine(fillMarker(0, speed));
 			// Fade in und Fillamount anhand von Spelltime
 		}
 
 		if(Input.GetButtonDown("Ability2")) //&& Ist der Skill readyforactivate? Weg finden den richtigen Skill zu counten
 		{
-			Debug.Log("Skill2 Combatmarker");
 			StartCoroutine(fillMarker(1, speed));
 			// Fade in und Fillamount anhand von Spelltime
 		}
@@ -55,7 +51,6 @@ public class CombatMarker : MonoBehaviour {
 		//Dash Markers noch langsam outfaden, wenn nicht in gewisser Zeit genutzt
 		if(Input.GetButtonDown("Jump")) //&& Ist der Skill readyforactivate? Weg finden den richtigen Skill zu counten
 		{
-			Debug.Log("SkillSpace Combatmarker");
 			StartCoroutine(substractMarkerAmount(2));
 			// Fade in und Fillamount anhand von Spelltime
 		}
