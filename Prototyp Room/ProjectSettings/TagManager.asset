@@ -23,9 +23,9 @@ TagManager:
   - 
   - SpawnPoints
   - Player
-  - 
-  - 
   - EnemyLayer
+  - OnlyCharacterCollision
+  - 
   - 
   - 
   - 

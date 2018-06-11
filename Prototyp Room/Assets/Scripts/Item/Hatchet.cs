@@ -9,14 +9,18 @@ using UnityEngine;
 	when spawned. */
 public class Hatchet : MonoBehaviour 
 {
-    public float flightDistance;
-    Rigidbody2D rb;
-    new Collider2D collider;
-
-    Vector3 lastPosition = Vector2.zero;
-
 	[SerializeField]
 	Bleed bleed;
+    [SerializeField]
+    float maxDistanceFromOwner;
+    public float flightDistance;
+
+    [HideInInspector]
+    public ThrowHatchet owner;
+    new Collider2D collider;
+    Vector3 lastPosition;
+    Vector2 velocity = Vector2.zero;
+
 
 	float damage;
 	float distanceFlown;
@@ -47,29 +51,47 @@ public class Hatchet : MonoBehaviour
         }
     }
 
+    public Vector2 Velocity
+    {
+        get
+        {
+            return velocity;
+        }
+
+        set
+        {
+            velocity = value;
+        }
+    }
+
     void Awake()
 	{
-        rb = GetComponent<Rigidbody2D>();
-		rb.velocity = Vector2.zero;
         collider = GetComponent<Collider2D>(); 
         GetComponent<Collider2D>().enabled = false;
+        lastPosition = transform.position;
 	}
 
 	void Update()
 	{
-		if(rb.velocity != Vector2.zero)
+		if(Velocity != Vector2.zero)
         {
+            transform.position += (Vector3)(Velocity * Time.deltaTime);
             distanceFlown += Mathf.Abs((transform.position - lastPosition).magnitude);
             if(distanceFlown > flightDistance)
             {
-                rb.velocity = Vector2.zero;
+                Velocity = Vector2.zero;
             }
+            lastPosition = transform.position;
         }
+
+        float distanceFromOwner = (transform.position - owner.transform.position).magnitude;
+        if(distanceFromOwner > maxDistanceFromOwner)
+            RecoverHatchet();
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(rb.velocity != Vector2.zero)
+		if(Velocity != Vector2.zero)
 		{
             if(other.tag == "Enemy")
             {
@@ -78,14 +100,20 @@ public class Hatchet : MonoBehaviour
             }
             else if(!(other.tag == "Enemy" || other.tag == "Player"))
             {
-                rb.velocity = Vector2.zero;
+                Velocity = Vector2.zero;
             }
 		}
-        else if(rb.velocity == Vector2.zero && other.tag == "Player")
+        else if(Velocity == Vector2.zero && other.tag == "Player")
         {
-            collider.enabled = false;
-            distanceFlown = 0;
-            transform.position = transform.parent.position;
+            RecoverHatchet();
+            Debug.Log(Velocity);
         }
 	}
+
+    /** The player 'picks up' the hatchet. */
+    void RecoverHatchet()
+    {
+        owner.currentAmountHatchets++;
+        Destroy(this.gameObject);
+    }
 }

@@ -6,9 +6,14 @@ using UnityEngine;
 	itself constantly instead of regenerating. */
 public class Bloodlust : AbilityResource
 {
+	BloodlustRadius radius;
+	[SerializeField]
+	float bloodlustPerEnemy;
+
 	void Start()
 	{
 		Value = 0;
+		radius = GetComponentInChildren<BloodlustRadius>();
 	}
 
 	protected override void Update()
@@ -23,6 +28,7 @@ public class Bloodlust : AbilityResource
 		if(intervalTimer == 0)
 		{
 			Reduce(changeAmount);
+			Replenish(radius.GetAmountOfBleedingEnemies() * bloodlustPerEnemy);
 			intervalTimer = changeInterval;
 		}
 	}
