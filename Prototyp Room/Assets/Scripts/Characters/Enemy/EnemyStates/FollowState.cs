@@ -22,8 +22,8 @@ class FollowState : IState
         if(parent.Target != null)
         {
             //Debug.Log(parent.Target.position);
-            parent.transform.position = Vector2.MoveTowards(parent.transform.position, parent.Target.position, parent.Movement.MovementSpeed * Time.deltaTime);
-
+           // parent.transform.position = Vector2.MoveTowards(parent.transform.position, parent.Target.position, parent.Movement.MovementSpeed * Time.deltaTime);
+            parent.Movement.Move( (parent.Target.position - parent.transform.position).normalized);
             float distance = Vector2.Distance(parent.Target.position, parent.transform.position);
 
             if(distance <= parent.AttackRange)
@@ -33,7 +33,7 @@ class FollowState : IState
         }
         else
         {
-            parent.ChangeState(new IdleState());
+            parent.ChangeState(new EvadeState());
         }
 
     }
