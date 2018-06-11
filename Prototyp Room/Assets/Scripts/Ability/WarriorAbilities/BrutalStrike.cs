@@ -22,6 +22,7 @@ public class BrutalStrike : Ability
 		AlignWithMouse();
 		transform.rotation = rotation;
 		SetBonusDamage();
+		collider.enabled = true;
     }
 
 	protected override void Start()
