@@ -37,8 +37,6 @@ class AttackState : IState
                     parent.AutoAttackCooldown = parent.AutoAttackCDtmp;
                     parent.AutoAttackAnimationLenght = parent.AutoAttackAnimatiomTMP;
                 }
-
-
             }
             else
             {

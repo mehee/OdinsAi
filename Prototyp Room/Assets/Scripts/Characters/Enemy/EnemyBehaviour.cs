@@ -18,6 +18,9 @@ public class EnemyBehaviour : MonoBehaviour {
     private float autoAttackCDtmp;
     [SerializeField]
     private float autoAttackDamage;
+    [SerializeField]
+    private float autoAttackAnimationLenght;
+    private float autoAttackAnimatiomTMP;
 
     private Vector3 myStartPosition;
     public Transform Target
@@ -149,6 +152,31 @@ public class EnemyBehaviour : MonoBehaviour {
             animator = value;
         }
     }
+    public float AutoAttackAnimationLenght
+    {
+        get
+        {
+            return autoAttackAnimationLenght;
+        }
+
+        set
+        {
+            autoAttackAnimationLenght = value;
+        }
+    }
+
+    public float AutoAttackAnimatiomTMP
+    {
+        get
+        {
+            return autoAttackAnimatiomTMP;
+        }
+
+        set
+        {
+            autoAttackAnimatiomTMP = value;
+        }
+    }
 
     // Use this for initialization
     void Start()
@@ -162,6 +190,7 @@ public class EnemyBehaviour : MonoBehaviour {
         myStartPosition = enemy.transform.position;
         autoAttackCDtmp = autoAttackCooldown;
         defaultDirection = Vector2.down;
+        AutoAttackAnimatiomTMP = autoAttackAnimationLenght;
     }
     // Update is called once per frame
     void Update()
