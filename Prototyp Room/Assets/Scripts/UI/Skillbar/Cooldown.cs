@@ -37,7 +37,7 @@ public class Cooldown : MonoBehaviour
 	{
 		for(int i = 0; i < activeAbilities; i++)
 		{
-			float remaining = abilities[i].CooldownTimer / abilities[i].Cooldown;
+			float remaining = abilities[i].CooldownTimer / abilities[i].Cooldown; //CooldownTimer: verbleibend; Cooldown: Gesamtsekunden
 			cooldownImages[i].fillAmount = remaining;
 		}
 	}

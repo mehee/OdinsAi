@@ -5,6 +5,7 @@ using UnityEngine;
 
 public abstract class Ability : MonoBehaviour
 {
+	private Vector3 direction;
 	float cooldownTimer;
 	uint frameCounter = 0;
 	AbilityResource resource;
@@ -88,6 +89,7 @@ public abstract class Ability : MonoBehaviour
 			Debug.Log("Ability not ready");
 			return false;
 		}
+		AlignAbilityWithMouse();
 		cooldownTimer = Cooldown;
 		resource.Reduce(Cost);
 		return true;
@@ -102,4 +104,15 @@ public abstract class Ability : MonoBehaviour
 			return false;
 		return true;
 	}
+
+	public void AlignAbilityWithMouse()
+    {
+        Vector3 difference = Camera.main.WorldToScreenPoint(Input.mousePosition)
+            - transform.root.position;
+        float rotation = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        rotation /= 45;
+        rotation = Mathf.Round(rotation) * 45;
+        transform.rotation = Quaternion.Euler(0, 0, rotation - 90); 
+        direction = transform.rotation * Vector3.forward;
+    }
 }
