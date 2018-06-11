@@ -5,22 +5,55 @@ using UnityEngine;
 
 public abstract class Ability : MonoBehaviour
 {
-	float cooldownTimer;
-	uint frameCounter = 0;
-	AbilityResource resource;
-	
-	new protected Collider2D collider;
+    private float remainingCooldown;
+
+    protected Character owner;
+
+	// Rotation and direction of the ability
+	// are clamped to the eight cardinal directions
+	protected Quaternion rotation;
+	protected Vector2 direction;
+
+	new public string name;
+	[TextArea(2, 5)]
+	public string description;
 
 	[SerializeField]
-	protected AbilityInfo info;
+	float baseCooldown;
+	[SerializeField]
+	float baseCost;
+	[SerializeField]
+	float baseDamage;
 
-	protected abstract void OnTriggerEnter2D(Collider2D other);
+	public float cooldownModifier;
+	public float costModifier;
+	public float damageModifier;
+
+	public float strengthScaling;
+	public float intelligenceScaling;
+
+	public int startupFrames;
+	public int activeFrames;
+	public int recoveryFrames;
+
+	public Sprite icon;
+	public AudioClip sound;
+
+	public float Damage
+	{
+		get
+		{
+			float strengthBonus = strengthScaling * owner.stats.Strength;
+			float intBonus = intelligenceScaling * owner.stats.Intelligence; 
+			return (baseDamage + strengthBonus + intBonus) * damageModifier;
+		}
+	}
 
 	public float Cooldown
 	{
 		get
 		{
-			return info.baseCooldown * info.cooldownModifier;
+			return baseCooldown * cooldownModifier;
 		}
 	}
 
@@ -28,78 +61,68 @@ public abstract class Ability : MonoBehaviour
 	{
 		get
 		{
-			return info.baseCost * info.costModifier;
+			return baseCost * costModifier;
 		}
 	}
 
-	public float Damage
-	{
-		get
-		{
-			return info.baseDamage * info.damageModifier;
-		}
-	}
-
-    public float CooldownTimer
+    public float RemainingCooldown
     {
         get
         {
-            return cooldownTimer;
+            return remainingCooldown;
         }
+
         set
         {
-            cooldownTimer = value;
+            remainingCooldown = value;
         }
     }
 
-    protected virtual void Awake()
+    public abstract void Activate();
+
+	public virtual bool ReadyForActivation()
 	{
-		collider = GetComponent<Collider2D>();
-		collider.enabled = false;
-		resource = transform.parent.GetComponent<AbilityResource>();
+		if(EnoughResources() && OffCoolDown())
+			return true;
+		return false;
+	}
+
+	public virtual bool EnoughResources()
+	{
+		if(owner.GetComponent<AbilityResource>().Value < Cost)
+			return false;
+		return true;
+	}
+
+	public bool OffCoolDown()
+	{
+		if(remainingCooldown == 0)
+			return true;
+		return false;
+	}
+
+	protected virtual void Start()
+	{
+		owner = GetComponentInParent<Character>();
 	}
 
 	protected virtual void Update()
 	{
-		if(frameCounter > info.framesActive)
+		if(remainingCooldown > 0)
 		{
-			collider.enabled = false;
-			frameCounter = 0;
-		}
-
-		if(cooldownTimer > 0)
-		{
-			cooldownTimer -= Time.deltaTime;
-			if(cooldownTimer < 0)
-				cooldownTimer = 0;
-		}
-
-		if(collider.enabled)
-		{
-			frameCounter++;
+			remainingCooldown -= Time.deltaTime;
+			if(remainingCooldown < 0)
+				remainingCooldown = 0;
 		}
 	}
 
-	public virtual bool Activate()
+	protected void AlignWithMouse()
 	{
-		if(!ReadyForActivation())
-		{
-			// TODO: Replace with proper sounds and UI message!
-			Debug.Log("Ability not ready");
-			return false;
-		}
-		cooldownTimer = Cooldown;
-		resource.Reduce(Cost);
-		return true;
-	}
-	
-
-	public virtual bool ReadyForActivation()
-	{
-		if(cooldownTimer > 0)
-			return false;
-		else if(resource.Value < Cost)
-			return false;
-		return true;
+		Vector2 rawDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+		direction.x = Mathf.Round(rawDirection.x);
+		direction.y = Mathf.Round(rawDirection.y);
+		float angle = Mathf.Atan2(direction.x, direction.y);
+		Quaternion newRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+		direction = direction.normalized;
 	}
 }

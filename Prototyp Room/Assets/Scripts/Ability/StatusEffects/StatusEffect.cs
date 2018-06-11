@@ -8,18 +8,28 @@ public abstract class StatusEffect : MonoBehaviour
 
 	[SerializeField]
 	protected float baseDuration;
+
 	[SerializeField]
 	protected float durationModifier;
+
 	protected float remainingDuration;
+
 	[SerializeField]
 	/** Amount of seconds between
 		effect applications. */
 	protected float interval;
+
 	protected float lastApplicationTime;
+
+	/** Triggers the consequences that
+		the effect has on the target.
+		(e.g. damage). */
+    public abstract void Apply();
 
     public float RemainingDuration
     {
         get { return remainingDuration; }
+		set { remainingDuration = value; }
     }
 
     public float DurationModifier
@@ -46,8 +56,13 @@ public abstract class StatusEffect : MonoBehaviour
 		lastApplicationTime = -Duration;
 	}
 
-    public virtual void Apply()
+	/** Puts a copy of itself onto 
+		the target transforms GameObject. 
+		Override to handle conflicts with
+		other status effects of the same type. */
+	public virtual void Attach(Transform target)
 	{
-
+		Instantiate(this);
+		transform.parent = target.transform;
 	}
 }
