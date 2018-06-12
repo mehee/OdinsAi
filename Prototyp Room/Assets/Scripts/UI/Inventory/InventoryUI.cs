@@ -5,6 +5,20 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour {
 
+	private static InventoryUI instance;
+	public static InventoryUI MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<InventoryUI>();
+            }
+
+            return instance;
+        }
+    }
+
 	public GameObject inventory;
 	private Image ReceivedItem;
 	private Image[] invContent = new Image[60];
@@ -12,6 +26,9 @@ public class InventoryUI : MonoBehaviour {
 	private Image[] allImages;
 	private Image[] itemImages = new Image[60];
 	private int fieldcount = 0;
+
+	[SerializeField]
+	private GameObject tooltip;
 
 	// Use this for initialization
 	void Start ()
@@ -58,5 +75,15 @@ public class InventoryUI : MonoBehaviour {
 	void DisplayItems()
 	{
 		
+	}
+
+	public void ShowTooltip(Vector3 position)
+	{
+		tooltip.SetActive(true);
+		tooltip.transform.position = position;
+	}
+	public void HideTooltip()
+	{
+		tooltip.SetActive(false);
 	}
 }

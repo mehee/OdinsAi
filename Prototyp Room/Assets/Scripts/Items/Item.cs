@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Item : MonoBehaviour {
+public class Item : MonoBehaviour
+{
 
 	public Text name, quality, type, strength, intelligence, vitality;
 
 	//displays the Values in the ItemCanvas
 	public void DisplayValues(ItemEntry item)
 	{
-		DestroyPlaceHolderText();
-
 		name.text = item.name;
 		quality.text = item.quality.ToString();
 		type.text = item.type.ToString();
@@ -40,8 +39,10 @@ public class Item : MonoBehaviour {
  
 	}
 
-	void DestroyPlaceHolderText()
+	public string GetDescription()
 	{
-		
+		return "Im an Item";
 	}
+
+
 }
