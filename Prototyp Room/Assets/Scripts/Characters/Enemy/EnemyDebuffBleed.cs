@@ -14,11 +14,12 @@ public class EnemyDebuffBleed : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		Bleed bl = GetComponentInParent<Bleed>();
+		Bleed bl = GetComponentInParent<Enemy>().GetComponentInChildren<Bleed>();
 		if(bl!=null)
 		{
 			image.enabled = true;
-			image.fillAmount=bl.RemainingDuration/bl.Duration;
+			image.fillAmount = bl.RemainingDuration/bl.Duration;
+			Debug.Log(bl.RemainingDuration);
 		}
 		else
 		image.enabled=false;

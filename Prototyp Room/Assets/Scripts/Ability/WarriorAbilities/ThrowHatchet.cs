@@ -28,7 +28,6 @@ public class ThrowHatchet : Ability
 		thrown.owner = this;
 		AlignWithMouse();
 		thrown.Velocity = speed * direction;
-		Debug.Log(thrown.Velocity);
 		thrown.GetComponent<Collider2D>().enabled = true;
 		currentAmountHatchets--;	
     }

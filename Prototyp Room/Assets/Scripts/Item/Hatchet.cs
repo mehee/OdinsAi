@@ -95,6 +95,7 @@ public class Hatchet : MonoBehaviour
 		{
             if(other.tag == "Enemy")
             {
+                Debug.LogError("Call Attach()");                
                 bleed.Attach(other.transform);
                 other.GetComponent<Health>().Reduce(damage);
             }

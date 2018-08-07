@@ -32,6 +32,7 @@ TextureImporter:
     21300050: City01_objects_window01
     21300052: City01_objects_barrel00
     21300054: City01_objects_Tent
+    21300056: Gave
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -496,6 +497,20 @@ TextureImporter:
         height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Gave
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2080
+        width: 33
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

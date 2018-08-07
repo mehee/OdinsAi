@@ -37,4 +37,11 @@ public class AnimationManager : MonoBehaviour {
         animator.SetFloat("input_x", vector2.x);
         animator.SetFloat("input_y", vector2.y);
     }
+	public void Dash(Vector2 vector2)
+	{
+		
+        animator.SetFloat("input_x", vector2.x);
+        animator.SetFloat("input_y", vector2.y);
+		animator.Play("Dashing");
+	}
 }

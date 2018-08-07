@@ -2136,7 +2136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1526972097229102
 GameObject:
   m_ObjectHideFlags: 1
@@ -4325,7 +4325,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1700129368937710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.05683, y: -10.344559, z: 7.27597}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4367059795695514}
@@ -4360,7 +4360,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -7334,9 +7334,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maximum: 100
   value: 0
-  changeInterval: 0.5
-  changeAmount: 1
-  bloodlustPerEnemy: 0
+  changeInterval: 1
+  changeAmount: 2
+  bloodlustPerEnemy: 5
 --- !u!114 &114277611551358270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9799,27 +9799,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-    Name:
-
-    Class:
-
-    Level:
-
-    EXP:
-
-
-    Max. HP:
-
-    Max. WT:
-
-    Armor:
-
-
-    Strength:
-
-    Int.:'
+  m_Text: "\nName: \tJan\nClass:\tWarrior\nLevel:\t1\nEXP:\t\n\t\nMax. HP:\t210\nMax.
+    WT:\t\nArmor:\t\n\nStrength:\nInt.:"
 --- !u!114 &114505107070778682
 MonoBehaviour:
   m_ObjectHideFlags: 1
