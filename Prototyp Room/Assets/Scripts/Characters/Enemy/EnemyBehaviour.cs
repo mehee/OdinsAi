@@ -217,11 +217,20 @@ public class EnemyBehaviour : MonoBehaviour {
         else if(currentState is EvadeState)
         {
             Animator.Walk(myStartPosition - enemy.transform.position);
+            movement.Direction = Vector2.zero;
+            movement.Direction = (myStartPosition - enemy.transform.position).normalized;
         }
         else if(currentState is AttackState)
         {
             
             Animator.Attack((Target.transform.position - enemy.transform.position ).normalized);
+            movement.Direction = Vector2.zero;
+            movement.Direction = (Target.transform.position - enemy.transform.position).normalized;
+
+        }
+        else if(currentState is IdleState)
+        {
+            Animator.Stay(movement.Direction);
         }
     }
    
