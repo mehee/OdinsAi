@@ -14,22 +14,9 @@ public class Enemy : Character
     private EnemyBehaviour enemyBehaviour;
     private float currentHealth;
     [SerializeField]
-    private float attackRange;
-    [SerializeField]
     uint experienceReward;
 
-    public float AttackRange
-    {
-        get
-        {
-            return attackRange;
-        }
 
-        set
-        {
-            attackRange = value;
-        }
-    }
 
     public bool IsLootable{get;set;}
 

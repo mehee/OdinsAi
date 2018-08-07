@@ -33,19 +33,22 @@ class AttackState : IState
                 parent.AutoAttackAnimationLenght -= Time.deltaTime;
                 if (parent.AutoAttackAnimationLenght <= 0)
                 {
-                    playerHealth.Reduce(parent.AutoAttackDamage);
+                    
                     parent.AutoAttackCooldown = parent.AutoAttackCDtmp;
                     parent.AutoAttackAnimationLenght = parent.AutoAttackAnimatiomTMP;
+                    if (distance <= parent.AttackRange) 
+                    {
+                        playerHealth.Reduce(parent.AutoAttackDamage);
+                    }
                 }
+            }
+            else if (distance >= parent.AttackRange)
+            {
+                parent.ChangeState(new FollowState());
             }
             else
             {
                 parent.ChangeState(new IdleState());
-            }
-
-            if (distance >= parent.AttackRange)
-            {
-                parent.ChangeState(new FollowState());
             }
         }
         else

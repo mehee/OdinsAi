@@ -185,7 +185,6 @@ public class EnemyBehaviour : MonoBehaviour {
         enemy = GetComponent<Enemy>();
         Animator = GetComponent<AnimationManager>();
         ChangeState(new IdleState());
-        AttackRange = enemy.AttackRange;
         movement = GetComponent<Movement>();
         myStartPosition = enemy.transform.position;
         autoAttackCDtmp = autoAttackCooldown;
