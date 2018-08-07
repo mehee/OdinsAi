@@ -15,11 +15,33 @@ public class AnimationManager : MonoBehaviour {
 	{
 		
 		animator.SetBool("iswalking",true);
-		animator.SetFloat("input_x", vector2.x);
+        animator.SetBool("isAttacking", false);
+
+        animator.SetFloat("input_x", vector2.x);
 		animator.SetFloat("input_y", vector2.y);
 	}
-	public void Stay()
+	public void Stay(Vector2 vector2)
 	{
 		animator.SetBool("iswalking",false);
+        animator.SetBool("isAttacking", false);
+
+        animator.SetFloat("input_x", vector2.x);
+		animator.SetFloat("input_y", vector2.y);
+	}
+
+    public void Attack(Vector2 vector2)
+    {
+        animator.SetBool("isAttacking", true);
+        animator.SetBool("iswalking", false);
+
+        animator.SetFloat("input_x", vector2.x);
+        animator.SetFloat("input_y", vector2.y);
+    }
+	public void Dash(Vector2 vector2)
+	{
+		
+        animator.SetFloat("input_x", vector2.x);
+        animator.SetFloat("input_y", vector2.y);
+		animator.Play("Dashing");
 	}
 }

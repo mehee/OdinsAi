@@ -9,18 +9,29 @@ private Camera camera;
 	// Use this for initialization
 	void Start () 
 	{
-	camera = GetComponent<Camera>();	
+		camera = GetComponent<Camera>();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-	camera.orthographicSize = (Screen.height/100f);	
+		camera.orthographicSize = (Screen.height/100f)*1.5f;	
 
-	if(target)
-	{
-		transform.position = Vector3.Lerp(transform.position,target.position,0.1f) + new Vector3(0,0,-10);
+		if(target)
+		{
+			transform.position = Vector3.Lerp(transform.position,target.position,0.1f) + new Vector3(0,0,-10);
+		}
+		
+		if(Input.GetButtonDown("RightClick"))
+    	{
+        	Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        	RaycastHit hit;
+        
+			if(Physics.Raycast(ray, out hit, 100))
+			{
+				Debug.Log(hit.transform.gameObject.name);
+			}
+     	}
 	}
-	
-	}
+
 }

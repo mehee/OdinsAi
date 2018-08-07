@@ -2,23 +2,95 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour {
-
-	[SerializeField]
+public class Movement : MonoBehaviour 
+{
+   	[SerializeField]
 	private float movementSpeed;
-	Rigidbody2D rigiBbody;
+	Rigidbody2D rigidBody;
 
-	void Start () 
+    [SerializeField]
+    float dashDuration;
+    [SerializeField]
+    float dashSpeed;
+    float dashTimer;
+    Vector2 dashDirection;
+    Vector2 direction = Vector2.down;
+
+    Health health;
+
+    public float MovementSpeed
+    {
+        get
+        {
+            return movementSpeed;
+        }
+
+        set
+        {
+            movementSpeed = value;
+        }
+    }
+
+    public float DashTimer
+    {
+        get
+        {
+            return dashTimer;
+        }
+    }
+
+    public Vector2 Direction
+    {
+        get
+        {
+            return direction;
+        }
+
+        set
+        {
+            direction = value;
+        }
+    }
+
+    void Start () 
 	{
-		rigiBbody = GetComponent<Rigidbody2D> ();
-		
+		rigidBody = GetComponent<Rigidbody2D>();
+        health = GetComponent<Health> ();
 	}
 
 	public void Move(Vector2 movementVec)
 	{
-		if(rigiBbody!= null)
-		rigiBbody.velocity = movementVec * movementSpeed;
-	
+		    rigidBody.velocity = movementVec * MovementSpeed;
 	}
+
+    public void Dash(Vector2 movementVec)
+    {
+        dashTimer = dashDuration;
+        dashDirection = movementVec;
+        health.IsVulnerable= false;
+
+    }
+
+    void OnCollisionEnter2D()
+    {
+     dashTimer=0;  
+    }
+    
+    void Update()
+    {
+        if(dashTimer > 0)
+        {
+            rigidBody.velocity = dashSpeed * dashDirection;
+            dashTimer -= Time.deltaTime;
+            if(dashTimer < 0)
+                dashTimer = 0;
+        }
+
+        if(dashTimer == 0)
+        {
+            rigidBody.velocity = Vector2.zero;
+            health.IsVulnerable= true;
+        }
+    }
 	
 }

@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputManager : MonoBehaviour {
+public class InputManager : MonoBehaviour 
+{
 
 	private Movement movement;
 	private AnimationManager animator;
 
-
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
 	{
-	movement = GetComponent<Movement> ();	
-	animator = GetComponent<AnimationManager> ();
+		movement = GetComponent<Movement> ();	
+		animator = GetComponent<AnimationManager> ();
 	}
 	
 	// Update is called once per frame
@@ -24,13 +24,20 @@ public class InputManager : MonoBehaviour {
 		if(movementVec!= Vector2.zero)
 		{
 			animator.Walk(movementVec);
-		}
+            movement.Direction = Vector2.zero;
+            movement.Direction += movementVec.normalized;
+        }
 		else
-		animator.Stay();
+			animator.Stay(movement.Direction);
 
-		movement.Move(movementVec);
-		//check if input is there
+		if(Input.GetButtonDown("Jump"))
+		{
+			animator.Dash(movementVec);
+			movement.Dash(movementVec);
+		}
+			
 
-
+		if(movement.DashTimer == 0)
+			movement.Move(movementVec);
 	}
 }
