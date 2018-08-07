@@ -74,7 +74,7 @@ public class InventoryUI : MonoBehaviour {
 
 	void DisplayItems()
 	{
-		
+		// Show ITEMS 
 	}
 
 	public void ShowTooltip(Vector3 position)

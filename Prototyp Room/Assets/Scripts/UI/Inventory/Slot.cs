@@ -41,7 +41,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPo
 		}
 		if(selectedItem != null)
 		{
-			inventoryScript.AddItem(selectedItem);
+			inventoryScript.AddItem(selectedItem);//Add Item to Slot in Inventory but don'ts show it
 		}
 		else Debug.Log("Clicked slot is empty");
 	}
