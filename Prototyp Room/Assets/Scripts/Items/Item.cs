@@ -5,6 +5,31 @@ using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
+	/*FINISH ME FIRST 
+	Icon muss gemacht werden und Reference dazu
+	und Slots etc
+	 */
+	//reference to Slot
+	public InventorySlot slot;
+
+	[SerializeField] private Sprite icon;
+	[SerializeField] private int stackSize;
+
+	public Sprite Icon
+	{
+		get{return icon;}
+	}
+	
+	public int StackSize
+	{
+		get{return stackSize;}
+	}
+
+	protected InventorySlot Slot
+	{
+		get {return slot;}
+		set {slot = value;}
+	}
 
 	public Text name, quality, type, strength, intelligence, vitality;
 
