@@ -27,9 +27,9 @@ public class Bleed : StatusEffect
     void Update()
     {
         float time = Time.time;
-        if(time - creationTime >= Duration)
+        
+        if(remainingDuration == 0)
         {
-            Debug.Log("Duration over");
             Destroy(gameObject);
         }
 
@@ -37,6 +37,13 @@ public class Bleed : StatusEffect
         {
             Apply();
             lastApplicationTime = time;
+        }
+
+        if(remainingDuration >0)
+        {
+            remainingDuration -= Time.deltaTime;
+            if(remainingDuration < 0)
+                remainingDuration = 0;
         }
     }
 }

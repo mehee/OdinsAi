@@ -29,6 +29,7 @@ class FollowState : IState
             parent.AutoAttackCooldown -= Time.deltaTime;
             if (parent.AutoAttackCooldown <= 0)
             {
+                parent.AutoAttackAnimationLenght = parent.AutoAttackAnimatiomTMP;
                 if (distance <= parent.AttackRange)
                 {
                     parent.ChangeState(new AttackState());

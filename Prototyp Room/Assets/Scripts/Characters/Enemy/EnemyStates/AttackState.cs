@@ -24,7 +24,7 @@ class AttackState : IState
        if(parent.Target != null)
         {
             float distance = Vector2.Distance(parent.Target.position, parent.transform.position);
-
+            parent.Movement.Move(Vector2.zero);
 
             parent.AutoAttackCooldown -= Time.deltaTime;
             if(parent.AutoAttackCooldown <= 0)
@@ -43,8 +43,6 @@ class AttackState : IState
                 parent.ChangeState(new IdleState());
             }
 
-
-
             if (distance >= parent.AttackRange)
             {
                 parent.ChangeState(new FollowState());
@@ -52,7 +50,6 @@ class AttackState : IState
         }
         else
         {
-            
             parent.ChangeState(new IdleState());
         }
     }
