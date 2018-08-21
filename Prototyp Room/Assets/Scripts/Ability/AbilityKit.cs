@@ -5,20 +5,29 @@ using UnityEngine;
 public class AbilityKit : MonoBehaviour 
 {	
 	[SerializeField]
-	Ability[] abilities;
+	List<Ability> abilities;
 	List<Ability> abilityInstances;
 	
 	[SerializeField]
 	float globalCooldown = 0.1f;
 	float cooldownTimer;
 
+	private Character owner;
+
 	void Start()
-	{
-		abilityInstances = new List<Ability>(abilities.Length);
+	{	
+		owner = GetComponent<Character>();
+		abilityInstances = new List<Ability>(abilities.Count);
 		foreach(Ability ability in abilities)
 		{
-			var instance = Instantiate(ability, transform) as Ability;
+			var instance = ability.CreateInstance(owner);
+			instance.transform.position = transform.position;
 			abilityInstances.Add(instance);
+		}
+
+		if(abilities.Count != abilityInstances.Count)
+		{
+			Debug.LogError("Not all abilities initialized for: " + owner.name);
 		}
 	}
 

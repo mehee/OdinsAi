@@ -6,16 +6,13 @@ using System;
 
 public class Player : Character
 {
-	[SerializeField]
-	uint expToNextLevel;
-	[SerializeField]
-	uint experience = 0;
-	[SerializeField]
+	[SerializeField] uint expToNextLevel;
+	[SerializeField] uint experience = 0;
 	/** Determines how much extra experience
 		is needed for next level-up. */
-	float levelUpFactor = 0.1f;
+	[SerializeField] float levelUpFactor = 0.1f;
 
-	Health health;
+	[HideInInspector] public Health health;
 
 	void Start()
 	{

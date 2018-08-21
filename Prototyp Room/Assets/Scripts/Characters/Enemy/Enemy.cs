@@ -13,10 +13,10 @@ public class Enemy : Character
 
     private EnemyBehaviour enemyBehaviour;
     private float currentHealth;
-    [SerializeField]
-    private float attackRange;
-    [SerializeField]
-    uint experienceReward;
+    [SerializeField] private float attackRange;
+    [SerializeField] uint experienceReward;
+
+    [HideInInspector] Health health;
 
     public float AttackRange
     {
