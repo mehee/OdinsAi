@@ -8,18 +8,19 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
+  m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1382312573507796}
-  m_IsPrefabParent: 1
+  m_IsPrefabAsset: 1
 --- !u!1 &1382312573507796
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4656209803800670}
   - component: {fileID: 114358357961675214}
+  - component: {fileID: 114648927142301676}
   m_Layer: 0
   m_Name: ThrowHatchet
   m_TagString: Untagged
@@ -30,7 +31,7 @@ GameObject:
 --- !u!4 &4656209803800670
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1382312573507796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -43,7 +44,7 @@ Transform:
 --- !u!114 &114358357961675214
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1382312573507796}
   m_Enabled: 1
@@ -56,6 +57,7 @@ MonoBehaviour:
   baseCooldown: 1
   baseCost: 0
   baseDamage: 10
+  owner: {fileID: 0}
   cooldownModifier: 1
   costModifier: 1
   damageModifier: 1
@@ -68,6 +70,19 @@ MonoBehaviour:
   sound: {fileID: 0}
   hatchetPrefab: {fileID: 114301601847144812, guid: c66733201ccfc30419111b851cef1e6c,
     type: 2}
-  amountHatchets: 3
-  currentAmountHatchets: 0
+  hatchetStock: 2
   speed: 20
+  currentAmountHatchets: 0
+--- !u!114 &114648927142301676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1382312573507796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a66c7c5208d147ab1f3e81741fcf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1610257032896676, guid: c66733201ccfc30419111b851cef1e6c, type: 2}
+  poolSize: 2
