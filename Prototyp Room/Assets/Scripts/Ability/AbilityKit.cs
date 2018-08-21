@@ -21,6 +21,7 @@ public class AbilityKit : MonoBehaviour
 		foreach(Ability ability in abilities)
 		{
 			var instance = ability.CreateInstance(owner);
+			instance.transform.position = transform.position;
 			abilityInstances.Add(instance);
 		}
 

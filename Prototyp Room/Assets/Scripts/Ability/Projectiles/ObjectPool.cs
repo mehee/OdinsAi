@@ -6,6 +6,7 @@ public class ObjectPool : MonoBehaviour
 {
 	[SerializeField] PoolObject prefab;
 	[SerializeField] int poolSize;
+	int remainingPoolObjects;
 	List<PoolObject> instances = new List<PoolObject>();
 	int indexToDispatchFrom;
 
@@ -26,6 +27,8 @@ public class ObjectPool : MonoBehaviour
 			instances.Add(instance);
 		}
 
+		remainingPoolObjects = poolSize;
+
 		if(instances.Count != poolSize)
 			Debug.LogError("Amount of instances does not match pool size.");
 	}
@@ -40,6 +43,7 @@ public class ObjectPool : MonoBehaviour
 			if(!instance.isActiveAndEnabled)
 			{
 				instance.SetActive(true);
+				remainingPoolObjects--;
 				return instance;
 			}
 		}
@@ -47,8 +51,20 @@ public class ObjectPool : MonoBehaviour
 		return null;
 	}
 
+	/** Returns a pool object back to the pool. */
 	public void Retrieve(PoolObject poolObject)
 	{
 		poolObject.SetActive(false);
+		remainingPoolObjects++;
+	}
+
+	public bool IsEmpty()
+	{
+		if(remainingPoolObjects == 0)
+		{
+			return true;
+		}
+
+		return false;
 	}
 }

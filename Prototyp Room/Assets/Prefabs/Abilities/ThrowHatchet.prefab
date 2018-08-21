@@ -68,11 +68,7 @@ MonoBehaviour:
   recoveryFrames: 0
   icon: {fileID: 21300000, guid: 8d586de79553c8f43aa990e4a386778f, type: 3}
   sound: {fileID: 0}
-  hatchetPrefab: {fileID: 114301601847144812, guid: c66733201ccfc30419111b851cef1e6c,
-    type: 2}
-  hatchetStock: 2
   speed: 20
-  currentAmountHatchets: 0
 --- !u!114 &114648927142301676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,5 +80,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202a66c7c5208d147ab1f3e81741fcf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1610257032896676, guid: c66733201ccfc30419111b851cef1e6c, type: 2}
+  prefab: {fileID: 114301601847144812, guid: c66733201ccfc30419111b851cef1e6c, type: 2}
   poolSize: 2

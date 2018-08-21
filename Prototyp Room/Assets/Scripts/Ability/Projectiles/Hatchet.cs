@@ -13,7 +13,7 @@ public class Hatchet : PoolObject
     [SerializeField] float maxDistanceFromOwner;
     public float flightDistance;
 
-    Vector3 lastPosition;
+    [HideInInspector] public Vector3 currentPosition;
     Vector2 velocity = Vector2.zero;
 
 	float damage;
@@ -66,7 +66,6 @@ public class Hatchet : PoolObject
         collider = GetComponent<Collider2D>(); 
         collider.enabled = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        lastPosition = transform.position;
 	}
 
 	void Update()
@@ -74,12 +73,12 @@ public class Hatchet : PoolObject
 		if(Velocity != Vector2.zero)
         {
             transform.position += (Vector3)(Velocity * Time.deltaTime);
-            distanceFlown += Mathf.Abs((transform.position - lastPosition).magnitude);
+            distanceFlown += Mathf.Abs((transform.position - currentPosition).magnitude);
             if(distanceFlown > flightDistance)
             {
                 Velocity = Vector2.zero;
             }
-            lastPosition = transform.position;
+            currentPosition = transform.position;
         }
 
         float distanceFromOwner = (transform.position - owner.transform.position).magnitude;
@@ -93,19 +92,19 @@ public class Hatchet : PoolObject
 		{
             if(other.tag == "Enemy")
             {
-                Debug.LogError("Call Attach()");                
                 bleed.Attach(other.transform);
                 other.GetComponent<Health>().Reduce(damage);
             }
             else if(!(other.tag == "Enemy" || other.tag == "Player"))
             {
+                Debug.Log("Tag: " + other.tag);
+                Debug.Log("Stopped.");
                 Velocity = Vector2.zero;
             }
 		}
         else if(Velocity == Vector2.zero && other.tag == "Player")
         {
             RecoverHatchet();
-            Debug.Log(Velocity);
         }
 	}
 
