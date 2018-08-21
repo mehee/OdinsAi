@@ -10,6 +10,10 @@ public class EnemyBehaviour : MonoBehaviour {
     private IState currentState;
     private AnimationManager animator;
     private Vector2 defaultDirection;
+    public int currentMoveSpot = 0;
+
+    [SerializeField]
+    private Transform[] moveSpots;
 
     [SerializeField]
     private float attackRange;
@@ -178,6 +182,19 @@ public class EnemyBehaviour : MonoBehaviour {
         }
     }
 
+    public Transform[] MoveSpots
+    {
+        get
+        {
+            return moveSpots;
+        }
+
+        set
+        {
+            moveSpots = value;
+        }
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -234,6 +251,11 @@ public class EnemyBehaviour : MonoBehaviour {
             //tried to follow Player position for looking around like mona lisa
            // Animator.Stay((Target.transform.position - enemy.transform.position).normalized);
         }
+       /* else if (currentState is PatrolState)
+        {
+            Animator.Walk(moveSpots[currentMoveSpot].transform.position - enemy.transform.position);
+        }
+        */
     }
    
 }

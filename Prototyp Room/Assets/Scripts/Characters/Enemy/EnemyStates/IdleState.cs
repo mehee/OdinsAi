@@ -39,9 +39,11 @@ class IdleState : IState
                     parent.ChangeState(new AttackState());
                 }
             }
-
-
-
+        }
+        //Patroling if moveSpots are available
+         else if (parent.MoveSpots.Length > 0)
+        {
+            parent.ChangeState(new PatrolState());
         }
     }
 }
