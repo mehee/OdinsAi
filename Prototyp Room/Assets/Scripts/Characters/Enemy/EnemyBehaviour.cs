@@ -231,6 +231,8 @@ public class EnemyBehaviour : MonoBehaviour {
         else if(currentState is IdleState)
         {
             Animator.Stay(movement.Direction);
+            //tried to follow Player position for looking around like mona lisa
+           // Animator.Stay((Target.transform.position - enemy.transform.position).normalized);
         }
     }
    
