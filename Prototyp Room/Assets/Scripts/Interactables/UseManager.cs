@@ -6,9 +6,17 @@ public class UseManager : MonoBehaviour {
 
 	//Insert the guiInteractText witch should apear when on Trigger
 	[SerializeField] public GameObject guiInteractText;
-	//Show the CanvasObj, if their is one
+	
+	//CanvasGroup of lootUI
 	[SerializeField] public GameObject lootUI;
+	private CanvasGroup lootUICanvasGrp;
+
+	//CanvasGroup of InventoryUI
 	[SerializeField] public GameObject inventoryUI;
+	private CanvasGroup inventoryCanvasGrp;
+
+	
+
 	//target to Spawn if necessary
 	[SerializeField] private GameObject target;
 
@@ -27,9 +35,9 @@ public class UseManager : MonoBehaviour {
 		guiInteractText.SetActive(false);
 
 		if(lootUI != null)
-			lootUI.SetActive(false);
+			lootUICanvasGrp = lootUI.GetComponent<CanvasGroup>();
 		if(inventoryUI != null)
-			inventoryUI.SetActive(false);
+			inventoryCanvasGrp = inventoryUI.GetComponent<CanvasGroup>();
 	}
 
 	void Start()
@@ -48,16 +56,22 @@ public class UseManager : MonoBehaviour {
 			if(lootUI != null)
 			{
 				//inventory.GetComponent<InventoryUI>().ShowInventory();
-				lootUI.SetActive(!lootUI.activeSelf);
+				OpenClose();
 			}
 			
 			if(inventoryUI != null)
-				inventoryUI.SetActive(!inventoryUI.activeSelf);
+				OpenClose();
 
 			if(target != null)
 				ChangePlayerPosition();
 		}
 		
+	}
+
+	private void OpenClose()
+	{
+		inventoryCanvasGrp.alpha = inventoryCanvasGrp.alpha > 0 ? 0:1;
+		inventoryCanvasGrp.blocksRaycasts = inventoryCanvasGrp.blocksRaycasts == true ? false : true;
 	}
 
 	void ChangePlayerPosition()

@@ -3,17 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Item : MonoBehaviour
+public abstract class Item : ScriptableObject
 {
-	/*FINISH ME FIRST 
-	Icon muss gemacht werden und Reference dazu
-	und Slots etc
-	 */
-	//reference to Slot
-	public InventorySlot slot;
-
 	[SerializeField] private Sprite icon;
 	[SerializeField] private int stackSize;
+
+	//reference to Slot
+	private SlotScript slot;
+
 
 	public Sprite Icon
 	{
@@ -25,11 +22,18 @@ public class Item : MonoBehaviour
 		get{return stackSize;}
 	}
 
-	protected InventorySlot Slot
+	protected SlotScript Slot
 	{
 		get {return slot;}
 		set {slot = value;}
 	}
+
+
+	/*FINISH ME FIRST 
+	Icon muss gemacht werden und Reference dazu
+	und Slots etc
+	 */
+	/* OLD eventuell DELETE
 
 	public Text name, quality, type, strength, intelligence, vitality;
 
@@ -41,6 +45,7 @@ public class Item : MonoBehaviour
 		type.text = item.type.ToString();
 		strength.text = "Strength:\t" + item.strength.ToString();
 		intelligence.text = "Intelligence:\t" + item.intelligence.ToString();
+	
 		vitality.text = "Vitality:\t" + item.vitality.ToString();
 
 		switch (item.quality)
@@ -69,5 +74,6 @@ public class Item : MonoBehaviour
 		return "Im an Item";
 	}
 
+ 	*/
 
 }
