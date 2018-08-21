@@ -198,7 +198,7 @@ public class EnemyBehaviour : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-
+        
         enemy = GetComponent<Enemy>();
         Animator = GetComponent<AnimationManager>();
         ChangeState(new IdleState());
@@ -207,6 +207,7 @@ public class EnemyBehaviour : MonoBehaviour {
         autoAttackCDtmp = autoAttackCooldown;
         defaultDirection = Vector2.down;
         AutoAttackAnimatiomTMP = autoAttackAnimationLenght;
+
     }
     // Update is called once per frame
     void Update()
