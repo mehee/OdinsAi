@@ -17,7 +17,7 @@ public class PatrolState : IState
 
 
 
-    void Exit()
+    public void Exit()
     {
 
     }
@@ -25,9 +25,9 @@ public class PatrolState : IState
    
 	
 	// Update is called once per frame
-	void Update () {
+	public void Update () {
 
-        parent.transform.position = Vector2.MoveToward(parent.transform.position, moveSpots[randomSpot].position, parent.Movement.MovementSpeed * Time.deltaTime);
+        parent.transform.position = Vector2.MoveTowards(parent.transform.position, moveSpots[randomSpot].position, parent.Movement.MovementSpeed * Time.deltaTime);
           
 	}
 }
