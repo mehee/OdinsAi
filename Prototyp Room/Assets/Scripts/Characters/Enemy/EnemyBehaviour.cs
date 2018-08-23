@@ -13,17 +13,21 @@ public class EnemyBehaviour : MonoBehaviour {
     public int currentMoveSpot = 0;
 
     [SerializeField]
+    private bool isRanged;
+    [SerializeField]
+    private float retreatDistance;
+    [SerializeField]
     private Transform[] moveSpots;
     [SerializeField]
     private float attackRange;
     [SerializeField]
-    private float autoAttackCooldown;
-    private float autoAttackCDtmp;
+    private float attackCD;
+    private float attackCDtmp;
     [SerializeField]
-    private float autoAttackDamage;
+    private float attackDamage;
     [SerializeField]
-    private float autoAttackAnimationLenght;
-    private float autoAttackAnimatiomTMP;
+    private float attackAnimationLenght;
+    private float attackAnimatiomTMP;
     private Vector3 myStartPosition;
 
     public Transform Target
@@ -91,42 +95,42 @@ public class EnemyBehaviour : MonoBehaviour {
         }
     }
 
-    public float AutoAttackCDtmp
+    public float AttackCDtmp
     {
         get
         {
-            return autoAttackCDtmp;
+            return attackCDtmp;
         }
 
         set
         {
-            autoAttackCDtmp = value;
+            attackCDtmp = value;
         }
     }
 
-    public float AutoAttackCooldown
+    public float AttackCD
     {
         get
         {
-            return autoAttackCooldown;
+            return attackCD;
         }
 
         set
         {
-            autoAttackCooldown = value;
+            attackCD = value;
         }
     }
 
-    public float AutoAttackDamage
+    public float AttackDamage
     {
         get
         {
-            return autoAttackDamage;
+            return attackDamage;
         }
 
         set
         {
-            autoAttackDamage = value;
+            attackDamage = value;
         }
     }
 
@@ -156,29 +160,29 @@ public class EnemyBehaviour : MonoBehaviour {
         }
     }
 
-    public float AutoAttackAnimationLenght
+    public float AttackAnimationLenght
     {
         get
         {
-            return autoAttackAnimationLenght;
+            return attackAnimationLenght;
         }
 
         set
         {
-            autoAttackAnimationLenght = value;
+            attackAnimationLenght = value;
         }
     }
 
-    public float AutoAttackAnimatiomTMP
+    public float AttackAnimatiomTMP
     {
         get
         {
-            return autoAttackAnimatiomTMP;
+            return attackAnimatiomTMP;
         }
 
         set
         {
-            autoAttackAnimatiomTMP = value;
+            attackAnimatiomTMP = value;
         }
     }
 
@@ -195,6 +199,32 @@ public class EnemyBehaviour : MonoBehaviour {
         }
     }
 
+    public bool IsRanged
+    {
+        get
+        {
+            return isRanged;
+        }
+
+        set
+        {
+            isRanged = value;
+        }
+    }
+
+    public float RetreatDistance
+    {
+        get
+        {
+            return retreatDistance;
+        }
+
+        set
+        {
+            retreatDistance = value;
+        }
+    }
+
 
     // Use this for initialization
     public virtual void Start()
@@ -205,9 +235,9 @@ public class EnemyBehaviour : MonoBehaviour {
         ChangeState(new IdleState());
         movement = GetComponent<Movement>();
         myStartPosition = enemy.transform.position;
-        autoAttackCDtmp = autoAttackCooldown;
+        attackCDtmp = attackCD;
         defaultDirection = Vector2.down;
-        AutoAttackAnimatiomTMP = autoAttackAnimationLenght;
+        AttackAnimatiomTMP = attackAnimationLenght;
 
     }
     // Update is called once per frame

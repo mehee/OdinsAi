@@ -26,21 +26,27 @@ class AttackState : IState
             float distance = Vector2.Distance(parent.Target.position, parent.transform.position);
             parent.Movement.Move(Vector2.zero);
 
-            parent.AutoAttackCooldown -= Time.deltaTime;
-            if(parent.AutoAttackCooldown <= 0)
+            parent.AttackCD -= Time.deltaTime;
+            if(parent.AttackCD <= 0)
             {
 
-                parent.AutoAttackAnimationLenght -= Time.deltaTime;
-                if (parent.AutoAttackAnimationLenght <= 0)
+                parent.AttackAnimationLenght -= Time.deltaTime;
+                if (parent.AttackAnimationLenght <= 0)
                 {
                     
-                    parent.AutoAttackCooldown = parent.AutoAttackCDtmp;
-                    parent.AutoAttackAnimationLenght = parent.AutoAttackAnimatiomTMP;
+                    parent.AttackCD = parent.AttackCDtmp;
+                    parent.AttackAnimationLenght = parent.AttackAnimatiomTMP;
                     if (distance <= parent.AttackRange) 
                     {
-                        playerHealth.Reduce(parent.AutoAttackDamage);
+                        playerHealth.Reduce(parent.AttackDamage);
                     }
                 }
+
+            }
+            else if(parent.IsRanged && distance < parent.RetreatDistance)
+            {
+                Debug.Log("Retreat!");
+                parent.ChangeState(new RetreatState());
             }
             else if (distance >= parent.AttackRange)
             {

@@ -33,8 +33,8 @@ class IdleState : IState
             // parent.ChangeState(new FollowState());
             else
             {
-                parent.AutoAttackCooldown -= Time.deltaTime;
-                if (parent.AutoAttackCooldown <= 0)
+                parent.AttackCD -= Time.deltaTime;
+                if (parent.AttackCD <= 0)
                 {
                     parent.ChangeState(new AttackState());
                 }
