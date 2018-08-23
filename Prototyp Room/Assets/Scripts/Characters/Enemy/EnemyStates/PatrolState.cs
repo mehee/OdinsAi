@@ -10,6 +10,7 @@ public class PatrolState : IState
     private int currentSpot;
     private float waitTime;
     private float tmpWaitTime;
+    private bool isWaiting;
 
 
     public void Enter(EnemyBehaviour parent)
@@ -20,6 +21,7 @@ public class PatrolState : IState
         parent.currentMoveSpot = currentSpot;
         //Hardcoded TAKE CARE!
         waitTime = tmpWaitTime = 1;
+        isWaiting = false;
     }
 
 
@@ -36,7 +38,11 @@ public class PatrolState : IState
         
         parent.transform.position = Vector2.MoveTowards(parent.transform.position, moveSpots[currentSpot].position, parent.Movement.MovementSpeed * Time.deltaTime);
         parent.Animator.Walk(  moveSpots[currentSpot].transform.position - parent.transform.position );
+        if(isWaiting)
+        {
+            parent.Animator.Stay(Vector2.down);
 
+        }
         if (parent.Target != null)
         {
             parent.ChangeState(new FollowState());
@@ -45,11 +51,13 @@ public class PatrolState : IState
         {
             if(tmpWaitTime <= 0)
             {
+                isWaiting = false;
                 currentSpot = (currentSpot + 1) % moveSpots.Length ; 
                 tmpWaitTime = waitTime;
             }
             else
             {
+                isWaiting = true;
                 tmpWaitTime -= Time.deltaTime;
             }
         }
