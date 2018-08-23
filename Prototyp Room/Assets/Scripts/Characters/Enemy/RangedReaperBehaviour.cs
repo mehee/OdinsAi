@@ -5,9 +5,9 @@ using UnityEngine;
 public class RangedReaperBehavo : EnemyBehaviour {
 
 	// Use this for initialization
-	void Start () {
-        IsMelee = false;
-        IsRanged = true;
+	public override void Start () {
+        base.Start();
+
 	}
 	
 	// Update is called once per frame
