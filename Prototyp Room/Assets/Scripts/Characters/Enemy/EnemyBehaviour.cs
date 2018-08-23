@@ -225,6 +225,8 @@ public class EnemyBehaviour : MonoBehaviour {
         }
     }
 
+ 
+
 
     // Use this for initialization
     public virtual void Start()
@@ -238,6 +240,7 @@ public class EnemyBehaviour : MonoBehaviour {
         attackCDtmp = attackCD;
         defaultDirection = Vector2.down;
         AttackAnimatiomTMP = attackAnimationLenght;
+
 
     }
     // Update is called once per frame

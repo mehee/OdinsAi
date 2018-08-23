@@ -43,7 +43,7 @@ class AttackState : IState
                 }
 
             }
-            else if(parent.IsRanged && distance < parent.RetreatDistance)
+            else if(parent.IsRanged && distance <= parent.RetreatDistance)
             {
                 Debug.Log("Retreat!");
                 parent.ChangeState(new RetreatState());
