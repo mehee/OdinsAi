@@ -40,7 +40,7 @@ public class PatrolState : IState
         parent.Animator.Walk(  moveSpots[currentSpot].transform.position - parent.transform.position );
         if(isWaiting)
         {
-            parent.Animator.Stay(Vector2.down);
+            parent.Animator.Stay(parent.DefaultDirection);
 
         }
         if (parent.Target != null)

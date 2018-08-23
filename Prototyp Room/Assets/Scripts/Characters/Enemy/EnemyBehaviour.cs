@@ -14,9 +14,14 @@ public class EnemyBehaviour : MonoBehaviour {
 
     [SerializeField]
     private Transform[] moveSpots;
-
+    [SerializeField]
+    private bool isRanged;
+    [SerializeField]
+    private bool isMelee;
     [SerializeField]
     private float attackRange;
+    [SerializeField]
+    private float rangedAttackRange;
     [SerializeField]
     private float autoAttackCooldown;
     private float autoAttackCDtmp;
@@ -25,8 +30,8 @@ public class EnemyBehaviour : MonoBehaviour {
     [SerializeField]
     private float autoAttackAnimationLenght;
     private float autoAttackAnimatiomTMP;
-
     private Vector3 myStartPosition;
+
     public Transform Target
     {
         get
@@ -156,6 +161,7 @@ public class EnemyBehaviour : MonoBehaviour {
             animator = value;
         }
     }
+
     public float AutoAttackAnimationLenght
     {
         get
@@ -195,8 +201,47 @@ public class EnemyBehaviour : MonoBehaviour {
         }
     }
 
+    public float RangedAttackRange
+    {
+        get
+        {
+            return rangedAttackRange;
+        }
+
+        set
+        {
+            rangedAttackRange = value;
+        }
+    }
+
+    public bool IsMelee
+    {
+        get
+        {
+            return isMelee;
+        }
+
+        set
+        {
+            isMelee = value;
+        }
+    }
+
+    public bool IsRanged
+    {
+        get
+        {
+            return isRanged;
+        }
+
+        set
+        {
+            isRanged = value;
+        }
+    }
+
     // Use this for initialization
-    void Start()
+    public virtual void Start()
     {
         
         enemy = GetComponent<Enemy>();
