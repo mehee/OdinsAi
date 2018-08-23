@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EvadeState : IState {
+public class EvadeState : IState
+{
 
-    EnemyBehaviour parent;
 
+    private EnemyBehaviour parent;
     public void Enter(EnemyBehaviour parent)
     {
         this.parent = parent;
@@ -14,22 +14,32 @@ public class EvadeState : IState {
 
     public void Exit()
     {
-       // parent.Movement.MovementSpeed = 0;
-    }
 
+    }
 
     public void Update()
     {
-        Vector2 movementVec = (parent.MyStartPosition - parent.transform.position).normalized;
-        parent.Movement.Move(movementVec);
-        float distance = Vector2.Distance(parent.MyStartPosition, parent.transform.position);
-        if(distance <=1 )
-        {      
-            parent.ChangeState(new IdleState());
-        }
-        if(parent.Target)
+        if (parent.Target != null)
         {
-            parent.ChangeState(new FollowState());
+            float distance = Vector2.Distance(parent.Target.position, parent.transform.position);
+            Vector2 retreatVector = (parent.transform.position - parent.Target.position).normalized;
+            parent.Movement.Move(retreatVector);
+            parent.Animator.Walk(retreatVector);
+
+            parent.AttackCD -= Time.deltaTime;
+            if (parent.AttackCD <= 0)
+            {
+
+                    if (distance >= parent.AttackRange)
+                    {
+                        
+                        parent.ChangeState(new AttackState());
+                    }
+            }
+        }
+        else
+        {
+            parent.ChangeState(new RetreatState());
         }
     }
 }

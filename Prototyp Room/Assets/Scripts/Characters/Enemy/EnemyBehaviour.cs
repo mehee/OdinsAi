@@ -266,7 +266,7 @@ public class EnemyBehaviour : MonoBehaviour {
         {
             Animator.Walk( target.transform.position - enemy.transform.position);
         }
-        else if(currentState is EvadeState)
+        else if(currentState is RetreatState)
         {
             Animator.Walk(myStartPosition - enemy.transform.position);
             movement.Direction = Vector2.zero;

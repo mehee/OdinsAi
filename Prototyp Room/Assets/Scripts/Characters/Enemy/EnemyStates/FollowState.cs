@@ -40,7 +40,7 @@ class FollowState : IState
         }
         else
         {
-            parent.ChangeState(new EvadeState());
+            parent.ChangeState(new RetreatState());
         }
 
     }
