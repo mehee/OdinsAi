@@ -6,6 +6,22 @@ using System;
 
 public class Player : Character
 {
+
+	private static Player instance;
+
+    public static Player MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<Player>();
+            }
+
+            return instance;
+        }
+    }
+	
 	[SerializeField]
 	uint expToNextLevel;
 	[SerializeField]

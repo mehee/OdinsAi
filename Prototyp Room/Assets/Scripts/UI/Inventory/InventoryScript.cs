@@ -44,6 +44,11 @@ public class InventoryScript : MonoBehaviour
 			bag.Initialize(20);
 			AddItem(bag);
 		}
+		if(Input.GetKeyDown(KeyCode.L))
+		{
+			HealthPotion potion = (HealthPotion)Instantiate(items[1]);
+			AddItem(potion);
+		}
 
 	}
 

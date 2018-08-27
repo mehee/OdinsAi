@@ -24,7 +24,10 @@ public class Stats
     private int strength = 1;
     private int armor = 1;
 
+    private float currentValue;
 
+    //Getting MaxValue of for exp Health
+    public float MyMaxValue { get; set; }
 
     public void UpdateStats(uint lvl)
     {
@@ -33,7 +36,31 @@ public class Stats
         armor = Mathf.FloorToInt(armMod*(int)lvl);
         intelligence = Mathf.FloorToInt(intMod*(int)lvl);
     }
-  
+    
+    /*just added for Update Health,Mana etc */
+     public float MyCurrentValue
+    {
+        get
+        {
+            return currentValue;
+        }
+
+        set
+        {
+            if (value > MyMaxValue)//Makes sure that we don't get too much health
+            {
+                currentValue = MyMaxValue;
+            }
+            else if (value < 0) //Makes sure that we don't get health below 0
+            {
+                currentValue = 0;
+            }
+            else //Makes sure that we set the current value withing the bounds of 0 to max health
+            {
+                currentValue = value;
+            }
+        }
+    }
 
     public int Health
     {
