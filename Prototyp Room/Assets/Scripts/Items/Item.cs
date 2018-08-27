@@ -12,7 +12,7 @@ public abstract class Item : ScriptableObject
 	private SlotScript slot;
 
 
-	public Sprite Icon
+	public Sprite MyIcon
 	{
 		get{return icon;}
 	}
@@ -22,15 +22,23 @@ public abstract class Item : ScriptableObject
 		get{return stackSize;}
 	}
 
-	protected SlotScript Slot
+	public SlotScript MySlot
 	{
 		get {return slot;}
 		set {slot = value;}
 	}
 
+	public void Remove()
+	{
+		if(MySlot != null)
+		{
+			MySlot.RemoveItem(this);
+		}
+	}
+
 
 	/*FINISH ME FIRST 
-	Icon muss gemacht werden und Reference dazu
+	MyIcons gemacht werden und Reference dazu
 	und Slots etc
 	 */
 	/* OLD eventuell DELETE

@@ -22,7 +22,7 @@ public class InventoryScript : MonoBehaviour
 	[SerializeField]
 	private BagButton[] bagButtons;
 
-	private List<Bag> bags = new List<Bag>();
+	private List<Bag> bags = new List<Bag>(); // List of all Bags in Inventory
 
 	//just for debugging
 	[SerializeField]
@@ -37,6 +37,12 @@ public class InventoryScript : MonoBehaviour
 			Bag bag = (Bag)Instantiate(items[0]);
 			bag.Initialize(20);
 			bag.Use();
+		}
+		if(Input.GetKeyDown(KeyCode.K))
+		{
+			Bag bag = (Bag)Instantiate(items[0]);
+			bag.Initialize(20);
+			AddItem(bag);
 		}
 
 	}
@@ -57,6 +63,34 @@ public class InventoryScript : MonoBehaviour
 				bagButton.MyBag = bag;
 				bags.Add(bag);
 				break;
+			}
+		}
+	}
+
+	
+	public void AddItem(Item item)
+	{
+		//running through all slots belonging to this Bag
+		foreach (Bag bag in bags)
+		{
+			if(bag.MyBagScript.AddItem(item))
+			{
+				return;
+			}
+		}
+	}
+
+	public void OpenClose()
+	{
+		bool closedBag = bags.Find(x => !x.MyBagScript.IsOpen);
+		//if closed bag == true, then open all closed bags
+		//if closed bag == flase, then close all open bags
+
+		foreach (Bag bag in bags)
+		{
+			if(bag.MyBagScript.IsOpen != closedBag)
+			{
+				bag.MyBagScript.OpenClose();
 			}
 		}
 	}

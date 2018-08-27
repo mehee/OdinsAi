@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class BagButton : MonoBehaviour 
+public class BagButton : MonoBehaviour, IPointerClickHandler
 {
 	private Bag bag;
 
@@ -24,14 +23,11 @@ public class BagButton : MonoBehaviour
 		}
 	}
 
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public void OnPointerClick(PointerEventData eventData)
+	{
+		if(bag != null)
+		{
+			bag.MyBagScript.OpenClose();
+		}
 	}
 }
