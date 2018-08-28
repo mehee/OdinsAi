@@ -15,7 +15,7 @@ public class EnemyBehaviour : MonoBehaviour {
     [SerializeField]
     private bool isRanged;
     [SerializeField]
-    private float retreatDistance;
+    private float evadeDistance;
     [SerializeField]
     private Transform[] moveSpots;
     [SerializeField]
@@ -212,16 +212,16 @@ public class EnemyBehaviour : MonoBehaviour {
         }
     }
 
-    public float RetreatDistance
+    public float EvadeDistance
     {
         get
         {
-            return retreatDistance;
+            return evadeDistance;
         }
 
         set
         {
-            retreatDistance = value;
+            evadeDistance = value;
         }
     }
 

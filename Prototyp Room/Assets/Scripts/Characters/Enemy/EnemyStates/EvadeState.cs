@@ -24,17 +24,12 @@ public class EvadeState : IState
             float distance = Vector2.Distance(parent.Target.position, parent.transform.position);
             Vector2 retreatVector = (parent.transform.position - parent.Target.position).normalized;
             parent.Movement.Move(retreatVector);
-            parent.Animator.Walk(retreatVector);
+            parent.Animator.Walk(-retreatVector);
 
             parent.AttackCD -= Time.deltaTime;
             if (parent.AttackCD <= 0)
             {
-
-                    if (distance >= parent.AttackRange)
-                    {
-                        
-                        parent.ChangeState(new AttackState());
-                    }
+                        parent.ChangeState(new AttackState());   
             }
         }
         else
