@@ -15,7 +15,6 @@ public class HealthPotion : Item, IUseable
 		if(Player.MyInstance.MyHealth.MyCurrentValue < Player.MyInstance.MyHealth.MyMaxValue)
 		{
 			Remove();
-
 			Player.MyInstance.MyHealth.MyCurrentValue += health;
 		}
 		

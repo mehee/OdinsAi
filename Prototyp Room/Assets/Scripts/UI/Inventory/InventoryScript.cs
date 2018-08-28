@@ -75,14 +75,40 @@ public class InventoryScript : MonoBehaviour
 	
 	public void AddItem(Item item)
 	{
-		//running through all slots belonging to this Bag
+
+		if(item.MyStackSize > 0)
+		{
+			if(PlaceInStack(item))
+				return;
+		}
+		PlaceInEmpty(item);
+
+	}
+
+	//running through all slots belonging to this Bag
+	private void PlaceInEmpty(Item item)
+	{
 		foreach (Bag bag in bags)
 		{
 			if(bag.MyBagScript.AddItem(item))
-			{
 				return;
+		}
+	}
+
+
+	//run through all bags, then all slots and check if the Item is Stackable
+	private bool PlaceInStack(Item item)
+	{
+		foreach (Bag bag in bags) 
+		{
+			foreach (SlotScript slots in bag.MyBagScript.MySlots)
+			{
+				if(slots.StackItem(item))
+					return true;
 			}
 		}
+
+		return false;
 	}
 
 	public void OpenClose()

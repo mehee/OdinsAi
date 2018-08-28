@@ -17,7 +17,7 @@ public abstract class Item : ScriptableObject
 		get{return icon;}
 	}
 	
-	public int StackSize
+	public int MyStackSize
 	{
 		get{return stackSize;}
 	}
