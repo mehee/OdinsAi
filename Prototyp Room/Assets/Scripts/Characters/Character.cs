@@ -14,6 +14,7 @@ public abstract class Character : MonoBehaviour
     // TODO: Add other stats later
 	// when game design is clearer.
 
+    
     [SerializeField]
     protected Stats health;
 
@@ -21,6 +22,7 @@ public abstract class Character : MonoBehaviour
     {
         get { return health; }
     }
+    
 
     public abstract void Die();
 }

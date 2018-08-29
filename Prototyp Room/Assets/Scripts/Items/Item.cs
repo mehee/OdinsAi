@@ -3,29 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class Item : ScriptableObject
+public enum Quality {Common, Uncommon, Rare, Legendary }
+
+public abstract class Item : ScriptableObject, IMoveable
 {
 	[SerializeField] private Sprite icon;
+	[SerializeField] private Sprite background;
 	[SerializeField] private int stackSize;
+
+	[SerializeField] private Quality quality;
+	[SerializeField] private string titel;
 
 	//reference to Slot
 	private SlotScript slot;
 
-
 	public Sprite MyIcon
 	{
-		get{return icon;}
+		get {return icon;}
+		set {icon = value;}
 	}
 	
 	public int MyStackSize
 	{
-		get{return stackSize;}
+		get {return stackSize;}
 	}
 
 	public SlotScript MySlot
 	{
 		get {return slot;}
 		set {slot = value;}
+	}
+
+	public Quality MyQuality
+	{
+		get {return quality;}
+	}
+
+	public Sprite MyBackground
+	{
+		get {return background;}
+		set {background = value;}
 	}
 
 	public void Remove()
@@ -36,6 +53,30 @@ public abstract class Item : ScriptableObject
 		}
 	}
 
+
+	public virtual string GetDescription()
+    {
+        string color = string.Empty;
+
+        switch (quality)
+        {
+            case Quality.Common:
+                color = "#d6d6d6";
+                break;
+            case Quality.Uncommon:
+                color = "#00ff00ff";
+                break;
+            case Quality.Rare:
+                color = "#0000ffff";
+                break;
+            case Quality.Legendary:
+                color = "#800080ff";
+                break;
+        }
+
+        return string.Format("<color={0}>{1}</color>", color, titel);
+    }
+	
 
 	/*FINISH ME FIRST 
 	MyIcons gemacht werden und Reference dazu

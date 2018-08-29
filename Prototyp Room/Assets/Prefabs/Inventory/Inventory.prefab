@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 222280533922902744}
   - component: {fileID: 114647243057778092}
   - component: {fileID: 114550280815811504}
+  - component: {fileID: 225208958627814132}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -71,6 +72,7 @@ MonoBehaviour:
   - {fileID: 0}
   items:
   - {fileID: 11400000, guid: 5fd39efc20d431a468fc6cbb5619b463, type: 2}
+  - {fileID: 11400000, guid: 1774cf0ff4d5a674097b313eaa9e38f8, type: 2}
 --- !u!222 &222280533922902744
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -96,3 +98,14 @@ RectTransform:
   m_AnchoredPosition: {x: 270.3, y: -279.3}
   m_SizeDelta: {x: 476.2, y: 594.6}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &225208958627814132
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1071121144234218}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0

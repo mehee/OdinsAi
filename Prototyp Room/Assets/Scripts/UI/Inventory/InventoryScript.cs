@@ -23,8 +23,24 @@ public class InventoryScript : MonoBehaviour
 	private BagButton[] bagButtons;
 
 	private List<Bag> bags = new List<Bag>(); // List of all Bags in Inventory
+	private SlotScript fromSlot;
 
-	//just for debugging
+	public SlotScript FromSlot
+    {
+        get { return fromSlot;}
+
+        set
+        {
+            fromSlot = value;
+
+            if (value != null)
+            {
+                fromSlot.MyIcon.color = Color.grey;
+            }
+        }
+    }
+
+	// --------- just for debugging
 	[SerializeField]
 	private Item[] items;
 
@@ -35,13 +51,13 @@ public class InventoryScript : MonoBehaviour
 		if(Input.GetKeyDown(KeyCode.J))
 		{
 			Bag bag = (Bag)Instantiate(items[0]);
-			bag.Initialize(20);
+			bag.Initialize();
 			bag.Use();
 		}
 		if(Input.GetKeyDown(KeyCode.K))
 		{
 			Bag bag = (Bag)Instantiate(items[0]);
-			bag.Initialize(20);
+			bag.Initialize();
 			AddItem(bag);
 		}
 		if(Input.GetKeyDown(KeyCode.L))
@@ -51,11 +67,12 @@ public class InventoryScript : MonoBehaviour
 		}
 
 	}
+	// -------------
 
 	void Awake()
 	{
 		Bag bag = (Bag)Instantiate(items[0]);
-		bag.Initialize(20);
+		bag.Initialize();
 		bag.Use();
 	}
 

@@ -37,10 +37,5 @@ public class InputManager : MonoBehaviour
 		}
 		if(movement.DashTimer == 0)
 			movement.Move(movementVec);
-
-		if(Input.GetButtonDown("OpenBags"))
-		{
-			InventoryScript.MyInstance.OpenClose();
-		}
 	}
 }

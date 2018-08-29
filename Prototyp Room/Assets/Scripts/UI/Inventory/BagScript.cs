@@ -50,9 +50,11 @@ public class BagScript : MonoBehaviour
 		return false;
 	}
 
+
 	public void OpenClose()
 	{
 		canvasGroup.alpha = canvasGroup.alpha > 0 ? 0 : 1;
 		canvasGroup.blocksRaycasts = canvasGroup.blocksRaycasts == true ? false : true;
 	}
+ 
 }

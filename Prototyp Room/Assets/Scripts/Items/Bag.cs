@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Bag",menuName = "Items/Bags", order = 1)]
 public class Bag : Item, IUseable
 {
-
+	//Quality quality;
 	private int slots;
 	[SerializeField] private GameObject bagPrefab;
 
@@ -17,9 +17,9 @@ public class Bag : Item, IUseable
 		get {return slots;}
 	}
 
-	public void Initialize(int slots)
+	public void Initialize()
 	{
-		this.slots = slots;
+		SetBagSize();
 	}
 
 	public void Use()
@@ -31,6 +31,28 @@ public class Bag : Item, IUseable
 			MyBagScript.AddSlots(slots);
 
 			InventoryScript.MyInstance.AddBag(this);
+		}
+	}
+
+	public void SetBagSize()
+	{
+		switch (MyQuality)
+		{
+			case Quality.Common: slots = 12;
+			
+				break;
+			case Quality.Uncommon: slots = 16;
+
+				break;
+			case Quality.Rare: slots = 18;
+
+				break;
+			case Quality.Legendary: slots = 20;
+
+				break;
+			default: slots = 12;
+
+				break;
 		}
 	}
 }

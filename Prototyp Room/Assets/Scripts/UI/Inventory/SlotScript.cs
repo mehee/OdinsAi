@@ -81,6 +81,15 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
 		}
 	}
 
+	public void Clear()
+    {
+        if (items.Count > 0)
+        {
+            //InventoryScript.MyInstance.OnItemCountChanged(items.Pop());
+            items.Clear();
+        }
+    }
+
 	public void UseItem()
 	{
 		if(MyItem is IUseable)
@@ -106,10 +115,20 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
 		UIManager.MyInstance.UpdateStackSize(this);
 	}
 
+	//what happen if the slot is clicked
 	public void OnPointerClick(PointerEventData eventData)
 	{
+		//left mouse button
+		if(eventData.button == PointerEventData.InputButton.Left)
+		{
+			//Pickup an IMoveable
+			Debug.Log("Moveable clicked");
+			HandScript.MyInstance.TakeMoveable(MyItem as IMoveable);
+		}
+		//right mouse button
 		if(eventData.button == PointerEventData.InputButton.Right)
 		{
+			Debug.Log("Use Potion clicked");
 			UseItem();
 		}
 	}

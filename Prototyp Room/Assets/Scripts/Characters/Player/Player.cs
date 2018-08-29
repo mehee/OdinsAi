@@ -31,13 +31,13 @@ public class Player : Character
 		is needed for next level-up. */
 	float levelUpFactor = 0.1f;
 
-	Health health;
+	Health healthStats;
 
 	void Start()
 	{
-		health = GetComponent<Health> ();
-		health.Maximum +=stats.Health * 10;
-		health.Reset();
+		healthStats = GetComponent<Health> ();
+		healthStats.Maximum +=stats.Health * 10;
+		healthStats.Reset();
 	}
 	
     public uint ExpToNextLevel
@@ -73,6 +73,6 @@ public class Player : Character
 	{
 		level++;
 		stats.UpdateStats(level);
-		health.Maximum += stats.Health * 100;
+		healthStats.Maximum += stats.Health * 100;
 	}
 }

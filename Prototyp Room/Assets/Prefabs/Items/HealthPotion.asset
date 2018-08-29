@@ -13,4 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 5e76aa467f48825498b77d64b41300ac, type: 3}
   stackSize: 5
+  quality: 1
+  titel: Heiltrank
   health: 20

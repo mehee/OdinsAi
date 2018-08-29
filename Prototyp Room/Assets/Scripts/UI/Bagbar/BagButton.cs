@@ -15,7 +15,9 @@ public class BagButton : MonoBehaviour, IPointerClickHandler
 		set 
 		{
 			if(value != null)
+			{
 				GetComponent<Image>().sprite = full;
+			}
 			else
 				GetComponent<Image>().sprite = empty;
 

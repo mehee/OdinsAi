@@ -20,8 +20,33 @@ public class UIManager : MonoBehaviour {
         }
     }
 
+	//UI elements to openClose
+	[SerializeField]
+	private CanvasGroup inventoryMenu;
+
+	void Update()
+	{
+		if(Input.GetButtonDown("Inventory"))
+		{
+			OpenClose(inventoryMenu);
+		}
+		if(Input.GetButtonDown("Bags"))
+		{
+			//has to be different, because we open an actuall bag, not just blend in an CanvasGroup
+			InventoryScript.MyInstance.OpenClose();
+		}
+	}
+
 
 	// ------ Methods
+
+	public void OpenClose(CanvasGroup canvasGroup)
+	{
+		canvasGroup.alpha = canvasGroup.alpha > 0 ? 0 : 1;
+		canvasGroup.blocksRaycasts = canvasGroup.blocksRaycasts == true ? false : true;
+	}
+
+
 	public void UpdateStackSize(IClickable clickable)
     {
 		//set Text of MyStackText to the Count 
