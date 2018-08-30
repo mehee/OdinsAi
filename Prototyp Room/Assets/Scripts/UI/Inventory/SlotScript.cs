@@ -10,6 +10,8 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
 	//Icon of Slot, changed later with icon of Item
 	[SerializeField] 
 	private Image icon;
+	[SerializeField]
+	private Image background;
 
 	//Stack of items on Slot - own generic class ObserverableStack
 	private ObservableStack<Item> items = new ObservableStack<Item>();
@@ -17,7 +19,6 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
 	//StackSize text if stackable Item
 	[SerializeField]
 	private Text stackSize;
-
 
 	// -------- Properties for Getter and setter
 	public bool IsEmpty
@@ -40,7 +41,13 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
 	public Image MyIcon
 	{
 		get {return icon;} 
-		set{ icon = value;}
+		set {icon = value;}
+	}
+
+	public Image MyBackground
+	{
+		get {return icon;} 
+		set {icon = value;}
 	}
 
 	public int MyCount
@@ -53,6 +60,7 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
 		get {return stackSize;} 
 	}
 
+
 	// --------- Unity Std
 
 	private void Awake()
@@ -61,14 +69,21 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
 		items.OnPop += new UpdateStackEvent(UpdateSlot);
 		items.OnPush += new UpdateStackEvent(UpdateSlot);
 		items.OnClear += new UpdateStackEvent(UpdateSlot);
+
+		
 	}
 
 	// --------- Funktions for Slots
 	public bool AddItem(Item item)
 	{
 		items.Push(item);
-		icon.sprite = item.MyIcon; //set Icon from Item to sprite 
+		//set Icon from Item to sprite
+		icon.sprite = item.MyIcon;  
 		icon.color = Color.white;
+		//set Background from Item to sprite
+		background.sprite = item.MyBackground;
+		background.color = item.getColor();
+
 		item.MySlot = this;
 		return true;
 	}
@@ -78,6 +93,7 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
 		if(!IsEmpty)
 		{
 			items.Pop();
+			background.color = new Color(0,0,0,0); // keine sinnvolle Lösung. der Background sollte EIGENTLICH mit dem Item wieder popen
 		}
 	}
 

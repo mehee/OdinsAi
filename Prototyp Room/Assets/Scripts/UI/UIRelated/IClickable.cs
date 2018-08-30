@@ -10,6 +10,11 @@ public interface IClickable
 	{
 		get; set;
 	}
+	
+	Image MyBackground
+	{
+		get;set;
+	}
 
 	int MyCount
 	{
@@ -20,4 +25,5 @@ public interface IClickable
 	{
 		get;
 	}
+
 }

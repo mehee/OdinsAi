@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Quality {Common, Uncommon, Rare, Legendary }
+public enum Quality {Common, Uncommon, Rare, Epic, Legendary}
 
 public abstract class Item : ScriptableObject, IMoveable
 {
 	[SerializeField] private Sprite icon;
 	[SerializeField] private Sprite background;
 	[SerializeField] private int stackSize;
+	private Color backgroundColor;
 
 	[SerializeField] private Quality quality;
 	[SerializeField] private string titel;
@@ -23,6 +24,17 @@ public abstract class Item : ScriptableObject, IMoveable
 		set {icon = value;}
 	}
 	
+	public Sprite MyBackground
+	{
+		get {return background;}
+		set {background = value;}
+	}
+
+	public Color MyBackgroundColor
+	{
+		get {return backgroundColor;}
+	}
+
 	public int MyStackSize
 	{
 		get {return stackSize;}
@@ -39,11 +51,6 @@ public abstract class Item : ScriptableObject, IMoveable
 		get {return quality;}
 	}
 
-	public Sprite MyBackground
-	{
-		get {return background;}
-		set {background = value;}
-	}
 
 	public void Remove()
 	{
@@ -53,7 +60,7 @@ public abstract class Item : ScriptableObject, IMoveable
 		}
 	}
 
-
+/*
 	public virtual string GetDescription()
     {
         string color = string.Empty;
@@ -69,14 +76,37 @@ public abstract class Item : ScriptableObject, IMoveable
             case Quality.Rare:
                 color = "#0000ffff";
                 break;
-            case Quality.Legendary:
+            case Quality.Epic:
                 color = "#800080ff";
                 break;
         }
 
         return string.Format("<color={0}>{1}</color>", color, titel);
     }
-	
+ */
+
+	public Color getColor()
+	{
+		switch (quality)
+		{
+			case Quality.Common: 
+				backgroundColor = new Color(1,1,1,1); // white
+				break;
+			case Quality.Uncommon: 
+				backgroundColor = new Color(0.0f,1.0f,0.0f); // green
+				break;
+			case Quality.Rare: 
+				backgroundColor = new Color(0.0f,0.0f,1.0f); // blue
+				break;
+			case Quality.Epic: 
+				backgroundColor = new Color(0.517f, 0.0f, 0.658f); // violet
+				break;
+			case Quality.Legendary: 
+				backgroundColor = new Color(0.878f, 0.529f, 0.0f, 1.0f); //gold
+				break;
+		}
+		return backgroundColor;
+	}
 
 	/*FINISH ME FIRST 
 	MyIcons gemacht werden und Reference dazu

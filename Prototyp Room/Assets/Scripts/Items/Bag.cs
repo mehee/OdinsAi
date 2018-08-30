@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [CreateAssetMenu(fileName = "Bag",menuName = "Items/Bags", order = 1)]
 public class Bag : Item, IUseable
 {
@@ -39,19 +40,16 @@ public class Bag : Item, IUseable
 		switch (MyQuality)
 		{
 			case Quality.Common: slots = 12;
-			
 				break;
-			case Quality.Uncommon: slots = 16;
-
+			case Quality.Uncommon: slots = 14;
 				break;
-			case Quality.Rare: slots = 18;
-
+			case Quality.Rare: slots = 16;
+				break;
+			case Quality.Epic: slots = 18;
 				break;
 			case Quality.Legendary: slots = 20;
-
 				break;
 			default: slots = 12;
-
 				break;
 		}
 	}
