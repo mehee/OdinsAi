@@ -24,7 +24,6 @@ public class AbilityKit : MonoBehaviour
 			var instance = ability.CreateInstance(owner);
 			instance.transform.position = transform.position;
 			abilityInstances.Add(instance);
-			instance.gameObject.SetActive(false);
 		}
 
 		if(abilities.Count != abilityInstances.Count)
@@ -45,7 +44,7 @@ public class AbilityKit : MonoBehaviour
 			return;
 		}
 
-		if(previous.gameObject.activeInHierarchy)
+		if(!previous.Finished)
 			return;
 
 		Ability activated = GetActivatedAbility();
