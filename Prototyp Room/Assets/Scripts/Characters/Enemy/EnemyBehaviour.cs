@@ -15,6 +15,8 @@ public class EnemyBehaviour : MonoBehaviour {
     [SerializeField]
     private bool isRanged;
     [SerializeField]
+    private bool isHeadbutt;
+    [SerializeField]
     private float evadeDistance;
     [SerializeField]
     private Transform[] moveSpots;
@@ -225,7 +227,20 @@ public class EnemyBehaviour : MonoBehaviour {
         }
     }
 
- 
+    public bool IsHeadbutt
+    {
+        get
+        {
+            return isHeadbutt;
+        }
+
+        set
+        {
+            isHeadbutt = value;
+        }
+    }
+
+
 
 
     // Use this for initialization

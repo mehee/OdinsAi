@@ -38,12 +38,22 @@ class AttackState : IState
                     parent.AttackAnimationLenght = parent.AttackAnimatiomTMP;
                     if (distance <= parent.AttackRange) 
                     {
-                        playerHealth.Reduce(parent.AttackDamage);
+                        if(parent.IsHeadbutt)
+                        {
+                            Debug.Log("CHange to headbutt");
+                            parent.ChangeState(new HeadButtState());
+                        }
+                        else
+                        {
+                            //for ranged attack not good
+                            playerHealth.Reduce(parent.AttackDamage);
+                        }
+                       
                     }
                 }
 
             }
-            else if(parent.IsRanged && distance <= parent.EvadeDistance)
+            else if((parent.IsRanged || parent.IsHeadbutt) && distance <= parent.EvadeDistance)
             {
                 Debug.Log("Retreat!");
                 parent.ChangeState(new EvadeState());
