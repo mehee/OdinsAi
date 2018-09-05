@@ -13,6 +13,7 @@ public class AbilityKit : MonoBehaviour
 	float cooldownTimer;
 
 	private Character owner;
+	private Ability previous;
 
 	void Start()
 	{	
@@ -23,12 +24,15 @@ public class AbilityKit : MonoBehaviour
 			var instance = ability.CreateInstance(owner);
 			instance.transform.position = transform.position;
 			abilityInstances.Add(instance);
+			instance.gameObject.SetActive(false);
 		}
 
 		if(abilities.Count != abilityInstances.Count)
 		{
 			Debug.LogError("Not all abilities initialized for: " + owner.name);
 		}
+
+		previous = abilityInstances[0];
 	}
 
 	void Update () 
@@ -40,6 +44,9 @@ public class AbilityKit : MonoBehaviour
 				cooldownTimer = 0;
 			return;
 		}
+
+		if(previous.gameObject.activeInHierarchy)
+			return;
 
 		Ability activated = GetActivatedAbility();
 		if(activated)
@@ -67,6 +74,7 @@ public class AbilityKit : MonoBehaviour
 	{
 		if(!ability.ReadyForActivation())
 			return;
+		ability.gameObject.SetActive(true);
 		ability.Activate();
 		cooldownTimer = globalCooldown;
 	}

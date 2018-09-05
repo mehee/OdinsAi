@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/** Base class for all abilities. Remember
+	to call Disable() once your Ability
+	has finished. */
 public abstract class Ability : MonoBehaviour
 {
-    private float remainingCooldown;
-
+    float remainingCooldown;
+	bool finished;
 
 	// Rotation and direction of the ability
-	// are clamped to the eight cardinal directions
+	// are clamped to the eight cardinal directions.
 	protected Quaternion rotation;
 	protected Vector2 direction;
 	protected AbilityResource resource;
+	protected int frameCount = 0;
 
 	new public string name;
 	[TextArea(2, 5)]
@@ -77,6 +80,44 @@ public abstract class Ability : MonoBehaviour
         }
     }
 
+	/** Ability kit will set this to true
+		when the ability */
+	public virtual bool Finished
+	{ 
+		get { return finished; }
+		set
+		{
+			if(value == false)
+				CleanUp();
+			finished = value;
+		}
+	}
+
+	void Start()
+	{
+		SetUp();
+	}
+
+	/** Counts down the cooldown.
+		Override if more functionality is wanted. */
+	void Update()
+	{
+		if(remainingCooldown > 0)
+		{
+			remainingCooldown -= Time.deltaTime;
+			if(remainingCooldown < 0)
+				remainingCooldown = 0;
+		}
+
+		ResolveOngoingEffects();
+		Finished = frameCount > startupFrames + activeFrames + recoveryFrames; 
+		if(Finished)
+		{
+			CleanUp();
+		}
+	}
+
+	/** Use instead of Instantiate()! */
 	public Ability CreateInstance(Character owner)
 	{	
 		var abilityInstance = Instantiate(this);
@@ -87,7 +128,11 @@ public abstract class Ability : MonoBehaviour
 		return abilityInstance;
 	}
 
-    public abstract void Activate();
+    public void Activate()
+	{
+		finished = true;
+		OnActivation();
+	}
 
 	public virtual bool ReadyForActivation()
 	{
@@ -110,16 +155,8 @@ public abstract class Ability : MonoBehaviour
 		return false;
 	}
 
-	protected virtual void Update()
-	{
-		if(remainingCooldown > 0)
-		{
-			remainingCooldown -= Time.deltaTime;
-			if(remainingCooldown < 0)
-				remainingCooldown = 0;
-		}
-	}
-
+	/** Rotate the transform so that it
+		faces the mouse. */
 	protected void AlignWithMouse()
 	{
 		Vector2 rawDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -128,5 +165,37 @@ public abstract class Ability : MonoBehaviour
 		float angle = Mathf.Atan2(direction.x, direction.y);
 		Quaternion newRotation = Quaternion.AngleAxis(angle, Vector3.forward);
 		direction = direction.normalized;
+	}
+
+	/** This function will be automatically 
+		called through Start(). Override
+		to add further initialization logic. */
+	protected virtual void SetUp()
+	{
+
+	}
+
+	/** Override to add functionality to the activaton
+		of the ability. */
+	protected virtual void OnActivation()
+	{
+
+	}
+
+	/** This function will be automatically
+		called through Update(). Override this
+		to extend the functionality of the base
+		classes Update() method. */
+	protected virtual void ResolveOngoingEffects()
+	{
+
+	}
+
+	/** Used for cleanup code in case
+		your ability gets interrupted. 
+		Override to add functionality. */
+	protected virtual void CleanUp()
+	{
+
 	}
 }
