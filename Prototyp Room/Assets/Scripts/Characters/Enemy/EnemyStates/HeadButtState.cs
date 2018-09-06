@@ -48,8 +48,7 @@ public class HeadButtState : IState
         }
         if (Vector2.Distance(parent.transform.position, headButtTarget) < 1)
         {
-            Debug.Log("i try to follow");
-            parent.ChangeState(new FollowState());
+            parent.ChangeState(new EvadeState());
         }
     }
 
