@@ -32,7 +32,7 @@ class FollowState : IState
                 parent.AttackAnimationLenght = parent.AttackAnimatiomTMP;
                 if (distance <= parent.AttackRange)
                 {
-                    parent.Movement.Move(Vector2.zero);
+                   // parent.Movement.Move(Vector2.zero);
                     parent.ChangeState(new AttackState());
                 }
             }

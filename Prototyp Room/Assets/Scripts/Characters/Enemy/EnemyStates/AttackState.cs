@@ -40,7 +40,7 @@ class AttackState : IState
                     {
                         if(parent.IsHeadbutt)
                         {
-                            Debug.Log("CHange to headbutt");
+                          //  Debug.Log("CHange to headbutt");
                             parent.ChangeState(new HeadButtState());
                         }
                         else
@@ -55,7 +55,7 @@ class AttackState : IState
             }
             else if((parent.IsRanged || parent.IsHeadbutt) && distance <= parent.EvadeDistance)
             {
-                Debug.Log("Retreat!");
+                Debug.Log("Evade!");
                 parent.ChangeState(new EvadeState());
             }
             else if (distance > parent.AttackRange && !parent.IsRanged)
