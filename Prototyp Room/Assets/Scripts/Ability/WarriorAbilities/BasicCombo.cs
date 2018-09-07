@@ -10,7 +10,7 @@ public class BasicCombo : Ability
 	public int comboLength = 3;
 	int comboStep = 1;
 	int framesPerStep;
-	int frameCounter = 0;
+	int framesTotal;
 	
 	BoxCollider2D[] hitboxes;
 
@@ -18,6 +18,7 @@ public class BasicCombo : Ability
 	{
 		hitboxes = GetComponents<BoxCollider2D>();
 		framesPerStep = startupFrames + activeFrames + recoveryFrames;
+		framesTotal = framesPerStep * comboLength;
 	}
 
 	protected override void OnActivation()
@@ -27,28 +28,28 @@ public class BasicCombo : Ability
 
 	protected override void ResolveOngoingEffects()
 	{
-		frameCounter++;
-
-		if(frameCounter > framesPerStep * comboStep)
+		if(frameCount > framesPerStep * comboStep)
 		{
 			NextComboStep();
 		}
 	}
 
-	void Strike()
+	protected override void FinishIfDurationOver()
 	{
-		hitboxes[comboStep - 1].enabled = true;
+		Finished = (frameCount == framesTotal);
 	}
 
 	void NextComboStep()
 	{
 		if(comboStep < comboLength)
 		{
+			hitboxes[comboStep - 1].enabled = false;
 			comboStep++;
+			hitboxes[comboStep - 1].enabled = true;
 		}
 		else
 		{
-			
+			FinishIfDurationOver();
 		}
 	}
 }

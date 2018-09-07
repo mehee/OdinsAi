@@ -8,7 +8,7 @@ using UnityEngine;
 public abstract class Ability : MonoBehaviour
 {
     float remainingCooldown;
-	bool finished;
+	bool finished = true;
 
 	// Rotation and direction of the ability
 	// are clamped to the eight cardinal directions.
@@ -109,11 +109,16 @@ public abstract class Ability : MonoBehaviour
 				remainingCooldown = 0;
 		}
 
-		ResolveOngoingEffects();
-		Finished = frameCount > startupFrames + activeFrames + recoveryFrames; 
 		if(Finished)
 		{
+			frameCount = 0;
 			CleanUp();
+		}
+		else
+		{
+			frameCount++;
+			ResolveOngoingEffects();
+			FinishIfDurationOver();
 		}
 	}
 
@@ -197,5 +202,11 @@ public abstract class Ability : MonoBehaviour
 	protected virtual void CleanUp()
 	{
 
+	}
+
+	/** Finishes the ability once enough frames have passed. */
+	protected virtual void FinishIfDurationOver()
+	{
+		Finished = (frameCount == startupFrames + activeFrames + recoveryFrames); 
 	}
 }
