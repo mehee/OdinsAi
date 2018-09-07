@@ -70,4 +70,13 @@ public class AbilityKit : MonoBehaviour
 		ability.Activate();
 		cooldownTimer = globalCooldown;
 	}
+
+	public void SwapSkill(Ability ability,int slot)
+	{
+		Destroy(abilityInstances[slot]);
+		abilities[slot] = ability;
+		var instance = ability.CreateInstance(owner);
+		instance.transform.position = transform.position;
+		abilityInstances[slot]= instance;
+	}
 }
