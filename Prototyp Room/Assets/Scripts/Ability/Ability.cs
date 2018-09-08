@@ -10,9 +10,8 @@ public abstract class Ability : MonoBehaviour
     float remainingCooldown;
 	bool finished = true;
 
-	// Rotation and direction of the ability
-	// are clamped to the eight cardinal directions.
-	protected Quaternion rotation;
+	// Direction of the ability
+	// is clamped to the eight cardinal directions.
 	protected Vector2 direction;
 	protected AbilityResource resource;
 	protected int frameCount = 0;
@@ -80,17 +79,17 @@ public abstract class Ability : MonoBehaviour
         }
     }
 
-	/** Ability kit will set this to true
-		when the ability */
-	public virtual bool Finished
-	{ 
+	public bool Finished
+	{
 		get { return finished; }
-		set
-		{
-			if(value == false)
-				CleanUp();
-			finished = value;
-		}
+	}
+
+	/** Tells the ability to finish and
+		cease resovling its effects. */
+	public void Finish()
+	{
+		finished = true;
+		frameCount = 0;
 	}
 
 	void Start()
@@ -109,12 +108,7 @@ public abstract class Ability : MonoBehaviour
 				remainingCooldown = 0;
 		}
 
-		if(Finished)
-		{
-			frameCount = 0;
-			CleanUp();
-		}
-		else
+		if(!finished)
 		{
 			frameCount++;
 			ResolveOngoingEffects();
@@ -129,13 +123,12 @@ public abstract class Ability : MonoBehaviour
 		abilityInstance.owner = owner;
 		abilityInstance.transform.parent = owner.transform;
 		abilityInstance.resource = owner.GetComponent<AbilityResource>();
-		AlignWithMouse();
 		return abilityInstance;
 	}
 
     public void Activate()
 	{
-		finished = true;
+		finished = false;
 		OnActivation();
 	}
 
@@ -168,8 +161,8 @@ public abstract class Ability : MonoBehaviour
 		direction.x = Mathf.Round(rawDirection.x);
 		direction.y = Mathf.Round(rawDirection.y);
 		float angle = Mathf.Atan2(direction.x, direction.y);
-		Quaternion newRotation = Quaternion.AngleAxis(angle, Vector3.forward);
 		direction = direction.normalized;
+		transform.up = direction;
 	}
 
 	/** This function will be automatically 
@@ -188,9 +181,10 @@ public abstract class Ability : MonoBehaviour
 	}
 
 	/** This function will be automatically
-		called through Update(). Override this
-		to extend the functionality of the base
-		classes Update() method. */
+		called through Update(). It will not
+		be called if the ability has finished. 
+		Override this to extend the functionality 
+		of the base classes Update() method. */
 	protected virtual void ResolveOngoingEffects()
 	{
 
@@ -207,6 +201,7 @@ public abstract class Ability : MonoBehaviour
 	/** Finishes the ability once enough frames have passed. */
 	protected virtual void FinishIfDurationOver()
 	{
-		Finished = (frameCount == startupFrames + activeFrames + recoveryFrames); 
+		if(frameCount == startupFrames + activeFrames + recoveryFrames)
+			Finish(); 
 	}
 }

@@ -11,12 +11,19 @@ public class BasicCombo : Ability
 	int comboStep = 1;
 	int framesPerStep;
 	int framesTotal;
+	bool comboContinues = false;
 	
 	BoxCollider2D[] hitboxes;
+
+	protected override void CleanUp()
+	{
+		DisableHitboxes();
+	}
 
     protected override void SetUp()
 	{
 		hitboxes = GetComponents<BoxCollider2D>();
+		DisableHitboxes();
 		framesPerStep = startupFrames + activeFrames + recoveryFrames;
 		framesTotal = framesPerStep * comboLength;
 	}
@@ -24,19 +31,32 @@ public class BasicCombo : Ability
 	protected override void OnActivation()
     {
         comboStep = 1;
+		hitboxes[comboStep - 1].enabled = true;
     }
 
 	protected override void ResolveOngoingEffects()
 	{
-		if(frameCount > framesPerStep * comboStep)
+		if(Input.GetButtonDown("Ability1"))
+			comboContinues = true;
+		
+		AlignWithMouse();
+
+		if((frameCount > framesPerStep * comboStep) && comboContinues)
 		{
 			NextComboStep();
+			comboContinues = false;
+		}
+		else
+		{
+			Finish();
 		}
 	}
 
 	protected override void FinishIfDurationOver()
 	{
-		Finished = (frameCount == framesTotal);
+		if(frameCount == framesTotal)
+			Finish();
+		comboContinues = false;
 	}
 
 	void NextComboStep()
@@ -50,6 +70,22 @@ public class BasicCombo : Ability
 		else
 		{
 			FinishIfDurationOver();
+		}
+	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if(other.tag == "Enemy")
+		{
+			other.gameObject.GetComponent<Health>().Reduce(Damage);
+		}
+	}
+
+	void DisableHitboxes()
+	{
+		foreach(BoxCollider2D collider in hitboxes)
+		{
+			collider.enabled = false;
 		}
 	}
 }
