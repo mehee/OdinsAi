@@ -56,6 +56,8 @@ public class BrutalStrike : Ability
 	{
 		if(other.tag == "Enemy")
 		{
+			
+			
 			other.GetComponent<Health>().Reduce(Damage);
 		}
 	}
