@@ -26,7 +26,7 @@ public class Player : Character
 	uint expToNextLevel;
 	[SerializeField]
 	uint experience = 0;
-	[SerializeField]
+
 	/** Determines how much extra experience
 		is needed for next level-up. */
 	[SerializeField] float levelUpFactor = 0.1f;
@@ -39,9 +39,9 @@ public class Player : Character
 
 	void Start()
 	{
-		healthStats = GetComponent<Health> ();
-		healthStats.Maximum +=stats.Health * 10;
-		healthStats.Reset();
+		health = GetComponent<Health> ();
+		health.Maximum +=stats.Health * 10;
+		health.Reset();
 	}
 	
     public uint ExpToNextLevel
