@@ -301,6 +301,10 @@ public class EnemyBehaviour : MonoBehaviour {
             //tried to follow Player position for looking around like mona lisa
            // Animator.Stay((Target.transform.position - enemy.transform.position).normalized);
         }
+        else if(currentState is HeadButtState)
+        {
+            Animator.Attack((Target.transform.position - enemy.transform.position).normalized);
+        }
        /* else if (currentState is PatrolState)
         {
             Animator.Walk(moveSpots[currentMoveSpot].transform.position - enemy.transform.position);

@@ -44,4 +44,14 @@ public class AnimationManager : MonoBehaviour {
         animator.SetFloat("input_y", vector2.y);
 		animator.Play("Dashing");
 	}
+
+    public void Charge(Vector2 vector2)
+    {
+        animator.SetBool("isCharging", true);
+        
+
+
+        animator.SetFloat("input_x", vector2.x);
+        animator.SetFloat("input_y", vector2.y);
+    }
 }
