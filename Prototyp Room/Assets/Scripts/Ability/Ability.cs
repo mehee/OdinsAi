@@ -165,17 +165,24 @@ public abstract class Ability : MonoBehaviour
 		transform.up = direction;
 	}
 
+	/** Finishes the ability once enough frames have passed. */
+	protected virtual void FinishIfDurationOver()
+	{
+		if(frameCount == startupFrames + activeFrames + recoveryFrames)
+			Finish(); 
+	}
+
 	/** This function will be automatically 
 		called through Start(). Override
 		to add further initialization logic. */
-	protected virtual void SetUp()
+	public virtual void SetUp()
 	{
 
 	}
 
 	/** Override to add functionality to the activaton
 		of the ability. */
-	protected virtual void OnActivation()
+	public virtual void OnActivation()
 	{
 
 	}
@@ -185,7 +192,7 @@ public abstract class Ability : MonoBehaviour
 		be called if the ability has finished. 
 		Override this to extend the functionality 
 		of the base classes Update() method. */
-	protected virtual void ResolveOngoingEffects()
+	public virtual void ResolveOngoingEffects()
 	{
 
 	}
@@ -193,15 +200,8 @@ public abstract class Ability : MonoBehaviour
 	/** Used for cleanup code in case
 		your ability gets interrupted. 
 		Override to add functionality. */
-	protected virtual void CleanUp()
+	public virtual void CleanUp()
 	{
 
-	}
-
-	/** Finishes the ability once enough frames have passed. */
-	protected virtual void FinishIfDurationOver()
-	{
-		if(frameCount == startupFrames + activeFrames + recoveryFrames)
-			Finish(); 
 	}
 }
