@@ -25,11 +25,6 @@ public class Enemy : Character
             return attackRange;
         }
 
-        set
-        {
-            attackRange = value;
-        }
-    }
 
     public bool IsLootable{get;set;}
 

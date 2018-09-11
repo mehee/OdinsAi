@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour
     float dashTimer;
     private float timer;
     Vector2 dashDirection;
-    Vector2 direction = Vector2.down;
+     Vector2 direction;
 
     Health health;
 

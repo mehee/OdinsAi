@@ -26,26 +26,46 @@ class AttackState : IState
             float distance = Vector2.Distance(parent.Target.position, parent.transform.position);
             parent.Movement.Move(Vector2.zero);
 
-            parent.AutoAttackCooldown -= Time.deltaTime;
-            if(parent.AutoAttackCooldown <= 0)
+            parent.AttackCD -= Time.deltaTime;
+            if(parent.AttackCD <= 0)
             {
 
-                parent.AutoAttackAnimationLenght -= Time.deltaTime;
-                if (parent.AutoAttackAnimationLenght <= 0)
+                parent.AttackAnimationLenght -= Time.deltaTime;
+                if (parent.AttackAnimationLenght <= 0)
                 {
-                    playerHealth.Reduce(parent.AutoAttackDamage);
-                    parent.AutoAttackCooldown = parent.AutoAttackCDtmp;
-                    parent.AutoAttackAnimationLenght = parent.AutoAttackAnimatiomTMP;
+                    
+                    parent.AttackCD = parent.AttackCDtmp;
+                    parent.AttackAnimationLenght = parent.AttackAnimatiomTMP;
+                    if (distance <= parent.AttackRange) 
+                    {
+                        if(parent.IsHeadbutt)
+                        {
+                          //  Debug.Log("CHange to headbutt");
+                            parent.ChangeState(new HeadButtState());
+                        }
+                        else
+                        {
+                            //for ranged attack not good
+                            playerHealth.Reduce(parent.AttackDamage);
+                        }
+                       
+                    }
                 }
+
+            }
+            else if((parent.IsRanged || parent.IsHeadbutt) && distance <= parent.EvadeDistance)
+            {
+                Debug.Log("Evade!");
+                parent.ChangeState(new EvadeState());
+            }
+            else if (distance > parent.AttackRange && !parent.IsRanged)
+            {
+                Debug.Log("Change from Attack to Follow");
+                parent.ChangeState(new FollowState());
             }
             else
             {
                 parent.ChangeState(new IdleState());
-            }
-
-            if (distance >= parent.AttackRange)
-            {
-                parent.ChangeState(new FollowState());
             }
         }
         else
