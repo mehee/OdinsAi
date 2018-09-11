@@ -7,24 +7,23 @@ public abstract class Ability : MonoBehaviour
 {
     private float remainingCooldown;
 
-    protected Character owner;
 
 	// Rotation and direction of the ability
 	// are clamped to the eight cardinal directions
 	protected Quaternion rotation;
 	protected Vector2 direction;
+	protected AbilityResource resource;
 
 	new public string name;
 	[TextArea(2, 5)]
 	public string description;
 
-	[SerializeField]
-	float baseCooldown;
-	[SerializeField]
-	float baseCost;
-	[SerializeField]
-	float baseDamage;
+	[SerializeField] float baseCooldown;
+	[SerializeField] float baseCost;
+	[SerializeField] float baseDamage;
 
+
+	[HideInInspector] public Character owner;
 	public float cooldownModifier;
 	public float costModifier;
 	public float damageModifier;
@@ -78,6 +77,16 @@ public abstract class Ability : MonoBehaviour
         }
     }
 
+	public Ability CreateInstance(Character owner)
+	{	
+		var abilityInstance = Instantiate(this);
+		abilityInstance.owner = owner;
+		abilityInstance.transform.parent = owner.transform;
+		abilityInstance.resource = owner.GetComponent<AbilityResource>();
+		AlignWithMouse();
+		return abilityInstance;
+	}
+
     public abstract void Activate();
 
 	public virtual bool ReadyForActivation()
@@ -89,7 +98,7 @@ public abstract class Ability : MonoBehaviour
 
 	public virtual bool EnoughResources()
 	{
-		if(owner.GetComponent<AbilityResource>().Value < Cost)
+		if(resource.Value < Cost)
 			return false;
 		return true;
 	}
@@ -99,12 +108,6 @@ public abstract class Ability : MonoBehaviour
 		if(remainingCooldown == 0)
 			return true;
 		return false;
-	}
-
-	protected virtual void Start()
-	{
-		owner = GetComponentInParent<Character>();
-		AlignWithMouse();
 	}
 
 	protected virtual void Update()

@@ -25,9 +25,8 @@ public class BrutalStrike : Ability
 		collider.enabled = true;
     }
 
-	protected override void Start()
+	protected void Start()
 	{
-		base.Start();
 		collider = GetComponent<Collider2D>();
 	}
 
@@ -57,6 +56,8 @@ public class BrutalStrike : Ability
 	{
 		if(other.tag == "Enemy")
 		{
+			
+			
 			other.GetComponent<Health>().Reduce(Damage);
 		}
 	}

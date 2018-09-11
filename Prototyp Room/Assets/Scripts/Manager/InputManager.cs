@@ -32,8 +32,11 @@ public class InputManager : MonoBehaviour
 
 		if(Input.GetButtonDown("Jump"))
 		{
+			if(movement.AvailableDashes>0)
+			{
 			animator.Dash(movementVec);
 			movement.Dash(movementVec);
+			}
 		}
 			
 

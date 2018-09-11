@@ -6,16 +6,17 @@ using System;
 
 public class Player : Character
 {
-	[SerializeField]
-	uint expToNextLevel;
-	[SerializeField]
-	uint experience = 0;
-	[SerializeField]
+	[SerializeField] uint expToNextLevel;
+	[SerializeField] uint experience = 0;
 	/** Determines how much extra experience
 		is needed for next level-up. */
-	float levelUpFactor = 0.1f;
+	[SerializeField] float levelUpFactor = 0.1f;
 
-	Health health;
+	[SerializeField] int spellPointsPerLvl=1;
+
+	[HideInInspector] public Health health;
+
+	int spellPoints = 0;
 
 	void Start()
 	{
@@ -36,7 +37,20 @@ public class Player : Character
         private set { experience = value; }
     }
 
-	public void GainExp(uint amount)
+    public int SpellPoints
+    {
+        get
+        {
+            return spellPoints;
+        }
+
+        set
+        {
+            spellPoints = value;
+        }
+    }
+
+    public void GainExp(uint amount)
 	{
 		experience += amount;
 		if(experience >= expToNextLevel)
@@ -57,6 +71,7 @@ public class Player : Character
 	{
 		level++;
 		stats.UpdateStats(level);
+		spellPoints += spellPointsPerLvl;
 		health.Maximum += stats.Health * 100;
 	}
 }
