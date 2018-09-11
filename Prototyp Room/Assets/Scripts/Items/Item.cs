@@ -108,10 +108,6 @@ public abstract class Item : ScriptableObject, IMoveable
 		return backgroundColor;
 	}
 
-	/*FINISH ME FIRST 
-	MyIcons gemacht werden und Reference dazu
-	und Slots etc
-	 */
 	/* OLD eventuell DELETE
 
 	public Text name, quality, type, strength, intelligence, vitality;
