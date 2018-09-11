@@ -11,7 +11,7 @@ public class Combo : Ability
 	[SerializeField] float timeBeforeComboInterrupts;
 	int activeComboPart = 0;
 	CountDown interruptTimer;
-	bool comboContinues;
+	bool comboContinues = false;
 
 	public override void SetUp()
 	{
@@ -62,9 +62,12 @@ public class Combo : Ability
 		{
 			activeComboPart++;
 			comboParts[activeComboPart].Activate();
+			interruptTimer.Start();
+			comboContinues = false;
 		}
-
-		interruptTimer.ReduceRemainingTime(Time.deltaTime);
+		
+		if(comboParts[activeComboPart].Finished)
+			interruptTimer.ReduceRemainingTime(Time.deltaTime);
 	}
 
 	/** Used for cleanup code in case

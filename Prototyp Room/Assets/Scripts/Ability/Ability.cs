@@ -90,6 +90,7 @@ public abstract class Ability : MonoBehaviour
 	{
 		finished = true;
 		frameCount = 0;
+		CleanUp();
 	}
 
 	void Start()
