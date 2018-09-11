@@ -25,7 +25,7 @@ public class Enemy : Character
             return attackRange;
         }
 
-
+    }
     public bool IsLootable{get;set;}
 
     public void Start()
