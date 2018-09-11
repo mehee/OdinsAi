@@ -6,8 +6,27 @@ using System;
 
 public class Player : Character
 {
-	[SerializeField] uint expToNextLevel;
-	[SerializeField] uint experience = 0;
+
+	private static Player instance;
+
+    public static Player MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<Player>();
+            }
+
+            return instance;
+        }
+    }
+	
+	[SerializeField]
+	uint expToNextLevel;
+	[SerializeField]
+	uint experience = 0;
+	[SerializeField]
 	/** Determines how much extra experience
 		is needed for next level-up. */
 	[SerializeField] float levelUpFactor = 0.1f;
@@ -20,9 +39,9 @@ public class Player : Character
 
 	void Start()
 	{
-		health = GetComponent<Health> ();
-		health.Maximum +=stats.Health * 10;
-		health.Reset();
+		healthStats = GetComponent<Health> ();
+		healthStats.Maximum +=stats.Health * 10;
+		healthStats.Reset();
 	}
 	
     public uint ExpToNextLevel

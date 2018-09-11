@@ -23,12 +23,12 @@ public class ItemDisplay : MonoBehaviour
 		//for each item in this List(items)
 		foreach (ItemEntry item in ItemManager.im.itemDatabase.items)
 		{
-			Item newItem = Instantiate(itemPrefab) as Item;
+//			Item newItem = Instantiate(itemPrefab) as Item;
 			//position Here
 		//	newItem.transform.SetParent(transform,false);
 
 			//set Values in Text of Item
-			newItem.DisplayValues(item);
+//			newItem.DisplayValues(item);
 		}
 	}
 }

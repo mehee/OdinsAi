@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LootManager : MonoBehaviour {
+public class LootManager_old : MonoBehaviour {
 
 	public GameObject chest;
 	public Enemy enemy;

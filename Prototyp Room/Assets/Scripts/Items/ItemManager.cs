@@ -8,7 +8,6 @@ using System.IO;					// file management, also for other filetyps like json
 
 public class ItemManager : MonoBehaviour 
 {
-
 	public static ItemManager im;
 
 	void Awake()
@@ -45,7 +44,7 @@ public class ItemManager : MonoBehaviour
 }
 
 //enum for which Type/Bodypart of Item
-public enum ItemType { Head, Chest, Legs, MainHand, OffHand }
+public enum ItemType { Head, Chest, Legs, Boots, Ring, Trinket, MainHand, OffHand }
 public enum ItemQuality { Common, Uncommon, Rare, Epic, Legendary }
 
 //variables that populate our ItemDatabase

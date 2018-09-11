@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryUI : MonoBehaviour {
+public class InventoryUI_old : MonoBehaviour {
 
-	private static InventoryUI instance;
-	public static InventoryUI MyInstance
+	private static InventoryUI_old instance;
+	public static InventoryUI_old MyInstance
     {
         get
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<InventoryUI>();
+                instance = FindObjectOfType<InventoryUI_old>();
             }
 
             return instance;
@@ -74,7 +74,7 @@ public class InventoryUI : MonoBehaviour {
 
 	void DisplayItems()
 	{
-		
+		// Show ITEMS 
 	}
 
 	public void ShowTooltip(Vector3 position)

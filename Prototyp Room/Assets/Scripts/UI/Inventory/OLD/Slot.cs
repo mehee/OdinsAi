@@ -2,12 +2,12 @@
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 	
-public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPointerExitHandler
+public class Slot_old : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPointerExitHandler
 {	
 	private GameObject pressedSlot;
 	private Image[] pressedSlotImages;
 	private Image selectedItem;
-	private InventoryUI inventoryScript;
+	private InventoryUI_old inventoryScript;
 
 	//should check if there is an Item on this slot
 	public bool IsEmpty;
@@ -15,7 +15,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPo
 	
 	void Start()
 	{
-		inventoryScript = GameObject.FindObjectOfType(typeof(InventoryUI)) as InventoryUI;
+		inventoryScript = GameObject.FindObjectOfType(typeof(InventoryUI_old)) as InventoryUI_old;
 	}
 	public void OnPointerClick(PointerEventData eventData)
 	{
@@ -41,7 +41,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPo
 		}
 		if(selectedItem != null)
 		{
-			inventoryScript.AddItem(selectedItem);
+			inventoryScript.AddItem(selectedItem);//Add Item to Slot in Inventory but don'ts show it
 		}
 		else Debug.Log("Clicked slot is empty");
 	}
@@ -51,13 +51,13 @@ public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPo
 	{
 		if(!IsEmpty)
 		{
-			InventoryUI.MyInstance.ShowTooltip(transform.position);
+			InventoryUI_old.MyInstance.ShowTooltip(transform.position);
 		}
 	}
 	//Toolip hide
 	public void OnPointerExit(PointerEventData eventData)
 	{
-		InventoryUI.MyInstance.HideTooltip();	
+		InventoryUI_old.MyInstance.HideTooltip();	
 	}
 
 }

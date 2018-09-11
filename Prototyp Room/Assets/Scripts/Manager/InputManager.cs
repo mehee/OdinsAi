@@ -38,8 +38,6 @@ public class InputManager : MonoBehaviour
 			movement.Dash(movementVec);
 			}
 		}
-			
-
 		if(movement.DashTimer == 0)
 			movement.Move(movementVec);
 	}
