@@ -27,30 +27,36 @@ class AttackState : IState
             parent.Movement.Move(Vector2.zero);
 
             parent.AttackCD -= Time.deltaTime;
-            if(parent.AttackCD <= 0)
+            if (parent.AttackCD <= 0)
             {
+                if (parent.IsHeadbutt && distance <= parent.AttackRange)
+                {
+                    Debug.Log("change to headbutt");
+                    parent.ChangeState(new HeadButtState());
+                }
 
                 parent.AttackAnimationLenght -= Time.deltaTime;
-                if (parent.AttackAnimationLenght <= 0)
+            
+             if (parent.AttackAnimationLenght <= 0)
+            {
+
+                parent.AttackCD = parent.AttackCDtmp;
+                parent.AttackAnimationLenght = parent.AttackAnimatiomTMP;
+                if (distance <= parent.AttackRange)
                 {
-                    
-                    parent.AttackCD = parent.AttackCDtmp;
-                    parent.AttackAnimationLenght = parent.AttackAnimatiomTMP;
-                    if (distance <= parent.AttackRange) 
+                    if (parent.IsHeadbutt)
                     {
-                        if(parent.IsHeadbutt)
-                        {
-                          //  Debug.Log("CHange to headbutt");
-                            parent.ChangeState(new HeadButtState());
-                        }
-                        else
-                        {
-                            //for ranged attack not good
-                            playerHealth.Reduce(parent.AttackDamage);
-                        }
-                       
+                        Debug.Log("CHange WRONG to headbutt");
+                        parent.ChangeState(new HeadButtState());
                     }
+                    else
+                    {
+                        //for ranged attack not good
+                        playerHealth.Reduce(parent.AttackDamage);
+                    }
+
                 }
+            }
 
             }
             else if((parent.IsRanged || parent.IsHeadbutt) && distance <= parent.EvadeDistance)

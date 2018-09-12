@@ -9,10 +9,13 @@ public class HeadButtState : IState
 
     private Vector2 headButtTarget;
     private float chargeSpeed;
+    private float chargeTime;
     private Health playerHealth;
     private float distance;
     private Collider2D enemyCollider;
     private bool hitted;
+    private AnimationManager animator;
+    private bool isCharging;
 
     public void Enter(EnemyBehaviour parent)
     {
@@ -21,7 +24,11 @@ public class HeadButtState : IState
         chargeSpeed = 10;
         playerHealth = parent.Target.GetComponent<Health>();
         enemyCollider = parent.GetComponent<BoxCollider2D>();
+        animator = parent.GetComponent<AnimationManager>();
         hitted = false;
+        chargeTime =1;
+        isCharging = true;
+
     }
 
     public void Exit()
@@ -38,18 +45,28 @@ public class HeadButtState : IState
     // Update is called once per frame
     public void Update()
     {
-        parent.transform.position = Vector2.MoveTowards(parent.transform.position, headButtTarget, Time.deltaTime * chargeSpeed);
+        animator.Charge(headButtTarget);
+       
+        chargeTime -= Time.deltaTime;
+        if(chargeTime <= 0)
+        {
+            animator.Attack(headButtTarget);
+           
+            parent.transform.position = Vector2.MoveTowards(parent.transform.position, headButtTarget, Time.deltaTime * chargeSpeed);
 
-        if (enemyCollider.IsTouchingLayers(9) && hitted == false)
-        {
-            playerHealth.Reduce(parent.AttackDamage);
-            hitted = true;
-            //Debug.Log("Gotcha Headbutter!");
+            if (enemyCollider.IsTouchingLayers(9) && hitted == false)
+            {
+                playerHealth.Reduce(parent.AttackDamage);
+                hitted = true;
+                //Debug.Log("Gotcha Headbutter!");
+            }
+            if (Vector2.Distance(parent.transform.position, headButtTarget) < 1)
+            {
+                parent.ChangeState(new FollowState());
+            }
         }
-        if (Vector2.Distance(parent.transform.position, headButtTarget) < 1)
-        {
-            parent.ChangeState(new EvadeState());
-        }
+
+        
     }
 
     private Vector2 getVectorBehindPlayer(float multiplyer)

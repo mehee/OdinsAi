@@ -303,7 +303,7 @@ public class EnemyBehaviour : MonoBehaviour {
         }
         else if(currentState is HeadButtState)
         {
-            Animator.Attack((Target.transform.position - enemy.transform.position).normalized);
+            Animator.Charge((Target.transform.position - enemy.transform.position).normalized);
         }
        /* else if (currentState is PatrolState)
         {

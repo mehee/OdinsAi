@@ -48,7 +48,9 @@ public class AnimationManager : MonoBehaviour {
     public void Charge(Vector2 vector2)
     {
         animator.SetBool("isCharging", true);
-        
+        animator.SetBool("iswalking", false);
+        animator.SetBool("isAttacking", false);
+
 
 
         animator.SetFloat("input_x", vector2.x);
