@@ -39,11 +39,6 @@ namespace AbilitySystem
 			vector.y = Mathf.Round(rawDirection.y);
 			vector = vector.normalized;
 		}
-
-		void Awake()
-		{
-			
-		}
 		
 		// Update is called once per frame
 		void Update () 
@@ -73,19 +68,22 @@ namespace AbilitySystem
 
 		void OnDrawGizmos()
 		{
-			var orbitVertices = new Vector2[ellipseGranularity];
-			for(int i = 0; i < ellipseGranularity; i++)
+			if(orbiting)
 			{
-				float angle = ((float)i / ellipseGranularity) * 360 * Mathf.Deg2Rad;
-				orbitVertices[i].x = transform.position.x + (orbitRadii.x * Mathf.Sin(angle)); 
-				orbitVertices[i].y = transform.position.y + (orbitRadii.y * Mathf.Cos(angle)); 
-			}
+				var orbitVertices = new Vector2[ellipseGranularity];
+				for(int i = 0; i < ellipseGranularity; i++)
+				{
+					float angle = ((float)i / ellipseGranularity) * 360 * Mathf.Deg2Rad;
+					orbitVertices[i].x = transform.position.x + (orbitRadii.x * Mathf.Sin(angle)); 
+					orbitVertices[i].y = transform.position.y + (orbitRadii.y * Mathf.Cos(angle)); 
+				}
 
-			for(int i = 0; i < ellipseGranularity - 1; i++)
-			{
-				Gizmos.DrawLine(orbitVertices[i], orbitVertices[i + 1]);
+				for(int i = 0; i < ellipseGranularity - 1; i++)
+				{
+					Gizmos.DrawLine(orbitVertices[i], orbitVertices[i + 1]);
+				}
+				Gizmos.DrawLine(orbitVertices[0], orbitVertices[ellipseGranularity - 1]);
 			}
-			Gizmos.DrawLine(orbitVertices[0], orbitVertices[ellipseGranularity - 1]);
 		}
 	}
 }
