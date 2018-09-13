@@ -11,10 +11,10 @@ namespace AbilitySystem
 		bool alignedToMouse = false;
 		[SerializeField]
 		bool orbiting = true;
-		[SerializeField][Range(0, float.MaxValue)]
+		[SerializeField]
 		Vector2 orbitRadii;
 		Vector2 vector;
-		Vector2[] orbitVertices;
+		
 		int ellipseGranularity = 36;
 
         public Vector2 Vector
@@ -42,7 +42,7 @@ namespace AbilitySystem
 
 		void Awake()
 		{
-			orbitVertices = new Vector2[ellipseGranularity];
+			
 		}
 		
 		// Update is called once per frame
@@ -73,18 +73,19 @@ namespace AbilitySystem
 
 		void OnDrawGizmos()
 		{
+			var orbitVertices = new Vector2[ellipseGranularity];
 			for(int i = 0; i < ellipseGranularity; i++)
 			{
 				float angle = ((float)i / ellipseGranularity) * 360 * Mathf.Deg2Rad;
-				orbitVertices[i].x = orbitRadii.x * Mathf.Sin(angle); 
-				orbitVertices[i].y = orbitRadii.y * Mathf.Cos(angle); 
+				orbitVertices[i].x = transform.position.x + (orbitRadii.x * Mathf.Sin(angle)); 
+				orbitVertices[i].y = transform.position.y + (orbitRadii.y * Mathf.Cos(angle)); 
 			}
 
 			for(int i = 0; i < ellipseGranularity - 1; i++)
 			{
 				Gizmos.DrawLine(orbitVertices[i], orbitVertices[i + 1]);
 			}
-			Gizmos.DrawLine(orbitVertices[0], orbitVertices[ellipseGranularity]);
+			Gizmos.DrawLine(orbitVertices[0], orbitVertices[ellipseGranularity - 1]);
 		}
 	}
 }
