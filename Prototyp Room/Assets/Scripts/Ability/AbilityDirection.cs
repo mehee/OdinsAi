@@ -66,7 +66,7 @@ namespace AbilitySystem
 			transform.position = position;
         }
 
-		void OnDrawGizmos()
+		void OnDrawGizmosSelected()
 		{
 			if(orbiting)
 			{
@@ -82,6 +82,7 @@ namespace AbilitySystem
 				{
 					Gizmos.DrawLine(orbitVertices[i], orbitVertices[i + 1]);
 				}
+				Gizmos.color = Color.green;
 				Gizmos.DrawLine(orbitVertices[0], orbitVertices[ellipseGranularity - 1]);
 			}
 		}
