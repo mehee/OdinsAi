@@ -37,7 +37,6 @@ namespace AbilitySystem
 			Vector2 rawDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 			vector.x = Mathf.Round(rawDirection.x);
 			vector.y = Mathf.Round(rawDirection.y);
-			float angle = Mathf.Atan2(vector.x, vector.y);
 			vector = vector.normalized;
 		}
 

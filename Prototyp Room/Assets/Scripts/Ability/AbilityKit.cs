@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Ability
+namespace AbilitySystem
 {
 	public class AbilityKit : MonoBehaviour 
 	{	

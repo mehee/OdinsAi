@@ -11,7 +11,6 @@ public class Cooldown : MonoBehaviour
 	private Ability[] abilities;
 	private int activeAbilities;
 	private int fieldcount = 0;
-	private Wrath wrath;
 
 	// Use this for initialization
 	void Start () {
@@ -30,7 +29,6 @@ public class Cooldown : MonoBehaviour
 		{
 			cooldownImages[i].fillAmount = 1f;
 		}
-		wrath = GetComponentInParent<Wrath>();
 	}
 	
 	// Update is called once per frame

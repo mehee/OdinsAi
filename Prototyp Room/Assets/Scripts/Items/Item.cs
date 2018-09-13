@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
-
-	public Text name, quality, type, strength, intelligence, vitality;
+	new public Text name;
+	public Text quality, type, strength, intelligence, vitality;
 
 	//displays the Values in the ItemCanvas
 	public void DisplayValues(ItemEntry item)
