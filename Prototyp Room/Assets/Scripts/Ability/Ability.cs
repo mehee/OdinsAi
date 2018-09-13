@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Ability
+namespace AbilitySystem
 {
 	/** Base class for all abilities. */
 	[RequireComponent(typeof(Cooldown))]
@@ -30,9 +30,25 @@ namespace Ability
 			get { return finished; }
 		}
 
-		/** Tells the ability to finish and
+        public Cooldown Cooldown
+        {
+            get
+            {
+                return cooldown;
+            }
+        }
+
+        public Cost Cost
+        {
+            get
+            {
+                return cost;
+            }
+        }
+
+        /** Tells the ability to finish and
 			cease resovling its effects. */
-		public void Finish()
+        public void Finish()
 		{
 			finished = true;
 			frameCount = 0;

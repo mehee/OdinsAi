@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using AbilitySystem;
 
 public class Cooldown : MonoBehaviour 
 {
@@ -37,7 +38,7 @@ public class Cooldown : MonoBehaviour
 	{
 		for(int i = 0; i < activeAbilities; i++)
 		{
-			float remaining = abilities[i].RemainingCooldown / abilities[i].Cooldown;
+			float remaining = abilities[i].Cooldown.Remaining / abilities[i].Cooldown.Duration;
 			cooldownImages[i].fillAmount = remaining;
 		}
 	}
