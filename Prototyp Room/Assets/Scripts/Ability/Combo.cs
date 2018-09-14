@@ -19,7 +19,7 @@ namespace AbilitySystem
 		{
 			for(int i = 0; i < comboParts.Count; i++)
 			{
-				var instance = comboParts[i].CreateInstance(this.owner);
+				var instance = comboParts[i].CreateInstance(this.owner, null);
 				instance.transform.parent = this.transform;
 				comboParts[i] = instance;
 			}
@@ -55,7 +55,7 @@ namespace AbilitySystem
 				return;
 			}
 
-			if(Input.GetButtonDown("Ability1") && (activeComboPart + 1) < comboParts.Count)
+			if(Input.GetButtonDown(associatedButton) && (activeComboPart + 1) < comboParts.Count)
 				comboContinues = true;
 
 			if(comboParts[activeComboPart].Finished && comboContinues)

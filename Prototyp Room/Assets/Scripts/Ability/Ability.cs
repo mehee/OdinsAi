@@ -15,14 +15,16 @@ namespace AbilitySystem
 
 		protected AbilityResource resource;
 		protected int frameCount = 0;
+
 		[Range(0, 1000)]
 		public int durationInFrames = 0;
 		new public string name;
 		[TextArea(1, 5)]
 		public string description;
-
-		[HideInInspector] public Character owner;
-
+		[HideInInspector]
+		public string associatedButton;
+		[HideInInspector] 
+		public Character owner;
 		public Sprite icon;
 		public AudioClip sound;
 
