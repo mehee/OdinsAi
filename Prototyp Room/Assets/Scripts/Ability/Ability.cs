@@ -5,11 +5,12 @@ using UnityEngine;
 namespace AbilitySystem
 {
 	/** Base class for all abilities. */
-	[RequireComponent(typeof(Cooldown), typeof(Cost))]
+	[RequireComponent(typeof(Cooldown), typeof(ResourceCost))]
 	public abstract class Ability : MonoBehaviour
 	{
 		Cooldown cooldown;
-		Cost cost;
+		[SerializeField]
+		ResourceCost cost;
 		bool finished = true;
 
 		protected AbilityResource resource;
@@ -38,7 +39,7 @@ namespace AbilitySystem
             }
         }
 
-        public Cost Cost
+        public ResourceCost Cost
         {
             get
             {
@@ -58,7 +59,6 @@ namespace AbilitySystem
 		void Start()
 		{
 			cooldown = GetComponent<Cooldown>();
-			cost = GetComponent<Cost>();
 			SetUp();
 		}
 
@@ -77,7 +77,7 @@ namespace AbilitySystem
 		{	
 			var abilityInstance = Instantiate(this);
 			abilityInstance.owner = owner;
-			abilityInstance.transform.parent = owner.transform;
+			abilityInstance.transform.SetParent(owner.transform);
 			abilityInstance.resource = owner.GetComponent<AbilityResource>();
 			return abilityInstance;
 		}

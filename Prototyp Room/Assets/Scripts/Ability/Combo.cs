@@ -14,7 +14,6 @@ namespace AbilitySystem
 		int remainingFramesBeforeInterrupt;
 		int activeComboPart = 0;
 		bool comboContinues = false;
-		new private float durationInFrames;
 
 		public override void SetUp()
 		{

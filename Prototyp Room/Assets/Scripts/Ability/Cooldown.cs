@@ -6,9 +6,12 @@ namespace AbilitySystem
 {
 	public class Cooldown : MonoBehaviour
 	{
-		[Range(0f, float.MaxValue)] float baseCooldown;
-		[Range(0f, float.MaxValue)] float cooldownModifier = 1f;
-		[Range(0f, float.MaxValue)] float remaining;
+		[Range(0, 600)][SerializeField] 
+		float baseCooldown;
+		[Range(0, 10)][SerializeField] 
+		float cooldownModifier = 1f;
+		[Range(0, int.MaxValue)] 
+		float remaining;
 		public bool IsActive { get; private set; }
 
 		/** Returns the actual cooldown duration composed

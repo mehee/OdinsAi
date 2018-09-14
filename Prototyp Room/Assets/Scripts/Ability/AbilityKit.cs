@@ -24,7 +24,7 @@ namespace AbilitySystem
 			foreach(Ability ability in abilities)
 			{
 				var instance = ability.CreateInstance(owner);
-				instance.transform.position = transform.position;
+				instance.transform.localScale = Vector2.one;
 				abilityInstances.Add(instance);
 			}
 
