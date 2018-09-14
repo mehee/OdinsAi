@@ -6,8 +6,27 @@ using System;
 
 public class Player : Character
 {
-	[SerializeField] uint expToNextLevel;
-	[SerializeField] uint experience = 0;
+
+	private static Player instance;
+
+    public static Player MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<Player>();
+            }
+
+            return instance;
+        }
+    }
+	
+	[SerializeField]
+	uint expToNextLevel;
+	[SerializeField]
+	uint experience = 0;
+
 	/** Determines how much extra experience
 		is needed for next level-up. */
 	[SerializeField] float levelUpFactor = 0.1f;

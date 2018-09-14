@@ -6,6 +6,11 @@ using AbilitySystem;
 
 public class CombatMarker : MonoBehaviour {
 	private Ability abilityScript;
+
+	private Movement movement;
+
+	private float dashCD =5;
+
 	[SerializeField] private GameObject[] emptyParentObjects;
 	[SerializeField] int AmountOfAllSkills;
 	private Image[] frontMarkerImgs;
@@ -15,6 +20,8 @@ public class CombatMarker : MonoBehaviour {
 	void Start ()
 	{
 		abilityScript = GameObject.FindObjectOfType(typeof(Ability)) as Ability;
+
+		movement = GetComponentInParent<Movement>();
 
 		frontMarkerImgs = new Image[AmountOfAllSkills];
 
@@ -54,6 +61,17 @@ public class CombatMarker : MonoBehaviour {
 			StartCoroutine(substractMarkerAmount(2));
 			// Fade in und Fillamount anhand von Spelltime
 		}
+		
+		dashCD -= Time.deltaTime;
+
+		if(dashCD<=0)
+		{
+			StartCoroutine("addMarkerAmount",2);
+			dashCD=5;
+		}
+
+		
+
 	}
 	IEnumerator fillMarker(int skill, float speed)
 	{	
@@ -77,4 +95,17 @@ public class CombatMarker : MonoBehaviour {
 		yield return new WaitForSeconds(0.5f);
 		emptyParentObjects[skill].SetActive(false);
 	}
+	IEnumerator addMarkerAmount(int skill)
+	{
+		if(frontMarkerImgs[2].fillAmount !=1.0f)
+		{
+			emptyParentObjects[skill].SetActive(true);
+			frontMarkerImgs[skill].fillAmount += 0.35f;
+			movement.AvailableDashes++;
+			yield return new WaitForSeconds(0.5f);
+			emptyParentObjects[skill].SetActive(false);
+		}
+	}
+
+	
 }

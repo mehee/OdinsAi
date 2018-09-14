@@ -10,19 +10,28 @@ public class EnemyBehaviour : MonoBehaviour {
     private IState currentState;
     private AnimationManager animator;
     private Vector2 defaultDirection;
+    public int currentMoveSpot = 0;
 
+    [SerializeField]
+    private bool isRanged;
+    [SerializeField]
+    private bool isHeadbutt;
+    [SerializeField]
+    private float evadeDistance;
+    [SerializeField]
+    private Transform[] moveSpots;
     [SerializeField]
     private float attackRange;
     [SerializeField]
-    private float autoAttackCooldown;
-    private float autoAttackCDtmp;
+    private float attackCD;
+    private float attackCDtmp;
     [SerializeField]
-    private float autoAttackDamage;
+    private float attackDamage;
     [SerializeField]
-    private float autoAttackAnimationLenght;
-    private float autoAttackAnimatiomTMP;
-
+    private float attackAnimationLenght;
+    private float attackAnimatiomTMP;
     private Vector3 myStartPosition;
+
     public Transform Target
     {
         get
@@ -88,42 +97,42 @@ public class EnemyBehaviour : MonoBehaviour {
         }
     }
 
-    public float AutoAttackCDtmp
+    public float AttackCDtmp
     {
         get
         {
-            return autoAttackCDtmp;
+            return attackCDtmp;
         }
 
         set
         {
-            autoAttackCDtmp = value;
+            attackCDtmp = value;
         }
     }
 
-    public float AutoAttackCooldown
+    public float AttackCD
     {
         get
         {
-            return autoAttackCooldown;
+            return attackCD;
         }
 
         set
         {
-            autoAttackCooldown = value;
+            attackCD = value;
         }
     }
 
-    public float AutoAttackDamage
+    public float AttackDamage
     {
         get
         {
-            return autoAttackDamage;
+            return attackDamage;
         }
 
         set
         {
-            autoAttackDamage = value;
+            attackDamage = value;
         }
     }
 
@@ -152,45 +161,102 @@ public class EnemyBehaviour : MonoBehaviour {
             animator = value;
         }
     }
-    public float AutoAttackAnimationLenght
+
+    public float AttackAnimationLenght
     {
         get
         {
-            return autoAttackAnimationLenght;
+            return attackAnimationLenght;
         }
 
         set
         {
-            autoAttackAnimationLenght = value;
+            attackAnimationLenght = value;
         }
     }
 
-    public float AutoAttackAnimatiomTMP
+    public float AttackAnimatiomTMP
     {
         get
         {
-            return autoAttackAnimatiomTMP;
+            return attackAnimatiomTMP;
         }
 
         set
         {
-            autoAttackAnimatiomTMP = value;
+            attackAnimatiomTMP = value;
         }
     }
+
+    public Transform[] MoveSpots
+    {
+        get
+        {
+            return moveSpots;
+        }
+
+        set
+        {
+            moveSpots = value;
+        }
+    }
+
+    public bool IsRanged
+    {
+        get
+        {
+            return isRanged;
+        }
+
+        set
+        {
+            isRanged = value;
+        }
+    }
+
+    public float EvadeDistance
+    {
+        get
+        {
+            return evadeDistance;
+        }
+
+        set
+        {
+            evadeDistance = value;
+        }
+    }
+
+    public bool IsHeadbutt
+    {
+        get
+        {
+            return isHeadbutt;
+        }
+
+        set
+        {
+            isHeadbutt = value;
+        }
+    }
+
+
+
 
     // Use this for initialization
-    void Start()
+    public virtual void Start()
     {
-
+        
         enemy = GetComponent<Enemy>();
         Animator = GetComponent<AnimationManager>();
         ChangeState(new IdleState());
-        AttackRange = enemy.AttackRange;
         movement = GetComponent<Movement>();
         myStartPosition = enemy.transform.position;
-        autoAttackCDtmp = autoAttackCooldown;
+        attackCDtmp = attackCD;
         defaultDirection = Vector2.down;
-        AutoAttackAnimatiomTMP = autoAttackAnimationLenght;
+        AttackAnimatiomTMP = attackAnimationLenght;
+
+
     }
     // Update is called once per frame
     void Update()
@@ -215,15 +281,31 @@ public class EnemyBehaviour : MonoBehaviour {
         {
             Animator.Walk( target.transform.position - enemy.transform.position);
         }
-        else if(currentState is EvadeState)
+        else if(currentState is RetreatState)
         {
             Animator.Walk(myStartPosition - enemy.transform.position);
+            movement.Direction = Vector2.zero;
+            movement.Direction = (myStartPosition - enemy.transform.position).normalized;
         }
         else if(currentState is AttackState)
         {
             
             Animator.Attack((Target.transform.position - enemy.transform.position ).normalized);
+            movement.Direction = Vector2.zero;
+            movement.Direction = (Target.transform.position - enemy.transform.position).normalized;
+
         }
+        else if(currentState is IdleState)
+        {
+            Animator.Stay(movement.Direction);
+            //tried to follow Player position for looking around like mona lisa
+           // Animator.Stay((Target.transform.position - enemy.transform.position).normalized);
+        }
+       /* else if (currentState is PatrolState)
+        {
+            Animator.Walk(moveSpots[currentMoveSpot].transform.position - enemy.transform.position);
+        }
+        */
     }
    
 }
