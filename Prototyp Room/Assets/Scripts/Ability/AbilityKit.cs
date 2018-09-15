@@ -21,10 +21,11 @@ namespace AbilitySystem
 		{	
 			owner = GetComponent<Character>();
 			abilityInstances = new List<Ability>(abilities.Count);
-			foreach(Ability ability in abilities)
+			for(int i = 0; i < abilities.Count; i++)
 			{
-				var instance = ability.CreateInstance(owner);
+				var instance = abilities[i].CreateInstance(owner);
 				instance.transform.localScale = Vector2.one;
+				instance.associatedButton = "Ability" + (i + 1);
 				abilityInstances.Add(instance);
 			}
 
@@ -79,14 +80,15 @@ namespace AbilitySystem
 			ability.Activate();
 			cooldownTimer = globalCooldown;
 		}
-		
+
 		public void SwapSkill(Ability ability,int slot)
 		{
 			Destroy(abilityInstances[slot]);
 			abilities[slot] = ability;
 			var instance = ability.CreateInstance(owner);
+			instance.associatedButton = "Ability" + (slot + 1);
 			instance.transform.position = transform.position;
-			abilityInstances[slot]= instance;
+			abilityInstances[slot] = instance;
 		}
 	}
 }

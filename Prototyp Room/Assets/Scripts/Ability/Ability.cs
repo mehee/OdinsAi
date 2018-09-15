@@ -15,7 +15,7 @@ namespace AbilitySystem
 		
 		protected AbilityResource resource;
 		protected int frameCount = 0;
-
+		
 		new public string name;
 		[TextArea(1, 5)]
 		public string description;
@@ -26,6 +26,7 @@ namespace AbilitySystem
 		[Range(0, 1000)]
 		public int durationInFrames = 0;
 
+		
 		public Sprite icon;
 		public AudioClip sound;
 
@@ -38,6 +39,8 @@ namespace AbilitySystem
 		public Character owner;
 		[HideInInspector]
 		public Vector2 direction;
+		[HideInInspector]
+		public string associatedButton;
 		
 
 		public bool Finished
