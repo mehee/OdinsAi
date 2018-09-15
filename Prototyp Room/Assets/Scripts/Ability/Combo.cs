@@ -49,12 +49,6 @@ namespace AbilitySystem
 			of the base classes Update() method. */
 		public override void ResolveOngoingEffects()
 		{
-			if(ComboIsOver())
-			{
-				Finish();
-				return;
-			}
-
 			if(Input.GetButtonDown("Ability1") && (activeComboPart + 1) < comboParts.Count)
 				comboContinues = true;
 
@@ -81,13 +75,22 @@ namespace AbilitySystem
 			}
 		}
 
-		private bool ComboIsOver()
+		bool ComboIsOver()
 		{
 			if(activeComboPart > comboParts.Count)
 				return true;
 			if(remainingFramesBeforeInterrupt == 0)
 				return true;
 			return false;
+		}
+
+		protected override void FinishIfDurationOver()
+		{
+			if(ComboIsOver())
+			{
+				Finish();
+				return;
+			}
 		}
 	}
 }
