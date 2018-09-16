@@ -5,28 +5,43 @@ using UnityEngine;
 namespace AbilitySystem
 {
 	/** Base class for all abilities. */
-	[RequireComponent(typeof(Cooldown), typeof(ResourceCost))]
+	[RequireComponent(typeof(Cooldown), typeof(Cost))]
 	public abstract class Ability : MonoBehaviour
 	{
 		Cooldown cooldown;
-		[SerializeField]
-		ResourceCost cost;
 		bool finished = true;
-
+		/** Determines the roughness of the ellipse gizmo. */
+		int ellipseGizmoSections = 36;
+		
 		protected AbilityResource resource;
 		protected int frameCount = 0;
-
-		[Range(0, 1000)]
-		public int durationInFrames = 0;
+		
 		new public string name;
 		[TextArea(1, 5)]
 		public string description;
-		[HideInInspector]
-		public string associatedButton;
-		[HideInInspector] 
-		public Character owner;
+
+		[SerializeField]
+		Cost cost;
+
+		[Range(0, 1000)]
+		public int durationInFrames = 0;
+
+		
 		public Sprite icon;
 		public AudioClip sound;
+
+		public bool alignedToMouse = false;
+
+		[SerializeField]
+		AbilityOrbit orbit;
+
+		[HideInInspector] 
+		public Character owner;
+		[HideInInspector]
+		public Vector2 direction;
+		[HideInInspector]
+		public string associatedButton;
+		
 
 		public bool Finished
 		{
@@ -41,7 +56,7 @@ namespace AbilitySystem
             }
         }
 
-        public ResourceCost Cost
+        public Cost Cost
         {
             get
             {
@@ -55,6 +70,7 @@ namespace AbilitySystem
 		{
 			finished = true;
 			frameCount = 0;
+			cooldown.StartTimer();
 			CleanUp();
 		}
 
@@ -74,6 +90,39 @@ namespace AbilitySystem
 			}
 		}
 
+		void OnDrawGizmosSelected()
+		{
+			if(orbit.orbiting)
+			{
+				var orbitVertices = new Vector2[ellipseGizmoSections];
+				for(int i = 0; i < ellipseGizmoSections; i++)
+				{
+					float angle = ((float)i / ellipseGizmoSections) * 360 * Mathf.Deg2Rad;
+					if(transform.parent)
+					{
+						orbitVertices[i].x = transform.parent.position.x +
+							(orbit.orbitRadii.x * Mathf.Sin(angle)); 
+						orbitVertices[i].y = transform.parent.position.y + 
+							(orbit.orbitRadii.y * Mathf.Cos(angle)); 
+					}
+					else
+					{
+						orbitVertices[i].x = transform.position.x + 
+							(orbit.orbitRadii.x * Mathf.Sin(angle)); 
+						orbitVertices[i].y = transform.position.y + 
+							(orbit.orbitRadii.y * Mathf.Cos(angle)); 
+					}
+				}
+
+				for(int i = 0; i < ellipseGizmoSections - 1; i++)
+				{
+					Gizmos.DrawLine(orbitVertices[i], orbitVertices[i + 1]);
+				}
+				Gizmos.color = Color.green;
+				Gizmos.DrawLine(orbitVertices[0], orbitVertices[ellipseGizmoSections - 1]);
+			}
+		}
+
 		/** Use instead of Instantiate()! */
 		public Ability CreateInstance(Character owner)
 		{	
@@ -87,6 +136,10 @@ namespace AbilitySystem
 		public void Activate()
 		{
 			finished = false;
+			if(alignedToMouse)
+				AlignWithMouse();
+			if(orbit.orbiting)
+				SelectPositionOnOrbit();
 			OnActivation();
 		}
 
@@ -104,13 +157,32 @@ namespace AbilitySystem
 			return true;
 		}
 
-		
+		public void AlignWithMouse()
+		{
+			Vector2 rawDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+			rawDirection.Normalize();
+			direction.x = Mathf.Round(rawDirection.x);
+			direction.y = Mathf.Round(rawDirection.y);
+			transform.up = direction;
+		}
+
+		void SelectPositionOnOrbit()
+        {
+			Vector2 position;
+			float radiansRotation = -transform.rotation.eulerAngles.z * Mathf.Deg2Rad;
+			position.x = transform.parent.position.x + orbit.orbitRadii.x * Mathf.Sin(radiansRotation);
+			position.y = transform.parent.position.y + orbit.orbitRadii.y * Mathf.Cos(radiansRotation);
+			transform.position = position;
+        }
 
 		/** Finishes the ability once enough frames have passed. */
 		protected virtual void FinishIfDurationOver()
 		{
 			if(frameCount == durationInFrames)
+			{
+				// Debug.Log("Duration over.");
 				Finish(); 
+			}
 		}
 
 		/** This function will be automatically 
