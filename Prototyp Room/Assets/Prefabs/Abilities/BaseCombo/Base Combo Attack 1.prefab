@@ -21,8 +21,7 @@ GameObject:
   - component: {fileID: 4843551288629020}
   - component: {fileID: 114455013582156432}
   - component: {fileID: 61677257705755100}
-  - component: {fileID: 114924434490976156}
-  - component: {fileID: 114032007707107232}
+  - component: {fileID: 114947168342686920}
   m_Layer: 0
   m_Name: Base Combo Attack 1
   m_TagString: Untagged
@@ -54,7 +53,7 @@ Transform:
   m_GameObject: {fileID: 1850780597755074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.435919, y: 0.6007452, z: 1}
+  m_LocalScale: {x: 2, y: 0.9, z: 1}
   m_Children: []
   m_Father: {fileID: 4843551288629020}
   m_RootOrder: 0
@@ -96,31 +95,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4359189, y: 0.6007452}
+  m_Size: {x: 2, y: 0.9}
   m_EdgeRadius: 0
---- !u!114 &114032007707107232
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1210535240943020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a57ce7702053234aa3ee2f89d6fff2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Base Combo Attack 1
-  description: First part of the base combo.
-  cost: {fileID: 0}
-  durationInFrames: 3
-  icon: {fileID: 0}
-  sound: {fileID: 0}
-  alignedToMouse: 0
-  orbit:
-    orbiting: 0
-    orbitRadii: {x: 0, y: 0}
-  owner: {fileID: 0}
-  direction: {x: 0, y: 0}
 --- !u!114 &114455013582156432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseCooldown: 0
   cooldownModifier: 1
---- !u!114 &114924434490976156
+--- !u!114 &114947168342686920
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,11 +118,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 1210535240943020}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc4fe71aeb786be44a8e4811c92e44d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a57ce7702053234aa3ee2f89d6fff2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseValue: 0
-  modifier: 1
+  name: Base Combo Attack
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 10
+  icon: {fileID: 0}
+  sound: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
+  damage:
+    baseValue: 50
+    modifier: 1
+    strengthScaling: 0
+    intelligenceScaling: 0
 --- !u!212 &212143813913608040
 SpriteRenderer:
   m_ObjectHideFlags: 1

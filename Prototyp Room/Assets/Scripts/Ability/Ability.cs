@@ -70,6 +70,7 @@ namespace AbilitySystem
 		{
 			finished = true;
 			frameCount = 0;
+			cooldown.StartTimer();
 			CleanUp();
 		}
 
@@ -179,7 +180,7 @@ namespace AbilitySystem
 		{
 			if(frameCount == durationInFrames)
 			{
-				Debug.Log("Duration over.");
+				// Debug.Log("Duration over.");
 				Finish(); 
 			}
 		}

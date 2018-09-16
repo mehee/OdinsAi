@@ -24,6 +24,7 @@ namespace AbilitySystem
 			for(int i = 0; i < abilities.Count; i++)
 			{
 				var instance = abilities[i].CreateInstance(owner);
+				instance.transform.localPosition = Vector3.zero;
 				instance.transform.localScale = Vector2.one;
 				instance.associatedButton = "Ability" + (i + 1);
 				abilityInstances.Add(instance);

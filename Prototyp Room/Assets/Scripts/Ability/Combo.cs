@@ -13,14 +13,13 @@ namespace AbilitySystem
 		[SerializeField] int framesBeforeInterrupt = 30;
 		int remainingFramesBeforeInterrupt;
 		int activeComboPart = 0;
-		bool comboContinues = false;
 
 		public override void SetUp()
 		{
 			for(int i = 0; i < comboParts.Count; i++)
 			{
-				var instance = comboParts[i].CreateInstance(this.owner, null);
-				instance.transform.parent = this.transform;
+				Ability instance = comboParts[i].CreateInstance(this.owner);
+				instance.transform.SetParent(this.transform);
 				comboParts[i] = instance;
 			}
 		}
@@ -29,17 +28,8 @@ namespace AbilitySystem
 			of the ability. */
 		public override void OnActivation()
 		{
-			activeComboPart = 0;
-			try
-			{
-				comboParts[0].Activate();
-			}
-			catch(System.IndexOutOfRangeException)
-			{
-				Debug.LogError("No ability in List 'comboParts'!");
-				Finish();
-			}
-			activeComboPart++;
+			comboParts[activeComboPart].Activate();
+			remainingFramesBeforeInterrupt = framesBeforeInterrupt;
 		}
 
 		/** This function will be automatically
@@ -49,19 +39,23 @@ namespace AbilitySystem
 			of the base classes Update() method. */
 		public override void ResolveOngoingEffects()
 		{
-			if(Input.GetButtonDown(associatedButton) && (activeComboPart + 1) < comboParts.Count)
-				comboContinues = true;
-
-			if(comboParts[activeComboPart].Finished && comboContinues)
-			{
-				remainingFramesBeforeInterrupt = framesBeforeInterrupt;
-				activeComboPart++;
-				comboParts[activeComboPart].Activate();
-				comboContinues = false;
-			}
-			
 			if(comboParts[activeComboPart].Finished)
+			{
+				bool comboFinished = (activeComboPart + 1 == comboParts.Count);
+				if(remainingFramesBeforeInterrupt == 0 || comboFinished)
+				{
+					Finish();
+					return;
+				}
+
+				if(Input.GetButtonDown(associatedButton))
+				{
+					activeComboPart++;
+					comboParts[activeComboPart].Activate();
+				}
+
 				remainingFramesBeforeInterrupt--;
+			}
 		}
 
 		/** Used for cleanup code in case
@@ -73,24 +67,16 @@ namespace AbilitySystem
 			{
 				comboPart.CleanUp();
 			}
+
+			remainingFramesBeforeInterrupt = framesBeforeInterrupt;
+			activeComboPart = 0;
 		}
 
-		bool ComboIsOver()
-		{
-			if(activeComboPart > comboParts.Count)
-				return true;
-			if(remainingFramesBeforeInterrupt == 0)
-				return true;
-			return false;
-		}
-
+		// Combo does not have a fixed duration itself,
+		// so we leave this empty.
 		protected override void FinishIfDurationOver()
 		{
-			if(ComboIsOver())
-			{
-				Finish();
-				return;
-			}
+			
 		}
 	}
 }

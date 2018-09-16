@@ -54,20 +54,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Base Combo
   description: Oh! Wombo Combo!
-  cost: {fileID: 0}
+  cost:
+    baseValue: 0
+    modifier: 1
   durationInFrames: 0
   icon: {fileID: 0}
   sound: {fileID: 0}
-  alignedToMouse: 0
+  alignedToMouse: 1
   orbit:
     orbiting: 1
     orbitRadii: {x: 1.14, y: 1.75}
   owner: {fileID: 0}
   direction: {x: 0, y: 0}
+  associatedButton: 
   comboParts:
-  - {fileID: 114032007707107232, guid: 5bf5aa2db59781a4dba208596d362c99, type: 2}
-  - {fileID: 114032007707107232, guid: 5bf5aa2db59781a4dba208596d362c99, type: 2}
-  - {fileID: 114032007707107232, guid: 5bf5aa2db59781a4dba208596d362c99, type: 2}
+  - {fileID: 114947168342686920, guid: 5bf5aa2db59781a4dba208596d362c99, type: 2}
+  - {fileID: 114947168342686920, guid: c49df8b22abad0a4392448e19d2fa2df, type: 2}
+  - {fileID: 114947168342686920, guid: 287ebb2f978c8fd46b06c8908ffefb7a, type: 2}
   framesBeforeInterrupt: 30
 --- !u!114 &114727647653451062
 MonoBehaviour:
