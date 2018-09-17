@@ -7,6 +7,8 @@ public class Movement : MonoBehaviour
    	[SerializeField]
 	private float movementSpeed;
 	Rigidbody2D rigidBody;
+
+    Collision2D collider = null;
     
     int availableDashes = 3;
     CombatMarker combatMarker;
@@ -92,9 +94,19 @@ public class Movement : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D()
+    void OnCollisionEnter2D(Collision2D coll)
     {
-     dashTimer=0;  
+      if(coll.gameObject.tag!="Enemy")
+      dashTimer=0;
+
+      else
+            coll.collider.enabled = false;
+        
+        
+    }
+    void OnCollisionExit2D(Collision2D coll)
+    {
+        coll.collider.enabled=true;
     }
     
     void Update()
