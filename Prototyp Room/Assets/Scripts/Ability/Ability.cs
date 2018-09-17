@@ -9,6 +9,7 @@ namespace AbilitySystem
 	public abstract class Ability : MonoBehaviour
 	{
 		Cooldown cooldown;
+		AudioSource audioSource;
 		bool finished = true;
 		/** Determines the roughness of the ellipse gizmo. */
 		int ellipseGizmoSections = 36;
@@ -28,7 +29,6 @@ namespace AbilitySystem
 
 		
 		public Sprite icon;
-		public AudioClip sound;
 
 		public bool alignedToMouse = false;
 
@@ -77,6 +77,7 @@ namespace AbilitySystem
 		void Start()
 		{
 			cooldown = GetComponent<Cooldown>();
+			audioSource = GetComponent<AudioSource>();
 			SetUp();
 		}
 
@@ -130,6 +131,7 @@ namespace AbilitySystem
 			abilityInstance.owner = owner;
 			abilityInstance.transform.SetParent(owner.transform);
 			abilityInstance.resource = owner.GetComponent<AbilityResource>();
+			abilityInstance.transform.localPosition = Vector3.zero;
 			return abilityInstance;
 		}
 
@@ -140,6 +142,8 @@ namespace AbilitySystem
 				AlignWithMouse();
 			if(orbit.orbiting)
 				SelectPositionOnOrbit();
+			if(audioSource)
+				audioSource.Play();
 			OnActivation();
 		}
 

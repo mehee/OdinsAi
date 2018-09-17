@@ -77,7 +77,6 @@ namespace AbilitySystem
 		{
 			if(!ability.ReadyForActivation())
 				return;
-			ability.gameObject.SetActive(true);
 			ability.Activate();
 			cooldownTimer = globalCooldown;
 		}

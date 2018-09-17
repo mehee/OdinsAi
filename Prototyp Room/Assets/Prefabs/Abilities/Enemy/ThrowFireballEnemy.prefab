@@ -61,7 +61,7 @@ MonoBehaviour:
   durationInFrames: 0
   icon: {fileID: 0}
   sound: {fileID: 0}
-  alignedToMouse: 1
+  alignedToMouse: 0
   orbit:
     orbiting: 0
     orbitRadii: {x: 0, y: 0}
