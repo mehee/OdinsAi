@@ -21,16 +21,16 @@ public class HeadButtState : IState
     public void Enter(EnemyBehaviour parent)
     {
         this.parent = parent;
-        vars = parent.GetComponent<VariousEnemyVars>();
+        vars = parent.Vars;
        
         playerHealth = parent.Target.GetComponent<Health>();
         enemyCollider = parent.GetComponent<BoxCollider2D>();
         animator = parent.GetComponent<AnimationManager>();
         hitted = false;
         //3 hardcoded variables change to dynamic
-        headButtTarget = getVectorBehindPlayer(2);
-        chargeSpeed = 10;
-        chargeTime = 1;
+        headButtTarget = getVectorBehindPlayer(vars.overChargeDistance);
+        chargeSpeed = vars.chargeSpeed;
+        chargeTime = vars.chargeTime;
     }
 
     public void Exit()
@@ -65,7 +65,7 @@ public class HeadButtState : IState
             }
             if (Vector2.Distance(parent.transform.position, headButtTarget) < 1)
             {
-                parent.ChangeState(new FollowState());
+                parent.ChangeState(new IdleState());
             }
         }
 

@@ -5,50 +5,13 @@ using UnityEngine;
 public class VariousEnemyVars : MonoBehaviour {
 
     [SerializeField]
-    private float chargeSpeed;
+    public float chargeSpeed;
     [SerializeField]
-    private float chargeTime;
+    public float chargeTime;
     [SerializeField]
-    private float overChargeDistance;
+    public float overChargeDistance;
 
-    public float ChargeSpeed
-    {
-        get
-        {
-            return ChargeSpeed;
-        }
 
-        set
-        {
-            ChargeSpeed = value;
-        }
-    }
-
-    public float ChargeTime
-    {
-        get
-        {
-            return chargeTime;
-        }
-
-        set
-        {
-            chargeTime = value;
-        }
-    }
-
-    public float OverChargeDistance
-    {
-        get
-        {
-            return overChargeDistance;
-        }
-
-        set
-        {
-            overChargeDistance = value;
-        }
-    }
 
 
     // Use this for initialization
