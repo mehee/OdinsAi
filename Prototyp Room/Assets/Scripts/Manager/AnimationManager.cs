@@ -16,6 +16,7 @@ public class AnimationManager : MonoBehaviour {
 		
 		animator.SetBool("iswalking",true);
         animator.SetBool("isAttacking", false);
+       // animator.SetBool("isCharging", false);
 
         animator.SetFloat("input_x", vector2.x);
 		animator.SetFloat("input_y", vector2.y);
@@ -24,6 +25,7 @@ public class AnimationManager : MonoBehaviour {
 	{
 		animator.SetBool("iswalking",false);
         animator.SetBool("isAttacking", false);
+        //animator.SetBool("isCharging", false);
 
         animator.SetFloat("input_x", vector2.x);
 		animator.SetFloat("input_y", vector2.y);
@@ -33,6 +35,7 @@ public class AnimationManager : MonoBehaviour {
     {
         animator.SetBool("isAttacking", true);
         animator.SetBool("iswalking", false);
+        //animator.SetBool("isCharging", false);
 
         animator.SetFloat("input_x", vector2.x);
         animator.SetFloat("input_y", vector2.y);
@@ -51,9 +54,12 @@ public class AnimationManager : MonoBehaviour {
         animator.SetBool("iswalking", false);
         animator.SetBool("isAttacking", false);
 
-
-
         animator.SetFloat("input_x", vector2.x);
         animator.SetFloat("input_y", vector2.y);
+    }
+
+    public void setChargeFalse()
+    {
+        animator.SetBool("isCharging", false);
     }
 }

@@ -16,12 +16,12 @@ class AttackState : IState
 
     public void Exit()
     {
-       
+
     }
 
     public void Update()
     {
-       if(parent.Target != null)
+        if (parent.Target != null)
         {
             float distance = Vector2.Distance(parent.Target.position, parent.transform.position);
             parent.Movement.Move(Vector2.zero);
@@ -29,37 +29,30 @@ class AttackState : IState
             parent.AttackCD -= Time.deltaTime;
             if (parent.AttackCD <= 0)
             {
-                if (parent.IsHeadbutt && distance <= parent.AttackRange)
-                {
-                    Debug.Log("change to headbutt");
-                    parent.ChangeState(new HeadButtState());
-                }
-
                 parent.AttackAnimationLenght -= Time.deltaTime;
-            
-             if (parent.AttackAnimationLenght <= 0)
-            {
-
-                parent.AttackCD = parent.AttackCDtmp;
-                parent.AttackAnimationLenght = parent.AttackAnimatiomTMP;
-                if (distance <= parent.AttackRange)
+                if (parent.AttackAnimationLenght <= 0)
                 {
-                    if (parent.IsHeadbutt)
-                    {
-                        Debug.Log("CHange WRONG to headbutt");
-                        parent.ChangeState(new HeadButtState());
-                    }
-                    else
-                    {
-                        //for ranged attack not good
-                        playerHealth.Reduce(parent.AttackDamage);
-                    }
 
+                    parent.AttackCD = parent.AttackCDtmp;
+                    parent.AttackAnimationLenght = parent.AttackAnimatiomTMP;
+                    if (distance <= parent.AttackRange)
+                    {
+                        if (parent.IsHeadbutt)
+                        {
+                            Debug.Log("CHange WRONG to headbutt");
+                            parent.ChangeState(new HeadButtState());
+                        }
+                        else
+                        {
+                            //for ranged attack not good
+                            playerHealth.Reduce(parent.AttackDamage);
+                        }
+
+                    }
                 }
-            }
 
             }
-            else if((parent.IsRanged || parent.IsHeadbutt) && distance <= parent.EvadeDistance)
+            else if ((parent.IsRanged || parent.IsHeadbutt) && distance <= parent.EvadeDistance)
             {
                 Debug.Log("Evade!");
                 parent.ChangeState(new EvadeState());
@@ -80,6 +73,6 @@ class AttackState : IState
         }
     }
 
-   
-    
+
+
 }

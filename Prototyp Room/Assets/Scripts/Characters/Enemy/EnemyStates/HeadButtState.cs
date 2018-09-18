@@ -21,14 +21,12 @@ public class HeadButtState : IState
     {
         this.parent = parent;
         headButtTarget = getVectorBehindPlayer(2);
-        chargeSpeed = 10;
+        chargeSpeed = 5;
         playerHealth = parent.Target.GetComponent<Health>();
         enemyCollider = parent.GetComponent<BoxCollider2D>();
         animator = parent.GetComponent<AnimationManager>();
         hitted = false;
         chargeTime =1;
-        isCharging = true;
-
     }
 
     public void Exit()
@@ -45,11 +43,12 @@ public class HeadButtState : IState
     // Update is called once per frame
     public void Update()
     {
+        parent.Movement.Move(Vector2.zero);
         animator.Charge(headButtTarget);
-       
         chargeTime -= Time.deltaTime;
         if(chargeTime <= 0)
         {
+            animator.setChargeFalse();
             animator.Attack(headButtTarget);
            
             parent.transform.position = Vector2.MoveTowards(parent.transform.position, headButtTarget, Time.deltaTime * chargeSpeed);
