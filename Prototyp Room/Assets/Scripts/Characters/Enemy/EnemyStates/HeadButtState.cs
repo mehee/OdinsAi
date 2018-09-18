@@ -16,17 +16,21 @@ public class HeadButtState : IState
     private bool hitted;
     private AnimationManager animator;
     private bool isCharging;
+    private VariousEnemyVars vars;
 
     public void Enter(EnemyBehaviour parent)
     {
         this.parent = parent;
-        headButtTarget = getVectorBehindPlayer(2);
-        chargeSpeed = 5;
+        vars = parent.GetComponent<VariousEnemyVars>();
+       
         playerHealth = parent.Target.GetComponent<Health>();
         enemyCollider = parent.GetComponent<BoxCollider2D>();
         animator = parent.GetComponent<AnimationManager>();
         hitted = false;
-        chargeTime =1;
+        //3 hardcoded variables change to dynamic
+        headButtTarget = getVectorBehindPlayer(2);
+        chargeSpeed = 10;
+        chargeTime = 1;
     }
 
     public void Exit()
