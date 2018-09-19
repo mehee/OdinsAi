@@ -19,7 +19,6 @@ namespace AbilitySystem
 		{
 			collider.enabled = true;
 			transform.GetChild(0).gameObject.SetActive(true);
-			Debug.Log(gameObject.name + " was activated.");
 		}
 
 		public override void CleanUp()

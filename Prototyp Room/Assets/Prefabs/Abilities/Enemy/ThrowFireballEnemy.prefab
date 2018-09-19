@@ -58,9 +58,8 @@ MonoBehaviour:
   cost:
     baseValue: 0
     modifier: 1
-  durationInFrames: 0
+  durationInFrames: 1
   icon: {fileID: 0}
-  sound: {fileID: 0}
   alignedToMouse: 0
   orbit:
     orbiting: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace AbilitySystem
 {
 	/** Base class for all abilities. */
-	[RequireComponent(typeof(Cooldown), typeof(Cost))]
+	[RequireComponent(typeof(Cooldown))]
 	public abstract class Ability : MonoBehaviour
 	{
 		Cooldown cooldown;
