@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 
-public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
+public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPointerEnterHandler, IPointerExitHandler
 {
 	//Icon of Slot, changed later with icon of Item
 	[SerializeField] 
@@ -147,6 +147,22 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
 			Debug.Log("Use Potion clicked");
 			UseItem();
 		}
+	}
+
+	//----- Tooltips
+
+	public void OnPointerEnter(PointerEventData eventData)
+	{
+		if(!IsEmpty)
+		{
+			UIManager.MyInstance.ShowTooltip(transform.position, MyItem);
+		}
+		
+	}
+
+	public void OnPointerExit(PointerEventData eventData)
+	{
+		UIManager.MyInstance.HideTooltip();
 	}
 
 

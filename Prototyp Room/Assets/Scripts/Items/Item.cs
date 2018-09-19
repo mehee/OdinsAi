@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Quality {Common, Uncommon, Rare, Epic, Legendary}
-
-public abstract class Item : ScriptableObject, IMoveable
+public abstract class Item : ScriptableObject, IMoveable, IDescribable
 {
 	[SerializeField] private Sprite icon;
 	[SerializeField] private Sprite background;
 	[SerializeField] private int stackSize;
 	private Color backgroundColor;
 
-	[SerializeField] private Quality quality;
 	[SerializeField] private string titel;
+	[SerializeField] private Quality quality;
 
 	//reference to Slot
 	private SlotScript slot;
@@ -60,30 +58,35 @@ public abstract class Item : ScriptableObject, IMoveable
 		}
 	}
 
-/*
-	public virtual string GetDescription()
+
+	public virtual string GetDescription() //overridable
     {
+		/*
         string color = string.Empty;
 
         switch (quality)
         {
             case Quality.Common:
-                color = "#d6d6d6";
+                color = "#d6d6d6"; // grey
                 break;
             case Quality.Uncommon:
-                color = "#00ff00ff";
+                color = "#00ff00ff"; // green
                 break;
             case Quality.Rare:
-                color = "#0000ffff";
+                color = "#0052cd"; // blue
                 break;
             case Quality.Epic:
-                color = "#800080ff";
+                color = "#cd00c6"; // purple
+                break;
+			case Quality.Legendary: // gold
+                color = "#e6ad00";
                 break;
         }
 
-        return string.Format("<color={0}>{1}</color>", color, titel);
+		 */
+        return string.Format("<color={0}>{1}</color>", QualityColors.MyColors[quality], titel); // {0} will be replaced with color, {1} with title
     }
- */
+
 
 	public Color getColor()
 	{
@@ -107,52 +110,5 @@ public abstract class Item : ScriptableObject, IMoveable
 		}
 		return backgroundColor;
 	}
-
-	/*FINISH ME FIRST 
-	MyIcons gemacht werden und Reference dazu
-	und Slots etc
-	 */
-	/* OLD eventuell DELETE
-
-	public Text name, quality, type, strength, intelligence, vitality;
-
-	//displays the Values in the ItemCanvas
-	public void DisplayValues(ItemEntry item)
-	{
-		name.text = item.name;
-		quality.text = item.quality.ToString();
-		type.text = item.type.ToString();
-		strength.text = "Strength:\t" + item.strength.ToString();
-		intelligence.text = "Intelligence:\t" + item.intelligence.ToString();
-	
-		vitality.text = "Vitality:\t" + item.vitality.ToString();
-
-		switch (item.quality)
-		{	
-			case ItemQuality.Uncommon: 
-				quality.color = new Color(1.0f,0.0f,0.0f); // green
-				break;
-			case ItemQuality.Rare: 
-				quality.color = new Color(0.0f,0.0f,1.0f); // blue
-				break;
-			case ItemQuality.Epic: 
-				quality.color = new Color(0.517f, 0.0f, 0.658f); // violet
-				break;
-			case ItemQuality.Legendary: 
-				quality.color = new Color(0.878f, 0.529f, 0.0f); //gold
-				break;
-			default:
-				quality.color = quality.color; // white
-				break;		
-		}
- 
-	}
-
-	public string GetDescription()
-	{
-		return "Im an Item";
-	}
-
- 	*/
 
 }

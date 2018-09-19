@@ -53,4 +53,10 @@ public class Bag : Item, IUseable
 				break;
 		}
 	}
+
+	public override string GetDescription()
+	{
+		//base gets the Titel in color
+		return base.GetDescription() + string.Format("\n{0} slot Bag", slots); 
+	}
 }
