@@ -157,7 +157,6 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
 		{
 			UIManager.MyInstance.ShowTooltip(transform.position, MyItem);
 		}
-		
 	}
 
 	public void OnPointerExit(PointerEventData eventData)

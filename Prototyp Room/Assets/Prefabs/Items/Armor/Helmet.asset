@@ -17,6 +17,7 @@ MonoBehaviour:
   titel: Warriors Helmet
   quality: 4
   armorType: 0
+  armor: 15
   intellect: 5
   strength: 35
   stamina: 65

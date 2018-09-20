@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum ArmorType {Head, Chest, Legs, Boots, Ring, Trinket, Runestone, MainHand, Offhand, TwoHand }
-
 [CreateAssetMenu(fileName = "Armor", menuName = "Items/Armor", order = 2)]
 public class Armor : Item
 {
     [SerializeField]
     private ArmorType armorType;
+    
+    [SerializeField]
+    private int armor;
 
     [SerializeField]
     private int intellect;
@@ -32,25 +33,34 @@ public class Armor : Item
         get {return animationClips;}
     }
 
+  
     public override string GetDescription()
     {
         string stats = string.Empty;
 
+        stats += string.Format("\n{0}", ArmorTypClass.MyArmorType[armorType]);
+
+        if (armor > 0 )
+        {
+            stats += string.Format("\n{0} Armor", armor);
+        }
         if (intellect > 0 )
         {
-            stats += string.Format("\n +{0} intellect", intellect);
+            stats += string.Format("\n+{0} Intellect", intellect);
         }
         if (strength > 0)
         {
-            stats += string.Format("\n +{0} strength", strength);
+            stats += string.Format("\n+{0} Strength", strength);
         }
         if (stamina > 0)
         {
-            stats += string.Format("\n +{0} stamina", stamina);
+            stats += string.Format("\n+{0} Stamina", stamina);
         }
 
         return base.GetDescription() +stats;
     }
+
+
 
     public void Equip()
     {

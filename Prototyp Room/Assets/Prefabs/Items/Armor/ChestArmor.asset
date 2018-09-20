@@ -17,6 +17,7 @@ MonoBehaviour:
   titel: Gladiators Chest
   quality: 3
   armorType: 1
+  armor: 50
   intellect: 2
   strength: 25
   stamina: 50

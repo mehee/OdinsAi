@@ -17,6 +17,7 @@ MonoBehaviour:
   titel: Boots of the Thieve
   quality: 1
   armorType: 3
+  armor: 5
   intellect: 0
   strength: 20
   stamina: 25

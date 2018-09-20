@@ -19,7 +19,7 @@ public class EnemyDebuffBleed : MonoBehaviour {
 		{
 			image.enabled = true;
 			image.fillAmount = bl.RemainingDuration/bl.Duration;
-			Debug.Log(bl.RemainingDuration);
+//			Debug.Log(bl.RemainingDuration);
 		}
 		else
 		image.enabled=false;

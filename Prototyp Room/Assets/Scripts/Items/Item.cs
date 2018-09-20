@@ -49,6 +49,11 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable
 		get {return quality;}
 	}
 
+	public string MyTitle
+	{
+		get{return titel;}
+	}
+
 
 	public void Remove()
 	{
@@ -61,29 +66,6 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable
 
 	public virtual string GetDescription() //overridable
     {
-		/*
-        string color = string.Empty;
-
-        switch (quality)
-        {
-            case Quality.Common:
-                color = "#d6d6d6"; // grey
-                break;
-            case Quality.Uncommon:
-                color = "#00ff00ff"; // green
-                break;
-            case Quality.Rare:
-                color = "#0052cd"; // blue
-                break;
-            case Quality.Epic:
-                color = "#cd00c6"; // purple
-                break;
-			case Quality.Legendary: // gold
-                color = "#e6ad00";
-                break;
-        }
-
-		 */
         return string.Format("<color={0}>{1}</color>", QualityColors.MyColors[quality], titel); // {0} will be replaced with color, {1} with title
     }
 
