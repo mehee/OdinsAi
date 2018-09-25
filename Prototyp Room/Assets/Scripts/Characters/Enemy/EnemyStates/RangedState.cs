@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using AbilitySystem;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,10 @@ public class RangedState : IState {
     private Vector2 direction;
     private Ability ability;
     private VariousEnemyVars vars;
+    private Ability abilityInstance;
+    private float cd;
     
+
 
     public void Enter(EnemyBehaviour parent)
     {
@@ -17,6 +21,13 @@ public class RangedState : IState {
         Vector2 direction = (parent.Target.position - parent.transform.position).normalized;
         vars = parent.Vars;
         ability = vars.ability;
+        abilityInstance = ability.CreateInstance(parent.Enemy);
+        abilityInstance.transform.SetParent(parent.transform);
+        abilityInstance.direction = direction;
+        
+        cd = 0.04f;
+     
+
     }
 
     public void Exit()
@@ -24,16 +35,17 @@ public class RangedState : IState {
        
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	
 
     public void Update()
     {
+        abilityInstance.Activate();
+        cd -= Time.deltaTime;
         
+        if(cd <= 0)
+        {
+            parent.ChangeState(new IdleState());
+        }
+            
     }
 
     private Vector2 getVectorBehindPlayer(float multiplyer)
