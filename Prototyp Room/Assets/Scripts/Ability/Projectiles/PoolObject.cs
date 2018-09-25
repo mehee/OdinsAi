@@ -7,6 +7,7 @@ using UnityEngine;
 public class PoolObject : MonoBehaviour
 {	
 	// The object pool containing this object.
+	[HideInInspector]
 	public ObjectPool owner;
 
 	/** Set to false to deactivate the game object

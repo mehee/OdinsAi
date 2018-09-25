@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using AbilitySystem;
 
 public class Cooldown : MonoBehaviour 
 {
@@ -10,7 +11,6 @@ public class Cooldown : MonoBehaviour
 	private Ability[] abilities;
 	private int activeAbilities;
 	private int fieldcount = 0;
-	private Wrath wrath;
 
 	// Use this for initialization
 	void Start () {
@@ -29,7 +29,6 @@ public class Cooldown : MonoBehaviour
 		{
 			cooldownImages[i].fillAmount = 1f;
 		}
-		wrath = GetComponentInParent<Wrath>();
 	}
 	
 	// Update is called once per frame
@@ -37,7 +36,7 @@ public class Cooldown : MonoBehaviour
 	{
 		for(int i = 0; i < activeAbilities; i++)
 		{
-			float remaining = abilities[i].RemainingCooldown / abilities[i].Cooldown;
+			float remaining = abilities[i].Cooldown.Remaining / abilities[i].Cooldown.Duration;
 			cooldownImages[i].fillAmount = remaining;
 		}
 	}

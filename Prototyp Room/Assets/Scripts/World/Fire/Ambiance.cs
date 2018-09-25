@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ambiance : MonoBehaviour {
 
-	public Light light;
+	new public Light light;
 	public float minIntensity;
 	public float maxIntensity;
 	
