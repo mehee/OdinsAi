@@ -39,8 +39,13 @@ class AttackState : IState
                     {
                         if (parent.IsHeadbutt)
                         {
-                            Debug.Log("CHange WRONG to headbutt");
+                            Debug.Log("Change to headbutt");
                             parent.ChangeState(new HeadButtState());
+                        }
+                        else if(parent.IsRanged)
+                        {
+                            Debug.Log("Change to RangedState");
+                            parent.ChangeState(new RangedState());
                         }
                         else
                         {
