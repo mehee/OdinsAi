@@ -7,7 +7,8 @@ public class RangedState : IState {
     private EnemyBehaviour parent;
 
     private Vector2 direction;
-
+    private Abil
+    
 
     public void Enter(EnemyBehaviour parent)
     {
