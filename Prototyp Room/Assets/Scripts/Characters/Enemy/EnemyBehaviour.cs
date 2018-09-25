@@ -12,6 +12,7 @@ public class EnemyBehaviour : MonoBehaviour {
     private Vector2 defaultDirection;
     public int currentMoveSpot = 0;
     private VariousEnemyVars vars;
+    private EnemyAbilities abilities;
     
     [SerializeField]
     private bool isRanged;
@@ -254,6 +255,19 @@ public class EnemyBehaviour : MonoBehaviour {
         }
     }
 
+    public EnemyAbilities Abilities
+    {
+        get
+        {
+            return abilities;
+        }
+
+        set
+        {
+            abilities = value;
+        }
+    }
+
 
 
 
@@ -270,8 +284,6 @@ public class EnemyBehaviour : MonoBehaviour {
         defaultDirection = Vector2.down;
         AttackAnimatiomTMP = attackAnimationLenght;
         vars = GetComponent<VariousEnemyVars>();
-
-
     }
     // Update is called once per frame
     void Update()

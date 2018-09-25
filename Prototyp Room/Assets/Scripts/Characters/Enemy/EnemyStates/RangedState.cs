@@ -7,13 +7,16 @@ public class RangedState : IState {
     private EnemyBehaviour parent;
 
     private Vector2 direction;
-    private Abil
+    private Ability ability;
+    private VariousEnemyVars vars;
     
 
     public void Enter(EnemyBehaviour parent)
     {
         this.parent = parent;
         Vector2 direction = (parent.Target.position - parent.transform.position).normalized;
+        vars = parent.Vars;
+        ability = vars.ability;
     }
 
     public void Exit()
