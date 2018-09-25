@@ -12,7 +12,7 @@ public class EnemyBehaviour : MonoBehaviour {
     private Vector2 defaultDirection;
     public int currentMoveSpot = 0;
     private VariousEnemyVars vars;
-    private EnemyAbilities abilities;
+    
     
     [SerializeField]
     private bool isRanged;
@@ -255,18 +255,7 @@ public class EnemyBehaviour : MonoBehaviour {
         }
     }
 
-    public EnemyAbilities Abilities
-    {
-        get
-        {
-            return abilities;
-        }
-
-        set
-        {
-            abilities = value;
-        }
-    }
+  
 
 
 
