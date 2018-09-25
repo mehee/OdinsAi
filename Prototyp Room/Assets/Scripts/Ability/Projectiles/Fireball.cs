@@ -13,7 +13,7 @@ public class Fireball : PoolObject
 	[HideInInspector]
 	public Vector2 direction;
 
-	private AbilitySystem.Cooldown lifeTime;
+	AbilitySystem.Cooldown lifeTime;
 
 	void Awake()
 	{

@@ -23,7 +23,6 @@ public class ObjectPool : MonoBehaviour
 		{	
 			var instance = Instantiate(prefab);
 			instance.owner = this;
-			instance.SetActive(false);
 			instances.Add(instance);
 		}
 

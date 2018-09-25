@@ -91,5 +91,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 471af740d6dd5414d8a0ab5e340c24e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCooldown: 2
+  baseCooldown: 1
   cooldownModifier: 1

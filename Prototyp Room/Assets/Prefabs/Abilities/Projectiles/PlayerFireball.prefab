@@ -19,10 +19,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4303664727300492}
-  - component: {fileID: 58637897503423076}
   - component: {fileID: 114590048336279768}
   - component: {fileID: 114636132063923774}
   - component: {fileID: 82547991751321354}
+  - component: {fileID: 58470762662200706}
   m_Layer: 0
   m_Name: PlayerFireball
   m_TagString: Untagged
@@ -73,7 +73,7 @@ Transform:
   m_Father: {fileID: 4303664727300492}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58637897503423076
+--- !u!58 &58470762662200706
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
