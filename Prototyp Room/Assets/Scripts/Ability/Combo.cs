@@ -28,6 +28,10 @@ namespace AbilitySystem
 			of the ability. */
 		public override void OnActivation()
 		{
+			foreach(Ability comboPart in comboParts)
+			{
+				comboPart.direction = direction;
+			}
 			comboParts[activeComboPart].Activate();
 			remainingFramesBeforeInterrupt = framesBeforeInterrupt;
 		}

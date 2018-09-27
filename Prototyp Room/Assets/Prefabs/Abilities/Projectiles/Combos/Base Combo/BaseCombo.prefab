@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4941856615338628}
   - component: {fileID: 114818307495850670}
+  - component: {fileID: 114882179809911956}
   m_Layer: 0
   m_Name: BaseCombo
   m_TagString: Untagged
@@ -53,22 +54,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Base Combo
   description: OOOOH WOMBO COMBO WOMBO COMBO!
-  baseCooldown: 1
-  baseCost: 0
-  baseDamage: 0
-  owner: {fileID: 0}
-  cooldownModifier: 1
-  costModifier: 0
-  damageModifier: 0
-  strengthScaling: 0
-  intelligenceScaling: 0
-  startupFrames: 0
-  activeFrames: 0
-  recoveryFrames: 0
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
   icon: {fileID: 21300000, guid: 685e45d9e70d98b449b179d47368f870, type: 3}
-  sound: {fileID: 0}
+  alignedToMouse: 1
+  orbit:
+    orbiting: 1
+    orbitRadii: {x: 1.2, y: 1.5}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   comboParts:
-  - {fileID: 114493105034548100, guid: 392ec98e0955a23479343b344f8731fd, type: 2}
-  - {fileID: 114751544880415786, guid: 6f4ad8635df15514ca37c913e7adfd4d, type: 2}
-  - {fileID: 114344277317656860, guid: 61d93b55a6be06340916c7e0b670f4d5, type: 2}
-  timeBeforeComboInterrupts: 0.5
+  - {fileID: 114266916785636268, guid: 392ec98e0955a23479343b344f8731fd, type: 2}
+  - {fileID: 114800723874728962, guid: 6f4ad8635df15514ca37c913e7adfd4d, type: 2}
+  - {fileID: 114668032399578084, guid: 61d93b55a6be06340916c7e0b670f4d5, type: 2}
+  framesBeforeInterrupt: 30
+--- !u!114 &114882179809911956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1102786458117750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471af740d6dd5414d8a0ab5e340c24e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseCooldown: 0.2
+  cooldownModifier: 1
