@@ -60,8 +60,8 @@ public class Armor : Item
         return base.GetDescription() +stats;
     }
 
-
-
+    /**Methode to equip item in CharacterMenu Slots
+        have to check which slot */
     public void Equip()
     {
        // CharacterPanel.MyInstance.EquipArmor(this);
