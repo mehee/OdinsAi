@@ -23,7 +23,10 @@ public class ThrowFireball : Ability
 	{
 		var fireball = fireballs.Dispatch() as Fireball;
 		if(fireball == null)
+		{
+			Debug.LogError("No balls left");
 			return;
+		}
 		fireball.transform.position = transform.position;
 		fireball.direction = direction;
 	}

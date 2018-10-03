@@ -5,12 +5,13 @@ using UnityEngine;
 namespace AbilitySystem
 {
 	/** Base class for all abilities. */
-	[RequireComponent(typeof(Cooldown))]
+	[RequireComponent(typeof(Timer))]
 	public abstract class Ability : MonoBehaviour
 	{
-		Cooldown cooldown;
+		Timer cooldown;
 		AudioSource audioSource;
 		bool finished = true;
+
 		/** Determines the roughness of the ellipse gizmo. */
 		int ellipseGizmoSections = 36;
 		
@@ -24,14 +25,17 @@ namespace AbilitySystem
 		[SerializeField]
 		Cost cost;
 
-		[Range(0, 1000)]
-		public int durationInFrames = 0;
+		[Range(1, 1000)]
+		public int durationInFrames = 1;
 
 		
 		public Sprite icon;
 
 		public bool alignedToMouse = false;
 
+		/** Define an orbit to achieve more believable
+			hitbox placement on characters whose sprite
+			width and height differ significantly. */
 		[SerializeField]
 		AbilityOrbit orbit;
 
@@ -48,7 +52,7 @@ namespace AbilitySystem
 			get { return finished; }
 		}
 
-        public Cooldown Cooldown
+        public Timer Cooldown
         {
             get
             {
@@ -64,7 +68,16 @@ namespace AbilitySystem
             }
         }
 
-        /** Tells the ability to finish and
+		void Start()
+		{
+			cooldown = GetComponent<Timer>();
+			if(!cooldown)
+				Debug.LogError("Cooldown not found");
+			audioSource = GetComponent<AudioSource>();
+			SetUp();
+		}
+
+		/** Tells the ability to finish and
 			cease resovling its effects. */
         public void Finish()
 		{
@@ -72,13 +85,6 @@ namespace AbilitySystem
 			frameCount = 0;
 			cooldown.StartTimer();
 			CleanUp();
-		}
-
-		void Start()
-		{
-			cooldown = GetComponent<Cooldown>();
-			audioSource = GetComponent<AudioSource>();
-			SetUp();
 		}
 
 		void Update()
@@ -92,40 +98,45 @@ namespace AbilitySystem
 		}
 
 		void OnDrawGizmosSelected()
-		{
-			if(orbit.orbiting)
-			{
-				var orbitVertices = new Vector2[ellipseGizmoSections];
-				for(int i = 0; i < ellipseGizmoSections; i++)
-				{
-					float angle = ((float)i / ellipseGizmoSections) * 360 * Mathf.Deg2Rad;
-					if(transform.parent)
-					{
-						orbitVertices[i].x = transform.parent.position.x +
-							(orbit.orbitRadii.x * Mathf.Sin(angle)); 
-						orbitVertices[i].y = transform.parent.position.y + 
-							(orbit.orbitRadii.y * Mathf.Cos(angle)); 
-					}
-					else
-					{
-						orbitVertices[i].x = transform.position.x + 
-							(orbit.orbitRadii.x * Mathf.Sin(angle)); 
-						orbitVertices[i].y = transform.position.y + 
-							(orbit.orbitRadii.y * Mathf.Cos(angle)); 
-					}
-				}
+        {
+            DrawOrbitOutline();
+        }
 
-				for(int i = 0; i < ellipseGizmoSections - 1; i++)
-				{
-					Gizmos.DrawLine(orbitVertices[i], orbitVertices[i + 1]);
-				}
-				Gizmos.color = Color.green;
-				Gizmos.DrawLine(orbitVertices[0], orbitVertices[ellipseGizmoSections - 1]);
-			}
-		}
+        private void DrawOrbitOutline()
+        {
+            if (orbit.orbiting)
+            {
+                var orbitVertices = new Vector2[ellipseGizmoSections];
+                for (int i = 0; i < ellipseGizmoSections; i++)
+                {
+                    float angle = ((float)i / ellipseGizmoSections) * 360 * Mathf.Deg2Rad;
+                    if (transform.parent)
+                    {
+                        orbitVertices[i].x = transform.parent.position.x +
+                            (orbit.orbitRadii.x * Mathf.Sin(angle));
+                        orbitVertices[i].y = transform.parent.position.y +
+                            (orbit.orbitRadii.y * Mathf.Cos(angle));
+                    }
+                    else
+                    {
+                        orbitVertices[i].x = transform.position.x +
+                            (orbit.orbitRadii.x * Mathf.Sin(angle));
+                        orbitVertices[i].y = transform.position.y +
+                            (orbit.orbitRadii.y * Mathf.Cos(angle));
+                    }
+                }
 
-		/** Use instead of Instantiate()! */
-		public Ability CreateInstance(Character owner)
+                for (int i = 0; i < ellipseGizmoSections - 1; i++)
+                {
+                    Gizmos.DrawLine(orbitVertices[i], orbitVertices[i + 1]);
+                }
+                Gizmos.color = Color.green;
+                Gizmos.DrawLine(orbitVertices[0], orbitVertices[ellipseGizmoSections - 1]);
+            }
+        }
+
+        /** Use instead of Instantiate()! */
+        public Ability CreateInstance(Character owner)
 		{	
 			var abilityInstance = Instantiate(this);
 			abilityInstance.owner = owner;
@@ -161,6 +172,8 @@ namespace AbilitySystem
 			return true;
 		}
 
+		/** Rotates the abilities transform so
+			that it faces the mouse cursor. */
 		public void AlignWithMouse()
 		{
 			Vector2 rawDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -214,8 +227,7 @@ namespace AbilitySystem
 
 		}
 
-		/** Used for cleanup code in case
-			your ability gets interrupted. 
+		/** Called once the ability is finished. 
 			Override to add functionality. */
 		public virtual void CleanUp()
 		{

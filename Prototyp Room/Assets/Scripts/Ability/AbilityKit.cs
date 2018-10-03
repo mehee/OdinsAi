@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace AbilitySystem
 {
+	/** The set of abilities the player posesses. 
+		Makes sure abilities are only activated when
+		the ones before are finished. */
 	public class AbilityKit : MonoBehaviour 
 	{	
 		[SerializeField]

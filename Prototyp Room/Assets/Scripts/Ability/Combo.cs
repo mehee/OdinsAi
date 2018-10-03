@@ -4,6 +4,11 @@ using UnityEngine;
 
 namespace AbilitySystem
 {
+	/** An ability that consists of an
+		array of smaller abilities that
+		are activated in order if the
+		corresponding button is repeatedly
+		pressed in the required time frame. */
 	public class Combo : Ability
 	{
 		[SerializeField] List<Ability> comboParts;

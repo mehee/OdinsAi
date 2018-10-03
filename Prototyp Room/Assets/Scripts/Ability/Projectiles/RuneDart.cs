@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using AbilitySystem;
 
-[RequireComponent(typeof(BoxCollider2D), typeof(AbilitySystem.Cooldown))]
+[RequireComponent(typeof(BoxCollider2D), typeof(AbilitySystem.Timer))]
 public class RuneDart : MonoBehaviour
 {
 	public Damage damage;
@@ -17,16 +17,14 @@ public class RuneDart : MonoBehaviour
 	[HideInInspector]
 	public Vector2 velocity;
 
-	AbilitySystem.Cooldown cooldown;
+	Timer cooldown;
 
 	void Start()
 	{
-		cooldown = GetComponent<AbilitySystem.Cooldown>();
+		cooldown = GetComponent<Timer>();
 		cooldown.StartTimer();
 		CalculateVelocity();
 		transform.up = velocity.normalized;
-		Debug.Log(direction);
-		Debug.Log("Velocity : " + velocity);
 	}
 
 	void Update()

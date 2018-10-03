@@ -6,7 +6,7 @@ using AbilitySystem;
 [RequireComponent(typeof(CircleCollider2D))]
 public class ChainHook : MonoBehaviour 
 {
-	AbilitySystem.Cooldown lifeTime;
+	Timer lifeTime;
 	Transform hookedEnemy;
 
 	public float flightSpeed = 10;
@@ -15,7 +15,7 @@ public class ChainHook : MonoBehaviour
 	
 	void Start () 
 	{
-		lifeTime = GetComponent<AbilitySystem.Cooldown>();		
+		lifeTime = GetComponent<AbilitySystem.Timer>();		
 	}
 	
 	void Update () 
