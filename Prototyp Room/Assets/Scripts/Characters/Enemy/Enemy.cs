@@ -13,10 +13,10 @@ public class Enemy : Character
 
     private EnemyBehaviour enemyBehaviour;
     private float currentHealth;
-    [SerializeField]
-    private float attackRange;
-    [SerializeField]
-    uint experienceReward;
+    [SerializeField] private float attackRange;
+    [SerializeField] uint experienceReward;
+
+    [HideInInspector] Health health;
 
     public float AttackRange
     {
@@ -25,12 +25,7 @@ public class Enemy : Character
             return attackRange;
         }
 
-        set
-        {
-            attackRange = value;
-        }
     }
-
     public bool IsLootable{get;set;}
 
     public void Start()

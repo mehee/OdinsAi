@@ -2,39 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/** Throw a hatchet in the direction of
+	the mouse. Hatchets can be picked up by
+	walking through them. */
 public class ThrowHatchet : Ability
 {
-	[SerializeField]
-	Hatchet hatchetPrefab;
+	[SerializeField] float speed;
+	ObjectPool pool;
 
-	[SerializeField]
-	int amountHatchets = 2;
-	[HideInInspector]
-	public int currentAmountHatchets;
-
-	[SerializeField]
-	float speed;
-
-	protected override void Start()
+	void Start()
 	{
-		base.Start();
-		currentAmountHatchets = amountHatchets;	
+		pool = GetComponent<ObjectPool>();
 	}
 
     public override void Activate()
     {
 		RemainingCooldown = Cooldown;
-		Hatchet thrown = Instantiate(hatchetPrefab, transform.position, rotation);
-		thrown.owner = this;
+		Hatchet thrown = pool.Dispatch() as Hatchet;
+		thrown.transform.position = transform.position;
+		thrown.currentPosition = transform.position;
 		AlignWithMouse();
 		thrown.Velocity = speed * direction;
-		thrown.GetComponent<Collider2D>().enabled = true;
-		currentAmountHatchets--;	
+		thrown.collider.enabled = true;
     }
 
 	public override bool ReadyForActivation()
 	{
-		if(OffCoolDown() && (currentAmountHatchets > 0))
+		if(pool.IsEmpty())
+			return false;
+		if(OffCoolDown() && (pool.Instances.Count > 0))
 			return true;
 		return false;
 	}

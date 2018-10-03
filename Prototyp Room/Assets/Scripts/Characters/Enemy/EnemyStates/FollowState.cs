@@ -26,12 +26,13 @@ class FollowState : IState
             parent.Movement.Move((parent.Target.position - parent.transform.position).normalized);
             float distance = Vector2.Distance(parent.Target.position, parent.transform.position);
 
-            parent.AutoAttackCooldown -= Time.deltaTime;
-            if (parent.AutoAttackCooldown <= 0)
+            parent.AttackCD -= Time.deltaTime;
+            if (parent.AttackCD <= 0)
             {
-                parent.AutoAttackAnimationLenght = parent.AutoAttackAnimatiomTMP;
+                parent.AttackAnimationLenght = parent.AttackAnimatiomTMP;
                 if (distance <= parent.AttackRange)
                 {
+                   // parent.Movement.Move(Vector2.zero);
                     parent.ChangeState(new AttackState());
                 }
             }
@@ -39,7 +40,7 @@ class FollowState : IState
         }
         else
         {
-            parent.ChangeState(new EvadeState());
+            parent.ChangeState(new RetreatState());
         }
 
     }
