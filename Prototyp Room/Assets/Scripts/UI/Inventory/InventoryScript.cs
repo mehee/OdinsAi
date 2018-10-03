@@ -65,6 +65,13 @@ public class InventoryScript : MonoBehaviour
 			HealthPotion potion = (HealthPotion)Instantiate(items[1]);
 			AddItem(potion);
 		}
+		if(Input.GetKeyDown(KeyCode.H))
+		{
+			AddItem((Armor)Instantiate(items[2]));
+			AddItem((Armor)Instantiate(items[3]));
+			AddItem((Armor)Instantiate(items[4]));
+			AddItem((Weapon)Instantiate(items[5]));
+		}
 
 	}
 	// -------------
@@ -90,26 +97,28 @@ public class InventoryScript : MonoBehaviour
 	}
 
 	
-	public void AddItem(Item item)
+	public bool AddItem(Item item)
 	{
-
+		// try to place in Stack. if so do, if not -> PlaceInEmpty()
 		if(item.MyStackSize > 0)
 		{
 			if(PlaceInStack(item))
-				return;
+				return true;
 		}
-		PlaceInEmpty(item);
-
+		
+		return PlaceInEmpty(item);
 	}
 
 	//running through all slots belonging to this Bag
-	private void PlaceInEmpty(Item item)
+	private bool PlaceInEmpty(Item item)
 	{
 		foreach (Bag bag in bags)
 		{
 			if(bag.MyBagScript.AddItem(item))
-				return;
+				return true;
 		}
+		//Inventory is full
+		return false;
 	}
 
 

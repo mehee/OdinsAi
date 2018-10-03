@@ -1045,6 +1045,11 @@ MonoBehaviour:
     strMod: 1
     armMod: 0
     intMod: 0
+  health:
+    hpMod: 0
+    strMod: 0
+    armMod: 0
+    intMod: 0
   chest: {fileID: 0}
   attackRange: 0
   experienceReward: 230

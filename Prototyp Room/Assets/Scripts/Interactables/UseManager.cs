@@ -1,24 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class UseManager : MonoBehaviour {
 
 	//Insert the guiInteractText witch should apear when on Trigger
 	[SerializeField] public GameObject guiInteractText;
 	
-	//CanvasGroup of lootUI
-	[SerializeField] public GameObject lootUI;
-	private CanvasGroup lootUICanvasGrp;
-
-	//CanvasGroup of InventoryUI
-	[SerializeField] public GameObject inventoryUI;
-	private CanvasGroup inventoryCanvasGrp;
-
-	
-
 	//target to Spawn if necessary
 	[SerializeField] private GameObject target;
+
+	//Loottable for the Object. is now bind on the Chest not the enemy, thats not good
+	[SerializeField] private LootTable lootTable;
 
 	// name of the String to switch State in the Animator
 	public string transitionParameterName;
@@ -34,10 +28,6 @@ public class UseManager : MonoBehaviour {
 	{
 		guiInteractText.SetActive(false);
 
-		if(lootUI != null)
-			lootUICanvasGrp = lootUI.GetComponent<CanvasGroup>();
-		if(inventoryUI != null)
-			inventoryCanvasGrp = inventoryUI.GetComponent<CanvasGroup>();
 	}
 
 	void Start()
@@ -49,29 +39,20 @@ public class UseManager : MonoBehaviour {
 	void Update()
 	{
 		if(playerIsOnTrigger && guiInteractText.activeInHierarchy && Input.GetButtonDown("Use"))
-		{
+		{	
+			//start the animation of the chest
 			if(animator != null)
-				animator.SetBool(transitionParameterName, true);
-
-			if(lootUI != null)
 			{
-				//inventory.GetComponent<InventoryUI>().ShowInventory();
-				OpenClose();
+				animator.SetBool(transitionParameterName, true);
 			}
 			
-			if(inventoryUI != null)
-				OpenClose();
+			lootTable.ShowLoot();
 
+			//switch position with enemy 
 			if(target != null)
 				ChangePlayerPosition();
 		}
 		
-	}
-
-	private void OpenClose()
-	{
-		inventoryCanvasGrp.alpha = inventoryCanvasGrp.alpha > 0 ? 0:1;
-		inventoryCanvasGrp.blocksRaycasts = inventoryCanvasGrp.blocksRaycasts == true ? false : true;
 	}
 
 	void ChangePlayerPosition()
@@ -113,12 +94,6 @@ public class UseManager : MonoBehaviour {
 		{
 			guiInteractText.SetActive(false);			
 			playerIsOnTrigger = false;
-			
-			if(lootUI != null)
-				lootUI.SetActive(false);
-
-			if(inventoryUI != null)
-				inventoryUI.SetActive(false);
 		}
 	}
 }

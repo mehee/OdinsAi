@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "HealthPotion", menuName = "Items/Potion", order = 1)]
 public class HealthPotion : Item, IUseable 
@@ -16,9 +14,12 @@ public class HealthPotion : Item, IUseable
 			Remove();
 		//	Player.MyInstance.MyHealth.MyCurrentValue += health;
 		}
-		 */
-		
-		
-		
+			
+	}
+
+	public override string GetDescription()
+	{
+		//base gets the Titel in color
+		return base.GetDescription() + string.Format("\nUse: Restores <color=#00ff00ff>{0}</color> health", health); 
 	}
 }

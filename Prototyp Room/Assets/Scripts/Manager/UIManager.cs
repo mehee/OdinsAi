@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
 
@@ -20,9 +21,19 @@ public class UIManager : MonoBehaviour {
         }
     }
 
+	[SerializeField]
+	private GameObject toolTip;
+	private Text tooltipText;
+
 	//UI elements to openClose
 	[SerializeField]
 	private CanvasGroup inventoryMenu;
+
+
+	private void Awake()
+	{
+		tooltipText = toolTip.GetComponentInChildren<Text>();
+	}
 
 	void Update()
 	{
@@ -71,4 +82,16 @@ public class UIManager : MonoBehaviour {
 		}
  
     }
+
+	//----Tooltips
+	public void ShowTooltip(Vector3 position, IDescribable description)
+	{
+		toolTip.SetActive(true);
+		toolTip.transform.position = position;
+		tooltipText.text = description.GetDescription();
+	}
+	public void HideTooltip()
+	{
+		toolTip.SetActive(false);
+	}
 }
