@@ -144,7 +144,6 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
 		//right mouse button
 		if(eventData.button == PointerEventData.InputButton.Right)
 		{
-			Debug.Log("Use Potion clicked");
 			UseItem();
 		}
 	}

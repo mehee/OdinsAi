@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Weapon", menuName = "Items/Weapon", order = 3)]
 public class Weapon : Item
 {
+    /*
     [SerializeField]
     private WeaponType weaponType;
 
@@ -63,4 +64,5 @@ public class Weapon : Item
     {
        // CharacterPanel.MyInstance.EquipArmor(this);
     }
+     */
 }

@@ -70,7 +70,7 @@ public class InventoryScript : MonoBehaviour
 			AddItem((Armor)Instantiate(items[2]));
 			AddItem((Armor)Instantiate(items[3]));
 			AddItem((Armor)Instantiate(items[4]));
-			AddItem((Weapon)Instantiate(items[5]));
+			AddItem((Armor)Instantiate(items[5]));
 		}
 
 	}
