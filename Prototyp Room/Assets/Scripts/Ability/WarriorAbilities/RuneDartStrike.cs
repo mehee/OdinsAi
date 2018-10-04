@@ -5,7 +5,7 @@ using UnityEngine;
 namespace AbilitySystem
 {
 	[RequireComponent(typeof(BoxCollider2D))]
-	public class RuneDartStrike : Ability 
+	public class RuneDartStrike : PlayerAbility 
 	{
 		public Damage damage;
 		public RuneDart dart;
@@ -25,7 +25,7 @@ namespace AbilitySystem
 			runeDart.transform.position = transform.position;
 		}
 
-		public override void CleanUp()
+		protected override void CleanUp()
 		{
 			collider.enabled = false;
 			transform.GetChild(0).gameObject.SetActive(false);

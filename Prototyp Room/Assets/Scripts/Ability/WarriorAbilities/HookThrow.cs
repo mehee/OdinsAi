@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using AbilitySystem;
 
-public class HookThrow : Ability 
+public class HookThrow : PlayerAbility 
 {
 	ChainHook hook;
 
@@ -25,7 +25,7 @@ public class HookThrow : Ability
 
 	}
 
-	public override void CleanUp()
+	protected override void CleanUp()
 	{
 		hook.gameObject.SetActive(false);
 	}

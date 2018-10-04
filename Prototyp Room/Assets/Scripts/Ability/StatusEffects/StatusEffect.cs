@@ -1,18 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AbilitySystem;
 
 public abstract class StatusEffect : MonoBehaviour 
 {
-	protected float creationTime;
-
-	[SerializeField]
-	protected float baseDuration;
-
-	[SerializeField]
-	protected float durationModifier;
-
-	protected float remainingDuration;
+	public Timer lifeTime;
 
 	[SerializeField]
 	/** Amount of seconds between
@@ -26,34 +19,11 @@ public abstract class StatusEffect : MonoBehaviour
 		(e.g. damage). */
     public abstract void Apply();
 
-    public float RemainingDuration
-    {
-        get { return remainingDuration; }
-		set { remainingDuration = value; }
-    }
-
-    public float DurationModifier
-    {
-        get
-        {
-            return durationModifier;
-        }
-
-        set
-        {
-            durationModifier = value;
-        }
-    }
-
-	public float Duration
-	{
-		get { return baseDuration * durationModifier; }
-	}
-
 	protected virtual void Awake()
 	{
-		creationTime = Time.time;
-		lastApplicationTime = -Duration;
+		lifeTime = GetComponent<Timer>();
+		lifeTime.StartTimer();
+		lastApplicationTime = -lifeTime.Duration;
 	}
 
 	/** Puts a copy of itself onto 
@@ -63,7 +33,6 @@ public abstract class StatusEffect : MonoBehaviour
 	public virtual void Attach(Transform target)
 	{
 		var instance = Instantiate(this);
-		instance.remainingDuration = Duration;
 		instance.transform.parent = target.transform;
 	}
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using AbilitySystem;
 
-public class SpellCluster : Ability
+public class SpellCluster : EnemyAbility
 {
 	ObjectPool pool;
 	float spawnRadius = 5f;

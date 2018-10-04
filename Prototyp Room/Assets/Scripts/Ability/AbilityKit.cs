@@ -10,23 +10,23 @@ namespace AbilitySystem
 	public class AbilityKit : MonoBehaviour 
 	{	
 		[SerializeField]
-		List<Ability> abilities;
-		List<Ability> abilityInstances;
+		List<PlayerAbility> abilities;
+		List<PlayerAbility> abilityInstances;
 		
 		[SerializeField]
 		float globalCooldown = 0.1f;
 		float cooldownTimer;
 
 		private Character owner;
-		private Ability previous;
+		private PlayerAbility previous;
 
 		void Start()
 		{	
 			owner = GetComponent<Character>();
-			abilityInstances = new List<Ability>(abilities.Count);
+			abilityInstances = new List<PlayerAbility>(abilities.Count);
 			for(int i = 0; i < abilities.Count; i++)
 			{
-				var instance = abilities[i].CreateInstance(owner);
+				var instance = abilities[i].CreateInstance(owner) as PlayerAbility;
 				instance.transform.localPosition = Vector3.zero;
 				instance.transform.localScale = Vector2.one;
 				instance.associatedButton = "Ability" + (i + 1);
@@ -54,7 +54,7 @@ namespace AbilitySystem
 			if(!previous.Finished)
 				return;
 
-			Ability activated = GetActivatedAbility();
+			PlayerAbility activated = GetActivatedAbility();
 			if(activated)
 				Activate(activated);
 		}
@@ -64,7 +64,7 @@ namespace AbilitySystem
 			set in 'Preferences->Input'!
 			
 			Returns null if there was no input. */
-		Ability GetActivatedAbility()
+		PlayerAbility GetActivatedAbility()
 		{
 			for(int i = 0; i < abilityInstances.Count; i++)
 			{
@@ -76,7 +76,7 @@ namespace AbilitySystem
 			return null;
 		}
 
-		void Activate(Ability ability)
+		void Activate(PlayerAbility ability)
 		{
 			if(!ability.ReadyForActivation())
 				return;
@@ -84,11 +84,11 @@ namespace AbilitySystem
 			cooldownTimer = globalCooldown;
 		}
 
-		public void SwapSkill(Ability ability,int slot)
+		public void SwapSkill(PlayerAbility ability,int slot)
 		{
 			Destroy(abilityInstances[slot]);
 			abilities[slot] = ability;
-			var instance = ability.CreateInstance(owner);
+			var instance = ability.CreateInstance(owner) as PlayerAbility;
 			instance.associatedButton = "Ability" + (slot + 1);
 			instance.transform.position = transform.position;
 			abilityInstances[slot] = instance;

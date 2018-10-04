@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using AbilitySystem;
 
-public class ThrowFireball : Ability
+public class ThrowRuneOrb : PlayerAbility
 {
 	ObjectPool fireballs;
 

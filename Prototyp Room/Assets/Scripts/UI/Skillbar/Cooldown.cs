@@ -8,7 +8,7 @@ public class Cooldown : MonoBehaviour
 {
 	private Image[] allImages;
 	private Image[] cooldownImages = new Image[7];
-	private Ability[] abilities;
+	private PlayerAbility[] abilities;
 	private int activeAbilities;
 	private int fieldcount = 0;
 
@@ -23,7 +23,7 @@ public class Cooldown : MonoBehaviour
 				fieldcount++;
 			}
 		}
-		abilities = transform.root.GetComponentsInChildren<Ability>();
+		abilities = transform.root.GetComponentsInChildren<PlayerAbility>();
 		activeAbilities = abilities.Length;
 		for(int i = activeAbilities; i < cooldownImages.Length; i++)
 		{

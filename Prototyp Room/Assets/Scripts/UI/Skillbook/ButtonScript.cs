@@ -14,19 +14,15 @@ public class ButtonScript : MonoBehaviour
 	protected AbilityKit abilityKit;
 
 	public int skillNumber;
-	public Ability ability;
+	public PlayerAbility ability;
+
     void Start () 
 	{
-
-
 		player = GetComponentInParent<Player>();
 		button = GetComponent<Button>();
 		image = GetComponent<Image>();
 		abilityKit = player.GetComponent<AbilityKit>();
 		button.onClick.AddListener(OnClick);
-
-
-
 	}
 	
 	// Update is called once per frame

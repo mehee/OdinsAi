@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 82547991751321354}
   - component: {fileID: 58470762662200706}
   m_Layer: 0
-  m_Name: PlayerFireball
+  m_Name: Rune Orb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -9,7 +9,7 @@ namespace AbilitySystem
 		are activated in order if the
 		corresponding button is repeatedly
 		pressed in the required time frame. */
-	public class Combo : Ability
+	public class Combo : PlayerAbility
 	{
 		[SerializeField] List<Ability> comboParts;
 
@@ -70,13 +70,8 @@ namespace AbilitySystem
 		/** Used for cleanup code in case
 			your ability gets interrupted. 
 			Override to add functionality. */
-		public override void CleanUp()
+		protected override void CleanUp()
 		{
-			foreach(Ability comboPart in comboParts)
-			{
-				comboPart.CleanUp();
-			}
-
 			remainingFramesBeforeInterrupt = framesBeforeInterrupt;
 			activeComboPart = 0;
 		}

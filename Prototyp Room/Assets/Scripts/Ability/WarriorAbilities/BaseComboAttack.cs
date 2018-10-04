@@ -5,7 +5,7 @@ using UnityEngine;
 namespace AbilitySystem
 {
 	[RequireComponent(typeof(BoxCollider2D))]
-	public class BaseComboAttack : Ability 
+	public class BaseComboAttack : PlayerAbility 
 	{
 		public Damage damage;
 		new BoxCollider2D collider;
@@ -21,7 +21,7 @@ namespace AbilitySystem
 			transform.GetChild(0).gameObject.SetActive(true);
 		}
 
-		public override void CleanUp()
+		protected override void CleanUp()
 		{
 			collider.enabled = false;
 			transform.GetChild(0).gameObject.SetActive(false);
