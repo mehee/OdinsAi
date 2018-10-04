@@ -71,6 +71,6 @@ public class Armor : Item
         have to check which slot */
     public void Equip()
     {
-       // CharacterPanel.MyInstance.EquipArmor(this);
+       CharacterMenu.MyInstance.EquipArmor(this);
     }
 }

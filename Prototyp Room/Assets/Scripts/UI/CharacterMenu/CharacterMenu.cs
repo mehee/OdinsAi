@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterMenu : MonoBehaviour {
-
+public class CharacterMenu : MonoBehaviour 
+{
 	// ----- SINGLETON
-
 		private static CharacterMenu instance;
 
 		public static CharacterMenu MyInstance
@@ -19,18 +18,56 @@ public class CharacterMenu : MonoBehaviour {
 				return instance;
 			}
 		}
-
 	// -----
+
+	//Reference 
+	[SerializeField]
+	private CharacterItemSlot head, chest, legs, boots, ring, runeStone, trinket, mainHand, offHand;
 
 	[SerializeField]
 	private CanvasGroup characterMenu;
 
+	public CharacterItemSlot MySelectedButton {get;set;}
 
-	
 	public void OpenClose()
 	{
 		characterMenu.alpha = characterMenu.alpha > 0 ? 0 : 1;
 		characterMenu.blocksRaycasts = characterMenu.blocksRaycasts == true ? false : true;
 	}
 
+	///<summary> place Armor on the correct Slot in CharacterMenu</summary>
+	public void EquipArmor(Armor armor)
+	{
+		switch(armor.MyArmorType)
+		{
+			case ArmorType.Head:
+				head.EquipItem(armor);
+				break;
+			case ArmorType.Chest:
+				chest.EquipItem(armor);
+				break;
+			case ArmorType.Legs:
+				legs.EquipItem(armor);
+				break;
+			case ArmorType.Boots:
+				boots.EquipItem(armor);
+				break;
+			case ArmorType.Ring:
+				ring.EquipItem(armor);
+				break;
+			case ArmorType.Runestone:
+				runeStone.EquipItem(armor);
+				break;
+			case ArmorType.Trinket:
+				trinket.EquipItem(armor);
+				break;
+			case ArmorType.MainHand:
+				mainHand.EquipItem(armor);
+				break;
+			case ArmorType.Offhand:
+				offHand.EquipItem(armor);
+				break;
+			
+		}
+	}
 }

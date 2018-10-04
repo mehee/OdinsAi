@@ -16,7 +16,7 @@ MonoBehaviour:
   stackSize: 0
   titel: Shield
   quality: 1
-  armorType: 7
+  armorType: 8
   armor: 50
   damage: 0
   intellect: 0

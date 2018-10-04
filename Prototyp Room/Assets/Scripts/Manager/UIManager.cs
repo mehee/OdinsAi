@@ -96,8 +96,15 @@ public class UIManager : MonoBehaviour {
 		toolTip.transform.position = position;
 		tooltipText.text = description.GetDescription();
 	}
+	/**Hide Tooltips */
 	public void HideTooltip()
 	{
 		toolTip.SetActive(false);
+	}
+
+	/**Refresh Tooltip UI */
+	public void RefreshTooltip(IDescribable description)
+	{
+		tooltipText.text = description.GetDescription();
 	}
 }
