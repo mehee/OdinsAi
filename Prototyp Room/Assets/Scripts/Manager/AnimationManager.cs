@@ -62,4 +62,13 @@ public class AnimationManager : MonoBehaviour {
     {
         animator.SetBool("isCharging", false);
     }
+
+    public void setAwakeingTrue()
+    {
+        animator.SetBool("isAwakeing", true);
+    }
+    public void setAwakeingFalse()
+    {
+        animator.SetBool("isAwakeing", false);
+    }
 }

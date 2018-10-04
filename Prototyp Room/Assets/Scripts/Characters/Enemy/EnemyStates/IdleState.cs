@@ -21,13 +21,24 @@ class IdleState : IState
 
     public void Update()
     {
-        
+        if(parent.IsRanged)
+        {
+            parent.Animator.setAwakeingFalse();
+        }
         //change into follow state if player is close
         if (parent.Target != null)
         {
             float distance = Vector2.Distance(parent.Target.position, parent.transform.position);
+            if(distance <= parent.EvadeDistance)
+            {
+                parent.ChangeState(new EvadeState());
+            }
             if (distance >= parent.AttackRange)
             {
+                if (parent.IsRanged)
+                {
+                    parent.Animator.setAwakeingTrue();
+                }
                 parent.ChangeState(new FollowState());
             }
             // parent.ChangeState(new FollowState());
