@@ -17,7 +17,7 @@ public class PointsText : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{	
-		text.text = "Points to Spend : " + player.PointsToSpend;
+		text.text = "Points to Spend : " + player.StatPoints;
 		
 	}
 }

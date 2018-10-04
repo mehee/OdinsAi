@@ -34,7 +34,7 @@ public class StatSButton : MonoBehaviour {
 
 	void OnClick()
 	{
-		player.PointsToSpend--;
+		player.StatPoints--;
 		switch(statNumber)
 		{
 			case 0: player.stats.Health++;
@@ -51,7 +51,7 @@ public class StatSButton : MonoBehaviour {
 	
 	void Update()
 	{
-		if(player.PointsToSpend==0)
+		if(player.StatPoints==0)
 		Hide();
 	}
 }
