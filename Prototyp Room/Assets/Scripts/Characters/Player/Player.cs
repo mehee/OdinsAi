@@ -33,9 +33,11 @@ public class Player : Character
 
 	[SerializeField] int spellPointsPerLvl=1;
 
+	[SerializeField] int statPointsPerLvl=1;
 	[HideInInspector] public Health health;
 
 	int spellPoints = 0;
+	int statPoints=0;
 
 	void Start()
 	{
@@ -69,6 +71,19 @@ public class Player : Character
         }
     }
 
+    public int StatPoints
+    {
+        get
+        {
+            return statPoints;
+        }
+
+        set
+        {
+            statPoints = value;
+        }
+    }
+
     public void GainExp(uint amount)
 	{
 		experience += amount;
@@ -89,7 +104,7 @@ public class Player : Character
 	void LevelUp()
 	{
 		level++;
-		stats.UpdateStats(level);
+		statPoints+=statPointsPerLvl;
 		spellPoints += spellPointsPerLvl;
 		health.Maximum += stats.Health * 100;
 	}
