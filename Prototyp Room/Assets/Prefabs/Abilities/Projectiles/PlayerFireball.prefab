@@ -219,8 +219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 471af740d6dd5414d8a0ab5e340c24e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCooldown: 3
-  cooldownModifier: 1
+  baseTime: 3
+  modifier: 1
 --- !u!212 &212475565555476392
 SpriteRenderer:
   m_ObjectHideFlags: 1

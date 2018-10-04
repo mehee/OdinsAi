@@ -7,12 +7,12 @@ public class HookThrow : Ability
 {
 	ChainHook hook;
 
-	public override void OnActivation() 
+	protected override void OnActivation() 
 	{
 		hook.gameObject.SetActive(true);
 	}
 
-	public override void SetUp()
+	protected override void SetUp()
 	{
 		hook = Instantiate(hook);
 		hook.transform.SetParent(transform);
@@ -20,7 +20,7 @@ public class HookThrow : Ability
 		hook.gameObject.SetActive(false);
 	}
 
-	public override void ResolveOngoingEffects()
+	protected override void ResolveOngoingEffects()
 	{
 
 	}

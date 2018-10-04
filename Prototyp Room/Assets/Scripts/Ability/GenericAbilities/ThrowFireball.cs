@@ -7,7 +7,7 @@ public class ThrowFireball : Ability
 {
 	ObjectPool fireballs;
 
-	public override void SetUp()
+	protected override void SetUp()
 	{
 		Fireball fireball;
 		fireballs = GetComponent<ObjectPool>();
@@ -19,7 +19,7 @@ public class ThrowFireball : Ability
 		}
 	} 
 
-	public override void OnActivation()
+	protected override void OnActivation()
 	{
 		var fireball = fireballs.Dispatch() as Fireball;
 		if(fireball == null)

@@ -8,7 +8,7 @@ public class SpellCluster : Ability
 	ObjectPool pool;
 	float spawnRadius = 5f;
 
-	public override void SetUp()
+	protected override void SetUp()
 	{
 		pool = GetComponent<ObjectPool>();
 		
@@ -21,7 +21,7 @@ public class SpellCluster : Ability
 	// Deploy all the spell bombs randomly in a radius around
 	// the caster.
 	// SpellBombs will return themselves to the object pool!
-	public override void OnActivation()
+	protected override void OnActivation()
 	{
 		float xMin = transform.position.x - spawnRadius;
 		float xMax = transform.position.x + spawnRadius;

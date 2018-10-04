@@ -19,7 +19,7 @@ namespace AbilitySystem
 		int remainingFramesBeforeInterrupt;
 		int activeComboPart = 0;
 
-		public override void SetUp()
+		protected override void SetUp()
 		{
 			for(int i = 0; i < comboParts.Count; i++)
 			{
@@ -31,7 +31,7 @@ namespace AbilitySystem
 
 		/** Override to add functionality to the activaton
 			of the ability. */
-		public override void OnActivation()
+		protected override void OnActivation()
 		{
 			foreach(Ability comboPart in comboParts)
 			{
@@ -46,7 +46,7 @@ namespace AbilitySystem
 			be called if the ability has finished. 
 			Override this to extend the functionality 
 			of the base classes Update() method. */
-		public override void ResolveOngoingEffects()
+		protected override void ResolveOngoingEffects()
 		{
 			if(comboParts[activeComboPart].Finished)
 			{

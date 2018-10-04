@@ -205,14 +205,14 @@ namespace AbilitySystem
 		/** This function will be automatically 
 			called through Start(). Override
 			to add further initialization logic. */
-		public virtual void SetUp()
+		protected virtual void SetUp()
 		{
 
 		}
 
 		/** Override to add functionality to the activaton
 			of the ability. */
-		public virtual void OnActivation()
+		protected virtual void OnActivation()
 		{
 
 		}
@@ -222,7 +222,7 @@ namespace AbilitySystem
 			be called if the ability has finished. 
 			Override this to extend the functionality 
 			of the base classes Update() method. */
-		public virtual void ResolveOngoingEffects()
+		protected virtual void ResolveOngoingEffects()
 		{
 
 		}

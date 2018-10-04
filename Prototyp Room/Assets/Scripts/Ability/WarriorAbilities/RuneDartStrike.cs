@@ -11,12 +11,12 @@ namespace AbilitySystem
 		public RuneDart dart;
 		new BoxCollider2D collider;
 
-		public override void SetUp()
+		protected override void SetUp()
 		{
 			collider = GetComponent<BoxCollider2D>();
 		}
 
-		public override void OnActivation()
+		protected override void OnActivation()
 		{
 			collider.enabled = true;
 			transform.GetChild(0).gameObject.SetActive(true);
