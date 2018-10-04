@@ -17,6 +17,7 @@ public class HeadButtState : IState
     private AnimationManager animator;
     private bool isCharging;
     private VariousEnemyVars vars;
+    private Vector2 direction;
 
     public void Enter(EnemyBehaviour parent)
     {
@@ -31,6 +32,7 @@ public class HeadButtState : IState
         headButtTarget = getVectorBehindPlayer(vars.overChargeDistance);
         chargeSpeed = vars.chargeSpeed;
         chargeTime = vars.chargeTime;
+         direction = (parent.Target.position - parent.transform.position).normalized;
     }
 
     public void Exit()
@@ -48,12 +50,12 @@ public class HeadButtState : IState
     public void Update()
     {
         parent.Movement.Move(Vector2.zero);
-        animator.Charge(headButtTarget);
+        animator.Charge(direction);
         chargeTime -= Time.deltaTime;
         if(chargeTime <= 0)
         {
             animator.setChargeFalse();
-            animator.Attack(headButtTarget);
+            animator.Attack(direction);
            
             parent.transform.position = Vector2.MoveTowards(parent.transform.position, headButtTarget, Time.deltaTime * chargeSpeed);
 
@@ -74,9 +76,9 @@ public class HeadButtState : IState
 
     private Vector2 getVectorBehindPlayer(float multiplyer)
     {
-        Vector2 direction = (parent.Target.position - parent.transform.position).normalized;
+        Vector2 direction1 = (parent.Target.position - parent.transform.position).normalized;
         Vector2 parentTargetVector2 = new Vector2(parent.Target.position.x, parent.Target.position.y);
-        Vector2 vectorBehindPlayer = parentTargetVector2 + direction * multiplyer;
+        Vector2 vectorBehindPlayer = parentTargetVector2 + direction1 * multiplyer;
         return vectorBehindPlayer;
     }
 }
