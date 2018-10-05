@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AbilitySystem;
 
 public class EnemyBehaviour : MonoBehaviour {
 
@@ -12,8 +13,11 @@ public class EnemyBehaviour : MonoBehaviour {
     private Vector2 defaultDirection;
     public int currentMoveSpot = 0;
     private VariousEnemyVars vars;
-    
-    
+
+    private EnemyAbility ability;
+    private EnemyAbility abilityInstance;
+
+
     [SerializeField]
     private bool isRanged;
     [SerializeField]
@@ -257,7 +261,33 @@ public class EnemyBehaviour : MonoBehaviour {
         }
     }
 
-  
+    public EnemyAbility Ability
+    {
+        get
+        {
+            return ability;
+        }
+
+        set
+        {
+            ability = value;
+        }
+    }
+
+    public EnemyAbility AbilityInstance
+    {
+        get
+        {
+            return abilityInstance;
+        }
+
+        set
+        {
+            abilityInstance = value;
+        }
+    }
+
+
 
 
 
@@ -275,6 +305,14 @@ public class EnemyBehaviour : MonoBehaviour {
         defaultDirection = Vector2.down;
         AttackAnimatiomTMP = attackAnimationLenght;
         vars = GetComponent<VariousEnemyVars>();
+
+        Ability = vars.ability;
+        AbilityInstance = Ability.CreateInstance(enemy) as EnemyAbility;
+        AbilityInstance.transform.SetParent(this.transform);
+        
+
+
+
     }
     // Update is called once per frame
     void Update()

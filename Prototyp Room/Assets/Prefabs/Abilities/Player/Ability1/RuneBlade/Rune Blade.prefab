@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61021859383203396}
   - component: {fileID: 114446967881589034}
   m_Layer: 0
-  m_Name: Rune Blade 2
+  m_Name: Rune Blade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,8 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 471af740d6dd5414d8a0ab5e340c24e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCooldown: 0
-  cooldownModifier: 1
+  baseTime: 0
+  modifier: 1
 --- !u!114 &114446967881589034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123,17 +123,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Rune Blade
   description: 
-  cost:
-    baseValue: 0
-    modifier: 1
   durationInFrames: 20
-  icon: {fileID: 0}
-  alignedToMouse: 0
   orbit:
     orbiting: 0
     orbitRadii: {x: 0, y: 0}
   owner: {fileID: 0}
   direction: {x: 0, y: 0}
+  cost:
+    baseValue: 0
+    modifier: 1
+  icon: {fileID: 0}
+  alignedToMouse: 0
   associatedButton: 
   damage:
     baseValue: 23

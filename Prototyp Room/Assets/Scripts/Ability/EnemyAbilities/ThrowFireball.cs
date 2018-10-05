@@ -11,6 +11,7 @@ public class ThrowFireball : EnemyAbility
 	{
 		Fireball fireball;
 		fireballs = GetComponent<ObjectPool>();
+        Debug.Log(fireballs);
 		foreach(PoolObject po in fireballs.Instances)
 		{
 			fireball = po as Fireball;

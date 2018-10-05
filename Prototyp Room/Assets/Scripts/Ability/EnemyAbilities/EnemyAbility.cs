@@ -19,5 +19,11 @@ namespace AbilitySystem
 				Finish(); 
 			}
 		}
-	}
+
+        private void Start()
+        {
+            audioSource = GetComponent<AudioSource>();
+            SetUp();
+        }
+    }
 }

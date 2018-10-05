@@ -194,8 +194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 471af740d6dd5414d8a0ab5e340c24e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCooldown: 3
-  cooldownModifier: 1
+  baseTime: 3
+  modifier: 1
 --- !u!114 &114839141380128020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,11 +215,6 @@ MonoBehaviour:
     strengthScaling: 0
     intelligenceScaling: 0
   speed: 2
-  stats:
-    hpMod: 0
-    strMod: 0
-    armMod: 0
-    intMod: 0
   direction: {x: 0, y: 0}
 --- !u!212 &212314008672642998
 SpriteRenderer:
