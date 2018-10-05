@@ -12,7 +12,7 @@ public class HeadButtState : IState
     private float chargeTime;
     private Health playerHealth;
     private float distance;
-    private Collider2D enemyCollider;
+    private BoxCollider2D enemyCollider;
     private bool hitted;
     private AnimationManager animator;
     private bool isCharging;
@@ -33,7 +33,8 @@ public class HeadButtState : IState
         chargeSpeed = vars.chargeSpeed;
         chargeTime = vars.chargeTime;
          direction = (parent.Target.position - parent.transform.position).normalized;
-    }
+
+            }
 
     public void Exit()
     {
@@ -49,6 +50,7 @@ public class HeadButtState : IState
     // Update is called once per frame
     public void Update()
     {
+        
         parent.Movement.Move(Vector2.zero);
         animator.Charge(direction);
         chargeTime -= Time.deltaTime;
@@ -59,11 +61,12 @@ public class HeadButtState : IState
            
             parent.transform.position = Vector2.MoveTowards(parent.transform.position, headButtTarget, Time.deltaTime * chargeSpeed);
 
-            if (enemyCollider.IsTouchingLayers(9) && hitted == false)
-            {
+           
+                if (Vector2.Distance(parent.transform.position, parent.Target.position) < 1 && hitted == false)
+                {
                 playerHealth.Reduce(parent.AttackDamage);
                 hitted = true;
-                //Debug.Log("Gotcha Headbutter!");
+                 Debug.Log("Gotcha Headbutter!");
             }
             if (Vector2.Distance(parent.transform.position, headButtTarget) < 1)
             {
