@@ -30,6 +30,9 @@ public class UIManager : MonoBehaviour {
 	private CanvasGroup characterMenu;
 	[SerializeField]
 	private CanvasGroup spellBook;
+	[SerializeField]
+	private CanvasGroup mainMenu;
+
 
 
 	private void Awake()
@@ -50,7 +53,12 @@ public class UIManager : MonoBehaviour {
 		}
 		if(Input.GetButtonDown("Spellbook"))
 		{
-			//OpenClose(spellBook);
+			OpenClose(spellBook);
+		}
+		if(Input.GetButtonDown("Esc"))
+		{
+			OpenClose(mainMenu);
+			//mainMenu.SetActive(true);
 		}
 	}
 

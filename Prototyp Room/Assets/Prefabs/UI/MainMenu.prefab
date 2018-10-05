@@ -275,6 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398406338dee03c4585d46cb31e8240f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menu: {fileID: 1489094935061558}
 --- !u!114 &114187673808096700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -937,7 +938,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &224195199601001746
 RectTransform:
