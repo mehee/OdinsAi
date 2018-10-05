@@ -55,7 +55,7 @@ public class Hatchet : PoolObject
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-        if(other.tag == "Enemy" && other is BoxCollider2D)
+        if(other.gameObject.tag == "Enemy" && other is BoxCollider2D)
         {
             bleed.Attach(other.transform);
             var health = other.GetComponent<Health>();

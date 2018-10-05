@@ -38,7 +38,7 @@ namespace AbilitySystem
 
 		void OnTriggerEnter2D(Collider2D other)
 		{
-			if(other.gameObject.tag == "Enemy")
+			if(other.gameObject.tag == "Enemy" && other is BoxCollider2D)
 			{
 				var health = other.gameObject.GetComponent<Health>();
 				damage.InflictToTarget(owner.stats, health);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using AbilitySystem;
 
+// In development
 [RequireComponent(typeof(CircleCollider2D))]
 public class ChainHook : MonoBehaviour 
 {
