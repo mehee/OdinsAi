@@ -1367,15 +1367,11 @@ MonoBehaviour:
   characterName: Horst
   level: 1
   healthPool: {fileID: 0}
-  stats:
-    hpMod: 0
-    strMod: 0
-    armMod: 0
-    intMod: 0
   expToNextLevel: 1000
   experience: 0
   levelUpFactor: 0.1
   spellPointsPerLvl: 1
+  statPointsPerLvl: 1
   health: {fileID: 0}
 --- !u!114 &114255260081542356
 MonoBehaviour:
@@ -1684,8 +1680,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilities:
-  - {fileID: 114607795384693262, guid: 5ee29fa82d92366458b7ebb08383f820, type: 2}
-  - {fileID: 114358357961675214, guid: 67cc5b71f85c79a4b953333b2e71db68, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   globalCooldown: 0.1
 --- !u!114 &114543029056133042
 MonoBehaviour:
