@@ -19,6 +19,8 @@ public class EnemyBehaviour : MonoBehaviour {
     [SerializeField]
     private bool isHeadbutt;
     [SerializeField]
+    private bool isBoss;
+    [SerializeField]
     private float evadeDistance;
     [SerializeField]
     private Transform[] moveSpots;
