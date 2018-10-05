@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1259790387651730}
+  m_IsPrefabAsset: 1
+--- !u!1 &1259790387651730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4717727781916532}
+  - component: {fileID: 114335448430345040}
+  - component: {fileID: 114399110535272904}
+  - component: {fileID: 114807541896025120}
+  m_Layer: 0
+  m_Name: Throw Hatchet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4717727781916532
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1259790387651730}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114335448430345040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1259790387651730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471af740d6dd5414d8a0ab5e340c24e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseTime: 6
+  modifier: 1
+--- !u!114 &114399110535272904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1259790387651730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a277b924778fac4488f72a3a34589c1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Throw Hatchet
+  description: Axe to the face.
+  durationInFrames: 1
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  cost:
+    baseValue: 0
+    modifier: 1
+  icon: {fileID: 0}
+  alignedToMouse: 1
+  associatedButton: 
+  damage:
+    baseValue: 10
+    modifier: 1
+    strengthScaling: 0
+    intelligenceScaling: 0
+--- !u!114 &114807541896025120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1259790387651730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a66c7c5208d147ab1f3e81741fcf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 114301601847144812, guid: c66733201ccfc30419111b851cef1e6c, type: 2}
+  poolSize: 3

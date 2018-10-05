@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using AbilitySystem;
 
+/** Fireball flying in a straight line.
+	Passes through enemies and damages
+	all it hits. */
 public class Fireball : PoolObject 
 {
 	public string targetTag = "Enemy";
@@ -13,16 +16,16 @@ public class Fireball : PoolObject
 	[HideInInspector]
 	public Vector2 direction;
 
-	private AbilitySystem.Cooldown lifeTime;
+	Timer lifeTime;
 
 	void Awake()
 	{
-		lifeTime = GetComponent<AbilitySystem.Cooldown>();
+		lifeTime = GetComponent<Timer>();
 	}
 
-	void LateUpdate()
+	void Update()
 	{
-		if(lifeTime.IsActive == false)
+		if(!lifeTime.IsActive)
 		{
 			owner.Retrieve(this);
 		}
@@ -32,7 +35,7 @@ public class Fireball : PoolObject
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.gameObject.tag == targetTag)
+		if(other.gameObject.tag == targetTag && other is BoxCollider2D)
 		{
 			var health = other.gameObject.GetComponent<Health>();
 			damage.InflictToTarget(stats, health);
