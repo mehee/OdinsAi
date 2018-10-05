@@ -50,7 +50,7 @@ public class UIManager : MonoBehaviour {
 		}
 		if(Input.GetButtonDown("Spellbook"))
 		{
-			OpenClose(spellBook);
+			//OpenClose(spellBook);
 		}
 	}
 
