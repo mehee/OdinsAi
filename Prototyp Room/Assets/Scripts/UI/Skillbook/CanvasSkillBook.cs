@@ -5,23 +5,34 @@ using UnityEngine.UI;
 
 public class CanvasSkillBook : MonoBehaviour {
 
+	private static CanvasSkillBook instance;
+
+	public static CanvasSkillBook MyInstance
+	{
+		get 
+		{
+			if(instance == null)
+			{
+				instance = FindObjectOfType<CanvasSkillBook>();
+			}
+			return instance;
+		}	
+	}
+
+
 	// Use this for initialization
 	public GameObject spellBook;
-	void Start () 
+
+	private CanvasGroup canvasGroup;
+
+	void Start()
 	{
-		//spellBook = GetComponent<Canvas>();
-		spellBook.SetActive(false);
+		canvasGroup = this.GetComponent<CanvasGroup>();
 	}
-	
-	// Update is called once per frame
-	void Update () 
+
+	public void OpenClose()
 	{
-		
-			if(Input.GetButtonDown("Spellbook"))
-			{
-			spellBook.gameObject.SetActive(!spellBook.gameObject.activeSelf);
-			}
-		
+		canvasGroup.alpha = canvasGroup.alpha > 0 ? 0:1;
+		canvasGroup.blocksRaycasts = canvasGroup.blocksRaycasts == true ? false : true;
 	}
-	
 }

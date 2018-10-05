@@ -5,8 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class Stats
 {
-    private int health = 1;
-    private int intelligence = 1;
+    private int health = 20;
+    private int intelligence = 11;
     private int strength = 1;
     private int armor = 1;
 

@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour {
 	{
 		if(Input.GetButtonDown("CharacterMenu"))
 		{
-			CharacterMenu.MyInstance.OpenClose();
+			OpenClose(characterMenu);
 		}
 		if(Input.GetButtonDown("Bags"))
 		{

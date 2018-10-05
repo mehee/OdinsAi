@@ -7,11 +7,11 @@ public class SpellPointsText : MonoBehaviour {
 
 	// Use this for initialization
 	Text text;
-	Player player;
+	[SerializeField]
+	private Player player;
 	void Start () 
 	{
 		text = GetComponent<Text>();
-		player = GetComponentInParent<Player>();
 	}
 	
 	// Update is called once per frame

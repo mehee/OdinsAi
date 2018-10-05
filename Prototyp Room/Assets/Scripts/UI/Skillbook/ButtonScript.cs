@@ -10,6 +10,7 @@ public class ButtonScript : MonoBehaviour
 	// Use this for initialization
 	Button button;
 	Image image;
+	[SerializeField]
 	protected Player player;
 	protected AbilityKit abilityKit;
 
@@ -17,15 +18,10 @@ public class ButtonScript : MonoBehaviour
 	public Ability ability;
     void Start () 
 	{
-
-
-		player = GetComponentInParent<Player>();
 		button = GetComponent<Button>();
 		image = GetComponent<Image>();
 		abilityKit = player.GetComponent<AbilityKit>();
 		button.onClick.AddListener(OnClick);
-
-
 
 	}
 	

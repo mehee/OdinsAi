@@ -29,11 +29,11 @@ public class CharacterMenu : MonoBehaviour
 
 	public CharacterItemSlot MySelectedButton {get;set;}
 
-	public void OpenClose()
-	{
-		characterMenu.alpha = characterMenu.alpha > 0 ? 0 : 1;
-		characterMenu.blocksRaycasts = characterMenu.blocksRaycasts == true ? false : true;
-	}
+	// public void OpenClose()
+	// {
+	// 	characterMenu.alpha = characterMenu.alpha > 0 ? 0 : 1;
+	// 	characterMenu.blocksRaycasts = characterMenu.blocksRaycasts == true ? false : true;
+	// }
 
 	///<summary> place Armor on the correct Slot in CharacterMenu</summary>
 	public void EquipArmor(Armor armor)

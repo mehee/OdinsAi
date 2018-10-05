@@ -6,18 +6,16 @@ using UnityEngine.UI;
 public class StrengthStatText : MonoBehaviour {
 
 	
-	Player player;
-	Text text;
-	void Start () 
-	{
-		player = GetComponentInParent<Player>();
-		text = GetComponent<Text> ();
-	}
-	
+	[SerializeField]
+	private Player player;
+	[SerializeField]
+	private Text text;
+
+
 	// Update is called once per frame
 	void Update () 
 	{	
-		text.text = "Strenght:      " + player.stats.Strength;
+		text.text = "Strenght:\t" + player.stats.Strength;
 		
 	}
 }
