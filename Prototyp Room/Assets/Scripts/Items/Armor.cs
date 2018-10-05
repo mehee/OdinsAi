@@ -12,6 +12,9 @@ public class Armor : Item
     private int armor;
 
     [SerializeField]
+    private int damage;
+
+    [SerializeField]
     private int intellect;
 
     [SerializeField]
@@ -23,7 +26,7 @@ public class Armor : Item
     [SerializeField]
     private AnimationClip[] animationClips;
 
-    internal ArmorType MyArmorType
+    public ArmorType MyArmorType
     {
         get {return armorType;}
     }
@@ -43,6 +46,10 @@ public class Armor : Item
         if (armor > 0 )
         {
             stats += string.Format("\n{0} Armor", armor);
+        }
+        if (damage > 0 )
+        {
+            stats += string.Format("\n{0} Danage", damage);
         }
         if (intellect > 0 )
         {
@@ -64,6 +71,6 @@ public class Armor : Item
         have to check which slot */
     public void Equip()
     {
-       // CharacterPanel.MyInstance.EquipArmor(this);
+       CharacterMenu.MyInstance.EquipArmor(this);
     }
 }

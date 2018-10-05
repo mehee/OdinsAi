@@ -27,7 +27,12 @@ public class UIManager : MonoBehaviour {
 
 	//UI elements to openClose
 	[SerializeField]
-	private CanvasGroup inventoryMenu;
+	private CanvasGroup characterMenu;
+	[SerializeField]
+	private CanvasGroup spellBook;
+	[SerializeField]
+	private CanvasGroup mainMenu;
+
 
 
 	private void Awake()
@@ -37,14 +42,23 @@ public class UIManager : MonoBehaviour {
 
 	void Update()
 	{
-		if(Input.GetButtonDown("Inventory"))
+		if(Input.GetButtonDown("CharacterMenu"))
 		{
-			OpenClose(inventoryMenu);
+			CharacterMenu.MyInstance.OpenClose();
 		}
 		if(Input.GetButtonDown("Bags"))
 		{
 			//has to be different, because we open an actuall bag, not just blend in an CanvasGroup
 			InventoryScript.MyInstance.OpenClose();
+		}
+		if(Input.GetButtonDown("Spellbook"))
+		{
+			OpenClose(spellBook);
+		}
+		if(Input.GetButtonDown("Esc"))
+		{
+			OpenClose(mainMenu);
+			//mainMenu.SetActive(true);
 		}
 	}
 
@@ -90,8 +104,15 @@ public class UIManager : MonoBehaviour {
 		toolTip.transform.position = position;
 		tooltipText.text = description.GetDescription();
 	}
+	/**Hide Tooltips */
 	public void HideTooltip()
 	{
 		toolTip.SetActive(false);
+	}
+
+	/**Refresh Tooltip UI */
+	public void RefreshTooltip(IDescribable description)
+	{
+		tooltipText.text = description.GetDescription();
 	}
 }

@@ -8,17 +8,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04b21ba93916c9c47ba01dcd43a9790f, type: 3}
-  m_Name: Axt
+  m_Script: {fileID: 11500000, guid: c3507e286923366479d1420fd17ece97, type: 3}
+  m_Name: Shield
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: d72c06ad95f197e4d8efdede5dbee009, type: 3}
+  icon: {fileID: 21300000, guid: 3887c8b10d5ef694195ee119176c218f, type: 3}
   background: {fileID: 21300000, guid: b99caf4b299cf08419512c4a3516dd3e, type: 3}
   stackSize: 0
-  titel: Barbarian Axe
+  titel: Shield
   quality: 1
-  weaponType: 2
-  damage: 15
+  armorType: 8
+  armor: 50
+  damage: 0
   intellect: 0
-  strength: 5
+  strength: 10
   stamina: 10
   animationClips: []

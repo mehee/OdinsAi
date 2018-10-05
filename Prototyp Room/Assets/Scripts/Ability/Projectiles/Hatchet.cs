@@ -97,8 +97,6 @@ public class Hatchet : PoolObject
             }
             else if(!(other.tag == "Enemy" || other.tag == "Player"))
             {
-                Debug.Log("Tag: " + other.tag);
-                Debug.Log("Stopped.");
                 Velocity = Vector2.zero;
             }
 		}
