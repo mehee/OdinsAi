@@ -11,7 +11,9 @@ public class EnemyBehaviour : MonoBehaviour {
     private AnimationManager animator;
     private Vector2 defaultDirection;
     public int currentMoveSpot = 0;
-
+    private VariousEnemyVars vars;
+    
+    
     [SerializeField]
     private bool isRanged;
     [SerializeField]
@@ -240,6 +242,21 @@ public class EnemyBehaviour : MonoBehaviour {
         }
     }
 
+    public VariousEnemyVars Vars
+    {
+        get
+        {
+            return vars;
+        }
+
+        set
+        {
+            vars = value;
+        }
+    }
+
+  
+
 
 
 
@@ -255,8 +272,7 @@ public class EnemyBehaviour : MonoBehaviour {
         attackCDtmp = attackCD;
         defaultDirection = Vector2.down;
         AttackAnimatiomTMP = attackAnimationLenght;
-
-
+        vars = GetComponent<VariousEnemyVars>();
     }
     // Update is called once per frame
     void Update()
@@ -301,11 +317,6 @@ public class EnemyBehaviour : MonoBehaviour {
             //tried to follow Player position for looking around like mona lisa
            // Animator.Stay((Target.transform.position - enemy.transform.position).normalized);
         }
-       /* else if (currentState is PatrolState)
-        {
-            Animator.Walk(moveSpots[currentMoveSpot].transform.position - enemy.transform.position);
-        }
-        */
     }
    
 }
