@@ -68,9 +68,16 @@ namespace AbilitySystem
 				ReduceRemainingTime();
 		}
 		
-		public void ReduceRemainingTime()
+		void ReduceRemainingTime()
 		{
 			Remaining -= Time.deltaTime;
+			if(Remaining <= (0 + epsilon))
+				IsActive = false;
+		}
+
+		public void ReduceRemainingTimeBy(float seconds)
+		{
+			Remaining -= seconds;
 			if(Remaining <= (0 + epsilon))
 				IsActive = false;
 		}

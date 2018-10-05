@@ -5,6 +5,7 @@ using AbilitySystem;
 
 public abstract class StatusEffect : MonoBehaviour 
 {
+	[HideInInspector]
 	public Timer lifeTime;
 
 	[SerializeField]
@@ -22,7 +23,6 @@ public abstract class StatusEffect : MonoBehaviour
 	protected virtual void Awake()
 	{
 		lifeTime = GetComponent<Timer>();
-		lifeTime.StartTimer();
 		lastApplicationTime = -lifeTime.Duration;
 	}
 
@@ -34,5 +34,6 @@ public abstract class StatusEffect : MonoBehaviour
 	{
 		var instance = Instantiate(this);
 		instance.transform.parent = target.transform;
+		instance.lifeTime.StartTimer();
 	}
 }

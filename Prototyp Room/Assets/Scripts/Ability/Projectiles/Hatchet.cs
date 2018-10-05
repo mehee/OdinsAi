@@ -11,10 +11,9 @@ using AbilitySystem;
 public class Hatchet : PoolObject
 {
     public float speed;
-	[SerializeField] Bleed bleed;
+	[SerializeField] 
+    Bleed bleed;
 
-    [HideInInspector] 
-    public new Collider2D collider;
     [HideInInspector] 
     public Damage damage;
     [HideInInspector]
@@ -22,7 +21,6 @@ public class Hatchet : PoolObject
     
     Vector2 direction;
     Vector2 velocity;
-    SpriteRenderer spriteRenderer;
     Timer lifeTime;
 
     public Vector2 Direction
@@ -41,13 +39,16 @@ public class Hatchet : PoolObject
 
     void Awake()
 	{
-        collider = GetComponent<Collider2D>(); 
-        spriteRenderer = GetComponent<SpriteRenderer>();
         lifeTime = GetComponent<Timer>();
 	}
 
 	void Update()
 	{
+        if(!lifeTime.IsActive)
+		{
+			owner.Retrieve(this);
+		}
+
         transform.position += (Vector3)(velocity * Time.deltaTime);
         float distanceFromOwner = (transform.position - owner.transform.position).magnitude;
 	}

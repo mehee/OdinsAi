@@ -16,16 +16,16 @@ public class Fireball : PoolObject
 	[HideInInspector]
 	public Vector2 direction;
 
-	AbilitySystem.Timer lifeTime;
+	Timer lifeTime;
 
 	void Awake()
 	{
-		lifeTime = GetComponent<AbilitySystem.Timer>();
+		lifeTime = GetComponent<Timer>();
 	}
 
-	void LateUpdate()
+	void Update()
 	{
-		if(lifeTime.IsActive == false)
+		if(!lifeTime.IsActive)
 		{
 			owner.Retrieve(this);
 		}

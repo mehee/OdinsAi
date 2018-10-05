@@ -13,8 +13,8 @@ public class ThrowHatchet : PlayerAbility
 	{
 		pool = GetComponent<ObjectPool>();
 
-		if(!(pool.Instances is List<Hatchet>))
-			Debug.LogError("Wrong type of PoolObject. This needs 'Hatchet'.");
+		//if(!(pool.Instances is List<Hatchet>))
+		//	Debug.LogError("Wrong type of PoolObject. This needs 'Hatchet'.");
 
 		foreach(PoolObject poolObject in pool.Instances)
 		{
@@ -27,6 +27,7 @@ public class ThrowHatchet : PlayerAbility
 	protected override void OnActivation()
 	{
 		var hatchet = pool.Dispatch() as Hatchet;
+		hatchet.transform.position = transform.position;
 		hatchet.Direction = direction;
 	}	
 }

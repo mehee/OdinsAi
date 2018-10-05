@@ -5,14 +5,11 @@ using AbilitySystem;
 
 public class Sprint : PlayerAbility 
 {
+    [SerializeField]
+	SpeedBuff buff;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    protected override void OnActivation()
+    {
+        buff.Attach(owner.gameObject.transform);
+    }
 }

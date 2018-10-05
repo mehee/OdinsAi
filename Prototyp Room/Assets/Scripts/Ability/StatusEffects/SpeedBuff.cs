@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpeedBuff : StatusEffect
 {
-	public float speedModifier = .5f;
+	public float speedModifier = 1.5f;
 	Movement modifiedMovement;
 
 	public override void Attach(Transform target)
@@ -16,6 +16,7 @@ public class SpeedBuff : StatusEffect
 
     public override void Apply()
     {
+		lifeTime.StartTimer();
 		modifiedMovement.MovementSpeed *= speedModifier;
     }
 
