@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using AbilitySystem;
 using UnityEngine.EventSystems;
 
+public enum Playstyle{warrior, mage}
 
 public class ButtonScript : Ability, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
@@ -14,11 +13,15 @@ public class ButtonScript : Ability, IPointerEnterHandler, IPointerExitHandler, 
 	Image image;
 
 	[SerializeField]
+	private Playstyle playstyle;
+
+	[SerializeField]
 	protected Player player;
 	protected AbilityKit abilityKit;
 
 	public int skillNumber;
-	public Ability ability;
+	[SerializeField]
+	private Ability ability;
 	
     void Start () 
 	{
@@ -46,7 +49,7 @@ public class ButtonScript : Ability, IPointerEnterHandler, IPointerExitHandler, 
 	{
 		if(player.SpellPoints==0)
 		{}
-	//	Deactive();
+		// Deactive();
 	}
 
 	//ClickHandler
@@ -62,14 +65,19 @@ public class ButtonScript : Ability, IPointerEnterHandler, IPointerExitHandler, 
 	// --- Tooltips
 	public void OnPointerEnter(PointerEventData eventData)
 	{
+		UIManager.MyInstance.ShowTooltip(new Vector2(0,0),transform.position, ability);
 		if(ability != null)
 		{
-			UIManager.MyInstance.ShowTooltip(transform.position, ability);
 		}
 	}
 
 	public void OnPointerExit(PointerEventData eventData)
 	{
 		UIManager.MyInstance.HideTooltip();
+	}
+
+	public override string GetDescription()
+	{
+		return base.GetDescription() + string.Format("Playstyle: <color=#ff0000ff>{0}</color>", Playstyle.warrior);
 	}
 }

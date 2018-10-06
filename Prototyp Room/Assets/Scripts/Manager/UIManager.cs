@@ -32,6 +32,8 @@ public class UIManager : MonoBehaviour {
 	private CanvasGroup spellBook;
 	[SerializeField]
 	private CanvasGroup mainMenu;
+	[SerializeField]
+	private RectTransform tooltipRect;
 
 	private void Awake()
 	{
@@ -93,8 +95,14 @@ public class UIManager : MonoBehaviour {
     }
 
 	//----Tooltips
-	public void ShowTooltip(Vector3 position, IDescribable description)
+	///<summary>
+	/// Shows the Tooltip of 
+	///<param name="position"> Position of the Tooltip </param>
+	///<param name="description"> Description of the Item/Ability </param>
+	///</summary>
+	public void ShowTooltip(Vector2 pivot, Vector3 position, IDescribable description)
 	{
+		tooltipRect.pivot = pivot;
 		toolTip.SetActive(true);
 		toolTip.transform.position = position;
 		tooltipText.text = description.GetDescription();

@@ -225,7 +225,7 @@ namespace AbilitySystem
 		// Tooltips
 		public virtual string GetDescription()
 		{
-			return string.Format("Abiltiy Test");
+			return string.Format("<color=#727272ff>{0}</color>\n{1}", name, description);
 		}
 	}
 

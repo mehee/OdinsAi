@@ -9,4 +9,5 @@ public interface IDescribable
     /// </summary>
     /// <returns></returns>
     string GetDescription();
+    
 }

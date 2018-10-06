@@ -53,7 +53,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Base Combo
-  description: Oh! Wombo Combo!
+  description: 'Costs: {Cost}
+
+    Do 3 meele Strikes right in front
+
+    of you, dealing {Damage} Damage'
   cost:
     baseValue: 0
     modifier: 1
