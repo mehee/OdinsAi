@@ -25,7 +25,7 @@ public class CharacterItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerEx
 	}
 
 	// ---- Equip and Dequip items 
-	/**Equiping Item to CharacterItemSlot. Remove it from BagSlot */
+	///<summary>Equiping Item to CharacterItemSlot. Remove it from BagSlot.false Swap if necessary </summary>
 	public void EquipItem(Armor armor)
 	{
 		//remove it from BagSlot
@@ -33,10 +33,15 @@ public class CharacterItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
 		//if their is allready an item on the slot we have to swap
 		if(equipedArmor != null)
-		{
+		{	
+			//Swap Armor
 			if(equipedArmor != armor)
 			{
 				armor.MySlot.AddItem(equipedArmor);
+				player.stats.Armor -= equipedArmor.MyArmor;
+				player.stats.Health -= equipedArmor.MyStamina;
+				player.stats.Strength -= equipedArmor.MyStrength;
+				player.stats.Intelligence -= equipedArmor.MyIntellect;
 			}
 			UIManager.MyInstance.RefreshTooltip(equipedArmor);
 		}
@@ -52,10 +57,10 @@ public class CharacterItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerEx
 		backGround.sprite = armor.MyBackground;
 		backGround.color = armor.getColor();
 
-		CharacterMenu.MyInstance.RefreshStats();
+		//CharacterMenu.MyInstance.RefreshStats();
 	}
 
-	/**Dequiping Item from CharacterItemSlot to BagSlot */
+	///<summary>Dequiping Item from CharacterItemSlot to BagSlot</summary>
 	public void DequipItem(Armor armor)
 	{
 		icon.color = Color.white;
@@ -67,25 +72,34 @@ public class CharacterItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerEx
 		//Dequip in emptySlot
 		InventoryScript.MyInstance.AddItem(armor);
 		equipedArmor = null;
+	
+		CharacterMenu.MyInstance.StatsDequipArmor(armor);
+
+		//CharacterMenu.MyInstance.RefreshStats();
 	}
 	//DELETE ME LATER
 	//Refresh Stats
-	private void RefreshStats(Armor armor)
-	{
-		player.stats.Armor += armor.MyArmor;
-		player.stats.Health += armor.MyStamina;
-		player.stats.Strength += armor.MyStrength;
-		player.stats.Intelligence += armor.MyIntellect;
+	// private void RefreshStats(Armor armor)
+	// {
+	// 	player.stats.Armor += armor.MyArmor;
+	// 	player.stats.Health += armor.MyStamina;
+	// 	player.stats.Strength += armor.MyStrength;
+	// 	player.stats.Intelligence += armor.MyIntellect;
 		
-		if(equipedArmor != null && equipedArmor != armor)
-		{
-			//Swap and refresh armor Minus Old. + NewArmor
-			player.stats.Armor -= equipedArmor.MyArmor;
-			player.stats.Health -= equipedArmor.MyStamina;
-			player.stats.Strength -= equipedArmor.MyStrength;
-			player.stats.Intelligence -= equipedArmor.MyIntellect;
-		}
-	}
+	// 	if(equipedArmor != null && equipedArmor != armor)
+	// 	{
+	// 		//Swap and refresh armor Minus Old. + NewArmor
+	// 		player.stats.Armor += armor.MyArmor;
+	// 		player.stats.Health += armor.MyStamina;
+	// 		player.stats.Strength += armor.MyStrength;
+	// 		player.stats.Intelligence += armor.MyIntellect;
+
+	// 		player.stats.Armor -= equipedArmor.MyArmor;
+	// 		player.stats.Health -= equipedArmor.MyStamina;
+	// 		player.stats.Strength -= equipedArmor.MyStrength;
+	// 		player.stats.Intelligence -= equipedArmor.MyIntellect;
+	// 	}
+	// }
 
 	// -------- Click Handlers
 

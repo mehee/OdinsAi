@@ -33,7 +33,7 @@ public class Resource : MonoBehaviour
             return value;
         }
 
-        protected set
+        set
         {
             this.value = value;
         }

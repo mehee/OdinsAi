@@ -154,7 +154,6 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
 	}
 
 	//----- Tooltips
-
 	public void OnPointerEnter(PointerEventData eventData)
 	{
 		if(!IsEmpty)

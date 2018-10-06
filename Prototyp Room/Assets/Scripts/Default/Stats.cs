@@ -9,7 +9,7 @@ public class Stats
     private int intelligence = 0;
     private int strength = 0;
     private int armor = 0;
-
+    
     private float currentValue;
 
     //Getting MaxValue of for exp Health

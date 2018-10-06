@@ -57,6 +57,7 @@ public class StatsButton : MonoBehaviour {
 			case 3: player.stats.Intelligence++;
 					break;
 		}
+		StatTextScript.MyInstance.UpdateStatsText();
 	}
 
 	

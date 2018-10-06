@@ -1371,7 +1371,7 @@ MonoBehaviour:
   experience: 0
   levelUpFactor: 0.1
   spellPointsPerLvl: 1
-  statPointsPerLvl: 1
+  statPointsPerLvl: 5
   health: {fileID: 0}
 --- !u!114 &114255260081542356
 MonoBehaviour:

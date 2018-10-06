@@ -92,19 +92,12 @@ public class InventoryScript : MonoBehaviour
 		Armor tmp4 = (Armor)Instantiate(items[4]);
 		Armor tmp5 = (Armor)Instantiate(items[5]);
 
-		// CharacterMenu.MyInstance.EquipArmor(tmp);
-		// CharacterMenu.MyInstance.EquipArmor(tmp1);
-		// CharacterMenu.MyInstance.EquipArmor(tmp2);
-		// CharacterMenu.MyInstance.EquipArmor(tmp3);
-		// CharacterMenu.MyInstance.EquipArmor(tmp4);
-		// CharacterMenu.MyInstance.EquipArmor(tmp5);
-
-		AddItem(tmp);
-		AddItem(tmp1);
-		AddItem(tmp2);
-		AddItem(tmp3);
-		AddItem(tmp4);
-		AddItem(tmp5);
+		CharacterMenu.MyInstance.EquipArmor(tmp);
+		CharacterMenu.MyInstance.EquipArmor(tmp1);
+		CharacterMenu.MyInstance.EquipArmor(tmp2);
+		CharacterMenu.MyInstance.EquipArmor(tmp3);
+		CharacterMenu.MyInstance.EquipArmor(tmp4);
+		CharacterMenu.MyInstance.EquipArmor(tmp5);
 	}
 
 	public void AddBag(Bag bag)
@@ -120,10 +113,9 @@ public class InventoryScript : MonoBehaviour
 		}
 	}
 
-	
+	///<summary> try to place in Stack. if so do, if not -> PlaceInEmpty()</summary>
 	public bool AddItem(Item item)
 	{
-		// try to place in Stack. if so do, if not -> PlaceInEmpty()
 		if(item.MyStackSize > 0)
 		{
 			if(PlaceInStack(item))
@@ -133,7 +125,7 @@ public class InventoryScript : MonoBehaviour
 		return PlaceInEmpty(item);
 	}
 
-	//running through all slots belonging to this Bag
+	///<summary>running through all slots belonging to this Bag</summary>
 	private bool PlaceInEmpty(Item item)
 	{
 		foreach (Bag bag in bags)
@@ -146,7 +138,7 @@ public class InventoryScript : MonoBehaviour
 	}
 
 
-	//run through all bags, then all slots and check if the Item is Stackable
+	///<summary>run through all bags, then all slots and check if the Item is Stackable</summary>
 	private bool PlaceInStack(Item item)
 	{
 		foreach (Bag bag in bags) 
