@@ -24,6 +24,7 @@ public class CharacterItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerEx
 		get{return equipedArmor;}
 	}
 
+
 	// ---- Equip and Dequip items 
 	///<summary>Equiping Item to CharacterItemSlot. Remove it from BagSlot.false Swap if necessary </summary>
 	public void EquipItem(Armor armor)
@@ -49,15 +50,14 @@ public class CharacterItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerEx
 		{
 			UIManager.MyInstance.HideTooltip();
 		}
-	
+
 		icon.enabled = true;
 		icon.sprite = armor.MyIcon;
 		this.equipedArmor = armor;
 		//Background Enablen with Quality
+		backGround.enabled = true;
 		backGround.sprite = armor.MyBackground;
 		backGround.color = armor.getColor();
-
-		//CharacterMenu.MyInstance.RefreshStats();
 	}
 
 	///<summary>Dequiping Item from CharacterItemSlot to BagSlot</summary>
@@ -74,32 +74,7 @@ public class CharacterItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerEx
 		equipedArmor = null;
 	
 		CharacterMenu.MyInstance.StatsDequipArmor(armor);
-
-		//CharacterMenu.MyInstance.RefreshStats();
 	}
-	//DELETE ME LATER
-	//Refresh Stats
-	// private void RefreshStats(Armor armor)
-	// {
-	// 	player.stats.Armor += armor.MyArmor;
-	// 	player.stats.Health += armor.MyStamina;
-	// 	player.stats.Strength += armor.MyStrength;
-	// 	player.stats.Intelligence += armor.MyIntellect;
-		
-	// 	if(equipedArmor != null && equipedArmor != armor)
-	// 	{
-	// 		//Swap and refresh armor Minus Old. + NewArmor
-	// 		player.stats.Armor += armor.MyArmor;
-	// 		player.stats.Health += armor.MyStamina;
-	// 		player.stats.Strength += armor.MyStrength;
-	// 		player.stats.Intelligence += armor.MyIntellect;
-
-	// 		player.stats.Armor -= equipedArmor.MyArmor;
-	// 		player.stats.Health -= equipedArmor.MyStamina;
-	// 		player.stats.Strength -= equipedArmor.MyStrength;
-	// 		player.stats.Intelligence -= equipedArmor.MyIntellect;
-	// 	}
-	// }
 
 	// -------- Click Handlers
 
