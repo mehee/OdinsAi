@@ -10,6 +10,7 @@ public class ButtonScript : MonoBehaviour
 	// Use this for initialization
 	Button button;
 	Image image;
+
 	[SerializeField]
 	protected Player player;
 	protected AbilityKit abilityKit;
@@ -48,7 +49,8 @@ public class ButtonScript : MonoBehaviour
 	void Update()
 	{
 		if(player.SpellPoints==0)
-		Deactive();
+		{}
+	//	Deactive();
 	}
 
 }

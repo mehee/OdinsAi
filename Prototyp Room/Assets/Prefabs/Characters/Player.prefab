@@ -1371,7 +1371,7 @@ MonoBehaviour:
   experience: 0
   levelUpFactor: 0.1
   spellPointsPerLvl: 1
-  statPointsPerLvl: 1
+  statPointsPerLvl: 5
   health: {fileID: 0}
 --- !u!114 &114255260081542356
 MonoBehaviour:
@@ -1680,8 +1680,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilities:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 114470041317231536, guid: 0edd468d34fd3fd4b910c9260b83a6ab, type: 2}
+  - {fileID: 114470041317231536, guid: 7e51af251d56ec94c9b6a590c529c1e8, type: 2}
   globalCooldown: 0.1
 --- !u!114 &114543029056133042
 MonoBehaviour:

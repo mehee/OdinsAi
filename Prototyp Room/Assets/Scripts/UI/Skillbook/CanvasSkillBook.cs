@@ -19,7 +19,6 @@ public class CanvasSkillBook : MonoBehaviour {
 		}	
 	}
 
-
 	// Use this for initialization
 	public GameObject spellBook;
 

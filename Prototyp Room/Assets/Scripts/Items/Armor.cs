@@ -26,6 +26,7 @@ public class Armor : Item
     [SerializeField]
     private AnimationClip[] animationClips;
 
+    //Getter
     public ArmorType MyArmorType
     {
         get {return armorType;}
@@ -35,8 +36,31 @@ public class Armor : Item
     {
         get {return animationClips;}
     }
+    //For Stats
+    public int MyArmor
+    {
+        get {return armor;}
+    }
+     public int MyDamage
+    {
+        get {return damage;}
+    }
+     public int MyIntellect
+    {
+        get {return intellect;}
+    }
+     public int MyStrength
+    {
+        get {return strength;}
+    }
+     public int MyStamina
+    {
+        get {return stamina;}
+    }
 
-  
+
+
+    //ToolTip description
     public override string GetDescription()
     {
         string stats = string.Empty;
@@ -49,7 +73,7 @@ public class Armor : Item
         }
         if (damage > 0 )
         {
-            stats += string.Format("\n{0} Danage", damage);
+            stats += string.Format("\n{0} Damage", damage);
         }
         if (intellect > 0 )
         {
