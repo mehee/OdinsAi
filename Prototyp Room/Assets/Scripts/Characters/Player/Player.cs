@@ -36,7 +36,7 @@ public class Player : Character
 	[SerializeField] int statPointsPerLvl;
 	[HideInInspector] public Health health;
 
-	int spellPoints = 0;
+	int spellPoints = 1;
 	int statPoints = 0;
 
 	void Start()

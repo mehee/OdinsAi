@@ -18,35 +18,48 @@ public class ButtonScript : Ability, IPointerEnterHandler, IPointerExitHandler, 
 	protected AbilityKit abilityKit;
 
 	public int skillNumber;
+
+	public int skillAvalaibleAt;
 	public Ability ability;
 	
     void Start () 
 	{
 		button = GetComponent<Button>();
+		Debug.Log(button);
 		image = GetComponent<Image>();
 		abilityKit = player.GetComponent<AbilityKit>();
+		Deactive();
 	}
 	
 	// Update is called once per frame
 
 	void Active()
 	{
+
+		Debug.Log(skillAvalaibleAt==player.level);
+		if(skillAvalaibleAt==player.level)
+		{
 		button.enabled=true;
 		image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);
+		}
 	}
 
 	void Deactive()
 	{
 		button.enabled=false;
-		image.color = new Color(image.color.r, image.color.g, image.color.b, 0.5f);
+		image.color = new Color(image.color.r, image.color.g, image.color.b, 0.2f);
 		
 	}
 
 	void Update()
 	{
 		if(player.SpellPoints==0)
-		{}
-	//	Deactive();
+		{
+		Deactive();
+		}
+		else
+		this.Active();
+
 	}
 
 	//ClickHandler
@@ -54,7 +67,8 @@ public class ButtonScript : Ability, IPointerEnterHandler, IPointerExitHandler, 
 	{
 		if(eventData.button == PointerEventData.InputButton.Left)
 		{
-			player.SpellPoints--;
+			if(player.SpellPoints>0)
+			--player.SpellPoints;
 			abilityKit.SwapSkill(ability,skillNumber);
 		}
 	}

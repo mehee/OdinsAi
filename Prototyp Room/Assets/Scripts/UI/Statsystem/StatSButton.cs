@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StatsButton : MonoBehaviour {
+public class StatSButton : MonoBehaviour {
 
 	// Use this for initialization
 	public int statNumber;
