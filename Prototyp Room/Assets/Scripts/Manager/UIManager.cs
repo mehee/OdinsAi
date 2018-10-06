@@ -33,8 +33,6 @@ public class UIManager : MonoBehaviour {
 	[SerializeField]
 	private CanvasGroup mainMenu;
 
-
-
 	private void Awake()
 	{
 		tooltipText = toolTip.GetComponentInChildren<Text>();
@@ -58,20 +56,17 @@ public class UIManager : MonoBehaviour {
 		if(Input.GetButtonDown("Esc"))
 		{
 			OpenClose(mainMenu);
-			//mainMenu.SetActive(true);
 		}
 	}
 
-
-	// ------ Methods
-
+	/**Set CanvasGroup alpha and blockRayCast */
 	public void OpenClose(CanvasGroup canvasGroup)
 	{
 		canvasGroup.alpha = canvasGroup.alpha > 0 ? 0 : 1;
 		canvasGroup.blocksRaycasts = canvasGroup.blocksRaycasts == true ? false : true;
 	}
 
-
+	/**Methode for Bags to Stack Items on Slot */
 	public void UpdateStackSize(IClickable clickable)
     {
 		//set Text of MyStackText to the Count 

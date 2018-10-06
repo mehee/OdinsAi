@@ -31,7 +31,7 @@ public class Player : Character
 		is needed for next level-up. */
 	[SerializeField] float levelUpFactor = 0.1f;
 
-	[SerializeField] int spellPointsPerLvl=1;
+	[SerializeField] int spellPointsPerLvl = 1;
 
 	[SerializeField] int statPointsPerLvl=1;
 	[HideInInspector] public Health health;
@@ -106,6 +106,6 @@ public class Player : Character
 		level++;
 		statPoints+=statPointsPerLvl;
 		spellPoints += spellPointsPerLvl;
-		health.Maximum += stats.Health * 100;
+		health.Maximum += stats.Health * 10;
 	}
 }

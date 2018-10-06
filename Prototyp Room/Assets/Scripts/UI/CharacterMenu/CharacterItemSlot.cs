@@ -14,8 +14,18 @@ public class CharacterItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
 	[SerializeField]
 	private Image icon;
+	[SerializeField]
+	private Image backGround;
+	[SerializeField]
+	private Player player;
+
+	public Armor MyEquipedArmor
+	{
+		get{return equipedArmor;}
+	}
 
 	// ---- Equip and Dequip items 
+	/**Equiping Item to CharacterItemSlot. Remove it from BagSlot */
 	public void EquipItem(Armor armor)
 	{
 		//remove it from BagSlot
@@ -34,24 +44,47 @@ public class CharacterItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerEx
 		{
 			UIManager.MyInstance.HideTooltip();
 		}
-
-		
+	
 		icon.enabled = true;
 		icon.sprite = armor.MyIcon;
 		this.equipedArmor = armor;
+		//Background Enablen with Quality
+		backGround.sprite = armor.MyBackground;
+		backGround.color = armor.getColor();
 
-		//clear item on hand
-		// HandScript.MyInstance.DeleteItem();
+		CharacterMenu.MyInstance.RefreshStats();
 	}
 
+	/**Dequiping Item from CharacterItemSlot to BagSlot */
 	public void DequipItem(Armor armor)
 	{
 		icon.color = Color.white;
 		icon.enabled = false;
+		//Set Background to origin....
+		backGround.enabled = false;
+		backGround.color = Color.white;
 
-		// have to add Item to an empty SlotScript.AddItem(armor);
-
+		//Dequip in emptySlot
+		InventoryScript.MyInstance.AddItem(armor);
 		equipedArmor = null;
+	}
+	//DELETE ME LATER
+	//Refresh Stats
+	private void RefreshStats(Armor armor)
+	{
+		player.stats.Armor += armor.MyArmor;
+		player.stats.Health += armor.MyStamina;
+		player.stats.Strength += armor.MyStrength;
+		player.stats.Intelligence += armor.MyIntellect;
+		
+		if(equipedArmor != null && equipedArmor != armor)
+		{
+			//Swap and refresh armor Minus Old. + NewArmor
+			player.stats.Armor -= equipedArmor.MyArmor;
+			player.stats.Health -= equipedArmor.MyStamina;
+			player.stats.Strength -= equipedArmor.MyStrength;
+			player.stats.Intelligence -= equipedArmor.MyIntellect;
+		}
 	}
 
 	// -------- Click Handlers
