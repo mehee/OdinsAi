@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+	public enum Playstyle{warrior, mage}
+
 namespace AbilitySystem
 {
 	/** Base class for all abilities. */
@@ -18,8 +20,12 @@ namespace AbilitySystem
 		protected int frameCount = 0;
 		
 		new public string name;
+		
 		[TextArea(1, 5)]
 		public string description;
+
+		[SerializeField]
+		private Playstyle playstyle;
 
 		[SerializeField]
 		Cost cost;
@@ -34,6 +40,7 @@ namespace AbilitySystem
 
 		[SerializeField]
 		AbilityOrbit orbit;
+		
 
 		[HideInInspector] 
 		public Character owner;
@@ -225,7 +232,7 @@ namespace AbilitySystem
 		// Tooltips
 		public virtual string GetDescription()
 		{
-			return string.Format("<color=#727272ff>{0}</color>\n{1}", name, description);
+			return string.Format("<color=#727272ff>{0}</color>\n{1}\nPlaystyle:<color=#ff0000ff> {2}</color>", name, description, playstyle);
 		}
 	}
 

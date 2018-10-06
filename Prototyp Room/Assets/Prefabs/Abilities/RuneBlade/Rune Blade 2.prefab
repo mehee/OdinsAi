@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Rune Blade
   description: 
+  playstyle: 1
   cost:
     baseValue: 0
     modifier: 1

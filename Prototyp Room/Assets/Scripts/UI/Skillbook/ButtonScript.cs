@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using AbilitySystem;
 using UnityEngine.EventSystems;
 
-public enum Playstyle{warrior, mage}
+
 
 public class ButtonScript : Ability, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
@@ -12,8 +12,8 @@ public class ButtonScript : Ability, IPointerEnterHandler, IPointerExitHandler, 
 	Button button;
 	Image image;
 
-	[SerializeField]
-	private Playstyle playstyle;
+	// [SerializeField]
+	// private Playstyle playstyle;
 
 	[SerializeField]
 	protected Player player;
@@ -78,6 +78,6 @@ public class ButtonScript : Ability, IPointerEnterHandler, IPointerExitHandler, 
 
 	public override string GetDescription()
 	{
-		return base.GetDescription() + string.Format("Playstyle: <color=#ff0000ff>{0}</color>", Playstyle.warrior);
+		return base.GetDescription();// + string.Format("Playstyle: <color=#ff0000ff>{0}</color>", Playstyle.warrior);
 	}
 }

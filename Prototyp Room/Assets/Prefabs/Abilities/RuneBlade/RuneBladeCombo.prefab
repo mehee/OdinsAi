@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Rune Blades
+  playstyle: 1
   description: Strike twice with a long-ranged blade.
   cost:
     baseValue: 0
