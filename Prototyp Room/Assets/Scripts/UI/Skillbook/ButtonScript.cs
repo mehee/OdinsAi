@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using AbilitySystem;
+using UnityEngine.EventSystems;
 
-public class ButtonScript : MonoBehaviour 
+
+public class ButtonScript : Ability, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
 
 	// Use this for initialization
@@ -17,13 +19,12 @@ public class ButtonScript : MonoBehaviour
 
 	public int skillNumber;
 	public Ability ability;
+	
     void Start () 
 	{
 		button = GetComponent<Button>();
 		image = GetComponent<Image>();
 		abilityKit = player.GetComponent<AbilityKit>();
-		button.onClick.AddListener(OnClick);
-
 	}
 	
 	// Update is called once per frame
@@ -41,11 +42,6 @@ public class ButtonScript : MonoBehaviour
 		
 	}
 
-	void OnClick()
-	{
-		player.SpellPoints--;
-		abilityKit.SwapSkill(ability,skillNumber);
-	}
 	void Update()
 	{
 		if(player.SpellPoints==0)
@@ -53,4 +49,27 @@ public class ButtonScript : MonoBehaviour
 	//	Deactive();
 	}
 
+	//ClickHandler
+	public void OnPointerClick(PointerEventData eventData)
+	{
+		if(eventData.button == PointerEventData.InputButton.Left)
+		{
+			player.SpellPoints--;
+			abilityKit.SwapSkill(ability,skillNumber);
+		}
+	}
+
+	// --- Tooltips
+	public void OnPointerEnter(PointerEventData eventData)
+	{
+		if(ability != null)
+		{
+			UIManager.MyInstance.ShowTooltip(transform.position, ability);
+		}
+	}
+
+	public void OnPointerExit(PointerEventData eventData)
+	{
+		UIManager.MyInstance.HideTooltip();
+	}
 }

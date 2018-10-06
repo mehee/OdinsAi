@@ -386,8 +386,8 @@ GameObject:
   - component: {fileID: 224152907468465258}
   - component: {fileID: 222545163357167742}
   - component: {fileID: 114290303960791810}
-  - component: {fileID: 114980595887983760}
   - component: {fileID: 114644328031982714}
+  - component: {fileID: 114980595887983760}
   m_Layer: 0
   m_Name: Button (4)
   m_TagString: Untagged
@@ -632,8 +632,8 @@ GameObject:
   - component: {fileID: 224124841094961896}
   - component: {fileID: 222213043179728072}
   - component: {fileID: 114987522810482588}
-  - component: {fileID: 114174143577345782}
   - component: {fileID: 114750022877922024}
+  - component: {fileID: 114174143577345782}
   m_Layer: 0
   m_Name: Button (5)
   m_TagString: Untagged
@@ -1023,8 +1023,8 @@ GameObject:
   - component: {fileID: 224389327713257714}
   - component: {fileID: 222441431311851192}
   - component: {fileID: 114964322226981252}
-  - component: {fileID: 225170026492140134}
   - component: {fileID: 114545038578138658}
+  - component: {fileID: 225170026492140134}
   m_Layer: 0
   m_Name: Character Menu
   m_TagString: Untagged
@@ -2266,8 +2266,8 @@ GameObject:
   - component: {fileID: 224961098604393748}
   - component: {fileID: 222356598962902996}
   - component: {fileID: 114384115000039532}
-  - component: {fileID: 114115104387649652}
   - component: {fileID: 114334450603436938}
+  - component: {fileID: 114115104387649652}
   m_Layer: 0
   m_Name: Button (1)
   m_TagString: Untagged
@@ -2650,14 +2650,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.68235296, g: 0.68235296, b: 0.68235296, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7f05803e5edcd474f8dae9e5edb6a7a8, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2862,7 +2862,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -2950,7 +2950,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -3156,6 +3156,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
   skillNumber: 0
   ability: {fileID: 0}
@@ -3219,7 +3233,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -3542,7 +3556,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -3583,7 +3597,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.4117647}
     m_ColorMultiplier: 1
@@ -3697,6 +3711,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
   skillNumber: 0
   ability: {fileID: 0}
@@ -3850,8 +3878,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
-  skillNumber: 0
+  skillNumber: 2
   ability: {fileID: 0}
 --- !u!114 &114204732173280428
 MonoBehaviour:
@@ -4500,7 +4542,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -4563,12 +4605,12 @@ MonoBehaviour:
     m_Left: 0
     m_Right: 12
     m_Top: 0
-    m_Bottom: 11
+    m_Bottom: 24
   m_ChildAlignment: 8
   m_StartCorner: 3
   m_StartAxis: 0
-  m_CellSize: {x: 128.76, y: 100}
-  m_Spacing: {x: 5, y: 88}
+  m_CellSize: {x: 173, y: 100}
+  m_Spacing: {x: 5, y: 115.4}
   m_Constraint: 1
   m_ConstraintCount: 2
 --- !u!114 &114286493706531826
@@ -4729,8 +4771,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
-  skillNumber: 0
+  skillNumber: 1
   ability: {fileID: 0}
 --- !u!114 &114321200004388968
 MonoBehaviour:
@@ -4752,7 +4808,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -4784,8 +4840,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
-  skillNumber: 0
+  skillNumber: 2
   ability: {fileID: 0}
 --- !u!114 &114332551336223934
 MonoBehaviour:
@@ -4799,7 +4869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
+  m_Color: {r: 0.4627451, g: 0.4627451, b: 0.4627451, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4825,8 +4895,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
-  skillNumber: 0
+  skillNumber: 3
   ability: {fileID: 0}
 --- !u!114 &114342006967898430
 MonoBehaviour:
@@ -4907,8 +4991,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
-  skillNumber: 0
+  skillNumber: 2
   ability: {fileID: 0}
 --- !u!114 &114355700896348630
 MonoBehaviour:
@@ -5338,7 +5436,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -5379,7 +5477,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -5420,7 +5518,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -5611,7 +5709,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -5738,6 +5836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0a17c7e82fb61439b5af9f0669d5ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 114183591594859858}
   player: {fileID: 0}
 --- !u!114 &114430962458629760
 MonoBehaviour:
@@ -5813,7 +5912,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -5895,7 +5994,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.4117647}
     m_ColorMultiplier: 1
@@ -5954,8 +6053,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
-  skillNumber: 0
+  skillNumber: 1
   ability: {fileID: 0}
 --- !u!114 &114440490814313696
 MonoBehaviour:
@@ -6004,7 +6117,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -6135,8 +6248,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
-  skillNumber: 0
+  skillNumber: 1
   ability: {fileID: 0}
 --- !u!114 &114463738805843964
 MonoBehaviour:
@@ -6149,8 +6276,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
-  skillNumber: 0
+  skillNumber: 2
   ability: {fileID: 0}
 --- !u!114 &114464962161362096
 MonoBehaviour:
@@ -6557,8 +6698,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
-  skillNumber: 0
+  skillNumber: 2
   ability: {fileID: 0}
 --- !u!114 &114532057365158062
 MonoBehaviour:
@@ -6604,8 +6759,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
-  skillNumber: 0
+  skillNumber: 2
   ability: {fileID: 0}
 --- !u!114 &114534294162470188
 MonoBehaviour:
@@ -6682,7 +6851,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -6790,6 +6959,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
   skillNumber: 0
   ability: {fileID: 0}
@@ -6867,6 +7050,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
   skillNumber: 0
   ability: {fileID: 0}
@@ -6923,6 +7120,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
   skillNumber: 0
   ability: {fileID: 0}
@@ -7028,7 +7239,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -7170,7 +7381,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -7283,8 +7494,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
-  skillNumber: 0
+  skillNumber: 3
   ability: {fileID: 0}
 --- !u!114 &114622713750157276
 MonoBehaviour:
@@ -7351,8 +7576,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
-  skillNumber: 0
+  skillNumber: 3
   ability: {fileID: 0}
 --- !u!114 &114651826757474144
 MonoBehaviour:
@@ -7470,7 +7709,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.4117647}
     m_ColorMultiplier: 1
@@ -7502,8 +7741,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
-  skillNumber: 0
+  skillNumber: 1
   ability: {fileID: 0}
 --- !u!114 &114676495321020558
 MonoBehaviour:
@@ -7552,7 +7805,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -7784,8 +8037,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
-  skillNumber: 0
+  skillNumber: 1
   ability: {fileID: 0}
 --- !u!114 &114717181080886402
 MonoBehaviour:
@@ -8015,8 +8282,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
-  skillNumber: 0
+  skillNumber: 3
   ability: {fileID: 0}
 --- !u!114 &114747040153449904
 MonoBehaviour:
@@ -8078,7 +8359,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -8301,7 +8582,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -8455,8 +8736,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
-  skillNumber: 0
+  skillNumber: 3
   ability: {fileID: 0}
 --- !u!114 &114801995950307220
 MonoBehaviour:
@@ -8561,7 +8856,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.4117647}
     m_ColorMultiplier: 1
@@ -8852,8 +9147,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
-  skillNumber: 0
+  skillNumber: 1
   ability: {fileID: 0}
 --- !u!114 &114874077294917218
 MonoBehaviour:
@@ -9157,7 +9466,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -9297,8 +9606,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
-  skillNumber: 0
+  skillNumber: 3
   ability: {fileID: 0}
 --- !u!114 &114958962893359560
 MonoBehaviour:
@@ -9580,6 +9903,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a38fb32313ba4d8a444997f05656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 
+  cost:
+    baseValue: 0
+    modifier: 1
+  durationInFrames: 0
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  orbit:
+    orbiting: 0
+    orbitRadii: {x: 0, y: 0}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  associatedButton: 
   player: {fileID: 0}
   skillNumber: 0
   ability: {fileID: 0}
@@ -9657,7 +9994,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -10852,7 +11189,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -183, y: 152}
+  m_AnchoredPosition: {x: -223, y: 0}
   m_SizeDelta: {x: 473.08, y: 233.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224056282549169958
@@ -10945,7 +11282,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.75, y: 10.75}
+  m_AnchoredPosition: {x: -10.75, y: 10.749996}
   m_SizeDelta: {x: 21.5, y: 21.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224080183903411698
@@ -11438,7 +11775,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.94, y: 10.99}
+  m_AnchoredPosition: {x: -10.940033, y: 10.9900055}
   m_SizeDelta: {x: 21.5, y: 21.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224267233603719852
@@ -11724,7 +12061,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.75, y: 10.75}
+  m_AnchoredPosition: {x: -10.750007, y: 10.749991}
   m_SizeDelta: {x: 21.5, y: 21.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224362458662276464
@@ -11857,7 +12194,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 508.40002, y: 31.999992}
+  m_AnchoredPosition: {x: -492, y: 31.999992}
   m_SizeDelta: {x: 253.9, y: 235.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224398776897790620
@@ -11893,7 +12230,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.75, y: 10.75}
+  m_AnchoredPosition: {x: -10.749976, y: 10.750002}
   m_SizeDelta: {x: 21.5, y: 21.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224414654237160098
@@ -12306,7 +12643,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.75, y: 10.75}
+  m_AnchoredPosition: {x: -10.749988, y: 10.75001}
   m_SizeDelta: {x: 21.5, y: 21.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224541062764826554
@@ -12477,8 +12814,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 270.3, y: -297.3}
-  m_SizeDelta: {x: 476.2, y: 594.6}
+  m_AnchoredPosition: {x: 270.3, y: -402.3}
+  m_SizeDelta: {x: 476.2, y: 766.97}
   m_Pivot: {x: 0, y: 0}
 --- !u!224 &224634297639609672
 RectTransform:
@@ -13005,7 +13342,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.75, y: 10.75}
+  m_AnchoredPosition: {x: -10.749988, y: 10.750035}
   m_SizeDelta: {x: 21.5, y: 21.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224855288691691842
@@ -13122,7 +13459,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.75, y: 11.15}
+  m_AnchoredPosition: {x: -10.749976, y: 11.150011}
   m_SizeDelta: {x: 21.5, y: 21.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224884180817512470
@@ -13231,7 +13568,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.75, y: 10.75}
+  m_AnchoredPosition: {x: -10.749988, y: 10.749991}
   m_SizeDelta: {x: 21.5, y: 21.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224902254667770326
@@ -13303,7 +13640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.75, y: 10.75}
+  m_AnchoredPosition: {x: -10.749985, y: 10.749992}
   m_SizeDelta: {x: 21.5, y: 21.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224927527109782186
@@ -13344,7 +13681,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 678.35, y: -339.13}
+  m_AnchoredPosition: {x: 678.35, y: -426}
   m_SizeDelta: {x: 243.3, y: 47.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224954966829957420

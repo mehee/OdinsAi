@@ -6,7 +6,7 @@ namespace AbilitySystem
 {
 	/** Base class for all abilities. */
 	[RequireComponent(typeof(Cooldown))]
-	public abstract class Ability : MonoBehaviour
+	public abstract class Ability : MonoBehaviour, IDescribable
 	{
 		Cooldown cooldown;
 		AudioSource audioSource;
@@ -221,5 +221,13 @@ namespace AbilitySystem
 		{
 
 		}
+
+		// Tooltips
+		public virtual string GetDescription()
+		{
+			return string.Format("Abiltiy Test");
+		}
 	}
+
+	
 }
