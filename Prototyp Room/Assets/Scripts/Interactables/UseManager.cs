@@ -27,7 +27,6 @@ public class UseManager : MonoBehaviour {
 	void Awake()
 	{
 		guiInteractText.SetActive(false);
-
 	}
 
 	void Start()
