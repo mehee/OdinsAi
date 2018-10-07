@@ -116,7 +116,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	private bool Validate()
 	{
 		bool retVal=false;
-		if((player.SpellPoints>0)&&(IsSkilled==false)&&(availableAtLvl==player.level)&&(neededButton.isReadytoSkill))
+		if((player.SpellPoints>0)&&(IsSkilled==false)&&(player.level>=availableAtLvl)&&(neededButton.isReadytoSkill))
 		retVal=true;
 		
 		
