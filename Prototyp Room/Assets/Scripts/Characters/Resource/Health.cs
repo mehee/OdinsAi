@@ -11,8 +11,8 @@ public class Health : Resource
 
     public bool hasDmgText=false;
 
-    Text text;
-
+    Text[] text = new Text[2];
+     int index=0;
    
 
     void Start()
@@ -20,10 +20,12 @@ public class Health : Resource
        if(hasDmgText)
         {
            Text[] texts = GetComponentsInChildren<Text>();
-           foreach(Text v in texts)
-           if(v.tag=="DmgText")
-            text = v;
-            Debug.Log(text.tag);
+            foreach (Text v in texts)
+            {
+                if (v.tag=="DmgText")
+                text[index++]= v;
+            }
+
         }
       
     }
@@ -46,6 +48,7 @@ public class Health : Resource
     }
     public override void Reduce(float amount)
     {
+        
         DmgReceived = true;
         if(hasParticleEffect)
         {
@@ -57,10 +60,11 @@ public class Health : Resource
 
         if(hasDmgText)
         {
-            
-             text.text= amount.ToString();
-             text.CrossFadeAlpha(1.0f, 0.01f, false);
-                text.CrossFadeAlpha(0.0f, 1, false);
+            index = ++index % 2;
+            Debug.Log(index);
+             text[index].text= amount.ToString();
+             text[index].CrossFadeAlpha(1.0f, 0.01f, false);
+             text[index].CrossFadeAlpha(0.0f, 1, false);
         }
         Value -= amount;
         if(Value <= 0)
