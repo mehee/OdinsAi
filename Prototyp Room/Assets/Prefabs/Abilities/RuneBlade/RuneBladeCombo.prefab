@@ -53,13 +53,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Rune Blades
-  playstyle: 1
   description: Strike twice with a long-ranged blade.
+  playstyle: 1
   cost:
     baseValue: 0
     modifier: 1
   durationInFrames: 1
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 1bd267857147ab74b951df48ff315966, type: 3}
   alignedToMouse: 1
   orbit:
     orbiting: 1
