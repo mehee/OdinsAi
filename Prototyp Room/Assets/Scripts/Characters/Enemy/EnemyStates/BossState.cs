@@ -8,11 +8,9 @@ public class BossState : IState
     private EnemyBehaviour parent;
 
     private Vector2 direction;
-    private EnemyAbility ability;
     private EnemyAbility abilityInstance;
     private int numOfAbilities;
     private int currentAbility;
-    private BossVars bossVars;
 
 
 
@@ -25,12 +23,7 @@ public class BossState : IState
         //Debug.Log("enter boss");
         this.parent = parent;
         Vector2 direction = (parent.Target.position - parent.transform.position).normalized;
-        bossVars = parent.BossVars;
-        ability = parent.BossAbillites[0];
 
-        // abilityInstance = ability.CreateInstance(parent.Enemy) as EnemyAbility;
-        //abilityInstance.transform.SetParent(parent.transform);
-       
         abilityInstance = parent.BossAbilityInstance;
         abilityInstance.direction = direction;
         abilityInstance.Activate();

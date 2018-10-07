@@ -7,8 +7,6 @@ public class BossVars : MonoBehaviour {
 
     [SerializeField]
     public EnemyAbility[] ability;
-    [SerializeField]
-    public float coolDown;
 
 
     // Use this for initialization
