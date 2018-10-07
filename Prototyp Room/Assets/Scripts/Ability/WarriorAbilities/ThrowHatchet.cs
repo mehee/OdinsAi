@@ -13,9 +13,6 @@ public class ThrowHatchet : PlayerAbility
 	{
 		pool = GetComponent<ObjectPool>();
 
-		//if(!(pool.Instances is List<Hatchet>))
-		//	Debug.LogError("Wrong type of PoolObject. This needs 'Hatchet'.");
-
 		foreach(PoolObject poolObject in pool.Instances)
 		{
 			var hatchet = poolObject as Hatchet;

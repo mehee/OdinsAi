@@ -44,12 +44,9 @@ public class SlamGround : EnemyAbility
 		spriteRenderer.enabled = false;
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
+	protected override void AffectTargetsHit(Transform target)
 	{
-		if(other is BoxCollider2D && other.tag == "Player")
-		{
-			var health = other.GetComponent<Health>();
-			damage.InflictToTarget(owner.stats, health);
-		}
+		var health = target.GetComponent<Health>();
+		damage.InflictToTarget(owner.stats, health);
 	}
 }

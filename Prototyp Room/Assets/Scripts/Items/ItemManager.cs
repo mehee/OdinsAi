@@ -23,7 +23,6 @@ public class ItemManager : MonoBehaviour
 	//save function
 	public void SaveItems()
 	{
-		Debug.Log("SaveXML");
 		//open new XML file
 		XmlSerializer serializer = new XmlSerializer(typeof(ItemDatabase));
 		//Filestream (ones and zeros); dataPath for items,Monster etc. persistentDataPath for Savegames

@@ -37,13 +37,10 @@ namespace AbilitySystem
 			return true;
 		} 
 
-		void OnTriggerEnter2D(Collider2D other)
+		protected override void AffectTargetsHit(Transform target)
 		{
-			if(other.gameObject.tag == "Enemy" && other is BoxCollider2D)
-			{
-				var health = other.gameObject.GetComponent<Health>();
-				damage.InflictToTarget(owner.stats, health);
-			}
+			var health = target.GetComponent<Health>();
+			damage.InflictToTarget(owner.stats, health);
 		}
 	}
 }

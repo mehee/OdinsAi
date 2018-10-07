@@ -98,7 +98,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b61d0c6e81b42024fac0bcac55439968, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
@@ -196,11 +196,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
   targetTag: Enemy
-  damage:
-    baseValue: 10
-    modifier: 1
-    strengthScaling: 0
-    intelligenceScaling: 1
   speed: 10
   stats:
     hpMod: 0
@@ -208,6 +203,11 @@ MonoBehaviour:
     armMod: 0
     intMod: 0
   direction: {x: 0, y: 0}
+  damage:
+    baseValue: 10
+    modifier: 1
+    strengthScaling: 0
+    intelligenceScaling: 1
 --- !u!114 &114636132063923774
 MonoBehaviour:
   m_ObjectHideFlags: 1

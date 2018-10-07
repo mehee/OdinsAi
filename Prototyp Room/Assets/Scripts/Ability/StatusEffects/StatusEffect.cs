@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using AbilitySystem;
 
+/** StatusEffects attach to characters
+	and continually modify them during their
+	lifetime. */
 public abstract class StatusEffect : MonoBehaviour 
 {
 	[HideInInspector]
@@ -34,6 +37,6 @@ public abstract class StatusEffect : MonoBehaviour
 	public virtual void Attach(Transform target)
 	{
 		var instance = Instantiate(this);
-		instance.transform.parent = target.transform;
+		instance.transform.parent = target;
 	}
 }

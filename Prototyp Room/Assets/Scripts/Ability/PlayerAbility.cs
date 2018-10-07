@@ -94,8 +94,8 @@ namespace AbilitySystem
 		{
 			Vector2 rawDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 			rawDirection.Normalize();
-			direction.x = Mathf.Round(rawDirection.x);
-			direction.y = Mathf.Round(rawDirection.y);
+			direction.x = rawDirection.x;
+			direction.y = rawDirection.y;
 			transform.up = direction;
 		}
 	}

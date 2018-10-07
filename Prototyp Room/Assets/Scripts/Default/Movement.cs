@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour 
 {
+    [HideInInspector]
+    public bool rooted;
+
    	[SerializeField]
 	private float movementSpeed;
 	Rigidbody2D rigidBody;
@@ -16,7 +19,7 @@ public class Movement : MonoBehaviour
     [SerializeField]
     float dashSpeed;
     float dashTimer;
-    private float timer;
+    float timer;
     Vector2 dashDirection;
      Vector2 direction;
 
@@ -78,23 +81,23 @@ public class Movement : MonoBehaviour
 
 	public void Move(Vector2 movementVec)
 	{
-		    rigidBody.velocity = movementVec * MovementSpeed;
+		rigidBody.velocity = movementVec * MovementSpeed;
 	}
 
     public void Dash(Vector2 movementVec)
     {
-        if(availableDashes>0)
+        if(availableDashes > 0)
         { 
-        dashTimer = dashDuration;
-        dashDirection = movementVec;
-        health.IsVulnerable= false;
-        availableDashes--;
+            dashTimer = dashDuration;
+            dashDirection = movementVec;
+            health.IsVulnerable= false;
+            availableDashes--;
         }
     }
 
     void OnCollisionEnter2D()
     {
-     dashTimer=0;  
+        dashTimer = 0;  
     }
     
     void Update()

@@ -20,7 +20,9 @@ public class InputManager : MonoBehaviour
 	{
 		Vector2 movementVec = new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
 		movementVec = movementVec.normalized;
-		
+		if(movement.rooted)
+			movementVec = Vector2.zero;
+
 		if(movementVec!= Vector2.zero)
 		{
 			animator.Walk(movementVec);
@@ -30,12 +32,12 @@ public class InputManager : MonoBehaviour
 		else
 			animator.Stay(movement.Direction);
 
-		if(Input.GetButtonDown("Jump"))
+		if(Input.GetButtonDown("Jump") && !movement.rooted)
 		{
 			if(movement.AvailableDashes>0)
 			{
-			animator.Dash(movementVec);
-			movement.Dash(movementVec);
+				animator.Dash(movementVec);
+				movement.Dash(movementVec);
 			}
 		}
 		if(movement.DashTimer == 0)
