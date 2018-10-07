@@ -53,12 +53,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Base Combo
-  description: Oh! Wombo Combo!
+  description: 'Do 3 meele Strikes right in front
+
+    of you, dealing {Damage} Damage'
+  playstyle: 0
   cost:
-    baseValue: 0
+    baseValue: 10
     modifier: 1
   durationInFrames: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 1e126fde9728f0c43862028c46ce1dc4, type: 3}
   alignedToMouse: 1
   orbit:
     orbiting: 1

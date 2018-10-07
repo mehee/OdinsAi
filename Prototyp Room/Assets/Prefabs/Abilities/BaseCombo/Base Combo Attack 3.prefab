@@ -205,7 +205,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Base Attack 3
-  description: 
+  description: Krasser als die dritte
+  playstyle: 0
   cost:
     baseValue: 0
     modifier: 1

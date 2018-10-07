@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 public class CharacterItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
@@ -99,7 +98,7 @@ public class CharacterItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerEx
 	{
 		if(equipedArmor != null)
 		{
-			UIManager.MyInstance.ShowTooltip(transform.position, equipedArmor);
+			UIManager.MyInstance.ShowTooltip(new Vector2(1,0), transform.position, equipedArmor);
 		}
 	}
 
