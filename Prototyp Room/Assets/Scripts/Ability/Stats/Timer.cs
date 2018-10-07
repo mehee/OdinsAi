@@ -59,7 +59,6 @@ namespace AbilitySystem
 		void Start()
 		{
 			Remaining = Duration;
-			IsActive = false;
 		}
 
 		void Update()

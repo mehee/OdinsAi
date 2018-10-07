@@ -6,6 +6,8 @@ using AbilitySystem;
 public class ThrowRuneOrb : PlayerAbility
 {
 	ObjectPool runeOrbs;
+	[SerializeField]
+	Damage damage;
 
 	protected override void SetUp()
 	{
@@ -15,6 +17,7 @@ public class ThrowRuneOrb : PlayerAbility
 		{
 			fireball = poolObject as Fireball;
 			fireball.stats = owner.stats;
+			fireball.damage = damage;
 		}
 	} 
 

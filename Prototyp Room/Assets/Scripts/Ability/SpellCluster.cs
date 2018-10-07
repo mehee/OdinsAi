@@ -8,6 +8,9 @@ public class SpellCluster : EnemyAbility
 	ObjectPool pool;
 	float spawnRadius = 5f;
 
+	[SerializeField]
+	Damage damage;
+
 	protected override void SetUp()
 	{
 		pool = GetComponent<ObjectPool>();
@@ -15,6 +18,7 @@ public class SpellCluster : EnemyAbility
 		foreach(SpellBomb spellBomb in pool.Instances)
 		{
 			spellBomb.stats = owner.stats;
+			spellBomb.damage = damage;
 		}
 	}
 

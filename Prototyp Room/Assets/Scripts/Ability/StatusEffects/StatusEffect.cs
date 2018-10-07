@@ -20,9 +20,10 @@ public abstract class StatusEffect : MonoBehaviour
 		(e.g. damage). */
     public abstract void Apply();
 
-	protected virtual void Awake()
+	void Awake()
 	{
 		lifeTime = GetComponent<Timer>();
+		lifeTime.StartTimer();
 		lastApplicationTime = -lifeTime.Duration;
 	}
 
@@ -34,6 +35,5 @@ public abstract class StatusEffect : MonoBehaviour
 	{
 		var instance = Instantiate(this);
 		instance.transform.parent = target.transform;
-		instance.lifeTime.StartTimer();
 	}
 }

@@ -12,12 +12,13 @@ public class SpeedBuff : StatusEffect
 		var instance = Instantiate(this);
 		instance.transform.parent = target.transform;
 		instance.modifiedMovement = instance.transform.parent.GetComponent<Movement>();
+		instance.Apply();
 	}
 
     public override void Apply()
     {
-		lifeTime.StartTimer();
 		modifiedMovement.MovementSpeed *= speedModifier;
+		Debug.Log("Modified speed on Apply(): " + modifiedMovement.MovementSpeed);
     }
 
 	void Update()
@@ -25,7 +26,8 @@ public class SpeedBuff : StatusEffect
 		if(!lifeTime.IsActive)
 		{
 			modifiedMovement.MovementSpeed /= speedModifier;
-			Destroy(this);
+			Debug.Log("Modified speed: " + modifiedMovement.MovementSpeed);
+			Destroy(gameObject);
 		}
 	}
 }

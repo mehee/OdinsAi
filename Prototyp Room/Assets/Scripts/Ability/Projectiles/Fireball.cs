@@ -9,12 +9,16 @@ using AbilitySystem;
 public class Fireball : PoolObject 
 {
 	public string targetTag = "Enemy";
-	public Damage damage;
 	public float speed;
+
 	[HideInInspector]
 	public Stats stats;
+
 	[HideInInspector]
 	public Vector2 direction;
+
+	[HideInInspector]
+	public Damage damage;
 
 	Timer lifeTime;
 

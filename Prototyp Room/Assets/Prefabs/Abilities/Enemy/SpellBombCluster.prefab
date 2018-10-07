@@ -55,18 +55,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Spell Cluster
   description: Enemy marks a cluster of areas that will explode after a short time.
-  cost:
-    baseValue: 0
-    modifier: 1
   durationInFrames: 1
-  icon: {fileID: 0}
-  alignedToMouse: 0
   orbit:
     orbiting: 0
     orbitRadii: {x: 0, y: 0}
   owner: {fileID: 0}
   direction: {x: 0, y: 0}
-  associatedButton: 
+  startupFrames: 60
+  damage:
+    baseValue: 50
+    modifier: 1
+    strengthScaling: 0
+    intelligenceScaling: 1
 --- !u!114 &114293893508862278
 MonoBehaviour:
   m_ObjectHideFlags: 1

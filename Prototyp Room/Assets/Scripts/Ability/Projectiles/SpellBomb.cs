@@ -8,12 +8,12 @@ public class SpellBomb : PoolObject
 {
 	[HideInInspector]
 	public Stats stats;
+
+	[HideInInspector]
+	public Damage damage;
 	
 	public Color startingColor;
 	public Color finalColor;
-
-	[SerializeField]
-	Damage damage;
 
 	/** How many seconds of the total
 		life time the collider will be

@@ -6,6 +6,8 @@ using AbilitySystem;
 public class ThrowFireball : EnemyAbility
 {
 	ObjectPool fireballs;
+	[SerializeField]
+	public Damage damage;
 
 	protected override void SetUp()
 	{
@@ -15,6 +17,7 @@ public class ThrowFireball : EnemyAbility
 		{
 			fireball = po as Fireball;
 			fireball.stats = owner.stats;
+			fireball.damage = damage;
 			Debug.Log("No owner: " + owner == null);
 		}
 	} 

@@ -27,7 +27,7 @@ public class Bleed : StatusEffect
     void Update()
     {
         float time = Time.time;
-        
+
         if(!lifeTime.IsActive)
         {
             Destroy(gameObject);
