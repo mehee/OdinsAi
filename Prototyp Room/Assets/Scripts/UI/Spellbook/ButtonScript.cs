@@ -55,7 +55,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	void Active()
 	{
 		Debug.Log((availableAtLvl==player.level) && (neededButton.isReadytoSkill));
-		if((availableAtLvl==player.level) && (neededButton.isReadytoSkill ))
+		if(Validate())
 		{
 		button.enabled = true;
 		icon.color = new Color(1,1,1, 1f);
@@ -64,8 +64,8 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
 	void Deactive()
 	{
+
 		button.enabled = false;
-		//button.interactable=false;
 		icon.color = new Color(1,1,1, 0.5f);
 		
 	}
@@ -86,12 +86,13 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	//ClickHandler
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		if(eventData.button == PointerEventData.InputButton.Left && IsSkilled == false)
+		if(eventData.button == PointerEventData.InputButton.Left)
 		{
-			if(player.SpellPoints>0)
+			if(Validate())
 			{
 			--player.SpellPoints;
 			IsSkilled = true;
+			isReadytoSkill=true;
 			isSkilledIcon.enabled = true;
 			abilityKit.SwapSkill(ability,skillNumber);
 			}
@@ -110,5 +111,17 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	public void OnPointerExit(PointerEventData eventData)
 	{
 		UIManager.MyInstance.HideTooltip();
+	}
+
+	private bool Validate()
+	{
+		bool retVal=false;
+		if((player.SpellPoints>0)&&(IsSkilled==false)&&(availableAtLvl==player.level)&&(neededButton.isReadytoSkill))
+		retVal=true;
+		
+		
+			
+		return retVal;
+
 	}
 }
