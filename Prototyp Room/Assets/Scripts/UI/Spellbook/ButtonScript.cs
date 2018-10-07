@@ -17,7 +17,8 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	public int skillNumber;
 	[SerializeField]
 	private Ability ability;
-
+	[SerializeField]
+	private Image isSkilledIcon;
 	private bool isSkilled = false;
 
     void Start () 
@@ -27,6 +28,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 		abilityKit = player.GetComponent<AbilityKit>();
 
 		icon.sprite = ability.icon;
+		isSkilledIcon.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -63,6 +65,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 		if(eventData.button == PointerEventData.InputButton.Left && isSkilled == false)
 		{
 			isSkilled = true;
+			isSkilledIcon.enabled = true;
 			player.SpellPoints--;
 			abilityKit.SwapSkill(ability,skillNumber);
 		}
