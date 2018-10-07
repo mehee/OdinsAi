@@ -11,7 +11,7 @@ namespace AbilitySystem
 		pressed in the required time frame. */
 	public class Combo : PlayerAbility
 	{
-		[SerializeField] List<Ability> comboParts;
+		public List<Ability> comboParts;
 
 		[Tooltip("The amount that you have to "
 		+ "press the button again and continue the combo.")]
