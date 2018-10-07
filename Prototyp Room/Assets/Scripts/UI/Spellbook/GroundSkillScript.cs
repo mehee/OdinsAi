@@ -12,6 +12,7 @@ public class GroundSkillScript : MonoBehaviour, IPointerEnterHandler, IPointerEx
 	protected Player player;
 	protected AbilityKit abilityKit;
 
+
 	public int skillNumber;
 	
 	[SerializeField]
