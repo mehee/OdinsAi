@@ -21,14 +21,14 @@ class IdleState : IState
 
     public void Update()
     {
-        if(parent.IsRanged)
+        if(parent.IsRanged||parent.IsBoss)
         {
             parent.Animator.setAwakeingFalse();
         }
         //change into follow state if player is close
         if (parent.Target != null)
         {
-            if (parent.IsRanged)
+            if (parent.IsRanged||parent.IsBoss)
             {
                 parent.Animator.setAwakeingTrue();
             }

@@ -47,6 +47,11 @@ class AttackState : IState
                             //Debug.Log("Change to RangedState");
                             parent.ChangeState(new RangedState());
                         }
+                        else if(parent.IsBoss)
+                        {
+                           // Debug.Log("Change to bossState");
+                            parent.ChangeState(new BossState());
+                        }
                         else
                         {
                             //for ranged attack not good

@@ -17,6 +17,10 @@ public class EnemyBehaviour : MonoBehaviour {
     private EnemyAbility ability;
     private EnemyAbility abilityInstance;
 
+    private BossVars bossVars;
+    private EnemyAbility[] bossAbillites;
+    private EnemyAbility bossAbilityInstance;
+
 
     [SerializeField]
     private bool isRanged;
@@ -287,6 +291,58 @@ public class EnemyBehaviour : MonoBehaviour {
         }
     }
 
+    public BossVars BossVars
+    {
+        get
+        {
+            return bossVars;
+        }
+
+        set
+        {
+            bossVars = value;
+        }
+    }
+
+    public EnemyAbility[] BossAbillites
+    {
+        get
+        {
+            return bossAbillites;
+        }
+
+        set
+        {
+            bossAbillites = value;
+        }
+    }
+
+    public EnemyAbility BossAbilityInstance
+    {
+        get
+        {
+            return bossAbilityInstance;
+        }
+
+        set
+        {
+            bossAbilityInstance = value;
+        }
+    }
+
+    public bool IsBoss
+    {
+        get
+        {
+            return isBoss;
+        }
+
+        set
+        {
+            isBoss = value;
+        }
+    }
+
 
 
 
@@ -306,17 +362,41 @@ public class EnemyBehaviour : MonoBehaviour {
         AttackAnimatiomTMP = attackAnimationLenght;
         vars = GetComponent<VariousEnemyVars>();
 
-        Ability = vars.ability;
-        AbilityInstance = Ability.CreateInstance(enemy) as EnemyAbility;
-        AbilityInstance.transform.SetParent(this.transform);
-        
+
+
+        if (!this.IsBoss)
+        {
+            Ability = vars.ability;
+            AbilityInstance = Ability.CreateInstance(enemy) as EnemyAbility;
+            AbilityInstance.transform.SetParent(this.transform);
+        }
+        else
+        {
+           // Debug.Log("yes i am the boss");
+
+            BossVars = GetComponent<BossVars>();
+            BossAbillites = BossVars.ability;
+            for (int i = 0; i < 2; i++)
+            {
+                BossAbilityInstance = BossAbillites[i].CreateInstance(enemy) as EnemyAbility;
+                BossAbilityInstance.transform.SetParent(this.transform);
+            }
+            setAbility(0);
+        }
 
 
 
     }
+
+    public void setAbility(int abilitySlot)
+    {
+        BossAbilityInstance = BossAbillites[abilitySlot].CreateInstance(enemy) as EnemyAbility;
+        BossAbilityInstance.transform.SetParent(this.transform);
+    }
     // Update is called once per frame
     void Update()
     {
+        
         currentState.Update();
         animateEnemy();
     }
