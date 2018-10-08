@@ -17,10 +17,11 @@ public class ExperienceBar : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	public void Update () 
 	{
-		
-		image.fillAmount = Mathf.Lerp(image.fillAmount,((float)	player.Experience/player.ExpToNextLevel),0.05f);
+		Debug.Log(player.Experience/player.ExpToNextLevel);
+		Debug.Log(player.Experience);	
+		image.fillAmount = Mathf.Lerp(image.fillAmount,((float)	player.Experience/(float)player.ExpToNextLevel),0.05f);
 		
 	}
 }

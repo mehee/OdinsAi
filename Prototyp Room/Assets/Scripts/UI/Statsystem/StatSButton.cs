@@ -60,6 +60,7 @@ public class StatSButton : MonoBehaviour {
 			case StatsNumber.intelligence: player.stats.Intelligence++;
 					break;
 		}
+		player.hpValueReset();
 		StatTextScript.MyInstance.UpdateStatsText();
 	}
 

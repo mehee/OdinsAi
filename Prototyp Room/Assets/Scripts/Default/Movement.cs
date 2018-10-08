@@ -81,6 +81,7 @@ public class Movement : MonoBehaviour
 	{
 		rigidBody = GetComponent<Rigidbody2D>();
         health = GetComponent<Health> ();
+        if(hasDash)
         image.color = new Color(image.color.r,image.color.g,image.color.b,0.0f);
 	}
 
