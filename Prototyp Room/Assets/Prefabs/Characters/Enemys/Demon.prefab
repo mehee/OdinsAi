@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 114894743970510136}
   - component: {fileID: 114726837819083792}
   - component: {fileID: 114643102371759054}
-  - component: {fileID: 114593060143880726}
+  - component: {fileID: 114506459280146518}
   m_Layer: 10
   m_Name: Demon
   m_TagString: Enemy
@@ -845,6 +845,18 @@ MonoBehaviour:
   m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114506459280146518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1464877771075384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1dc5769d60557d498f4e4e2a7ee85a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 114422202874049086, guid: 9c14e89fd871515489845ab37330b959, type: 2}
 --- !u!114 &114554922472415270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -883,21 +895,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b015e71b6bb508e42b8538014af2accb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114593060143880726
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1464877771075384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47fe5d4978444444e9c9c1943ba3b160, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chargeSpeed: 0
-  chargeTime: 0
-  overChargeDistance: 0
-  ability: {fileID: 114422202874049086, guid: 9c14e89fd871515489845ab37330b959, type: 2}
 --- !u!114 &114606809156499774
 MonoBehaviour:
   m_ObjectHideFlags: 1

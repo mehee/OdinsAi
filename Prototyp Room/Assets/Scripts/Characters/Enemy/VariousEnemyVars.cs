@@ -11,8 +11,8 @@ public class VariousEnemyVars : MonoBehaviour {
     public float chargeTime;
     [SerializeField]
     public float overChargeDistance;
-    [SerializeField]
-    public EnemyAbility ability;
+    //[SerializeField]
+    //public EnemyAbility ability;
 
 
 

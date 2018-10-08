@@ -18,12 +18,13 @@ public class HeadButtState : IState
     private bool isCharging;
     private VariousEnemyVars vars;
     private Vector2 direction;
+    private Vector2 player;
 
     public void Enter(EnemyBehaviour parent)
     {
         this.parent = parent;
         vars = parent.Vars;
-       
+
         playerHealth = parent.Target.GetComponent<Health>();
         enemyCollider = parent.GetComponent<BoxCollider2D>();
         animator = parent.GetComponent<AnimationManager>();
@@ -32,9 +33,10 @@ public class HeadButtState : IState
         headButtTarget = getVectorBehindPlayer(vars.overChargeDistance);
         chargeSpeed = vars.chargeSpeed;
         chargeTime = vars.chargeTime;
-         direction = (parent.Target.position - parent.transform.position).normalized;
+        direction = (parent.Target.position - parent.transform.position).normalized;
 
-            }
+
+    }
 
     public void Exit()
     {
@@ -50,31 +52,35 @@ public class HeadButtState : IState
     // Update is called once per frame
     public void Update()
     {
-        
-        parent.Movement.Move(Vector2.zero);
-        animator.Charge(direction);
-        chargeTime -= Time.deltaTime;
-        if(chargeTime <= 0)
+        if (parent.Target != null)
         {
-            animator.setChargeFalse();
-            animator.Attack(direction);
-           
-            parent.transform.position = Vector2.MoveTowards(parent.transform.position, headButtTarget, Time.deltaTime * chargeSpeed);
-
-           
-                if (Vector2.Distance(parent.transform.position, parent.Target.position) < 1 && hitted == false)
-                {
-                playerHealth.Reduce(parent.AttackDamage);
-                hitted = true;
-                 //Debug.Log("Gotcha Headbutter!");
-            }
-            if (Vector2.Distance(parent.transform.position, headButtTarget) < 1)
+            parent.Movement.Move(Vector2.zero);
+            animator.Charge(direction);
+            chargeTime -= Time.deltaTime;
+            if (chargeTime <= 0)
             {
-                parent.ChangeState(new IdleState());
+                animator.setChargeFalse();
+                animator.Attack(direction);
+
+                parent.transform.position = Vector2.MoveTowards(parent.transform.position, headButtTarget, Time.deltaTime * chargeSpeed);
+                if (enemyCollider.IsTouchingLayers(9))
+                {
+                    playerHealth.Reduce(parent.AttackDamage);
+                    hitted = true;
+                    //Debug.Log("Gotcha Headbutter!");
+                }
+                if (Vector2.Distance(parent.transform.position, headButtTarget) < 1)
+                {
+                    parent.ChangeState(new IdleState());
+                }
             }
         }
+        else
+            parent.ChangeState(new IdleState());
 
-        
+
+
+
     }
 
     private Vector2 getVectorBehindPlayer(float multiplyer)
