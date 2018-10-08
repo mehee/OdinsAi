@@ -39,6 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4426316366073456}
   - component: {fileID: 212314008672642998}
+  - component: {fileID: 95608762684492270}
   m_Layer: 0
   m_Name: FireballSprite
   m_TagString: Untagged
@@ -183,6 +184,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &95608762684492270
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1905493725591090}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a84cdfc62fb82104bb9da5824a1c4891, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114377543500152884
 MonoBehaviour:
   m_ObjectHideFlags: 1
