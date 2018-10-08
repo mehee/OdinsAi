@@ -9016,7 +9016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neededButton: {fileID: 114554999783805626}
-  enemyButton: {fileID: 0}
+  enemyButton: {fileID: 114719529112550482}
   player: {fileID: 0}
   availableAtLvl: 8
   skillNumber: 0
@@ -11173,7 +11173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neededButton: {fileID: 114022754211454198}
-  enemyButton: {fileID: 0}
+  enemyButton: {fileID: 114494678431543184}
   player: {fileID: 0}
   availableAtLvl: 8
   skillNumber: 0
@@ -12303,7 +12303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neededButton: {fileID: 114175256738314070}
-  enemyButton: {fileID: 0}
+  enemyButton: {fileID: 114318715169386810}
   player: {fileID: 0}
   availableAtLvl: 4
   skillNumber: 1
@@ -13990,7 +13990,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7c3f70ce7ae48a448b57d2bf9b0817da, type: 2}
   - {fileID: 11400000, guid: 1774cf0ff4d5a674097b313eaa9e38f8, type: 2}
   - {fileID: 11400000, guid: 1774cf0ff4d5a674097b313eaa9e38f8, type: 2}
-  - {fileID: 11400000, guid: df40ce7da94cd91468207def88f5469f, type: 2}
+  - {fileID: 11400000, guid: 8032c3019d47c0a40926b80bf972b4d6, type: 2}
 --- !u!114 &114975859189605594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -19859,9 +19859,9 @@ CanvasGroup:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1644801659925544}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!225 &225763778762058824
 CanvasGroup:

@@ -49,12 +49,6 @@ public class InventoryScript : MonoBehaviour
 
 	private void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.J))
-		{
-			Bag bag = (Bag)Instantiate(items[0]);
-			bag.Initialize();
-			bag.Use();
-		}
 		if(Input.GetKeyDown(KeyCode.K))
 		{
 			Bag bag = (Bag)Instantiate(items[0]);
@@ -63,7 +57,7 @@ public class InventoryScript : MonoBehaviour
 		}
 		if(Input.GetKeyDown(KeyCode.L))
 		{
-			HealthPotion potion = (HealthPotion)Instantiate(items[12]);
+			HealthPotion potion = (HealthPotion)Instantiate(items[9]);
 			AddItem(potion);
 		}
 		if(Input.GetKeyDown(KeyCode.H))
@@ -104,13 +98,6 @@ public class InventoryScript : MonoBehaviour
 		AddItem((HealthPotion)Instantiate(items[7]));
 		AddItem((HealthPotion)Instantiate(items[8]));
 
-		Bag bag1 = (Bag)Instantiate(items[9]);
-			bag.Initialize();
-			AddItem(bag);
-		// Bag bag2 = (Bag)Instantiate(items[10]);
-		// 	bag.Initialize();
-		// 	AddItem(bag);
-	
 	}
 
 	public void AddBag(Bag bag)

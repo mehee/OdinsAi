@@ -729,7 +729,6 @@ MonoBehaviour:
   chargeSpeed: 0
   chargeTime: 0
   overChargeDistance: 0
-  ability: {fileID: 0}
 --- !u!114 &114922246499365450
 MonoBehaviour:
   m_ObjectHideFlags: 1
