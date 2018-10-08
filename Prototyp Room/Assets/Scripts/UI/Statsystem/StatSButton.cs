@@ -6,30 +6,41 @@ using UnityEngine.UI;
 public class StatSButton : MonoBehaviour {
 
 	// Use this for initialization
-	Button button;
-	protected Player player;
-	
 	public int statNumber;
+
+	[SerializeField]
+	private Player player;
+	private Button button;
 
     void Start () 
 	{
-		player = GetComponentInParent<Player>();
-		button = GetComponent<Button>();
+		button = this.GetComponent<Button>();
 		button.onClick.AddListener(OnClick);
-		button.gameObject.SetActive(false);
-
 	}
 	
 	// Update is called once per frame
+	void Update()
+	{
+		if(player.StatPoints == 0)
+		{
+			Hide();
+		}
+		else
+		{
+			Show();
+		}
+	}
 
 	public void Show()
 	{
-		button.gameObject.SetActive(true);
+		button.GetComponent<CanvasGroup>().alpha =  1.0f ;
+		button.GetComponent<CanvasGroup>().blocksRaycasts = true;
 	}
 
 	void Hide()
 	{
-		button.gameObject.SetActive(false);
+		button.GetComponent<CanvasGroup>().alpha = 0.0f;
+		button.GetComponent<CanvasGroup>().blocksRaycasts = false;
 	}
 
 	void OnClick()
@@ -46,12 +57,8 @@ public class StatSButton : MonoBehaviour {
 			case 3: player.stats.Intelligence++;
 					break;
 		}
+		StatTextScript.MyInstance.UpdateStatsText();
 	}
 
 	
-	void Update()
-	{
-		if(player.StatPoints==0)
-		Hide();
-	}
 }

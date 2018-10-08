@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Playstyle{warrior, mage}
+
 namespace AbilitySystem
 {
 	/** Base class for all abilities. */
-	[RequireComponent(typeof(Timer))]
-	public abstract class Ability : MonoBehaviour
+	[RequireComponent(typeof(Cooldown))]
+	public abstract class Ability : MonoBehaviour, IDescribable
 	{
 		// Inspector Variables
 
 		new public string name;
+		
 		[TextArea(1, 5)]
 		public string description;
 		[Range(1, 1000)]
@@ -20,9 +23,21 @@ namespace AbilitySystem
 			hitbox placement on characters whose sprite
 			width and height differ significantly. */
 		[SerializeField]
-		protected AbilityOrbit orbit;
+		private Playstyle playstyle;
+
+		[SerializeField]
+		Cost cost;
 
 		// Hidden Variables
+
+		
+		public Sprite icon;
+
+		public bool alignedToMouse = false;
+
+		[SerializeField]
+		AbilityOrbit orbit;
+		
 
 		[HideInInspector] 
 		public Character owner;
@@ -120,53 +135,27 @@ namespace AbilitySystem
 		{
 
 		}
+		//Color HexCodes
+		//0084D9 BLUE	mage
+		//FF3D00 RED	warrior
+		//CB5D00 Orange Rage
 
-		void Update()
+		// Tooltips
+		public virtual string GetDescription()
 		{
-			if(!finished)
+			string baseString = string.Format("");
+			switch (playstyle)
 			{
-				frameCount++;
-				ResolveOngoingEffects();
-				FinishIfDurationOver();
+				case Playstyle.warrior:
+					baseString = string.Format("<b>{0}</b>\n<i>Cost: <color=#CB5D00>{1}</color> Rage</i>\n{2}\n\nPlaystyle: <color=#FF3D00>{3}</color>", name, cost.Value, description, playstyle);
+					break;
+				case Playstyle.mage:
+					baseString = string.Format("<b>{0}</b>\n<i>Cost: <color=#CB5D00>{1}</color> Rage</i>\n{2}\n\nPlaystyle: <color=#0084D9>{3}</color>", name, cost.Value, description, playstyle);
+					break;
 			}
+			return  baseString;
 		}
-
-		void OnDrawGizmosSelected()
-        {
-            DrawOrbitOutline();
-        }
-
-        void DrawOrbitOutline()
-        {
-            if (orbit.orbiting)
-            {
-                var orbitVertices = new Vector2[ellipseGizmoSections];
-                for (int i = 0; i < ellipseGizmoSections; i++)
-                {
-                    float angle = ((float)i / ellipseGizmoSections) * 360 * Mathf.Deg2Rad;
-                    if (transform.parent)
-                    {
-                        orbitVertices[i].x = transform.parent.position.x +
-                            (orbit.orbitRadii.x * Mathf.Sin(angle));
-                        orbitVertices[i].y = transform.parent.position.y +
-                            (orbit.orbitRadii.y * Mathf.Cos(angle));
-                    }
-                    else
-                    {
-                        orbitVertices[i].x = transform.position.x +
-                            (orbit.orbitRadii.x * Mathf.Sin(angle));
-                        orbitVertices[i].y = transform.position.y +
-                            (orbit.orbitRadii.y * Mathf.Cos(angle));
-                    }
-                }
-
-                for (int i = 0; i < ellipseGizmoSections - 1; i++)
-                {
-                    Gizmos.DrawLine(orbitVertices[i], orbitVertices[i + 1]);
-                }
-                Gizmos.color = Color.green;
-                Gizmos.DrawLine(orbitVertices[0], orbitVertices[ellipseGizmoSections - 1]);
-            }
-        }
 	}
+
+	
 }

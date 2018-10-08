@@ -52,4 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toolTip: {fileID: 0}
-  inventoryMenu: {fileID: 0}
+  characterMenu: {fileID: 0}
+  spellBook: {fileID: 0}
+  mainMenu: {fileID: 0}

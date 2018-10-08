@@ -123,11 +123,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Rune Blade
   description: 
+  playstyle: 1
   cost:
     baseValue: 0
     modifier: 1
   durationInFrames: 20
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: dbe9de84bb4cfcb4bb6b51f5809859ec, type: 3}
   alignedToMouse: 0
   orbit:
     orbiting: 0

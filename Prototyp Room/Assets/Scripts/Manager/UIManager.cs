@@ -27,8 +27,13 @@ public class UIManager : MonoBehaviour {
 
 	//UI elements to openClose
 	[SerializeField]
-	private CanvasGroup inventoryMenu;
-
+	private CanvasGroup characterMenu;
+	[SerializeField]
+	private CanvasGroup spellBook;
+	[SerializeField]
+	private CanvasGroup mainMenu;
+	[SerializeField]
+	private RectTransform tooltipRect;
 
 	private void Awake()
 	{
@@ -37,27 +42,33 @@ public class UIManager : MonoBehaviour {
 
 	void Update()
 	{
-		if(Input.GetButtonDown("Inventory"))
+		if(Input.GetButtonDown("CharacterMenu"))
 		{
-			OpenClose(inventoryMenu);
+			OpenClose(characterMenu);
 		}
 		if(Input.GetButtonDown("Bags"))
 		{
 			//has to be different, because we open an actuall bag, not just blend in an CanvasGroup
 			InventoryScript.MyInstance.OpenClose();
 		}
+		if(Input.GetButtonDown("Spellbook"))
+		{
+			OpenClose(spellBook);
+		}
+		if(Input.GetButtonDown("Esc"))
+		{
+			OpenClose(mainMenu);
+		}
 	}
 
-
-	// ------ Methods
-
+	/**Set CanvasGroup alpha and blockRayCast */
 	public void OpenClose(CanvasGroup canvasGroup)
 	{
 		canvasGroup.alpha = canvasGroup.alpha > 0 ? 0 : 1;
 		canvasGroup.blocksRaycasts = canvasGroup.blocksRaycasts == true ? false : true;
 	}
 
-
+	/**Methode for Bags to Stack Items on Slot */
 	public void UpdateStackSize(IClickable clickable)
     {
 		//set Text of MyStackText to the Count 
@@ -84,14 +95,27 @@ public class UIManager : MonoBehaviour {
     }
 
 	//----Tooltips
-	public void ShowTooltip(Vector3 position, IDescribable description)
+	///<summary>
+	/// Shows the Tooltip of 
+	///<param name="position"> Position of the Tooltip </param>
+	///<param name="description"> Description of the Item/Ability </param>
+	///</summary>
+	public void ShowTooltip(Vector2 pivot, Vector3 position, IDescribable description)
 	{
+		tooltipRect.pivot = pivot;
 		toolTip.SetActive(true);
 		toolTip.transform.position = position;
 		tooltipText.text = description.GetDescription();
 	}
+	/**Hide Tooltips */
 	public void HideTooltip()
 	{
 		toolTip.SetActive(false);
+	}
+
+	/**Refresh Tooltip UI */
+	public void RefreshTooltip(IDescribable description)
+	{
+		tooltipText.text = description.GetDescription();
 	}
 }

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ArmorType {Head, Chest, Legs, Boots, Ring, Trinket, Runestone}
-public enum WeaponType {MainHand, Offhand, TwoHand}
+public enum ArmorType {Head, Chest, Legs, Boots, Ring, Trinket, Runestone, MainHand, Offhand, TwoHand}
+//public enum WeaponType {MainHand, Offhand, TwoHand}
 
 public static class ArmorTypClass
 {
@@ -15,7 +15,10 @@ public static class ArmorTypClass
         {ArmorType.Boots, "Boots"},
         {ArmorType.Ring, "Ring"},
         {ArmorType.Trinket, "Trinket"},
-        {ArmorType.Runestone, "Runestone"}
+        {ArmorType.Runestone, "Runestone"},
+        {ArmorType.MainHand, "Mainhand"},
+        {ArmorType.Offhand, "Offhand"},
+        {ArmorType.TwoHand, "Twohand"}
     };
 
     public static Dictionary<ArmorType, string> MyArmorType
@@ -23,6 +26,7 @@ public static class ArmorTypClass
 		get{return armorName;}
 	}
 
+/*
     private static Dictionary<WeaponType, string> weaponName = new Dictionary<WeaponType, string>()
     {
         {WeaponType.MainHand, "Mainhand"},
@@ -34,4 +38,5 @@ public static class ArmorTypClass
 	{
 		get{return weaponName;}
 	}
+ */
 }

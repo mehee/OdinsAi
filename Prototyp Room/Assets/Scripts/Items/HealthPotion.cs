@@ -9,11 +9,11 @@ public class HealthPotion : Item, IUseable
 	{
 		
 		//just usable if player have lost Health
-		// if(Player.MyInstance.MyHealth.MyCurrentValue < Player.MyInstance.MyHealth.MyMaxValue)
-		// {
-		// 	Remove();
-		// //	Player.MyInstance.MyHealth.MyCurrentValue += health;
-		// }
+		if(Player.MyInstance.health.Value < Player.MyInstance.health.Maximum)
+		{
+			Remove();
+			Player.MyInstance.health.Value += health;
+		}
 			
 	}
 

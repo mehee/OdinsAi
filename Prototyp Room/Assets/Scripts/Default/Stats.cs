@@ -5,16 +5,15 @@ using UnityEngine;
 [System.Serializable]
 public class Stats
 {
-    private int health = 1;
-    private int intelligence = 1;
-    private int strength = 1;
-    private int armor = 1;
-
+    private int health = 10;
+    private int intelligence = 0;
+    private int strength = 0;
+    private int armor = 0;
+    
     private float currentValue;
 
     //Getting MaxValue of for exp Health
     public float MyMaxValue { get; set; }
-
     
     /*just added for Update Health,Mana etc */
      public float MyCurrentValue
