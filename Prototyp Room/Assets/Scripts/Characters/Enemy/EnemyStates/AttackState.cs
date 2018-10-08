@@ -39,13 +39,18 @@ class AttackState : IState
                     {
                         if (parent.IsHeadbutt)
                         {
-                            Debug.Log("Change to headbutt");
+                            //Debug.Log("Change to headbutt");
                             parent.ChangeState(new HeadButtState());
                         }
                         else if(parent.IsRanged)
                         {
-                            Debug.Log("Change to RangedState");
+                            //Debug.Log("Change to RangedState");
                             parent.ChangeState(new RangedState());
+                        }
+                        else if(parent.IsBoss)
+                        {
+                           // Debug.Log("Change to bossState");
+                            parent.ChangeState(new BossState());
                         }
                         else
                         {
@@ -64,7 +69,7 @@ class AttackState : IState
             }
             else if (distance > parent.AttackRange && !parent.IsRanged)
             {
-                Debug.Log("Change from Attack to Follow");
+                //Debug.Log("Change from Attack to Follow");
                 parent.ChangeState(new FollowState());
             }
             else

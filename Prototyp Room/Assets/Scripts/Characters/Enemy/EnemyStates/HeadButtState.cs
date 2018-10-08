@@ -66,7 +66,7 @@ public class HeadButtState : IState
                 {
                 playerHealth.Reduce(parent.AttackDamage);
                 hitted = true;
-                 Debug.Log("Gotcha Headbutter!");
+                 //Debug.Log("Gotcha Headbutter!");
             }
             if (Vector2.Distance(parent.transform.position, headButtTarget) < 1)
             {

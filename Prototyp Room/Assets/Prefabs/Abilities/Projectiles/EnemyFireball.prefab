@@ -210,11 +210,6 @@ MonoBehaviour:
   owner: {fileID: 0}
   targetTag: Player
   speed: 2
-  stats:
-    hpMod: 0
-    strMod: 0
-    armMod: 0
-    intMod: 0
   direction: {x: 0, y: 0}
   damage:
     baseValue: 10

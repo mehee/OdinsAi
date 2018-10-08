@@ -79,7 +79,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   startupFrames: 60
   damage:
-    baseValue: 0
+    baseValue: 25
     modifier: 1
     strengthScaling: 0
     intelligenceScaling: 0
