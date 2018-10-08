@@ -211,7 +211,7 @@ MonoBehaviour:
     baseValue: 25
     modifier: 1
   durationInFrames: 10
-  icon: {fileID: 21300000, guid: 52f8de1e20b09b04885234fabfbd37b1, type: 3}
+  icon: {fileID: 21300064, guid: 1bda855af75c9284a8d87d28bd2004b4, type: 3}
   alignedToMouse: 0
   orbit:
     orbiting: 0

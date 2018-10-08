@@ -8,7 +8,8 @@ public class Bag : Item, IUseable
 {
 	//Quality quality;
 	private int slots;
-	[SerializeField] private GameObject bagPrefab;
+	[SerializeField] 
+	private GameObject bagPrefab;
 
 	//property
 	public BagScript MyBagScript {get; set;}
@@ -18,6 +19,7 @@ public class Bag : Item, IUseable
 		get {return slots;}
 	}
 
+	///<summary> Initialize Bag with the correct Size, depending on the ItemQuality</summary>
 	public void Initialize()
 	{
 		SetBagSize();

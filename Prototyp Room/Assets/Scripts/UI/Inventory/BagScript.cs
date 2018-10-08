@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BagScript : MonoBehaviour 
 {
 	[SerializeField] 
 	private GameObject slotPrefab;
 	private CanvasGroup canvasGroup;
+
 
 	//List of slots
 	private List<SlotScript> slots = new List<SlotScript>();

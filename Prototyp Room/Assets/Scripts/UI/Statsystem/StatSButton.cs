@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class StatSButton : MonoBehaviour {
 
+	private enum StatsNumber {stamina, strength, intelligence}
+
+	[SerializeField]
+	private StatsNumber wichStat;
 	// Use this for initialization
-	public int statNumber;
+	//public int statNumber;
 
 	[SerializeField]
 	private Player player;
@@ -46,15 +51,13 @@ public class StatSButton : MonoBehaviour {
 	void OnClick()
 	{
 		player.StatPoints--;
-		switch(statNumber)
+		switch(wichStat)
 		{
-			case 0: player.stats.Health++;
+			case StatsNumber.stamina: player.stats.Health++ ;
 					break;
-			case 1: player.stats.Armor++;
+			case StatsNumber.strength: player.stats.Strength++;
 					break;
-			case 2: player.stats.Strength++;
-					break;
-			case 3: player.stats.Intelligence++;
+			case StatsNumber.intelligence: player.stats.Intelligence++;
 					break;
 		}
 		StatTextScript.MyInstance.UpdateStatsText();

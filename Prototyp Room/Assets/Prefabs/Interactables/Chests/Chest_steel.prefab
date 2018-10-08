@@ -8,22 +8,23 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
+  m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1206647405855190}
-  m_IsPrefabParent: 1
+  m_IsPrefabAsset: 1
 --- !u!1 &1206647405855190
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4983620650848604}
   - component: {fileID: 212217088338874580}
   - component: {fileID: 95218437890305912}
   - component: {fileID: 58711673200944514}
-  - component: {fileID: 114829334280071366}
   - component: {fileID: 61565234049517306}
+  - component: {fileID: 114364170750576730}
+  - component: {fileID: 114856716275084316}
   m_Layer: 0
   m_Name: Chest_steel
   m_TagString: Untagged
@@ -34,7 +35,7 @@ GameObject:
 --- !u!4 &4983620650848604
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1206647405855190}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -47,7 +48,7 @@ Transform:
 --- !u!58 &58711673200944514
 CircleCollider2D:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1206647405855190}
   m_Enabled: 1
@@ -62,7 +63,7 @@ CircleCollider2D:
 --- !u!61 &61565234049517306
 BoxCollider2D:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1206647405855190}
   m_Enabled: 1
@@ -88,7 +89,7 @@ BoxCollider2D:
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1206647405855190}
   m_Enabled: 1
@@ -101,10 +102,11 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114829334280071366
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114364170750576730
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1206647405855190}
   m_Enabled: 1
@@ -113,14 +115,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guiInteractText: {fileID: 0}
-  lootUI: {fileID: 0}
-  inventoryUI: {fileID: 0}
   target: {fileID: 0}
+  lootTable: {fileID: 114856716275084316}
   transitionParameterName: isOpen
+--- !u!114 &114856716275084316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206647405855190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d39bcc8a049de44a01ca03d4aa6056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loot: []
 --- !u!212 &212217088338874580
 SpriteRenderer:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1206647405855190}
   m_Enabled: 1
@@ -130,6 +143,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 9ff949bff4a6fe047a5f3bbfbfa971a9, type: 2}
   m_StaticBatchInfo:
@@ -161,3 +175,4 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+  m_SpriteSortPoint: 0

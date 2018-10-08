@@ -338,11 +338,6 @@ MonoBehaviour:
   characterName: ReaperBOSS
   level: 4
   healthPool: {fileID: 0}
-  stats:
-    hpMod: 0
-    strMod: 1
-    armMod: 0
-    intMod: 0
   chest: {fileID: 0}
   attackRange: 6
   experienceReward: 230

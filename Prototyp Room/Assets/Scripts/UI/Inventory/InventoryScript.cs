@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryScript : MonoBehaviour 
+public class InventoryScript : MonoBehaviour
 {
 
 	private static InventoryScript instance;
@@ -51,13 +51,13 @@ public class InventoryScript : MonoBehaviour
 	{
 		if(Input.GetKeyDown(KeyCode.J))
 		{
-			Bag bag = (Bag)Instantiate(items[11]);
+			Bag bag = (Bag)Instantiate(items[0]);
 			bag.Initialize();
 			bag.Use();
 		}
 		if(Input.GetKeyDown(KeyCode.K))
 		{
-			Bag bag = (Bag)Instantiate(items[11]);
+			Bag bag = (Bag)Instantiate(items[0]);
 			bag.Initialize();
 			AddItem(bag);
 		}
@@ -68,11 +68,12 @@ public class InventoryScript : MonoBehaviour
 		}
 		if(Input.GetKeyDown(KeyCode.H))
 		{
-			AddItem((Armor)Instantiate(items[6]));
-			AddItem((Armor)Instantiate(items[7]));
-			AddItem((Armor)Instantiate(items[8]));
-			AddItem((Armor)Instantiate(items[9]));
-			AddItem((Armor)Instantiate(items[10]));
+			// AddItem((Armor)Instantiate(items[7]));
+			// AddItem((Armor)Instantiate(items[8]));
+			// AddItem((Armor)Instantiate(items[9]));
+			// AddItem((Armor)Instantiate(items[10]));
+			// AddItem((Armor)Instantiate(items[11]));
+
 		}
 
 	}
@@ -80,24 +81,36 @@ public class InventoryScript : MonoBehaviour
 
 	void Awake()
 	{
-		Bag bag = (Bag)Instantiate(items[11]);
+		Bag bag = (Bag)Instantiate(items[0]);
 		bag.Initialize();
 		bag.Use();
 
 		//StartItems
-		Armor tmp = (Armor)Instantiate(items[0]);
-		Armor tmp1 = (Armor)Instantiate(items[1]);
-		Armor tmp2 = (Armor)Instantiate(items[2]);
-		Armor tmp3 = (Armor)Instantiate(items[3]);
-		Armor tmp4 = (Armor)Instantiate(items[4]);
-		Armor tmp5 = (Armor)Instantiate(items[5]);
-
+		Armor tmp = (Armor)Instantiate(items[1]);
+		Armor tmp1 = (Armor)Instantiate(items[2]);
+		Armor tmp2 = (Armor)Instantiate(items[3]);
+		Armor tmp3 = (Armor)Instantiate(items[4]);
+		Armor tmp4 = (Armor)Instantiate(items[5]);
+		Armor tmp5 = (Armor)Instantiate(items[6]);
+		//equip Start Items
 		CharacterMenu.MyInstance.EquipArmor(tmp);
 		CharacterMenu.MyInstance.EquipArmor(tmp1);
 		CharacterMenu.MyInstance.EquipArmor(tmp2);
 		CharacterMenu.MyInstance.EquipArmor(tmp3);
 		CharacterMenu.MyInstance.EquipArmor(tmp4);
 		CharacterMenu.MyInstance.EquipArmor(tmp5);
+
+		//Start Potions and Bag
+		AddItem((HealthPotion)Instantiate(items[7]));
+		AddItem((HealthPotion)Instantiate(items[8]));
+
+		Bag bag1 = (Bag)Instantiate(items[9]);
+			bag.Initialize();
+			AddItem(bag);
+		// Bag bag2 = (Bag)Instantiate(items[10]);
+		// 	bag.Initialize();
+		// 	AddItem(bag);
+	
 	}
 
 	public void AddBag(Bag bag)
