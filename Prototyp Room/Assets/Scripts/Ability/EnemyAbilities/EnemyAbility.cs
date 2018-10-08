@@ -20,10 +20,18 @@ namespace AbilitySystem
 			}
 		}
 
-        private void Start()
+        void Start()
         {
             audioSource = GetComponent<AudioSource>();
             SetUp();
         }
+
+		void OnTriggerEnter2D(Collider2D other)
+		{
+			if(other is BoxCollider2D && other.tag == "Player")
+			{
+				AffectTargetsHit(other.transform);
+			}
+		}
     }
 }
