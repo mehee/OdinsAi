@@ -4982,7 +4982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520311498cb47be4f8f977d82fcf7337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wichStat: 0
+  wichStat: 1
   player: {fileID: 0}
 --- !u!114 &114109916804492998
 MonoBehaviour:
@@ -8585,7 +8585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520311498cb47be4f8f977d82fcf7337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wichStat: 0
+  wichStat: 2
   player: {fileID: 0}
 --- !u!114 &114449614902711456
 MonoBehaviour:

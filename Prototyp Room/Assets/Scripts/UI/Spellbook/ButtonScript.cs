@@ -89,7 +89,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 			{
 				--player.SpellPoints;
 				IsSkilled = true;
-				isReadytoSkill=true;
+				
 				isSkilledIcon.enabled = true;
 				abilityKit.SwapSkill(ability, skillNumber);
 				
@@ -97,7 +97,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 				{
 					enemyButton.isReadytoSkill = false;
 				}
-			}
+			}isReadytoSkill=true;
 		}
 	}
 

@@ -46,7 +46,6 @@ public class ObjectPool : MonoBehaviour
 				return instance;
 			}
 		}
-
 		return null;
 	}
 
