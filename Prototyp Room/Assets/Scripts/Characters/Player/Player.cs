@@ -91,7 +91,6 @@ public class Player : Character
     public void GainExp(uint amount)
 	{
 		experience += amount;
-        Debug.Log(experience);
         
 		if(experience >= expToNextLevel)
 		{

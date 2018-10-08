@@ -54,11 +54,10 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
 	void Active()
 	{
-		Debug.Log((availableAtLvl==player.level) && (neededButton.isReadytoSkill));
 		if(Validate())
 		{
-		button.enabled = true;
-		icon.color = new Color(1,1,1, 1f);
+			button.enabled = true;
+			icon.color = new Color(1,1,1, 1f);
 		}
 	}
 
@@ -67,18 +66,16 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
 		button.enabled = false;
 		icon.color = new Color(1,1,1, 0.5f);
-		
 	}
 
 	void Update()
 	{
-		if(player.SpellPoints <= 0)
+		if(player.SpellPoints <= 0 && !isSkilled)
 		{
 			Deactive();
 		}
 		else
 		{
-
 			Active();
 		}
 	}
@@ -95,6 +92,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 			isReadytoSkill=true;
 			isSkilledIcon.enabled = true;
 			abilityKit.SwapSkill(ability, skillNumber);
+			
 			}
 		}
 	}

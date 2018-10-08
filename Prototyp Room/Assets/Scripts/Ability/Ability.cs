@@ -18,22 +18,14 @@ namespace AbilitySystem
 		[Range(1, 1000)]
 		public int durationInFrames = 1;
 
+
 		/** Define an orbit to achieve more believable
 			hitbox placement on characters whose sprite
 			width and height differ significantly. */
 		[SerializeField]
-		private Playstyle playstyle;
-
-		// Hidden Variables
-
-		
-		public Sprite icon;
-
-		public bool alignedToMouse = false;
-
-		[SerializeField]
 		protected AbilityOrbit orbit;
 		
+		// Hidden Variables 		
 
 		[HideInInspector] 
 		public Character owner;

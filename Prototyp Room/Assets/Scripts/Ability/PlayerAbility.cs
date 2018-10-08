@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Playstyle{warrior, mage}
 
 namespace AbilitySystem
 {
 	public abstract class PlayerAbility : Ability, IDescribable
 	{
+		public enum Playstyle{warrior, mage}
 		// Inspector Variables
 
 		[SerializeField]
