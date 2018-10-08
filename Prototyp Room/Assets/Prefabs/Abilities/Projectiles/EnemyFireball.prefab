@@ -209,7 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
   targetTag: Player
-  speed: 2
+  speed: 10
   direction: {x: 0, y: 0}
   damage:
     baseValue: 10

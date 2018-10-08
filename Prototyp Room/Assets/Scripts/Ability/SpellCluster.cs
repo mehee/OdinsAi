@@ -6,7 +6,8 @@ using AbilitySystem;
 public class SpellCluster : EnemyAbility
 {
 	ObjectPool pool;
-	float spawnRadius = 5f;
+	[SerializeField]
+	float spawnRadius = 10f;
 
 	[SerializeField]
 	Damage damage;

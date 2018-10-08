@@ -133,14 +133,6 @@ namespace AbilitySystem
 
 		}
 
-		void OnTriggerEnter2D(Collider2D other)
-		{
-			if(other is BoxCollider2D && other.tag == "Enemy")
-			{
-				AffectTargetsHit(other.transform);
-			}
-		}
-
 		void Update()
 		{
 			if(!finished)

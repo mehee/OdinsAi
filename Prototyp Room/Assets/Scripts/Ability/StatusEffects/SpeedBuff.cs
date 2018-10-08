@@ -18,7 +18,6 @@ public class SpeedBuff : StatusEffect
     public override void Apply()
     {
 		modifiedMovement.MovementSpeed *= speedModifier;
-		Debug.Log("Modified speed on Apply(): " + modifiedMovement.MovementSpeed);
     }
 
 	void Update()
@@ -26,7 +25,6 @@ public class SpeedBuff : StatusEffect
 		if(!lifeTime.IsActive)
 		{
 			modifiedMovement.MovementSpeed /= speedModifier;
-			Debug.Log("Modified speed: " + modifiedMovement.MovementSpeed);
 			Destroy(gameObject);
 		}
 	}
