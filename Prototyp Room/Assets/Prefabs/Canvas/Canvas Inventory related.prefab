@@ -3946,7 +3946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520311498cb47be4f8f977d82fcf7337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statNumber: 0
+  wichStat: 0
   player: {fileID: 0}
 --- !u!114 &114109916804492998
 MonoBehaviour:
@@ -6872,7 +6872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520311498cb47be4f8f977d82fcf7337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statNumber: 0
+  wichStat: 0
   player: {fileID: 0}
 --- !u!114 &114449614902711456
 MonoBehaviour:
@@ -10567,7 +10567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520311498cb47be4f8f977d82fcf7337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statNumber: 0
+  wichStat: 0
   player: {fileID: 0}
 --- !u!114 &114945496600275360
 MonoBehaviour:
@@ -10943,6 +10943,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7c3f70ce7ae48a448b57d2bf9b0817da, type: 2}
   - {fileID: 11400000, guid: 1774cf0ff4d5a674097b313eaa9e38f8, type: 2}
   - {fileID: 11400000, guid: 1774cf0ff4d5a674097b313eaa9e38f8, type: 2}
+  - {fileID: 11400000, guid: df40ce7da94cd91468207def88f5469f, type: 2}
 --- !u!114 &114975859189605594
 MonoBehaviour:
   m_ObjectHideFlags: 1

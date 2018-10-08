@@ -48,7 +48,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
 	void Update()
 	{
-		if(player.SpellPoints <= 0 && isSkilled == false)
+		if(player.SpellPoints <= 0)
 		{
 			player.SpellPoints = 0;
 			Deactive();
@@ -62,7 +62,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	//ClickHandler
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		if(eventData.button == PointerEventData.InputButton.Left && isSkilled == false)
+		if(eventData.button == PointerEventData.InputButton.Left && isSkilled == false && player.SpellPoints > 0)
 		{
 			isSkilled = true;
 			isSkilledIcon.enabled = true;
