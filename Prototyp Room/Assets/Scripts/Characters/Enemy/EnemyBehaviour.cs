@@ -21,6 +21,10 @@ public class EnemyBehaviour : MonoBehaviour {
     private EnemyAbility[] bossAbillites;
     private EnemyAbility bossAbilityInstance;
 
+    private DemonAbility demonAbility;
+    
+
+
 
     [SerializeField]
     private bool isRanged;
@@ -360,17 +364,22 @@ public class EnemyBehaviour : MonoBehaviour {
         attackCDtmp = attackCD;
         defaultDirection = Vector2.down;
         AttackAnimatiomTMP = attackAnimationLenght;
-        vars = GetComponent<VariousEnemyVars>();
+       
 
 
 
-        if (!this.IsBoss)
+        if (isRanged)
         {
-            Ability = vars.ability;
+            demonAbility = GetComponent<DemonAbility>();
+            ability = demonAbility.Ability;
             AbilityInstance = Ability.CreateInstance(enemy) as EnemyAbility;
             AbilityInstance.transform.SetParent(this.transform);
         }
-        else
+        else if(isHeadbutt)
+        {
+            vars = GetComponent<VariousEnemyVars>();
+        }
+        else if(isBoss)
         {
            // Debug.Log("yes i am the boss");
 
