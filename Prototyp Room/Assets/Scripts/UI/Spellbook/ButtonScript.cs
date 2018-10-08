@@ -19,7 +19,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	public int availableAtLvl;
 	public int skillNumber;
 	[SerializeField]
-	private Ability ability;
+	private PlayerAbility ability;
 	[SerializeField]
 	private Image isSkilledIcon;
 
@@ -94,7 +94,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 			IsSkilled = true;
 			isReadytoSkill=true;
 			isSkilledIcon.enabled = true;
-			abilityKit.SwapSkill(ability,skillNumber);
+			abilityKit.SwapSkill(ability, skillNumber);
 			}
 		}
 	}

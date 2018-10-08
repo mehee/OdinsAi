@@ -55,18 +55,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Throw Fireball
   description: Throws a fireball.
-  cost:
-    baseValue: 0
-    modifier: 1
   durationInFrames: 1
-  icon: {fileID: 0}
-  alignedToMouse: 0
   orbit:
     orbiting: 0
     orbitRadii: {x: 0, y: 0}
   owner: {fileID: 0}
   direction: {x: 0, y: 0}
-  associatedButton: 
+  startupFrames: 0
+  damage:
+    baseValue: 10
+    modifier: 1
+    strengthScaling: 0
+    intelligenceScaling: 0.5
 --- !u!114 &114579995689131542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -91,5 +91,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 471af740d6dd5414d8a0ab5e340c24e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCooldown: 0
-  cooldownModifier: 1
+  baseTime: 0
+  modifier: 1

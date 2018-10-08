@@ -11,12 +11,14 @@ public class Bleed : StatusEffect
         transform.parent.GetComponent<Health>().Reduce(damage);
     }
     
+    // Prolongs life time of already attached bleeding
+    // instead of adding another.
     public override void Attach(Transform target)
     {
         var oldStatus = target.GetComponentInChildren<Bleed>();
         if(oldStatus)
         {
-            oldStatus.RemainingDuration += Duration;
+            oldStatus.lifeTime.Remaining += lifeTime.Duration;
         }
         else
         {
@@ -27,8 +29,8 @@ public class Bleed : StatusEffect
     void Update()
     {
         float time = Time.time;
-        
-        if(remainingDuration == 0)
+
+        if(lifeTime.Remaining <= 0)
         {
             Destroy(gameObject);
         }
@@ -37,13 +39,6 @@ public class Bleed : StatusEffect
         {
             Apply();
             lastApplicationTime = time;
-        }
-
-        if(remainingDuration >0)
-        {
-            remainingDuration -= Time.deltaTime;
-            if(remainingDuration < 0)
-                remainingDuration = 0;
         }
     }
 }

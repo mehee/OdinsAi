@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4955006838611588}
   - component: {fileID: 114669667738311270}
+  - component: {fileID: 114312431874451484}
   m_Layer: 0
   m_Name: Bleed
   m_TagString: Untagged
@@ -40,6 +41,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114312431874451484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1443286834157276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471af740d6dd5414d8a0ab5e340c24e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
+  baseTime: 5
+=======
+  baseTime: 10
+>>>>>>> Stashed changes
+  modifier: 1
 --- !u!114 &114669667738311270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -51,7 +69,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfe33067ef6b8840b202079aad8e277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDuration: 3
-  durationModifier: 1
+  lifeTime: {fileID: 0}
   interval: 1
-  damage: 1
+  damage: 20

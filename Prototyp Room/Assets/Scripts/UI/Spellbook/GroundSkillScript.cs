@@ -16,7 +16,7 @@ public class GroundSkillScript : MonoBehaviour, IPointerEnterHandler, IPointerEx
 	public int skillNumber;
 	
 	[SerializeField]
-	private Ability ability;
+	private PlayerAbility ability;
 
     void Start () 
 	{

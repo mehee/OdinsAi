@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AbilitySystem;
 
 /** The axe thrown be the warriors
 	axe throw ability. Make sure to
@@ -9,106 +10,57 @@ using UnityEngine;
 	when spawned. */
 public class Hatchet : PoolObject
 {
-	[SerializeField] Bleed bleed;
-    [SerializeField] float maxDistanceFromOwner;
-    public float flightDistance;
+    public float speed;
+	[SerializeField] 
+    Bleed bleed;
 
-    [HideInInspector] public Vector3 currentPosition;
-    Vector2 velocity = Vector2.zero;
+    [HideInInspector] 
+    public Damage damage;
+    [HideInInspector]
+    public Stats stats;
+    
+    Vector2 direction;
+    Vector2 velocity;
+    Timer lifeTime;
 
-	float damage;
-	float distanceFlown;
-
-    [HideInInspector] public new Collider2D collider;
-    [HideInInspector] public SpriteRenderer spriteRenderer;
-
-    public float Damage
+    public Vector2 Direction
     {
-        get
-        {
-            return damage;
-        }
-
         set
         {
-            damage = value;
+            direction = value;
+            velocity = direction * speed;
         }
     }
 
-    public float DistanceFlown
+    void OnEnable()
     {
-        get
-        {
-            return distanceFlown;
-        }
-
-        set
-        {
-            distanceFlown = value;
-        }
-    }
-
-    public Vector2 Velocity
-    {
-        get
-        {
-            return velocity;
-        }
-
-        set
-        {
-            velocity = value;
-        }
+        lifeTime.StartTimer();
     }
 
     void Awake()
 	{
-        collider = GetComponent<Collider2D>(); 
-        collider.enabled = false;
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        lifeTime = GetComponent<Timer>();
 	}
 
 	void Update()
 	{
-		if(Velocity != Vector2.zero)
-        {
-            transform.position += (Vector3)(Velocity * Time.deltaTime);
-            distanceFlown += Mathf.Abs((transform.position - currentPosition).magnitude);
-            if(distanceFlown > flightDistance)
-            {
-                Velocity = Vector2.zero;
-            }
-            currentPosition = transform.position;
-        }
+        if(!lifeTime.IsActive)
+		{
+			owner.Retrieve(this);
+		}
 
+        transform.position += (Vector3)(velocity * Time.deltaTime);
         float distanceFromOwner = (transform.position - owner.transform.position).magnitude;
-        if(distanceFromOwner > maxDistanceFromOwner)
-            RecoverHatchet();
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(Velocity != Vector2.zero)
-		{
-            if(other.tag == "Enemy")
-            {
-                bleed.Attach(other.transform);
-                other.GetComponent<Health>().Reduce(damage);
-            }
-            else if(!(other.tag == "Enemy" || other.tag == "Player"))
-            {
-                Velocity = Vector2.zero;
-            }
-		}
-        else if(Velocity == Vector2.zero && other.tag == "Player")
+        if(other.gameObject.tag == "Enemy" && other is BoxCollider2D)
         {
-            RecoverHatchet();
+            bleed.Attach(other.transform);
+            var health = other.GetComponent<Health>();
+            damage.InflictToTarget(stats, health);
+            owner.Retrieve(this);
         }
 	}
-
-    /** The player 'picks up' the hatchet. */
-    void RecoverHatchet()
-    {
-        owner.Retrieve(this);
-    }
 }

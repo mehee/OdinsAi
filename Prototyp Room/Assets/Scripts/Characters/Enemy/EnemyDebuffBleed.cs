@@ -18,7 +18,7 @@ public class EnemyDebuffBleed : MonoBehaviour {
 		if(bl!=null)
 		{
 			image.enabled = true;
-			image.fillAmount = bl.RemainingDuration/bl.Duration;
+			image.fillAmount = bl.lifeTime.Remaining/bl.lifeTime.Remaining;
 		}
 		else
 		image.enabled=false;
