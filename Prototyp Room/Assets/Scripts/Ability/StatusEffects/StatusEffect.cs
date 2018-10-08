@@ -38,5 +38,6 @@ public abstract class StatusEffect : MonoBehaviour
 	{
 		var instance = Instantiate(this);
 		instance.transform.parent = target;
+		instance.lifeTime.StartTimer();
 	}
 }
