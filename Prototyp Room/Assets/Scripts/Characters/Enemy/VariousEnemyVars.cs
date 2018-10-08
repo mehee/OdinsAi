@@ -12,7 +12,7 @@ public class VariousEnemyVars : MonoBehaviour {
     [SerializeField]
     public float overChargeDistance;
     [SerializeField]
-    public Ability ability;
+    public EnemyAbility ability;
 
 
 

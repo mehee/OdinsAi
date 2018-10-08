@@ -8,9 +8,10 @@ public class RangedState : IState {
     private EnemyBehaviour parent;
 
     private Vector2 direction;
-    private Ability ability;
+    private EnemyAbility ability;
+    private EnemyAbility abilityInstance;
     private VariousEnemyVars vars;
-    private Ability abilityInstance;
+    
     private float cd;
     
 
@@ -20,13 +21,12 @@ public class RangedState : IState {
         this.parent = parent;
         Vector2 direction = (parent.Target.position - parent.transform.position).normalized;
         vars = parent.Vars;
-        ability = vars.ability;
-        abilityInstance = ability.CreateInstance(parent.Enemy);
-        abilityInstance.transform.SetParent(parent.transform);
+        ability = parent.Ability;
+        abilityInstance = parent.AbilityInstance;
         abilityInstance.direction = direction;
-        
-        cd = 0.04f;
-     
+        abilityInstance.Activate();
+        parent.ChangeState(new IdleState());
+
 
     }
 
@@ -38,13 +38,8 @@ public class RangedState : IState {
 
     public void Update()
     {
-        abilityInstance.Activate();
-        cd -= Time.deltaTime;
+
         
-        if(cd <= 0)
-        {
-            parent.ChangeState(new IdleState());
-        }
             
     }
 

@@ -16,7 +16,7 @@ public class Bleed : StatusEffect
         var oldStatus = target.GetComponentInChildren<Bleed>();
         if(oldStatus)
         {
-            oldStatus.RemainingDuration += Duration;
+            oldStatus.lifeTime.Remaining += lifeTime.Duration;
         }
         else
         {
@@ -28,7 +28,7 @@ public class Bleed : StatusEffect
     {
         float time = Time.time;
         
-        if(remainingDuration == 0)
+        if(!lifeTime.IsActive)
         {
             Destroy(gameObject);
         }
@@ -37,13 +37,6 @@ public class Bleed : StatusEffect
         {
             Apply();
             lastApplicationTime = time;
-        }
-
-        if(remainingDuration >0)
-        {
-            remainingDuration -= Time.deltaTime;
-            if(remainingDuration < 0)
-                remainingDuration = 0;
         }
     }
 }

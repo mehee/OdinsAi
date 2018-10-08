@@ -5,23 +5,23 @@ using UnityEngine;
 namespace AbilitySystem
 {
 	[RequireComponent(typeof(BoxCollider2D))]
-	public class BaseComboAttack : Ability 
+	public class BaseComboAttack : PlayerAbility 
 	{
 		public Damage damage;
 		new BoxCollider2D collider;
 
-		public override void SetUp()
+		protected override void SetUp()
 		{
 			collider = GetComponent<BoxCollider2D>();
 		}
 
-		public override void OnActivation()
+		protected override void OnActivation()
 		{
 			collider.enabled = true;
 			transform.GetChild(0).gameObject.SetActive(true);
 		}
 
-		public override void CleanUp()
+		protected override void CleanUp()
 		{
 			collider.enabled = false;
 			transform.GetChild(0).gameObject.SetActive(false);
@@ -34,7 +34,7 @@ namespace AbilitySystem
 
 		void OnTriggerEnter2D(Collider2D other)
 		{
-			if(other.gameObject.tag == "Enemy")
+			if(other.gameObject.tag == "Enemy" && other is BoxCollider2D)
 			{
 				var health = other.gameObject.GetComponent<Health>();
 				damage.InflictToTarget(owner.stats, health);

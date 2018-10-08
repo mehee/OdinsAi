@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AbilitySystem;
 
 public class EnemyBehaviour : MonoBehaviour {
 
@@ -12,12 +13,21 @@ public class EnemyBehaviour : MonoBehaviour {
     private Vector2 defaultDirection;
     public int currentMoveSpot = 0;
     private VariousEnemyVars vars;
-    
-    
+
+    private EnemyAbility ability;
+    private EnemyAbility abilityInstance;
+
+    private BossVars bossVars;
+    private EnemyAbility[] bossAbillites;
+    private EnemyAbility bossAbilityInstance;
+
+
     [SerializeField]
     private bool isRanged;
     [SerializeField]
     private bool isHeadbutt;
+    [SerializeField]
+    private bool isBoss;
     [SerializeField]
     private float evadeDistance;
     [SerializeField]
@@ -255,7 +265,85 @@ public class EnemyBehaviour : MonoBehaviour {
         }
     }
 
-  
+    public EnemyAbility Ability
+    {
+        get
+        {
+            return ability;
+        }
+
+        set
+        {
+            ability = value;
+        }
+    }
+
+    public EnemyAbility AbilityInstance
+    {
+        get
+        {
+            return abilityInstance;
+        }
+
+        set
+        {
+            abilityInstance = value;
+        }
+    }
+
+    public BossVars BossVars
+    {
+        get
+        {
+            return bossVars;
+        }
+
+        set
+        {
+            bossVars = value;
+        }
+    }
+
+    public EnemyAbility[] BossAbillites
+    {
+        get
+        {
+            return bossAbillites;
+        }
+
+        set
+        {
+            bossAbillites = value;
+        }
+    }
+
+    public EnemyAbility BossAbilityInstance
+    {
+        get
+        {
+            return bossAbilityInstance;
+        }
+
+        set
+        {
+            bossAbilityInstance = value;
+        }
+    }
+
+    public bool IsBoss
+    {
+        get
+        {
+            return isBoss;
+        }
+
+        set
+        {
+            isBoss = value;
+        }
+    }
+
+
 
 
 
@@ -273,10 +361,42 @@ public class EnemyBehaviour : MonoBehaviour {
         defaultDirection = Vector2.down;
         AttackAnimatiomTMP = attackAnimationLenght;
         vars = GetComponent<VariousEnemyVars>();
+
+
+
+        if (!this.IsBoss)
+        {
+            Ability = vars.ability;
+            AbilityInstance = Ability.CreateInstance(enemy) as EnemyAbility;
+            AbilityInstance.transform.SetParent(this.transform);
+        }
+        else
+        {
+           // Debug.Log("yes i am the boss");
+
+            BossVars = GetComponent<BossVars>();
+            BossAbillites = BossVars.ability;
+            for (int i = 0; i < 2; i++)
+            {
+                BossAbilityInstance = BossAbillites[i].CreateInstance(enemy) as EnemyAbility;
+                BossAbilityInstance.transform.SetParent(this.transform);
+            }
+            setAbility(0);
+        }
+
+
+
+    }
+
+    public void setAbility(int abilitySlot)
+    {
+        BossAbilityInstance = BossAbillites[abilitySlot].CreateInstance(enemy) as EnemyAbility;
+        BossAbilityInstance.transform.SetParent(this.transform);
     }
     // Update is called once per frame
     void Update()
     {
+        
         currentState.Update();
         animateEnemy();
     }
