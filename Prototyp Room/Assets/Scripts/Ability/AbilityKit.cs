@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace AbilitySystem
 {
@@ -12,7 +13,10 @@ namespace AbilitySystem
 		[SerializeField]
 		List<PlayerAbility> abilities;
 		List<PlayerAbility> abilityInstances;
-		
+
+		[SerializeField]
+		private newCooldownScript[] cooldownScript;
+
 		[SerializeField]
 		float globalCooldown = 0.1f;
 		float cooldownTimer;
@@ -62,6 +66,8 @@ namespace AbilitySystem
 			PlayerAbility activated = GetActivatedAbility();
 			if(activated)
 				Activate(activated);
+
+			
 		}
 
 		/** Make sure that for every ability
@@ -74,7 +80,8 @@ namespace AbilitySystem
 			for(int i = 0; i < abilityInstances.Count; i++)
 			{
 				if(Input.GetButtonDown("Ability" + (i + 1)))
-				{
+				{	
+					CD(i);
 					return abilityInstances[i];
 				}
 			}
@@ -98,5 +105,12 @@ namespace AbilitySystem
 			instance.transform.position = transform.position;
 			abilityInstances[slot] = instance;
 		}
+
+
+		public void CD(int abilitySlot)
+		{
+			cooldownScript[abilitySlot].SetAbility(abilityInstances[abilitySlot]);
+		}
+
 	}
 }

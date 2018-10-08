@@ -1002,7 +1002,6 @@ MonoBehaviour:
   chargeSpeed: 0
   chargeTime: 0
   overChargeDistance: 0
-  ability: {fileID: 114422202874049086, guid: 9c14e89fd871515489845ab37330b959, type: 2}
 --- !u!114 &114795581181622424
 MonoBehaviour:
   m_ObjectHideFlags: 1
