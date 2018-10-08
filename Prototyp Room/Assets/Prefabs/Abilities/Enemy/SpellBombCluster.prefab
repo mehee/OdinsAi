@@ -62,6 +62,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   direction: {x: 0, y: 0}
   startupFrames: 60
+  spawnRadius: 10
   damage:
     baseValue: 50
     modifier: 1

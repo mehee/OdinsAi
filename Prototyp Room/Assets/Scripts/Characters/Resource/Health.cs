@@ -17,7 +17,8 @@ public class Health : Resource
 
     void Start()
     {
-       if(hasDmgText)
+        Reset();
+        if(hasDmgText)
         {
            Text[] texts = GetComponentsInChildren<Text>();
             foreach (Text v in texts)
@@ -27,7 +28,6 @@ public class Health : Resource
             }
 
         }
-      
     }
     public bool DmgReceived
     {
