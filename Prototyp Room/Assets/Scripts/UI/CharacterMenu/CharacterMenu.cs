@@ -19,7 +19,7 @@ public class CharacterMenu : MonoBehaviour
 		}
 	}
 
-
+	
 	//Reference 
 	[SerializeField]
 	private CharacterItemSlot head, chest, legs, boots, ring, runeStone, trinket, mainHand, offHand;
@@ -27,7 +27,8 @@ public class CharacterMenu : MonoBehaviour
 	[SerializeField]
 	private CanvasGroup characterMenu;
 	[SerializeField]
-	private Player player;
+	private Player player; 
+	bool firstTime=true;
 
 	//For Reference to the Selected Button if Clicked 
 	public CharacterItemSlot MySelectedButton {get;set;}
@@ -46,6 +47,7 @@ public class CharacterMenu : MonoBehaviour
 		player.stats.Health += armor.MyStamina;
 		player.stats.Strength += armor.MyStrength;
 		player.stats.Intelligence += armor.MyIntellect;
+
 
 		switch(armor.MyArmorType)
 		{
@@ -78,6 +80,7 @@ public class CharacterMenu : MonoBehaviour
 				break;
 		}
 		StatTextScript.MyInstance.UpdateStatsText();
+			
 	}
 	///<summary> 
 	///Just Update the Stats by substracting the Stats of the Item
@@ -91,4 +94,5 @@ public class CharacterMenu : MonoBehaviour
 		player.stats.Intelligence -= armor.MyIntellect;
 		StatTextScript.MyInstance.UpdateStatsText();
 	}
+
 }

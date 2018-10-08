@@ -9,7 +9,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	Button button;
 
 	public ButtonScript neededButton=null;
-
+	public ButtonScript enemyButton;
 	private Image icon;
 
 	[SerializeField]
@@ -87,16 +87,29 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 		{
 			if(Validate())
 			{
-			--player.SpellPoints;
-			IsSkilled = true;
-			isReadytoSkill=true;
-			isSkilledIcon.enabled = true;
-			abilityKit.SwapSkill(ability, skillNumber);
-			
+				--player.SpellPoints;
+				IsSkilled = true;
+				isReadytoSkill=true;
+				isSkilledIcon.enabled = true;
+				abilityKit.SwapSkill(ability, skillNumber);
+				
+				if(isReadytoSkill)
+				{
+					enemyButton.isReadytoSkill = false;
+				}
 			}
 		}
 	}
 
+	private bool Validate()
+	{
+		bool retVal=false;
+		if((player.SpellPoints>0) && (IsSkilled==false) && (player.level >= availableAtLvl)&&(neededButton.isReadytoSkill))
+			retVal=true;		
+			
+		return retVal;
+
+	}
 	// --- Tooltips
 	public void OnPointerEnter(PointerEventData eventData)
 	{
@@ -111,15 +124,4 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 		UIManager.MyInstance.HideTooltip();
 	}
 
-	private bool Validate()
-	{
-		bool retVal=false;
-		if((player.SpellPoints>0)&&(IsSkilled==false)&&(player.level>=availableAtLvl)&&(neededButton.isReadytoSkill))
-		retVal=true;
-		
-		
-			
-		return retVal;
-
-	}
 }

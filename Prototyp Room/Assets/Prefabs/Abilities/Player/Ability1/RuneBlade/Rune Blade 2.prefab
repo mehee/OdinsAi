@@ -134,9 +134,10 @@ MonoBehaviour:
     modifier: 1
   icon: {fileID: 0}
   alignedToMouse: 0
+  playstyle: 0
   associatedButton: 
   damage:
-    baseValue: 23
+    baseValue: 13
     modifier: 1
     strengthScaling: 0.2
     intelligenceScaling: 0.8

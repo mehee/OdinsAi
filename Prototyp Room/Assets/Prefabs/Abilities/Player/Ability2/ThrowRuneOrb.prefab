@@ -77,9 +77,15 @@ MonoBehaviour:
   cost:
     baseValue: 0
     modifier: 1
-  icon: {fileID: 0}
+  icon: {fileID: 21300032, guid: 1bda855af75c9284a8d87d28bd2004b4, type: 3}
   alignedToMouse: 1
+  playstyle: 1
   associatedButton: 
+  damage:
+    baseValue: 10
+    modifier: 1
+    strengthScaling: 0
+    intelligenceScaling: 0.3
 --- !u!114 &114751672256581956
 MonoBehaviour:
   m_ObjectHideFlags: 1

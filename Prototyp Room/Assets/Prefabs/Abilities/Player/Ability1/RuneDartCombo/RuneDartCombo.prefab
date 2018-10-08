@@ -66,7 +66,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Base Combo
-  description: OOOOH WOMBO COMBO WOMBO COMBO!
+  description: Mid range meele attack that spawns small darts an hit to hit all Enemys
+    around
   durationInFrames: 1
   orbit:
     orbiting: 1
@@ -76,8 +77,9 @@ MonoBehaviour:
   cost:
     baseValue: 0
     modifier: 1
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: d68c514f47af93e4594e37419bba1f3b, type: 3}
   alignedToMouse: 1
+  playstyle: 0
   associatedButton: 
   comboParts:
   - {fileID: 114957608803728314, guid: a5d3002c5c2d92f42abb5946c009cd32, type: 2}

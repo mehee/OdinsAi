@@ -13,7 +13,8 @@ public class Cooldown : MonoBehaviour
 	private int fieldcount = 0;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		allImages = GetComponentsInChildren<Image>();
 		foreach(Image cooldown_image in allImages)
 		{
@@ -25,9 +26,10 @@ public class Cooldown : MonoBehaviour
 		}
 		abilities = transform.root.GetComponentsInChildren<PlayerAbility>();
 		activeAbilities = abilities.Length;
+
 		for(int i = activeAbilities; i < cooldownImages.Length; i++)
 		{
-			cooldownImages[i].fillAmount = 1f;
+			cooldownImages[i].fillAmount = 0.0f;
 		}
 	}
 	

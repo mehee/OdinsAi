@@ -76,7 +76,8 @@ MonoBehaviour:
   cost:
     baseValue: 0
     modifier: 1
-  icon: {fileID: 21300000, guid: a3bb500f1e68a284085a0fa641da70c6, type: 3}
+  icon: {fileID: 21300010, guid: 1bda855af75c9284a8d87d28bd2004b4, type: 3}
   alignedToMouse: 0
+  playstyle: 0
   associatedButton: 
   buff: {fileID: 114175059850132278, guid: bd6f3bd274d02cb4d82ae4530726d859, type: 2}

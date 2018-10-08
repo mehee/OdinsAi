@@ -42,6 +42,8 @@ public class Player : Character
 	int spellPoints = 1;
 	int statPoints = 0;
 
+    int lastFrameHpStat;
+
 	void Start()
 	{
 		health = GetComponent<Health> ();
@@ -108,7 +110,7 @@ public class Player : Character
 		transform.position = Vector2.zero;
 	}
 
-	void LevelUp()
+	public void LevelUp()
 	{
 		level++;
 		statPoints += statPointsPerLvl;
@@ -119,7 +121,25 @@ public class Player : Character
 	}
     public void hpValueReset()
     {
-        health.Maximum += stats.Health * 10;
-          health.Value = health.Maximum;
+        health.Maximum = stats.Health * 10;
+        health.Value = health.Maximum;
     }
-}
+    public void hpMaxReset()
+    {
+        health.Maximum = stats.Health * 10;
+
+        if(health.Value > health.Maximum)
+        {  
+            health.Value = health.Maximum;
+        }
+    }
+
+    void Update()
+    {
+        if(lastFrameHpStat!=stats.Health)
+        hpMaxReset();
+        
+        lastFrameHpStat=stats.Health;
+        
+    }
+  }

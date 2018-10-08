@@ -139,8 +139,8 @@ MonoBehaviour:
   damage:
     baseValue: 3
     modifier: 1
-    strengthScaling: 0.33
-    intelligenceScaling: 0.05
+    strengthScaling: 0.22
+    intelligenceScaling: 0.02
 --- !u!212 &212477567668036386
 SpriteRenderer:
   m_ObjectHideFlags: 1
