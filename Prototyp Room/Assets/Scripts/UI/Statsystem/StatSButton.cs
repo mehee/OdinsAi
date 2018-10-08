@@ -57,6 +57,7 @@ public class StatSButton : MonoBehaviour {
 			case 3: player.stats.Intelligence++;
 					break;
 		}
+		player.hpValueReset();
 		StatTextScript.MyInstance.UpdateStatsText();
 	}
 

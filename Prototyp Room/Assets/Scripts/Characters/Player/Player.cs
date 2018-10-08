@@ -9,7 +9,10 @@ public class Player : Character
 
 	private static Player instance;
 
+    ExperienceBar experienceBar;
     public static Player MyInstance
+
+    
     {
         get
         {
@@ -29,7 +32,7 @@ public class Player : Character
 
 	/** Determines how much extra experience
 		is needed for next level-up. */
-	[SerializeField] float levelUpFactor = 0.1f;
+	[SerializeField] float levelUpFactor = 1.5f;
 
 	[SerializeField] int spellPointsPerLvl;
 
@@ -43,6 +46,7 @@ public class Player : Character
 	{
 		health = GetComponent<Health> ();
 		health.Maximum += stats.Health * 10;
+        experienceBar = GetComponentInChildren<ExperienceBar>();
 		health.Reset();
 	}
 	
@@ -87,12 +91,16 @@ public class Player : Character
     public void GainExp(uint amount)
 	{
 		experience += amount;
+        Debug.Log(experience);
+        
 		if(experience >= expToNextLevel)
 		{
 			LevelUp();
-			experience -= expToNextLevel;
-			expToNextLevel = (uint)Mathf.FloorToInt(expToNextLevel * levelUpFactor);
+			expToNextLevel = (uint)(expToNextLevel*levelUpFactor);
+            experience = expToNextLevel-experience;
+            
 		}
+        
 	}
 
     public override void Die()
@@ -106,7 +114,13 @@ public class Player : Character
 		level++;
 		statPoints += statPointsPerLvl;
 		spellPoints += spellPointsPerLvl;
-		health.Maximum += stats.Health * 10;
+		
+        hpValueReset();
         StatTextScript.MyInstance.UpdateStatsText();
 	}
+    public void hpValueReset()
+    {
+        health.Maximum += stats.Health * 10;
+          health.Value = health.Maximum;
+    }
 }
