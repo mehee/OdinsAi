@@ -52,19 +52,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1618cd36b367ab47800300935915612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Base Combo
-  description: OOOOH WOMBO COMBO WOMBO COMBO!
-  cost:
-    baseValue: 0
-    modifier: 1
+  name: Fistpunch
+  description: Three fast swings
   durationInFrames: 0
-  icon: {fileID: 21300000, guid: 685e45d9e70d98b449b179d47368f870, type: 3}
-  alignedToMouse: 1
   orbit:
     orbiting: 1
     orbitRadii: {x: 1.2, y: 1.5}
   owner: {fileID: 0}
   direction: {x: 0, y: 0}
+  cost:
+    baseValue: 0
+    modifier: 1
+  icon: {fileID: 21300002, guid: 1bda855af75c9284a8d87d28bd2004b4, type: 3}
+  alignedToMouse: 1
+  playstyle: 0
   associatedButton: 
   comboParts:
   - {fileID: 114266916785636268, guid: 392ec98e0955a23479343b344f8731fd, type: 2}
@@ -82,5 +83,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 471af740d6dd5414d8a0ab5e340c24e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCooldown: 0.2
-  cooldownModifier: 1
+  baseTime: 0.5
+  modifier: 1

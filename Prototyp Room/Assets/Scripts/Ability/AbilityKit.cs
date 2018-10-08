@@ -17,6 +17,11 @@ namespace AbilitySystem
 		float globalCooldown = 0.1f;
 		float cooldownTimer;
 
+		public List<PlayerAbility> MyAbilities
+		{
+			get {return abilities;}
+		}
+
 		private Character owner;
 		private PlayerAbility previous;
 

@@ -55,3 +55,4 @@ MonoBehaviour:
   characterMenu: {fileID: 0}
   spellBook: {fileID: 0}
   mainMenu: {fileID: 0}
+  tooltipRect: {fileID: 0}

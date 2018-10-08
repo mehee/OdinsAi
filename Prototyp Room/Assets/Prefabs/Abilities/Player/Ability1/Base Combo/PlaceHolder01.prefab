@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1102786458117750}
+  m_IsPrefabAsset: 1
+--- !u!1 &1102786458117750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4941856615338628}
+  - component: {fileID: 114818307495850670}
+  - component: {fileID: 114882179809911956}
+  m_Layer: 0
+  m_Name: PlaceHolder01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4941856615338628
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1102786458117750}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114818307495850670
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1102786458117750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1618cd36b367ab47800300935915612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Heavy Cleve
+  description: Three Heavy Weapon attacks.  Scale with Strength and Intelligence.
+  durationInFrames: 0
+  orbit:
+    orbiting: 1
+    orbitRadii: {x: 1.2, y: 1.5}
+  owner: {fileID: 0}
+  direction: {x: 0, y: 0}
+  cost:
+    baseValue: 0
+    modifier: 1
+  icon: {fileID: 21300008, guid: 1bda855af75c9284a8d87d28bd2004b4, type: 3}
+  alignedToMouse: 1
+  playstyle: 0
+  associatedButton: 
+  comboParts:
+  - {fileID: 114266916785636268, guid: cc06b2fb8e98331448f27e9851f95ae4, type: 2}
+  - {fileID: 114800723874728962, guid: e3d673bcb43605042ba8bf7956e24f90, type: 2}
+  - {fileID: 114668032399578084, guid: 6a9563b5200451f448959087ebabc0c6, type: 2}
+  framesBeforeInterrupt: 30
+--- !u!114 &114882179809911956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1102786458117750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471af740d6dd5414d8a0ab5e340c24e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseTime: 0.5
+  modifier: 1

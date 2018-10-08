@@ -110,23 +110,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   description: 
-  cost:
-    baseValue: 0
-    modifier: 1
   durationInFrames: 10
-  icon: {fileID: 0}
-  alignedToMouse: 0
   orbit:
     orbiting: 0
     orbitRadii: {x: 0, y: 0}
   owner: {fileID: 0}
   direction: {x: 0, y: 0}
+  cost:
+    baseValue: 0
+    modifier: 1
+  icon: {fileID: 0}
+  alignedToMouse: 0
+  playstyle: 0
   associatedButton: 
   damage:
     baseValue: 5
     modifier: 1
-    strengthScaling: 0.33
-    intelligenceScaling: 0.05
+    strengthScaling: 0.22
+    intelligenceScaling: 0.02
 --- !u!114 &114739673296997910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,8 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 471af740d6dd5414d8a0ab5e340c24e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCooldown: 0
-  cooldownModifier: 1
+  baseTime: 0
+  modifier: 1
 --- !u!212 &212650811379637144
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -29,6 +29,12 @@ public class Health : Resource
 
         }
     }
+
+    void Update()
+    {
+
+    }
+
     public bool DmgReceived
     {
         get
@@ -70,6 +76,7 @@ public class Health : Resource
         {
             GetComponent<Character>().Die(); 
     }
-    
+
+
 }
 }

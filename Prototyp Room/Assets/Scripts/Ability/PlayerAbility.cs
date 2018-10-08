@@ -16,7 +16,6 @@ namespace AbilitySystem
 		public bool alignedToMouse = false;
 
 		public Playstyle playstyle;
-		
 		// Hidden Variables
 
 		[HideInInspector]

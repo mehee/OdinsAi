@@ -42,5 +42,10 @@ public class InputManager : MonoBehaviour
 		}
 		if(movement.DashTimer == 0)
 			movement.Move(movementVec);
+
+		if(Input.GetKeyDown(KeyCode.M))
+		{
+			this.GetComponent<Player>().LevelUp();
+		}
 	}
 }

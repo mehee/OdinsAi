@@ -20,8 +20,8 @@ public class SlamGround : EnemyAbility
 
 	protected override void OnActivation()
 	{
-		spriteRenderer.color = startingColor;
 		spriteRenderer.enabled = true;
+		spriteRenderer.color = startingColor;
 	}
 
 	protected override void ResolveOngoingEffects()
