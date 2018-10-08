@@ -81,17 +81,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
   speed: 10
-  bleed: {fileID: 114669667738311270, guid: 4db7bee345daaad42a9967503953666f, type: 2}
+  bleed: {fileID: 114358472270426986, guid: 4db7bee345daaad42a9967503953666f, type: 2}
   damage:
     baseValue: 0
     modifier: 1
     strengthScaling: 0
     intelligenceScaling: 0
-  stats:
-    hpMod: 0
-    strMod: 0
-    armMod: 0
-    intMod: 0
 --- !u!114 &114333001093502452
 MonoBehaviour:
   m_ObjectHideFlags: 1

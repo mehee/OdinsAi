@@ -47,7 +47,6 @@ public class ObjectPool : MonoBehaviour
 			}
 		}
 
-		Debug.Log("Object pool empty");
 		return null;
 	}
 

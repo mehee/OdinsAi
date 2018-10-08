@@ -15,6 +15,7 @@ public class SlamGround : EnemyAbility
 	protected override void SetUp()
 	{
 		spriteRenderer = GetComponent<SpriteRenderer>();
+		collider = GetComponent<CircleCollider2D>();
 	}
 
 	protected override void OnActivation()

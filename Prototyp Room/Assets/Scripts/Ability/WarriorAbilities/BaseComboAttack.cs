@@ -13,6 +13,7 @@ namespace AbilitySystem
 		protected override void SetUp()
 		{
 			collider = GetComponent<BoxCollider2D>();
+			collider.enabled = false;
 			transform.GetChild(0).gameObject.SetActive(false);
 		}
 

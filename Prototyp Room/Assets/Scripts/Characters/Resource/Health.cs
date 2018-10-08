@@ -61,7 +61,6 @@ public class Health : Resource
         if(hasDmgText)
         {
             index = ++index % 2;
-            Debug.Log(index);
              text[index].text= amount.ToString();
              text[index].CrossFadeAlpha(1.0f, 0.01f, false);
              text[index].CrossFadeAlpha(0.0f, 1, false);

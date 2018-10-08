@@ -841,7 +841,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1756923876716268}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -41.44, y: -10.91, z: 0}
+  m_LocalPosition: {x: -45.63, y: -10.61, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 224489156283404910}
@@ -950,7 +950,7 @@ BoxCollider2D:
   m_Offset: {x: -0.03651926, y: -0.03951311}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.40806097, y: 0.48786926}
     oldSize: {x: 0.39583334, y: 0.5625}
     newSize: {x: 0.39583334, y: 0.5625}
     adaptiveTilingThreshold: 0.5
@@ -1469,7 +1469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilities:
-  - {fileID: 114470041317231536, guid: 0edd468d34fd3fd4b910c9260b83a6ab, type: 2}
+  - {fileID: 114818307495850670, guid: ac83dec620664f14fb2dc3816619593b, type: 2}
   - {fileID: 114470041317231536, guid: 7e51af251d56ec94c9b6a590c529c1e8, type: 2}
   globalCooldown: 0.1
 --- !u!114 &114543029056133042
@@ -1859,6 +1859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67092ffd05d4ac84f9671702569cd741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rooted: 0
   movementSpeed: 8
   hasDash: 1
   dashDuration: 0.2

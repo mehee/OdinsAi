@@ -20,6 +20,8 @@ public class Movement : MonoBehaviour
     [SerializeField]
     float dashSpeed;
     float dashTimer;
+
+    private BoxCollider2D playerCollider;
     
 
 
@@ -86,6 +88,7 @@ public class Movement : MonoBehaviour
         health = GetComponent<Health> ();
         if(hasDash)
         image.color = new Color(image.color.r,image.color.g,image.color.b,0.0f);
+        playerCollider = gameObject.GetComponent<BoxCollider2D>();
 	}
 
 	
@@ -99,59 +102,44 @@ public class Movement : MonoBehaviour
     {
         if(availableDashes > 0)
         { 
-        this.StartCoroutine(substractMarker());
-        dashTimer = dashDuration;
-        dashDirection = movementVec;
-        health.IsVulnerable= false;
-        availableDashes--;
+            this.StartCoroutine(substractMarker());
+            dashTimer = dashDuration;
+            dashDirection = movementVec;
+            health.IsVulnerable= false;
+            availableDashes--;
+            playerCollider.enabled = false;
         }
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-      if(coll.gameObject.tag!="Enemy")
-      dashTimer=0;
-
-      else
-            coll.collider.enabled = false;
-        
-        
-    }
-    void OnCollisionExit2D(Collision2D coll)
-    {
-        coll.collider.enabled=true;
-    }
-    
     void Update()
     {
 
         if(hasDash)
         {
+            dashCD -= Time.deltaTime;
 
-        
-        dashCD -= Time.deltaTime;
-
-		if(dashCD<=0)
-		{
-		
-            this.StartCoroutine(addMarker());
-			dashCD=5;
-		}
+            if(dashCD<=0)
+            {
+            
+                this.StartCoroutine(addMarker());
+                dashCD=5;
+            }
 
        
-        if(dashTimer > 0)
-        {
-            rigidBody.velocity = dashSpeed * dashDirection;
-            dashTimer -= Time.deltaTime;
-            if(dashTimer < 0)
-                dashTimer = 0;
-        }
+            if(dashTimer > 0)
+            {
+                rigidBody.velocity = dashSpeed * dashDirection;
+                dashTimer -= Time.deltaTime;
+                if(dashTimer < 0)
+                    dashTimer = 0;
+            }
 
-        if(dashTimer == 0)
-        {
-            rigidBody.velocity = Vector2.zero;
-            health.IsVulnerable= true;
-        }
+            if(dashTimer == 0)
+            {
+                rigidBody.velocity = Vector2.zero;
+                playerCollider.enabled = true;
+                health.IsVulnerable= true;
+            }
         }
     }
 
