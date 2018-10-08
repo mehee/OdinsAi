@@ -69,7 +69,7 @@ Transform:
   m_GameObject: {fileID: 1905493725591090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4388661430506656}
   m_RootOrder: 0
@@ -86,7 +86,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.033653855, y: 0.08413553}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.0429038
 --- !u!82 &82736836367016040
@@ -95,7 +95,7 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1613337577112666}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b61d0c6e81b42024fac0bcac55439968, type: 3}
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
   targetTag: Player
-  speed: 2
+  speed: 10
   direction: {x: 0, y: 0}
   damage:
     baseValue: 10
@@ -270,8 +270,8 @@ SpriteRenderer:
   m_SortingLayerID: -1036298343
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c49a72f3e2ea99b48bde68970ec2e747, type: 3}
-  m_Color: {r: 0.6251729, g: 0.13510147, b: 0.8679245, a: 1}
+  m_Sprite: {fileID: 21300010, guid: 0c7551c110d642c478764c8f20712f38, type: 3}
+  m_Color: {r: 0.65727556, g: 0.061409745, b: 0.8679245, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
