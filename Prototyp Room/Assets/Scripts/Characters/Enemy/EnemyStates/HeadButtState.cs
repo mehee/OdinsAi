@@ -63,7 +63,7 @@ public class HeadButtState : IState
                 animator.Attack(direction);
 
                 parent.transform.position = Vector2.MoveTowards(parent.transform.position, headButtTarget, Time.deltaTime * chargeSpeed);
-                if (enemyCollider.IsTouchingLayers(9))
+                if (enemyCollider.IsTouchingLayers(9) && hitted == false)
                 {
                     playerHealth.Reduce(parent.AttackDamage);
                     hitted = true;
