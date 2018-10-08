@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Playstyle{warrior, mage}
+
 namespace AbilitySystem
 {
-	public abstract class PlayerAbility : Ability 
+	public abstract class PlayerAbility : Ability, IDescribable
 	{
 		// Inspector Variables
 
@@ -12,6 +14,8 @@ namespace AbilitySystem
 		Cost cost;
 		public Sprite icon;
 		public bool alignedToMouse = false;
+
+		public Playstyle playstyle;
 		
 		// Hidden Variables
 
@@ -97,6 +101,28 @@ namespace AbilitySystem
 			direction.x = rawDirection.x;
 			direction.y = rawDirection.y;
 			transform.up = direction;
+		}
+
+
+		//Color HexCodes
+		//0084D9 BLUE	mage
+		//FF3D00 RED	warrior
+		//CB5D00 Orange Rage
+
+		// Tooltips
+		public virtual string GetDescription()
+		{
+			string baseString = string.Format("");
+			switch (playstyle)
+			{
+				case Playstyle.warrior:
+					baseString = string.Format("<b>{0}</b>\n<i>Cost: <color=#CB5D00>{1}</color> Rage</i>\n{2}\n\nPlaystyle: <color=#FF3D00>{3}</color>", name, cost.Value, description, playstyle);
+					break;
+				case Playstyle.mage:
+					baseString = string.Format("<b>{0}</b>\n<i>Cost: <color=#CB5D00>{1}</color> Rage</i>\n{2}\n\nPlaystyle: <color=#0084D9>{3}</color>", name, cost.Value, description, playstyle);
+					break;
+			}
+			return  baseString;
 		}
 	}
 }

@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Playstyle{warrior, mage}
 
 namespace AbilitySystem
 {
 	/** Base class for all abilities. */
-	public abstract class Ability : MonoBehaviour, IDescribable
 	[RequireComponent(typeof(Timer))]
+	public abstract class Ability : MonoBehaviour
 	{
 		// Inspector Variables
 
@@ -33,7 +32,7 @@ namespace AbilitySystem
 		public bool alignedToMouse = false;
 
 		[SerializeField]
-		AbilityOrbit orbit;
+		protected AbilityOrbit orbit;
 		
 
 		[HideInInspector] 
@@ -132,26 +131,7 @@ namespace AbilitySystem
 		{
 
 		}
-		//Color HexCodes
-		//0084D9 BLUE	mage
-		//FF3D00 RED	warrior
-		//CB5D00 Orange Rage
-
-		// Tooltips
-		public virtual string GetDescription()
-		{
-			string baseString = string.Format("");
-			switch (playstyle)
-			{
-				case Playstyle.warrior:
-					baseString = string.Format("<b>{0}</b>\n<i>Cost: <color=#CB5D00>{1}</color> Rage</i>\n{2}\n\nPlaystyle: <color=#FF3D00>{3}</color>", name, cost.Value, description, playstyle);
-					break;
-				case Playstyle.mage:
-					baseString = string.Format("<b>{0}</b>\n<i>Cost: <color=#CB5D00>{1}</color> Rage</i>\n{2}\n\nPlaystyle: <color=#0084D9>{3}</color>", name, cost.Value, description, playstyle);
-					break;
-			}
-			return  baseString;
-		}
+	
 
 		/** Override to apply the abilities effects, damage etc.
 			to an enemy that entered the abilities trigger. 
@@ -217,6 +197,4 @@ namespace AbilitySystem
             }
         }
 	}
-
-	
 }
