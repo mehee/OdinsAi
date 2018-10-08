@@ -31,16 +31,18 @@ public class Player : Character
 		is needed for next level-up. */
 	[SerializeField] float levelUpFactor = 0.1f;
 
-	[SerializeField] int spellPointsPerLvl=1;
+	[SerializeField] int spellPointsPerLvl;
 
+	[SerializeField] int statPointsPerLvl;
 	[HideInInspector] public Health health;
 
-	int spellPoints = 0;
+	int spellPoints = 1;
+	int statPoints = 0;
 
 	void Start()
 	{
 		health = GetComponent<Health> ();
-		health.Maximum +=stats.Health * 10;
+		health.Maximum += stats.Health * 10;
 		health.Reset();
 	}
 	
@@ -69,6 +71,19 @@ public class Player : Character
         }
     }
 
+    public int StatPoints
+    {
+        get
+        {
+            return statPoints;
+        }
+
+        set
+        {
+            statPoints = value;
+        }
+    }
+
     public void GainExp(uint amount)
 	{
 		experience += amount;
@@ -76,10 +91,10 @@ public class Player : Character
 		{
 			LevelUp();
 			experience -= expToNextLevel;
-			expToNextLevel = (uint)Mathf.FloorToInt(
-				expToNextLevel * levelUpFactor);
+			expToNextLevel = (uint)Mathf.FloorToInt(expToNextLevel * levelUpFactor);
 		}
 	}
+
     public override void Die()
 	{
 		GetComponent<Health>().Reset();
@@ -89,8 +104,9 @@ public class Player : Character
 	void LevelUp()
 	{
 		level++;
-		stats.UpdateStats(level);
+		statPoints += statPointsPerLvl;
 		spellPoints += spellPointsPerLvl;
-		health.Maximum += stats.Health * 100;
+		health.Maximum += stats.Health * 10;
+        StatTextScript.MyInstance.UpdateStatsText();
 	}
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryScript : MonoBehaviour 
+public class InventoryScript : MonoBehaviour
 {
 
 	private static InventoryScript instance;
@@ -44,6 +44,7 @@ public class InventoryScript : MonoBehaviour
 	[SerializeField]
 	private Item[] items;
 
+	//Can Add 5 Bags
 	public bool CanAddBag {get {return bags.Count < 5;} }
 
 	private void Update()
@@ -62,8 +63,17 @@ public class InventoryScript : MonoBehaviour
 		}
 		if(Input.GetKeyDown(KeyCode.L))
 		{
-			HealthPotion potion = (HealthPotion)Instantiate(items[1]);
+			HealthPotion potion = (HealthPotion)Instantiate(items[12]);
 			AddItem(potion);
+		}
+		if(Input.GetKeyDown(KeyCode.H))
+		{
+			// AddItem((Armor)Instantiate(items[7]));
+			// AddItem((Armor)Instantiate(items[8]));
+			// AddItem((Armor)Instantiate(items[9]));
+			// AddItem((Armor)Instantiate(items[10]));
+			// AddItem((Armor)Instantiate(items[11]));
+
 		}
 
 	}
@@ -74,6 +84,33 @@ public class InventoryScript : MonoBehaviour
 		Bag bag = (Bag)Instantiate(items[0]);
 		bag.Initialize();
 		bag.Use();
+
+		//StartItems
+		Armor tmp = (Armor)Instantiate(items[1]);
+		Armor tmp1 = (Armor)Instantiate(items[2]);
+		Armor tmp2 = (Armor)Instantiate(items[3]);
+		Armor tmp3 = (Armor)Instantiate(items[4]);
+		Armor tmp4 = (Armor)Instantiate(items[5]);
+		Armor tmp5 = (Armor)Instantiate(items[6]);
+		//equip Start Items
+		CharacterMenu.MyInstance.EquipArmor(tmp);
+		CharacterMenu.MyInstance.EquipArmor(tmp1);
+		CharacterMenu.MyInstance.EquipArmor(tmp2);
+		CharacterMenu.MyInstance.EquipArmor(tmp3);
+		CharacterMenu.MyInstance.EquipArmor(tmp4);
+		CharacterMenu.MyInstance.EquipArmor(tmp5);
+
+		//Start Potions and Bag
+		AddItem((HealthPotion)Instantiate(items[7]));
+		AddItem((HealthPotion)Instantiate(items[8]));
+
+		Bag bag1 = (Bag)Instantiate(items[9]);
+			bag.Initialize();
+			AddItem(bag);
+		// Bag bag2 = (Bag)Instantiate(items[10]);
+		// 	bag.Initialize();
+		// 	AddItem(bag);
+	
 	}
 
 	public void AddBag(Bag bag)
@@ -89,31 +126,32 @@ public class InventoryScript : MonoBehaviour
 		}
 	}
 
-	
-	public void AddItem(Item item)
+	///<summary> try to place in Stack. if so do, if not -> PlaceInEmpty()</summary>
+	public bool AddItem(Item item)
 	{
-
 		if(item.MyStackSize > 0)
 		{
 			if(PlaceInStack(item))
-				return;
+				return true;
 		}
-		PlaceInEmpty(item);
-
+		
+		return PlaceInEmpty(item);
 	}
 
-	//running through all slots belonging to this Bag
-	private void PlaceInEmpty(Item item)
+	///<summary>running through all slots belonging to this Bag</summary>
+	private bool PlaceInEmpty(Item item)
 	{
 		foreach (Bag bag in bags)
 		{
 			if(bag.MyBagScript.AddItem(item))
-				return;
+				return true;
 		}
+		//Inventory is full
+		return false;
 	}
 
 
-	//run through all bags, then all slots and check if the Item is Stackable
+	///<summary>run through all bags, then all slots and check if the Item is Stackable</summary>
 	private bool PlaceInStack(Item item)
 	{
 		foreach (Bag bag in bags) 

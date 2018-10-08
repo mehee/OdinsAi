@@ -8,7 +8,8 @@ public class Bag : Item, IUseable
 {
 	//Quality quality;
 	private int slots;
-	[SerializeField] private GameObject bagPrefab;
+	[SerializeField] 
+	private GameObject bagPrefab;
 
 	//property
 	public BagScript MyBagScript {get; set;}
@@ -18,6 +19,7 @@ public class Bag : Item, IUseable
 		get {return slots;}
 	}
 
+	///<summary> Initialize Bag with the correct Size, depending on the ItemQuality</summary>
 	public void Initialize()
 	{
 		SetBagSize();
@@ -52,5 +54,11 @@ public class Bag : Item, IUseable
 			default: slots = 12;
 				break;
 		}
+	}
+
+	public override string GetDescription()
+	{
+		//base gets the Titel in color
+		return base.GetDescription() + string.Format("\n{0} slot Bag", slots); 
 	}
 }

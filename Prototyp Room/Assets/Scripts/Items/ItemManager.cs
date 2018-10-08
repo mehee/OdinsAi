@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;		//Cant click through
-using System.Collections;
 using System.Collections.Generic; 	// for lists
-using System.Xml;					//basic xml attributes
 using System.Xml.Serialization; 	// access to xml serializer
 using System.IO;					// file management, also for other filetyps like json
 
@@ -16,6 +13,7 @@ public class ItemManager : MonoBehaviour
 		SaveItems();
 		//LoadItems();
 	}
+	
 
 	//list of Items
 	public ItemDatabase itemDatabase;
