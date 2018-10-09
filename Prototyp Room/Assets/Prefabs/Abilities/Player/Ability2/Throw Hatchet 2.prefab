@@ -66,8 +66,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a277b924778fac4488f72a3a34589c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Throw Hatchet
-  description: Axe to the face.
+  name: Throw Bigger Hatchet
+  description: 'Throw a big Hatchet towards your Enemys.
+
+    Damage scales even better with Strength.'
   durationInFrames: 1
   orbit:
     orbiting: 0
@@ -75,9 +77,9 @@ MonoBehaviour:
   owner: {fileID: 0}
   direction: {x: 0, y: 0}
   cost:
-    baseValue: 0
+    baseValue: 15
     modifier: 1
-  icon: {fileID: 21300024, guid: 1bda855af75c9284a8d87d28bd2004b4, type: 3}
+  icon: {fileID: 21300012, guid: 1bda855af75c9284a8d87d28bd2004b4, type: 3}
   alignedToMouse: 1
   playstyle: 0
   associatedButton: 

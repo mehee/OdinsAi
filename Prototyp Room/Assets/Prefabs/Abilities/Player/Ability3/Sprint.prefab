@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Sprint
-  description: Got to go fast.
+  description: "Gives you a Mobility Boost \nfor a short periode."
   durationInFrames: 1
   orbit:
     orbiting: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   direction: {x: 0, y: 0}
   cost:
-    baseValue: 0
+    baseValue: 5
     modifier: 1
   icon: {fileID: 21300010, guid: 1bda855af75c9284a8d87d28bd2004b4, type: 3}
   alignedToMouse: 0

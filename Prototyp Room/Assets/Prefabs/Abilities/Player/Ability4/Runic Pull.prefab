@@ -117,7 +117,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   direction: {x: 0, y: 0}
   cost:
-    baseValue: 0
+    baseValue: 15
     modifier: 1
   icon: {fileID: 21300000, guid: 1bda855af75c9284a8d87d28bd2004b4, type: 3}
   alignedToMouse: 1
@@ -128,7 +128,7 @@ MonoBehaviour:
     modifier: 1
     strengthScaling: 0
     intelligenceScaling: 0
-  pushStrengh: -12
+  pushStrengh: -4
   push: {fileID: 114094650858474682, guid: 97fdaa77ce45e3c4387fcd93f3e6c804, type: 2}
 --- !u!114 &114898721588703942
 MonoBehaviour:

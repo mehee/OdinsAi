@@ -66,8 +66,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c913b23d24c2ee44bf68e46e7b84deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Rune Orb
-  description: Throw an orb of runic energy.
+  name: Stronger Rune Orb
+  description: 'Throw an orb of runic energy.
+
+    Better Scale with Intelligence.'
   durationInFrames: 1
   orbit:
     orbiting: 0
@@ -75,9 +77,9 @@ MonoBehaviour:
   owner: {fileID: 0}
   direction: {x: 0, y: 0}
   cost:
-    baseValue: 0
+    baseValue: 20
     modifier: 1
-  icon: {fileID: 21300032, guid: 1bda855af75c9284a8d87d28bd2004b4, type: 3}
+  icon: {fileID: 21300000, guid: 15f5b6f48bf60024bb5b8f0eb1ef0a17, type: 3}
   alignedToMouse: 1
   playstyle: 1
   associatedButton: 

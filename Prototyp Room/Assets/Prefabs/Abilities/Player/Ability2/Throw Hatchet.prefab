@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Throw Hatchet
-  description: Axe to the face.
+  description: Throw a big Hatchet towards your Enemys.
   durationInFrames: 1
   orbit:
     orbiting: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   direction: {x: 0, y: 0}
   cost:
-    baseValue: 0
+    baseValue: 10
     modifier: 1
   icon: {fileID: 21300024, guid: 1bda855af75c9284a8d87d28bd2004b4, type: 3}
   alignedToMouse: 1

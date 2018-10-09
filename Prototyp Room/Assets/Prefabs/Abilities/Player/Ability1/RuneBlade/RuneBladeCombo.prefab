@@ -53,8 +53,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Rune Blades
-  description: Strike twice with a long-ranged blade. The second strike deals extra
-    Damage.
+  description: "Strike twice with a long-ranged blade. \nThe second strike deals extra
+    Damage."
   durationInFrames: 1
   orbit:
     orbiting: 1

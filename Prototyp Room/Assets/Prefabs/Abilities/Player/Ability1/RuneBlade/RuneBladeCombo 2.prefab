@@ -52,8 +52,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1618cd36b367ab47800300935915612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Rune Blades
-  description: Strike twice with a long-ranged blade.
+  name: Mighty Rune Blades
+  description: "Strike twice with a long-ranged blade. \nThe Strikes Scale more even
+    more \nnow with Strength and Intelligence."
   durationInFrames: 1
   orbit:
     orbiting: 1

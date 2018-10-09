@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Runic Push
-  description: Forces targets hit backwards.
+  description: Pushs Enemys Away from you.
   durationInFrames: 5
   orbit:
     orbiting: 1
@@ -117,18 +117,18 @@ MonoBehaviour:
   owner: {fileID: 0}
   direction: {x: 0, y: 0}
   cost:
-    baseValue: 0
+    baseValue: 15
     modifier: 1
-  icon: {fileID: 21300034, guid: 1bda855af75c9284a8d87d28bd2004b4, type: 3}
+  icon: {fileID: 21300048, guid: 1bda855af75c9284a8d87d28bd2004b4, type: 3}
   alignedToMouse: 1
-  playstyle: 0
+  playstyle: 1
   associatedButton: 
   damage:
     baseValue: 10
     modifier: 1
     strengthScaling: 0
     intelligenceScaling: 0
-  pushStrengh: 30
+  pushStrengh: 15
   push: {fileID: 114094650858474682, guid: 97fdaa77ce45e3c4387fcd93f3e6c804, type: 2}
 --- !u!114 &114898721588703942
 MonoBehaviour:
