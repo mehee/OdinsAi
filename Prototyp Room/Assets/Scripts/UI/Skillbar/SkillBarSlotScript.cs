@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using AbilitySystem;
 using UnityEngine.EventSystems;
 
-public enum WhichSlot{slot1, slot2, slot3, slot4}
+public enum WhichSlot{slot1, slot2, slot3, slot4,slot5}
 public class SkillBarSlotScript : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandler
 {
 	// Use this for initialization
@@ -43,6 +43,9 @@ public class SkillBarSlotScript : MonoBehaviour//, IPointerEnterHandler, IPointe
 				break;
 			case WhichSlot.slot4:
 				icon.sprite = abilityKit.MyAbilities[3].icon;
+				break;
+				case WhichSlot.slot5:
+				icon.sprite = abilityKit.MyAbilities[4].icon;
 				break;
 		}	
 	}

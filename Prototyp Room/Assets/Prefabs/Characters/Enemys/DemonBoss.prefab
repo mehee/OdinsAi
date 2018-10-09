@@ -711,7 +711,7 @@ MonoBehaviour:
   healthPool: {fileID: 0}
   chest: {fileID: 0}
   attackRange: 0
-  experienceReward: 230
+  experienceReward: 1000
 --- !u!114 &114310036686793304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -907,7 +907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083839f59f1d7954c9f11d4bdb831846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximum: 10
+  maximum: 450
   value: 10
   hasParticleEffect: 1
   hasDmgText: 1

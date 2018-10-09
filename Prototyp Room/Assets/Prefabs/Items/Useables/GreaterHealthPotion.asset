@@ -16,4 +16,4 @@ MonoBehaviour:
   stackSize: 5
   titel: Greater Healthpotion
   quality: 0
-  health: 50
+  health: 100

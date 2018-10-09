@@ -16,4 +16,4 @@ MonoBehaviour:
   stackSize: 5
   titel: Healthpotion
   quality: 0
-  health: 20
+  health: 40

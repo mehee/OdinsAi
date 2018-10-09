@@ -984,7 +984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083839f59f1d7954c9f11d4bdb831846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximum: 10
+  maximum: 200
   value: 10
   hasParticleEffect: 1
   hasDmgText: 1
@@ -1179,7 +1179,7 @@ MonoBehaviour:
   moveSpots: []
   attackRange: 3
   attackCD: 1
-  attackDamage: 10
+  attackDamage: 25
   attackAnimationLenght: 0.66
 --- !u!198 &198014098158618216
 ParticleSystem:
