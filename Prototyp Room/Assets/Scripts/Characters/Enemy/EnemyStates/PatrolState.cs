@@ -20,7 +20,7 @@ public class PatrolState : IState
        // randomSpot = Random.Range(0, moveSpots.Length);
         parent.currentMoveSpot = currentSpot;
         //Hardcoded TAKE CARE!
-        waitTime = tmpWaitTime = 1;
+        waitTime = tmpWaitTime = 0;
         isWaiting = false;
     }
 

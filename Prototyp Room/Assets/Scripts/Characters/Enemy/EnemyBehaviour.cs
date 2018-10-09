@@ -360,7 +360,7 @@ public class EnemyBehaviour : MonoBehaviour {
         Animator = GetComponent<AnimationManager>();
         ChangeState(new IdleState());
         movement = GetComponent<Movement>();
-        myStartPosition = enemy.transform.position;
+        myStartPosition = this.transform.position;
         attackCDtmp = attackCD;
         defaultDirection = Vector2.down;
         AttackAnimatiomTMP = attackAnimationLenght;
