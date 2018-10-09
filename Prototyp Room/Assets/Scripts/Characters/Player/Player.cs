@@ -104,10 +104,12 @@ public class Player : Character
         
 	}
 
+    //Ueberarbeiten
     public override void Die()
 	{
-		GetComponent<Health>().Reset();
-		transform.position = Vector2.zero;
+        health.Value = 1.0f;
+	//	GetComponent<Health>().Reset();
+	//	transform.position = Vector2.zero;
 	}
 
 	public void LevelUp()

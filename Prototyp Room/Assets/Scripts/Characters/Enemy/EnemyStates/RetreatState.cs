@@ -24,7 +24,8 @@ public class RetreatState : IState {
         parent.Movement.Move(movementVec);
         float distance = Vector2.Distance(parent.MyStartPosition, parent.transform.position);
         if(distance < 2 )
-        {      
+        {   
+            parent.Movement.Move(Vector2.zero);
             parent.ChangeState(new IdleState());
         }
         if(parent.Target)
