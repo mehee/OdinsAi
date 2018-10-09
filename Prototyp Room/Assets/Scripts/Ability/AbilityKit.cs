@@ -82,7 +82,6 @@ namespace AbilitySystem
 				if(Input.GetButtonDown("Ability" + (i + 1)))
 				{	
 					CD(i);
-					Debug.Log(abilityInstances[i]);
 					return abilityInstances[i];
 				}
 			}
@@ -111,7 +110,6 @@ namespace AbilitySystem
 		public void CD(int abilitySlot)
 		{
 			cooldownScript[abilitySlot].SetAbility(abilityInstances[abilitySlot]);
-			Debug.Log("CD: " + abilityInstances[abilitySlot]);
 		}
 
 	}

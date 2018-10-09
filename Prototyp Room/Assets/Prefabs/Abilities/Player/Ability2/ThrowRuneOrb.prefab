@@ -75,7 +75,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   direction: {x: 0, y: 0}
   cost:
-    baseValue: 15
+    baseValue: 0
     modifier: 1
   icon: {fileID: 21300000, guid: b79000506b910cd42a8889ede9f8cec7, type: 3}
   alignedToMouse: 1

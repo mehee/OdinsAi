@@ -123,10 +123,10 @@ namespace AbilitySystem
 			switch (playstyle)
 			{
 				case Playstyle.warrior:
-					baseString = string.Format("<b>{0}</b>\n<i>Cost: <color=#CB5D00>{1}</color> Rage</i>\n{2}\n\nPlaystyle: <color=#FF3D00>{3}</color>", name, cost.Value, description, playstyle);
+					baseString = string.Format("<b>{0}</b>\n{1}\n\nPlaystyle: <color=#FF3D00>{2}</color>", name, description, playstyle);//\n<i>Cost: <color=#CB5D00>{1}</color> Rage</i>, cost.Value, 
 					break;
 				case Playstyle.mage:
-					baseString = string.Format("<b>{0}</b>\n<i>Cost: <color=#CB5D00>{1}</color> Rage</i>\n{2}\n\nPlaystyle: <color=#0084D9>{3}</color>", name, cost.Value, description, playstyle);
+					baseString = string.Format("<b>{0}</b>\n{1}\n\nPlaystyle: <color=#0084D9>{2}</color>", name, description, playstyle);
 					break;
 			}
 			return  baseString;
