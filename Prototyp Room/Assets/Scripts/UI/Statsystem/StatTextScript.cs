@@ -21,8 +21,8 @@ public class StatTextScript : MonoBehaviour {
     }
 	[SerializeField]
 	private Player player;
-	[SerializeField]
-	private Text characterName, level, points, armor, health, strength, intelligence;
+
+	public Text characterName, level, points, armor, health, strength, intelligence;
 
 	public void UpdateStatsText() 
 	{	

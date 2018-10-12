@@ -60,16 +60,6 @@ public class InventoryScript : MonoBehaviour
 			HealthPotion potion = (HealthPotion)Instantiate(items[9]);
 			AddItem(potion);
 		}
-		if(Input.GetKeyDown(KeyCode.H))
-		{
-			// AddItem((Armor)Instantiate(items[7]));
-			// AddItem((Armor)Instantiate(items[8]));
-			// AddItem((Armor)Instantiate(items[9]));
-			// AddItem((Armor)Instantiate(items[10]));
-			// AddItem((Armor)Instantiate(items[11]));
-
-		}
-
 	}
 	// -------------
 
@@ -156,8 +146,6 @@ public class InventoryScript : MonoBehaviour
 	public void OpenClose()
 	{
 		bool closedBag = bags.Find(x => !x.MyBagScript.IsOpen);
-		//if closed bag == true, then open all closed bags
-		//if closed bag == flase, then close all open bags
 
 		foreach (Bag bag in bags)
 		{

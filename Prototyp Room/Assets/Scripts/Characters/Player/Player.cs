@@ -38,6 +38,8 @@ public class Player : Character
 
 	[SerializeField] int statPointsPerLvl;
 	[HideInInspector] public Health health;
+    [SerializeField]
+    private GameObject graveYard;
 
 	int spellPoints = 1;
 	int statPoints = 0;
@@ -104,12 +106,11 @@ public class Player : Character
         
 	}
 
-    //Ueberarbeiten
+    
     public override void Die()
 	{
-        health.Value = 1.0f;
-	//	GetComponent<Health>().Reset();
-	//	transform.position = Vector2.zero;
+		GetComponent<Health>().Reset();
+		transform.position = graveYard.transform.position;
 	}
 
 	public void LevelUp()

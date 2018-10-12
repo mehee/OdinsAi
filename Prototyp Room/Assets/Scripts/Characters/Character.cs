@@ -9,8 +9,6 @@ public abstract class Character : MonoBehaviour
   
 	public uint level;
 
-    public Health healthPool;
-
     public Stats stats;
 
     public abstract void Die();

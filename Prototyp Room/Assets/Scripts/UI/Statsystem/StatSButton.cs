@@ -11,7 +11,6 @@ public class StatSButton : MonoBehaviour {
 	[SerializeField]
 	private StatsNumber wichStat;
 	// Use this for initialization
-	//public int statNumber;
 
 	[SerializeField]
 	private Player player;

@@ -50,17 +50,4 @@ public class SkillBarSlotScript : MonoBehaviour//, IPointerEnterHandler, IPointe
 		}	
 	}
 	
-	// --- Tooltips
-	// public void OnPointerEnter(PointerEventData eventData)
-	// {
-	// 	if(ability != null)
-	// 	{
-	// 		UIManager.MyInstance.ShowTooltip(new Vector2(0,0),transform.position, ability);
-	// 	}
-	// }
-
-	// public void OnPointerExit(PointerEventData eventData)
-	// {
-	// 	UIManager.MyInstance.HideTooltip();
-	// }
 }

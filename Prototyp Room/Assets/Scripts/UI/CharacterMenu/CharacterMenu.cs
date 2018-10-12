@@ -28,7 +28,6 @@ public class CharacterMenu : MonoBehaviour
 	private CanvasGroup characterMenu;
 	[SerializeField]
 	private Player player; 
-	bool firstTime=true;
 
 	//For Reference to the Selected Button if Clicked 
 	public CharacterItemSlot MySelectedButton {get;set;}
