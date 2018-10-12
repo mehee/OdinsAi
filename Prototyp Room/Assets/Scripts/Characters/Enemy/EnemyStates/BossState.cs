@@ -5,15 +5,10 @@ using UnityEngine;
 
 public class BossState : IState
 {
-    private EnemyBehaviour parent;
-
     private Vector2 direction;
     private EnemyAbility abilityInstance;
     private int numOfAbilities;
     private int currentAbility;
-
-
-
 
     public void Enter(EnemyBehaviour parent)
     {
@@ -21,7 +16,6 @@ public class BossState : IState
         currentAbility = (int)Random.Range(0, numOfAbilities);
 
         //Debug.Log("enter boss");
-        this.parent = parent;
         Vector2 direction = (parent.Target.position - parent.transform.position).normalized;
 
         abilityInstance = parent.BossAbilityInstance;
