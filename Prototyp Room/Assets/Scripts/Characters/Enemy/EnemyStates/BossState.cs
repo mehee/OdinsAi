@@ -45,12 +45,4 @@ public class BossState : IState
 
 
     }
-
-    private Vector2 getVectorBehindPlayer(float multiplyer)
-    {
-        Vector2 direction = (parent.Target.position - parent.transform.position).normalized;
-        Vector2 parentTargetVector2 = new Vector2(parent.Target.position.x, parent.Target.position.y);
-        Vector2 vectorBehindPlayer = parentTargetVector2 + direction * multiplyer;
-        return vectorBehindPlayer;
-    }
 }

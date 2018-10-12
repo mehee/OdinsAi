@@ -381,8 +381,6 @@ public class EnemyBehaviour : MonoBehaviour {
         }
         else if(isBoss)
         {
-           // Debug.Log("yes i am the boss");
-
             BossVars = GetComponent<BossVars>();
             BossAbillites = BossVars.ability;
             for (int i = 0; i < 2; i++)
@@ -443,8 +441,6 @@ public class EnemyBehaviour : MonoBehaviour {
         else if(currentState is IdleState)
         {
             Animator.Stay(movement.Direction);
-            //tried to follow Player position for looking around like mona lisa
-           // Animator.Stay((Target.transform.position - enemy.transform.position).normalized);
         }
     }
    

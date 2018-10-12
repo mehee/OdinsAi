@@ -850,7 +850,7 @@ MonoBehaviour:
   isBoss: 0
   evadeDistance: 5
   moveSpots: []
-  attackRange: 5
+  attackRange: 6
   attackCD: 1
   attackDamage: 60
   attackAnimationLenght: 0
@@ -867,7 +867,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Reaper
   level: 2
-  healthPool: {fileID: 0}
   chest: {fileID: 0}
   attackRange: 0
   experienceReward: 300

@@ -14,7 +14,7 @@ public class RetreatState : IState {
 
     public void Exit()
     {
-       // parent.Movement.MovementSpeed = 0;
+
     }
 
 

@@ -919,7 +919,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Demon
   level: 2
-  healthPool: {fileID: 0}
   chest: {fileID: 0}
   attackRange: 0
   experienceReward: 300
@@ -1046,7 +1045,7 @@ MonoBehaviour:
   evadeDistance: 7
   moveSpots: []
   attackRange: 8
-  attackCD: 0
+  attackCD: 1
   attackDamage: 30
   attackAnimationLenght: 0.66
 --- !u!114 &114802179904807884

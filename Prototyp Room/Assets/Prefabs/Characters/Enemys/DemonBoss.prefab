@@ -579,7 +579,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 15
 --- !u!61 &61556251361772914
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -708,7 +708,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: DemonBoss
   level: 2
-  healthPool: {fileID: 0}
   chest: {fileID: 0}
   attackRange: 0
   experienceReward: 1000
