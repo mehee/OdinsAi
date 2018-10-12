@@ -9,7 +9,7 @@ public class Player : Character
 
 	private static Player instance;
 
-    ExperienceBar experienceBar;
+  
     public static Player MyInstance
 
     
@@ -50,7 +50,6 @@ public class Player : Character
 	{
 		health = GetComponent<Health> ();
 		health.Maximum += stats.Health * 10;
-        experienceBar = GetComponentInChildren<ExperienceBar>();
 		health.Reset();
 	}
 	

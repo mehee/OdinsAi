@@ -10,8 +10,6 @@ public class Movement : MonoBehaviour
    	[SerializeField]
 	private float movementSpeed;
 	Rigidbody2D rigidBody;
-
-    Collision2D collider = null;
     
     public bool hasDash;
      int availableDashes = 3;
@@ -29,7 +27,7 @@ public class Movement : MonoBehaviour
 
     [SerializeField]
     Image image = null;
-    private float timer;
+   
     Vector2 dashDirection;
      Vector2 direction;
 
