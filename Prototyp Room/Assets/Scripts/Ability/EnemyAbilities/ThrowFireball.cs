@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using AbilitySystem;
 
 public class ThrowFireball : EnemyAbility
 {
 	ObjectPool fireballs;
+
 	[SerializeField]
 	public Damage damage;
 
@@ -18,7 +17,6 @@ public class ThrowFireball : EnemyAbility
 			fireball = po as Fireball;
 			fireball.stats = owner.stats;
 			fireball.damage = damage;
-			Debug.Log("No owner: " + owner == null);
 		}
 	} 
 

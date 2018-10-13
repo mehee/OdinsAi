@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using AbilitySystem;
 
 /** The axe thrown be the warriors
@@ -11,11 +9,13 @@ using AbilitySystem;
 public class Hatchet : PoolObject
 {
     public float speed;
+    
 	[SerializeField] 
     Bleed bleed;
 
     [HideInInspector] 
     public Damage damage;
+
     [HideInInspector]
     public Stats stats;
     

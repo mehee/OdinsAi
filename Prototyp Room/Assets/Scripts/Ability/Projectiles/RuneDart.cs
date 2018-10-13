@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using AbilitySystem;
 
-[RequireComponent(typeof(BoxCollider2D), typeof(AbilitySystem.Timer))]
+[RequireComponent(typeof(BoxCollider2D), typeof(Timer))]
 public class RuneDart : MonoBehaviour
 {
 	public Damage damage;
@@ -12,8 +10,10 @@ public class RuneDart : MonoBehaviour
 
 	[HideInInspector]
 	public Vector2 direction;
+
 	[HideInInspector]
 	public Stats stats;
+	
 	[HideInInspector]
 	public Vector2 velocity;
 

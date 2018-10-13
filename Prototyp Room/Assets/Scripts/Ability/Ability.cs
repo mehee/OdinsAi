@@ -1,12 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 
 namespace AbilitySystem
 {
-	/** Base class for all abilities. */
-	[RequireComponent(typeof(Timer))]
+    /** Base class for all abilities. */
+    [RequireComponent(typeof(Timer))]
 	public abstract class Ability : MonoBehaviour
 	{
 		// Inspector Variables
@@ -15,9 +12,9 @@ namespace AbilitySystem
 		
 		[TextArea(1, 5)]
 		public string description;
+		
 		[Range(1, 1000)]
 		public int durationInFrames = 1;
-
 
 		/** Define an orbit to achieve more believable
 			hitbox placement on characters whose sprite

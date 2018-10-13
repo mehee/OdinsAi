@@ -1,19 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace AbilitySystem
 {
-	/** Simple Timer to be used for cooldowns
+    /** Simple Timer to be used for cooldowns
 		or object life time. */
-	public class Timer : MonoBehaviour
+    public class Timer : MonoBehaviour
 	{
 		[Range(0, 600)][SerializeField] 
 		float baseTime;
+
 		[Range(0, 10)][SerializeField] 
 		float modifier = 1f;
+
 		[Range(0, int.MaxValue)] 
 		float remaining;
+		
 		public bool IsActive { get; private set; }
 
 		/** Returns the actual cooldown duration composed

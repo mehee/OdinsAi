@@ -1,11 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-	[SerializeField] PoolObject prefab;
-	[SerializeField] int poolSize;
+	[SerializeField] 
+	PoolObject prefab;
+
+	[SerializeField] 
+	int poolSize;
+	
 	int remainingPoolObjects;
 	List<PoolObject> instances = new List<PoolObject>();
 	int indexToDispatchFrom;
@@ -17,6 +20,7 @@ public class ObjectPool : MonoBehaviour
 			return instances.AsReadOnly();
 		}
 	}
+
 	void Start()
 	{
 		for(int i = 0; i < poolSize; i++)

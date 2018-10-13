@@ -1,18 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace AbilitySystem
 {
-	[System.Serializable]
+    [System.Serializable]
 	public class Damage
 	{
 		[Range(0, float.MaxValue)]
 		public float baseValue;
+
 		[Range(0, float.MaxValue)]
-		public float modifier = 1f; 
+		public float modifier = 1f;
+
 		[Range(0, float.MaxValue)] 
-		public float strengthScaling = 0f; 
+		public float strengthScaling = 0f;
+		 
 		[Range(0, float.MaxValue)] 
 		public float intelligenceScaling = 0f;
 

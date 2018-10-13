@@ -1,13 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using AbilitySystem;
 
 public class ThrowRuneOrb : PlayerAbility
 {
-	ObjectPool runeOrbs;
 	[SerializeField]
 	Damage damage;
+
+	ObjectPool runeOrbs;
 
 	protected override void SetUp()
 	{
@@ -26,7 +25,7 @@ public class ThrowRuneOrb : PlayerAbility
 		var runeOrb = runeOrbs.Dispatch() as Fireball;
 		if(runeOrb == null)
 		{
-			Debug.LogError("No balls left");
+			Debug.LogError("No orbs left");
 			return;
 		}
 		runeOrb.transform.position = transform.position;
