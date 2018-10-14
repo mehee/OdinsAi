@@ -8,24 +8,24 @@ public class ForcedMovement : PlayerAbility
 	public float pushStrengh = 30f;
 	public Force push;
 
-	new BoxCollider2D collider;
+	BoxCollider2D hitbox;
 	
 	protected override void SetUp()
 	{
-		collider = GetComponent<BoxCollider2D>();
+		hitbox = GetComponent<BoxCollider2D>();
 		push.strength = pushStrengh;
 	}
 
 	protected override void OnActivation()
 	{
 		transform.GetChild(0).gameObject.SetActive(true);
-		collider.enabled = true;
+		hitbox.enabled = true;
 	}
 
 	protected override void CleanUp()
 	{
 		transform.GetChild(0).gameObject.SetActive(false);
-		collider.enabled = false;
+		hitbox.enabled = false;
 	}
 
 	protected override void AffectTargetsHit(Transform target)

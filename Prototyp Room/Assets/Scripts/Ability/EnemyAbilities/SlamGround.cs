@@ -7,13 +7,13 @@ public class SlamGround : EnemyAbility
 	public Damage damage;
 	public Color startingColor;
 	public Color finishColor;
-	new CircleCollider2D collider;
+	CircleCollider2D hitbox;
 	SpriteRenderer spriteRenderer;
 
 	protected override void SetUp()
 	{
 		spriteRenderer = GetComponent<SpriteRenderer>();
-		collider = GetComponent<CircleCollider2D>();
+		hitbox = GetComponent<CircleCollider2D>();
 	}
 
 	protected override void OnActivation()
@@ -33,13 +33,13 @@ public class SlamGround : EnemyAbility
 
 		if(frameCount == startupFrames)
 		{
-			collider.enabled = true;
+			hitbox.enabled = true;
 		}
 	}
 
 	protected override void CleanUp()
 	{
-		collider.enabled = false;
+		hitbox.enabled = false;
 		spriteRenderer.enabled = false;
 	}
 

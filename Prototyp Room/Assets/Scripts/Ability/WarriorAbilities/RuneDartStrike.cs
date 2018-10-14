@@ -7,17 +7,17 @@ namespace AbilitySystem
 	{
 		public Damage damage;
 		public RuneDart dart;
-		new BoxCollider2D collider;
+		BoxCollider2D hitbox;
 
 		protected override void SetUp()
 		{
-			collider = GetComponent<BoxCollider2D>();
+			hitbox = GetComponent<BoxCollider2D>();
 			transform.GetChild(0).gameObject.SetActive(false);
 		}
 
 		protected override void OnActivation()
 		{
-			collider.enabled = true;
+			hitbox.enabled = true;
 			transform.GetChild(0).gameObject.SetActive(true);
 			var runeDart = Instantiate(dart);
 			runeDart.direction = direction;
@@ -26,7 +26,7 @@ namespace AbilitySystem
 
 		protected override void CleanUp()
 		{
-			collider.enabled = false;
+			hitbox.enabled = false;
 			transform.GetChild(0).gameObject.SetActive(false);
 		}
 
