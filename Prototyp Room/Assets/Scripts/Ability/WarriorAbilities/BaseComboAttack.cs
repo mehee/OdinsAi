@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace AbilitySystem
 {
-	[RequireComponent(typeof(BoxCollider2D))]
+    [RequireComponent(typeof(BoxCollider2D))]
 	public class BaseComboAttack : PlayerAbility 
 	{
 		public Damage damage;

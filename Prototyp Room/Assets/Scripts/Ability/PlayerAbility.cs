@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 
 namespace AbilitySystem
 {
-	public abstract class PlayerAbility : Ability, IDescribable
+    public abstract class PlayerAbility : Ability, IDescribable
 	{
-		public enum Playstyle{warrior, mage}
+		public enum Playstyle{ warrior, mage }
+
 		// Inspector Variables
 
 		[SerializeField]
@@ -115,7 +113,7 @@ namespace AbilitySystem
 		//0084D9 BLUE	mage
 		//FF3D00 RED	warrior
 		//CB5D00 Orange Rage
-
+		
 		// Tooltips
 		public virtual string GetDescription()
 		{

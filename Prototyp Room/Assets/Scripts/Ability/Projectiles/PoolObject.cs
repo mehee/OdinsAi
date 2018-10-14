@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /** Inheriting from this class enables it
 	to be pooled by an ObjectPool. */

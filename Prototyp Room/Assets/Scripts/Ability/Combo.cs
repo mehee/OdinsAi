@@ -1,21 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace AbilitySystem
 {
-	/** An ability that consists of an
+    /** An ability that consists of an
 		array of smaller abilities that
 		are activated in order if the
 		corresponding button is repeatedly
 		pressed in the required time frame. */
-	public class Combo : PlayerAbility
+    public class Combo : PlayerAbility
 	{
 		public List<Ability> comboParts;
 
 		[Tooltip("The amount that you have to "
 		+ "press the button again and continue the combo.")]
-		[SerializeField] int framesBeforeInterrupt = 30;
+		[SerializeField] 
+		int framesBeforeInterrupt = 30;
+
 		int remainingFramesBeforeInterrupt;
 		int activeComboPart = 0;
 
@@ -29,8 +30,6 @@ namespace AbilitySystem
 			}
 		}
 
-		/** Override to add functionality to the activaton
-			of the ability. */
 		protected override void OnActivation()
 		{
 			foreach(Ability comboPart in comboParts)
@@ -41,11 +40,6 @@ namespace AbilitySystem
 			remainingFramesBeforeInterrupt = framesBeforeInterrupt;
 		}
 
-		/** This function will be automatically
-			called through Update(). It will not
-			be called if the ability has finished. 
-			Override this to extend the functionality 
-			of the base classes Update() method. */
 		protected override void ResolveOngoingEffects()
 		{
 			if(comboParts[activeComboPart].Finished)
@@ -67,9 +61,6 @@ namespace AbilitySystem
 			}
 		}
 
-		/** Used for cleanup code in case
-			your ability gets interrupted. 
-			Override to add functionality. */
 		protected override void CleanUp()
 		{
 			remainingFramesBeforeInterrupt = framesBeforeInterrupt;

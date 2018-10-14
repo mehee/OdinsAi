@@ -5,12 +5,13 @@ using AbilitySystem;
 
 public class SpellCluster : EnemyAbility
 {
-	ObjectPool pool;
 	[SerializeField]
 	float spawnRadius = 10f;
 
 	[SerializeField]
 	Damage damage;
+
+	ObjectPool pool;
 
 	protected override void SetUp()
 	{

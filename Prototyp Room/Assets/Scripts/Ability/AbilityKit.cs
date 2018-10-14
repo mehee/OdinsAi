@@ -1,14 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace AbilitySystem
 {
-	/** The set of abilities the player posesses. 
+    /** The set of abilities the player posesses. 
 		Makes sure abilities are only activated when
 		the ones before are finished. */
-	public class AbilityKit : MonoBehaviour 
+    public class AbilityKit : MonoBehaviour 
 	{	
 		[SerializeField]
 		List<PlayerAbility> abilities;
@@ -106,11 +104,9 @@ namespace AbilitySystem
 			abilityInstances[slot] = instance;
 		}
 
-
 		public void CD(int abilitySlot)
 		{
 			cooldownScript[abilitySlot].SetAbility(abilityInstances[abilitySlot]);
 		}
-
 	}
 }
