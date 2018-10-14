@@ -20,7 +20,7 @@ public class PatrolState : IState
        // randomSpot = Random.Range(0, moveSpots.Length);
         parent.currentMoveSpot = currentSpot;
         //Hardcoded TAKE CARE!
-        waitTime = tmpWaitTime = 1;
+        waitTime = tmpWaitTime = 0;
         isWaiting = false;
     }
 
@@ -35,7 +35,12 @@ public class PatrolState : IState
 	
 	// Update is called once per frame
 	public void Update () {
-        
+
+        if (parent.IsRanged || parent.IsBoss)
+        {
+            parent.Animator.setAwakeingTrue();
+        }
+
         parent.transform.position = Vector2.MoveTowards(parent.transform.position, moveSpots[currentSpot].position, parent.Movement.MovementSpeed * Time.deltaTime);
         parent.Animator.Walk(  moveSpots[currentSpot].transform.position - parent.transform.position );
         if(isWaiting)

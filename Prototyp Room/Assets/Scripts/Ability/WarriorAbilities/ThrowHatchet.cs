@@ -1,37 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using AbilitySystem;
 
-/** Throw a hatchet in the direction of
-	the mouse. Hatchets can be picked up by
-	walking through them. */
-public class ThrowHatchet : Ability
+public class ThrowHatchet : PlayerAbility
 {
-	[SerializeField] float speed;
+	[SerializeField]
+	Damage damage;
+
 	ObjectPool pool;
 
-	void Start()
+	protected override void SetUp()
 	{
 		pool = GetComponent<ObjectPool>();
+
+		foreach(PoolObject poolObject in pool.Instances)
+		{
+			var hatchet = poolObject as Hatchet;
+			hatchet.stats = owner.stats;
+			hatchet.damage = damage;
+		}
 	}
 
-    public override void Activate()
-    {
-		RemainingCooldown = Cooldown;
-		Hatchet thrown = pool.Dispatch() as Hatchet;
-		thrown.transform.position = transform.position;
-		thrown.currentPosition = transform.position;
-		AlignWithMouse();
-		thrown.Velocity = speed * direction;
-		thrown.collider.enabled = true;
-    }
-
-	public override bool ReadyForActivation()
+	protected override void OnActivation()
 	{
-		if(pool.IsEmpty())
-			return false;
-		if(OffCoolDown() && (pool.Instances.Count > 0))
-			return true;
-		return false;
-	}
+		var hatchet = pool.Dispatch() as Hatchet;
+		hatchet.transform.position = transform.position;
+		hatchet.Direction = direction;
+	}	
 }

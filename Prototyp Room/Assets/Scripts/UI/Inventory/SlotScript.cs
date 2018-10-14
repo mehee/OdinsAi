@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 
-public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
+public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPointerEnterHandler, IPointerExitHandler
 {
 	//Icon of Slot, changed later with icon of Item
 	[SerializeField] 
@@ -69,11 +69,10 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
 		items.OnPop += new UpdateStackEvent(UpdateSlot);
 		items.OnPush += new UpdateStackEvent(UpdateSlot);
 		items.OnClear += new UpdateStackEvent(UpdateSlot);
-
-		
 	}
 
 	// --------- Funktions for Slots
+	/**Add Item to Slot */
 	public bool AddItem(Item item)
 	{
 		items.Push(item);
@@ -87,7 +86,7 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
 		item.MySlot = this;
 		return true;
 	}
-
+	/** Remove Item from Slot */
 	public void RemoveItem(Item item)
 	{
 		if(!IsEmpty)
@@ -106,11 +105,16 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
         }
     }
 
+	///<summary> If you rightclick on an Item this is called, try to use the item</summary>
 	public void UseItem()
 	{
 		if(MyItem is IUseable)
 		{
 			(MyItem as IUseable).Use();
+		}
+		else if(MyItem is Armor)
+		{
+			(MyItem as Armor).Equip();
 		}
 	}
 
@@ -135,18 +139,32 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
 	public void OnPointerClick(PointerEventData eventData)
 	{
 		//left mouse button
+		//DELETE THE LEFT CLICK FUNKTION LATER! NO NEED 
 		if(eventData.button == PointerEventData.InputButton.Left)
 		{
 			//Pickup an IMoveable
 			Debug.Log("Moveable clicked");
-			HandScript.MyInstance.TakeMoveable(MyItem as IMoveable);
+			//HandScript.MyInstance.TakeMoveable(MyItem as IMoveable);
 		}
 		//right mouse button
 		if(eventData.button == PointerEventData.InputButton.Right)
 		{
-			Debug.Log("Use Potion clicked");
 			UseItem();
 		}
+	}
+
+	//----- Tooltips
+	public void OnPointerEnter(PointerEventData eventData)
+	{
+		if(!IsEmpty)
+		{
+			UIManager.MyInstance.ShowTooltip(new Vector2(1,0),transform.position, MyItem);
+		}
+	}
+
+	public void OnPointerExit(PointerEventData eventData)
+	{
+		UIManager.MyInstance.HideTooltip();
 	}
 
 

@@ -9,7 +9,10 @@ public class Player : Character
 
 	private static Player instance;
 
+  
     public static Player MyInstance
+
+    
     {
         get
         {
@@ -29,18 +32,24 @@ public class Player : Character
 
 	/** Determines how much extra experience
 		is needed for next level-up. */
-	[SerializeField] float levelUpFactor = 0.1f;
+	[SerializeField] float levelUpFactor = 1.5f;
 
-	[SerializeField] int spellPointsPerLvl=1;
+	[SerializeField] int spellPointsPerLvl;
 
+	[SerializeField] int statPointsPerLvl;
 	[HideInInspector] public Health health;
+    [SerializeField]
+    private GameObject graveYard;
 
-	int spellPoints = 0;
+	int spellPoints = 1;
+	int statPoints = 0;
+
+    int lastFrameHpStat;
 
 	void Start()
 	{
 		health = GetComponent<Health> ();
-		health.Maximum +=stats.Health * 10;
+		health.Maximum += stats.Health * 10;
 		health.Reset();
 	}
 	
@@ -69,28 +78,70 @@ public class Player : Character
         }
     }
 
+    public int StatPoints
+    {
+        get
+        {
+            return statPoints;
+        }
+
+        set
+        {
+            statPoints = value;
+        }
+    }
+
     public void GainExp(uint amount)
 	{
 		experience += amount;
+        
 		if(experience >= expToNextLevel)
 		{
 			LevelUp();
-			experience -= expToNextLevel;
-			expToNextLevel = (uint)Mathf.FloorToInt(
-				expToNextLevel * levelUpFactor);
+			expToNextLevel = (uint)(expToNextLevel*levelUpFactor);
+            experience = expToNextLevel-experience;
+            
 		}
+        
 	}
+
+    
     public override void Die()
 	{
 		GetComponent<Health>().Reset();
-		transform.position = Vector2.zero;
+		transform.position = graveYard.transform.position;
 	}
 
-	void LevelUp()
+	public void LevelUp()
 	{
 		level++;
-		stats.UpdateStats(level);
+		statPoints += statPointsPerLvl;
 		spellPoints += spellPointsPerLvl;
-		health.Maximum += stats.Health * 100;
+		
+        hpValueReset();
+        StatTextScript.MyInstance.UpdateStatsText();
 	}
-}
+    public void hpValueReset()
+    {
+        health.Maximum = stats.Health * 10;
+        health.Value = health.Maximum;
+    }
+    public void hpMaxReset()
+    {
+        health.Maximum = stats.Health * 10;
+
+        if(health.Value > health.Maximum)
+        {  
+            health.Value = health.Maximum;
+        }
+    }
+
+    void Update()
+    {
+        if(lastFrameHpStat!=stats.Health)
+        hpMaxReset();
+        
+        lastFrameHpStat=stats.Health;
+        
+    }
+  }

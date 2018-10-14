@@ -11,12 +11,13 @@ public class HealthText : MonoBehaviour {
 	void Start () 
 	{
 		text = GetComponent<Text> ();
-		health = FindObjectOfType<Player>().
-			GetComponent<Health>();
+		health = FindObjectOfType<Player>().GetComponent<Health>();
+	
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		text.text = health.Value + "/" + health.Maximum;
+	void Update () 
+	{
+		text.text =health.Value + "/" + health.Maximum;// tmp+ " %";
 	}
 }

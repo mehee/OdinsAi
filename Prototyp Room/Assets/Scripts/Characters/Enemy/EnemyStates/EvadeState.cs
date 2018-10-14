@@ -21,7 +21,6 @@ public class EvadeState : IState
     {
         if (parent.Target != null)
         {
-            float distance = Vector2.Distance(parent.Target.position, parent.transform.position);
             Vector2 retreatVector = (parent.transform.position - parent.Target.position).normalized;
             parent.Movement.Move(retreatVector);
             parent.Animator.Walk(-retreatVector);
