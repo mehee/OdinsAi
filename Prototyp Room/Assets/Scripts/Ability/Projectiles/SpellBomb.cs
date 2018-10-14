@@ -22,7 +22,7 @@ public class SpellBomb : PoolObject
 	int hitboxLiveFrames = 2;
 
 
-	new CircleCollider2D collider;
+	CircleCollider2D hitbox;
 	SpriteRenderer spriteRenderer;
 	float timeAlive;
 	float frameCount;
@@ -30,7 +30,7 @@ public class SpellBomb : PoolObject
 	
 	void Awake () 
 	{
-		collider = GetComponent<CircleCollider2D>();
+		hitbox = GetComponent<CircleCollider2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		Reset();
 	}
@@ -51,8 +51,8 @@ public class SpellBomb : PoolObject
 		}
 		else
 		{
-			if(!collider.enabled)
-				collider.enabled = true;
+			if(!hitbox.enabled)
+				hitbox.enabled = true;
 			frameCount++;
 			if(frameCount == hitboxLiveFrames)
 				owner.Retrieve(this);
@@ -64,7 +64,7 @@ public class SpellBomb : PoolObject
 		spriteRenderer.color = startingColor;
 		timeAlive = 0;
 		frameCount = 0;
-		collider.enabled = false;
+		hitbox.enabled = false;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
