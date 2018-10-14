@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraControl : MonoBehaviour {
 
 public Transform target;
-new private Camera camera;
+ private Camera camera;
 	// Use this for initialization
 	void Start () 
 	{
