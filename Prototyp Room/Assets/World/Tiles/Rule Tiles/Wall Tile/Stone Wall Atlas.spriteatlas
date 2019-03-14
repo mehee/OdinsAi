@@ -4,7 +4,8 @@
 SpriteAtlas:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Stone Wall Atlas
   m_EditorData:
     serializedVersion: 2
@@ -41,6 +42,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: bcaf491c262399145ab6d481aa5dc056, type: 3}
+    totalSpriteSurfaceArea: 1536
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:

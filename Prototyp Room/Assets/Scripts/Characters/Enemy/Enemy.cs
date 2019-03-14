@@ -6,7 +6,7 @@ using UnityEngine;
 public class Enemy : Character 
 {
     //LootStuff. DELETE ME LATER
-    public GameObject chest;
+  //  public GameObject chest;
     private bool isDead = false;
     //END: LootStuff
 
@@ -30,7 +30,7 @@ public class Enemy : Character
 
     public void Start()
     {
-        chest.SetActive(false);
+//chest.SetActive(false);
     }
 
     public void Update()
@@ -48,8 +48,8 @@ public class Enemy : Character
         isDead = true;
         if(isDead)
         {
-            chest.transform.position = this.transform.position;
-            chest.SetActive(true);
+         //   chest.transform.position = this.transform.position;
+         //   chest.SetActive(true);
         }
 
 

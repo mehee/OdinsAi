@@ -56,13 +56,13 @@ public class Health : Resource
     {
         
         DmgReceived = true;
-        if(hasParticleEffect)
-        {
-        int randomNumber = Random.Range(0,10) % 3;       
-        GetComponentsInChildren<ParticleSystem>()[randomNumber++].Play();
-        GetComponentsInChildren<ParticleSystem>()[randomNumber++].Play();
-        GetComponentsInChildren<ParticleSystem>()[randomNumber++].Play();
-        }
+        //if(hasParticleEffect)
+        //{
+        //int randomNumber = Random.Range(0,10) % 3;       
+        //GetComponentsInChildren<ParticleSystem>()[randomNumber++].Play();
+        //GetComponentsInChildren<ParticleSystem>()[randomNumber++].Play();
+        //GetComponentsInChildren<ParticleSystem>()[randomNumber++].Play();
+        //}
 
         if(hasDmgText)
         {
