@@ -36,8 +36,8 @@ public class InputManager : MonoBehaviour
 		{
 			if(movement.AvailableDashes>0)
 			{
-				animator.Dash(movementVec);
-				movement.Dash(movementVec);
+				//animator.Dash(movementVec);
+				//movement.Dash(movementVec);
 			}
 		}
 		if(movement.DashTimer == 0)
