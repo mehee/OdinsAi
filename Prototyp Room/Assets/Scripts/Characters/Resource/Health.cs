@@ -55,7 +55,7 @@ public class Health : Resource
     public override void Reduce(float amount)
     {
         
-        DmgReceived = true;
+        //DmgReceived = true;
         //if(hasParticleEffect)
         //{
         //int randomNumber = Random.Range(0,10) % 3;       
@@ -64,18 +64,18 @@ public class Health : Resource
         //GetComponentsInChildren<ParticleSystem>()[randomNumber++].Play();
         //}
 
-        if(hasDmgText)
-        {
-            index = ++index % 2;
-             text[index].text= amount.ToString();
-             text[index].CrossFadeAlpha(1.0f, 0.01f, false);
-             text[index].CrossFadeAlpha(0.0f, 1, false);
-        }
-        Value -= amount;
-        if(Value <= 0)
-        {
-            GetComponent<Character>().Die(); 
-    }
+    //    if(hasDmgText)
+    //    {
+    //        index = ++index % 2;
+    //         text[index].text= amount.ToString();
+    //         text[index].CrossFadeAlpha(1.0f, 0.01f, false);
+    //         text[index].CrossFadeAlpha(0.0f, 1, false);
+    //    }
+    //    Value -= amount;
+    //    if(Value <= 0)
+    //    {
+    //        GetComponent<Character>().Die(); 
+    //}
 
 
 }

@@ -261,7 +261,7 @@ MonoBehaviour:
   moveSpots: []
   attackRange: 8
   attackCD: 1
-  attackDamage: 30
+  attackDamage: 0
   attackAnimationLenght: 0.66
 --- !u!114 &114643102371759054
 MonoBehaviour:
