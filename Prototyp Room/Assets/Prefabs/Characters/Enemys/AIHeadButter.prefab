@@ -258,7 +258,13 @@ MonoBehaviour:
   isHeadbutt: 1
   isBoss: 0
   evadeDistance: 7
-  moveSpots: []
+  moveSpots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   attackRange: 8
   attackCD: 1
   attackDamage: 0
