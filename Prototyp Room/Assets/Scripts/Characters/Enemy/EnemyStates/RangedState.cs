@@ -14,7 +14,7 @@ public class RangedState : IState {
         abilityInstance = parent.AbilityInstance;
         abilityInstance.direction = direction;
         abilityInstance.Activate();
-        parent.ChangeState(new IdleState());
+        parent.ChangeState(new AttackState());
 
 
     }

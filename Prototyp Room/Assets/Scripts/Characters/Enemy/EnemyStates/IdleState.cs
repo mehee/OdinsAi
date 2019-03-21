@@ -39,11 +39,17 @@ class IdleState : IState
             {
                 parent.ChangeState(new EvadeState());
             }
-            if (distance >= parent.AttackRange)
+            if (parent.IsRanged && distance >= parent.EvadeDistance)
             {
-               
+                Debug.Log("Fromm Idle to Retreat");
+                parent.ChangeState(new RetreatState());
+            }
+            if (distance >= parent.AttackRange && !parent.IsRanged)
+            {
+                Debug.Log("From Idle to Follow");
                 parent.ChangeState(new FollowState());
             }
+
             // parent.ChangeState(new FollowState());
             else
             {
@@ -55,10 +61,11 @@ class IdleState : IState
             }
         }
         //Patroling if moveSpots are available
-         else if (parent.MoveSpots.Length > 0)
+        else if (parent.MoveSpots.Length > 0)
         {
             parent.ChangeState(new PatrolState());
         }
+       
     }
 }
 

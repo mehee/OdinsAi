@@ -28,11 +28,18 @@ public class EvadeState : IState
             parent.AttackCD -= Time.deltaTime;
             if (parent.AttackCD <= 0)
             {
-                        parent.ChangeState(new AttackState());   
+               // Debug.Log("Change From Evade to Attack");
+
+                parent.ChangeState(new AttackState());   
+            }
+            if(Vector2.Distance(parent.transform.position , parent.Target.position) >= parent.EvadeDistance )
+            {
+                parent.Movement.Move(Vector2.zero);
             }
         }
         else
         {
+            //Debug.Log("Change From Evade to Retreat");
             parent.ChangeState(new RetreatState());
         }
     }

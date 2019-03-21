@@ -21,6 +21,7 @@ class AttackState : IState
 
     public void Update()
     {
+        //Debug.Log("I'm in Attack State Now");
         if (parent.Target != null)
         {
             float distance = Vector2.Distance(parent.Target.position, parent.transform.position);
@@ -64,22 +65,23 @@ class AttackState : IState
             }
             else if ((parent.IsRanged || parent.IsHeadbutt) && distance <= parent.EvadeDistance)
             {
-                Debug.Log("Evade!");
+                //Debug.Log("Change State from Attack to Evade!");
                 parent.ChangeState(new EvadeState());
             }
             else if (distance > parent.AttackRange && !parent.IsRanged)
             {
-                //Debug.Log("Change from Attack to Follow");
+               //Debug.Log("Change from Attack to Follow");
                 parent.ChangeState(new FollowState());
             }
             else
             {
+                //Debug.Log("From Attack to Idle");
                 parent.ChangeState(new IdleState());
             }
         }
         else
         {
-            parent.ChangeState(new IdleState());
+            parent.ChangeState(new RetreatState());
         }
     }
 

@@ -28,9 +28,13 @@ public class RetreatState : IState {
             parent.Movement.Move(Vector2.zero);
             parent.ChangeState(new IdleState());
         }
-        if(parent.Target)
+        if(parent.Target && !parent.IsRanged)
         {
             parent.ChangeState(new FollowState());
+        }
+        if(parent.Target && parent.IsRanged)
+        {
+            parent.ChangeState(new AttackState());
         }
     }
 }
