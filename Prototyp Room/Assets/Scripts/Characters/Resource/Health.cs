@@ -59,17 +59,17 @@ public class Health : Resource
         if (hasParticleEffect)
         {
             int randomNumber = Random.Range(0, 10) % 3;
-            GetComponentsInChildren<ParticleSystem>()[randomNumber++].Play();
-            GetComponentsInChildren<ParticleSystem>()[randomNumber++].Play();
-            GetComponentsInChildren<ParticleSystem>()[randomNumber++].Play();
+            //GetComponentsInChildren<ParticleSystem>()[randomNumber++].Play();
+            //GetComponentsInChildren<ParticleSystem>()[randomNumber++].Play();
+            //GetComponentsInChildren<ParticleSystem>()[randomNumber++].Play();
         }
 
         if (hasDmgText)
         {
             index = ++index % 2;
-            text[index].text = amount.ToString();
-            text[index].CrossFadeAlpha(1.0f, 0.01f, false);
-            text[index].CrossFadeAlpha(0.0f, 1, false);
+            //text[index].text = amount.ToString();
+            //text[index].CrossFadeAlpha(1.0f, 0.01f, false);
+            //text[index].CrossFadeAlpha(0.0f, 1, false);
         }
         Value -= amount;
         if (Value <= 0)

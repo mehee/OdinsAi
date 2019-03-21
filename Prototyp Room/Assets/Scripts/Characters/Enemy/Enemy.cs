@@ -36,7 +36,7 @@ public class Enemy : Character
     public void Update()
     {
         Player player = FindObjectOfType<Player>();
-        Vector2 distance = player.transform.position - transform.position;
+      //  Vector2 distance = player.transform.position - transform.position;
     }
 
     public override void Die()
