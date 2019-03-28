@@ -35,6 +35,11 @@ class FollowState : IState
                    // parent.Movement.Move(Vector2.zero);
                     parent.ChangeState(new AttackState());
                 }
+                
+            }
+            else if (distance <= parent.EvadeDistance)
+            {
+                parent.ChangeState(new EvadeState());
             }
 
         }

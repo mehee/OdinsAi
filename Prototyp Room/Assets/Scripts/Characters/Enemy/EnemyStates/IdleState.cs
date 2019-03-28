@@ -28,6 +28,8 @@ class IdleState : IState
         //change into follow state if player is close
         if (parent.Target != null)
         {
+            parent.AttackCD -= Time.deltaTime;
+
             float distance = Vector2.Distance(parent.Target.position, parent.transform.position);
             if (parent.IsRanged||parent.IsBoss)
             {
@@ -39,12 +41,12 @@ class IdleState : IState
             {
                 parent.ChangeState(new EvadeState());
             }
-            if (parent.IsRanged && distance >= parent.EvadeDistance)
+           else if (parent.IsRanged && distance >= parent.EvadeDistance)
             {
-                Debug.Log("Fromm Idle to Retreat");
-                parent.ChangeState(new RetreatState());
+                Debug.Log("Fromm Idle to Follow");
+                parent.ChangeState(new FollowState());
             }
-            if (distance >= parent.AttackRange && !parent.IsRanged)
+            else if (distance >= parent.AttackRange && !parent.IsRanged)
             {
                 Debug.Log("From Idle to Follow");
                 parent.ChangeState(new FollowState());
@@ -53,7 +55,6 @@ class IdleState : IState
             // parent.ChangeState(new FollowState());
             else
             {
-                parent.AttackCD -= Time.deltaTime;
                 if (parent.AttackCD <= 0)
                 {
                     parent.ChangeState(new AttackState());

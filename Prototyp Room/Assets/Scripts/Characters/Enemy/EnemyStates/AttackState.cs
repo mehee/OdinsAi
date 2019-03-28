@@ -68,7 +68,7 @@ class AttackState : IState
                 //Debug.Log("Change State from Attack to Evade!");
                 parent.ChangeState(new EvadeState());
             }
-            else if (distance > parent.AttackRange && !parent.IsRanged)
+            else if (distance > parent.AttackRange )
             {
                //Debug.Log("Change from Attack to Follow");
                 parent.ChangeState(new FollowState());
