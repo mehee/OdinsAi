@@ -13,7 +13,11 @@ The following packages were updated:
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 === Thu Mar 28 16:47:57 2019
+=======
+=== Wed Jul 17 14:11:36 2019
+>>>>>>> Stashed changes
 =======
 === Wed Jul 17 14:11:36 2019
 >>>>>>> Stashed changes
@@ -26,9 +30,12 @@ Update Mode: updateDependencies
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 The following packages were updated:
   com.unity.package-manager-ui from version 2.0.3 to 2.0.7
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 The following packages were added:
@@ -42,6 +49,9 @@ The following packages were updated:
   com.unity.purchasing from version 2.0.3 to 2.0.6
   com.unity.textmeshpro from version 1.3.0 to 2.0.0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
