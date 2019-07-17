@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Movement : MonoBehaviour 
 {
     [HideInInspector]
-    public bool rooted;
+    public bool rooted = false;
 
    	[SerializeField]
 	private float movementSpeed;
@@ -93,7 +93,7 @@ public class Movement : MonoBehaviour
 
 	public void Move(Vector2 movementVec)
 	{
-		rigidBody.velocity = movementVec * MovementSpeed;
+		rigidBody.velocity = movementVec * movementSpeed;
 	}
 
     public void Dash(Vector2 movementVec)
